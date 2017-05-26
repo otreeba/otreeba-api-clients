@@ -9,10 +9,6 @@ About:
 =====
 This repository holds client libraries for the [Otreeba Open Cannabis API](https://api.otreeba.com).
 
-More information about Otreeba can be found here:
-
-[https://otreeba.com](https://otreeba.com)
-
 These clients were created using the [Swagger Generator API](https://generator.swagger.io).
 
 Available Clients (31 Languages):
