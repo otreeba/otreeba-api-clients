@@ -1,0 +1,15 @@
+export * from './BrandsApi';
+import { BrandsApi }  from './BrandsApi';
+export * from './EdiblesApi';
+import { EdiblesApi }  from './EdiblesApi';
+export * from './ExtractsApi';
+import { ExtractsApi }  from './ExtractsApi';
+export * from './FlowersApi';
+import { FlowersApi }  from './FlowersApi';
+export * from './ProductsApi';
+import { ProductsApi }  from './ProductsApi';
+export * from './SeedCompaniesApi';
+import { SeedCompaniesApi }  from './SeedCompaniesApi';
+export * from './StrainsApi';
+import { StrainsApi }  from './StrainsApi';
+export const APIS = [ BrandsApi, EdiblesApi, ExtractsApi, FlowersApi, ProductsApi, SeedCompaniesApi, StrainsApi, ];
