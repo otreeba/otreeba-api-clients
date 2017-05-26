@@ -22,7 +22,7 @@ import io.swagger.client.model.InlineResponse2006Meta;
 /**
  * InlineResponse2006
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-26T06:02:31.233Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-26T06:12:20.858Z")
 public class InlineResponse2006 {
   @SerializedName("meta")
   private InlineResponse2006Meta meta = null;

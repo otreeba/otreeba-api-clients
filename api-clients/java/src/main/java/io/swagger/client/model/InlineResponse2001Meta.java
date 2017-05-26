@@ -23,7 +23,7 @@ import io.swagger.client.model.Pagination;
  * Gets the current list of Seed Comapnies.
  */
 @ApiModel(description = "Gets the current list of Seed Comapnies.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-26T06:02:31.233Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-26T06:12:20.858Z")
 public class InlineResponse2001Meta {
   @SerializedName("pagination")
   private Pagination pagination = null;
