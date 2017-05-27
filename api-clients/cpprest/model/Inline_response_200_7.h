@@ -22,7 +22,7 @@
 
 #include "ModelBase.h"
 
-#include "Inline_response_200_7_meta.h"
+#include "Meta.h"
 
 namespace io {
 namespace swagger {
@@ -54,15 +54,15 @@ public:
     /// Inline_response_200_7 members
 
     /// <summary>
-    /// 
+    /// Gets the current list of Extracts for a Brand.
     /// </summary>
-    std::shared_ptr<Inline_response_200_7_meta> getMeta() const;
-    void setMeta(std::shared_ptr<Inline_response_200_7_meta> value);
+    std::shared_ptr<Meta> getMeta() const;
+    void setMeta(std::shared_ptr<Meta> value);
     bool metaIsSet() const;
     void unsetMeta();
 
 protected:
-    std::shared_ptr<Inline_response_200_7_meta> m_Meta;
+    std::shared_ptr<Meta> m_Meta;
     bool m_MetaIsSet;
 };
 

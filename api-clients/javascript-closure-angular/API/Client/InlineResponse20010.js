@@ -6,7 +6,8 @@ goog.provide('API.Client.inline_response_200_10');
 API.Client.InlineResponse20010 = function() {}
 
 /**
- * @type {!API.Client.inline_response_200_10_meta}
+ * Gets the current list of Products.
+ * @type {!API.Client.Meta}
  * @export
  */
 API.Client.InlineResponse20010.prototype.meta;

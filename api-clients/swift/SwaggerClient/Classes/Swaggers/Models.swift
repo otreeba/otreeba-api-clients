@@ -280,7 +280,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2001.self) { (source: AnyObject) -> InlineResponse2001 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2001()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2001Meta.self, source: sourceDictionary["meta"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -293,20 +293,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse20010.self) { (source: AnyObject) -> InlineResponse20010 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse20010()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse20010Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse20010Meta]
-            Decoders.addDecoder(clazz: [InlineResponse20010Meta].self) { (source: AnyObject) -> [InlineResponse20010Meta] in
-                return Decoders.decode(clazz: [InlineResponse20010Meta].self, source: source)
-            }
-            // Decoder for InlineResponse20010Meta
-            Decoders.addDecoder(clazz: InlineResponse20010Meta.self) { (source: AnyObject) -> InlineResponse20010Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse20010Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -319,33 +306,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse20011.self) { (source: AnyObject) -> InlineResponse20011 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse20011()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse20011Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse20011Meta]
-            Decoders.addDecoder(clazz: [InlineResponse20011Meta].self) { (source: AnyObject) -> [InlineResponse20011Meta] in
-                return Decoders.decode(clazz: [InlineResponse20011Meta].self, source: source)
-            }
-            // Decoder for InlineResponse20011Meta
-            Decoders.addDecoder(clazz: InlineResponse20011Meta.self) { (source: AnyObject) -> InlineResponse20011Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse20011Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2001Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2001Meta].self) { (source: AnyObject) -> [InlineResponse2001Meta] in
-                return Decoders.decode(clazz: [InlineResponse2001Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2001Meta
-            Decoders.addDecoder(clazz: InlineResponse2001Meta.self) { (source: AnyObject) -> InlineResponse2001Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2001Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -358,20 +319,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2002.self) { (source: AnyObject) -> InlineResponse2002 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2002()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2002Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2002Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2002Meta].self) { (source: AnyObject) -> [InlineResponse2002Meta] in
-                return Decoders.decode(clazz: [InlineResponse2002Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2002Meta
-            Decoders.addDecoder(clazz: InlineResponse2002Meta.self) { (source: AnyObject) -> InlineResponse2002Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2002Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -384,20 +332,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2003.self) { (source: AnyObject) -> InlineResponse2003 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2003()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2003Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2003Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2003Meta].self) { (source: AnyObject) -> [InlineResponse2003Meta] in
-                return Decoders.decode(clazz: [InlineResponse2003Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2003Meta
-            Decoders.addDecoder(clazz: InlineResponse2003Meta.self) { (source: AnyObject) -> InlineResponse2003Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2003Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -410,20 +345,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2004.self) { (source: AnyObject) -> InlineResponse2004 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2004()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2004Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2004Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2004Meta].self) { (source: AnyObject) -> [InlineResponse2004Meta] in
-                return Decoders.decode(clazz: [InlineResponse2004Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2004Meta
-            Decoders.addDecoder(clazz: InlineResponse2004Meta.self) { (source: AnyObject) -> InlineResponse2004Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2004Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -436,20 +358,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2005.self) { (source: AnyObject) -> InlineResponse2005 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2005()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2005Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2005Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2005Meta].self) { (source: AnyObject) -> [InlineResponse2005Meta] in
-                return Decoders.decode(clazz: [InlineResponse2005Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2005Meta
-            Decoders.addDecoder(clazz: InlineResponse2005Meta.self) { (source: AnyObject) -> InlineResponse2005Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2005Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -462,20 +371,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2006.self) { (source: AnyObject) -> InlineResponse2006 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2006()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2006Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2006Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2006Meta].self) { (source: AnyObject) -> [InlineResponse2006Meta] in
-                return Decoders.decode(clazz: [InlineResponse2006Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2006Meta
-            Decoders.addDecoder(clazz: InlineResponse2006Meta.self) { (source: AnyObject) -> InlineResponse2006Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2006Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -488,20 +384,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2007.self) { (source: AnyObject) -> InlineResponse2007 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2007()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2007Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2007Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2007Meta].self) { (source: AnyObject) -> [InlineResponse2007Meta] in
-                return Decoders.decode(clazz: [InlineResponse2007Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2007Meta
-            Decoders.addDecoder(clazz: InlineResponse2007Meta.self) { (source: AnyObject) -> InlineResponse2007Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2007Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -514,20 +397,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2008.self) { (source: AnyObject) -> InlineResponse2008 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2008()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2008Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2008Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2008Meta].self) { (source: AnyObject) -> [InlineResponse2008Meta] in
-                return Decoders.decode(clazz: [InlineResponse2008Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2008Meta
-            Decoders.addDecoder(clazz: InlineResponse2008Meta.self) { (source: AnyObject) -> InlineResponse2008Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2008Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -540,20 +410,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2009.self) { (source: AnyObject) -> InlineResponse2009 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2009()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2009Meta.self, source: sourceDictionary["meta"])
-                return instance
-            }
-
-
-            // Decoder for [InlineResponse2009Meta]
-            Decoders.addDecoder(clazz: [InlineResponse2009Meta].self) { (source: AnyObject) -> [InlineResponse2009Meta] in
-                return Decoders.decode(clazz: [InlineResponse2009Meta].self, source: source)
-            }
-            // Decoder for InlineResponse2009Meta
-            Decoders.addDecoder(clazz: InlineResponse2009Meta.self) { (source: AnyObject) -> InlineResponse2009Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse2009Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -567,6 +424,19 @@ class Decoders {
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse200Meta()
                 instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
+                return instance
+            }
+
+
+            // Decoder for [Meta]
+            Decoders.addDecoder(clazz: [Meta].self) { (source: AnyObject) -> [Meta] in
+                return Decoders.decode(clazz: [Meta].self, source: source)
+            }
+            // Decoder for Meta
+            Decoders.addDecoder(clazz: Meta.self) { (source: AnyObject) -> Meta in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Meta()
+                instance.pagination = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["pagination"])
                 return instance
             }
 

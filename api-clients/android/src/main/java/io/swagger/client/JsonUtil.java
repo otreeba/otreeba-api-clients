@@ -89,88 +89,48 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse20010>>(){}.getType();
     }
     
-    if ("InlineResponse20010Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20010Meta>>(){}.getType();
-    }
-    
     if ("InlineResponse20011".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20011>>(){}.getType();
-    }
-    
-    if ("InlineResponse20011Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse20011Meta>>(){}.getType();
-    }
-    
-    if ("InlineResponse2001Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2001Meta>>(){}.getType();
     }
     
     if ("InlineResponse2002".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2002>>(){}.getType();
     }
     
-    if ("InlineResponse2002Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2002Meta>>(){}.getType();
-    }
-    
     if ("InlineResponse2003".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2003>>(){}.getType();
-    }
-    
-    if ("InlineResponse2003Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2003Meta>>(){}.getType();
     }
     
     if ("InlineResponse2004".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2004>>(){}.getType();
     }
     
-    if ("InlineResponse2004Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2004Meta>>(){}.getType();
-    }
-    
     if ("InlineResponse2005".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2005>>(){}.getType();
-    }
-    
-    if ("InlineResponse2005Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2005Meta>>(){}.getType();
     }
     
     if ("InlineResponse2006".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2006>>(){}.getType();
     }
     
-    if ("InlineResponse2006Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2006Meta>>(){}.getType();
-    }
-    
     if ("InlineResponse2007".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2007>>(){}.getType();
-    }
-    
-    if ("InlineResponse2007Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2007Meta>>(){}.getType();
     }
     
     if ("InlineResponse2008".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2008>>(){}.getType();
     }
     
-    if ("InlineResponse2008Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2008Meta>>(){}.getType();
-    }
-    
     if ("InlineResponse2009".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2009>>(){}.getType();
     }
     
-    if ("InlineResponse2009Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse2009Meta>>(){}.getType();
-    }
-    
     if ("InlineResponse200Meta".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse200Meta>>(){}.getType();
+    }
+    
+    if ("Meta".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Meta>>(){}.getType();
     }
     
     if ("Pagination".equalsIgnoreCase(className)) {
@@ -227,88 +187,48 @@ public class JsonUtil {
       return new TypeToken<InlineResponse20010>(){}.getType();
     }
     
-    if ("InlineResponse20010Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20010Meta>(){}.getType();
-    }
-    
     if ("InlineResponse20011".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20011>(){}.getType();
-    }
-    
-    if ("InlineResponse20011Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse20011Meta>(){}.getType();
-    }
-    
-    if ("InlineResponse2001Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2001Meta>(){}.getType();
     }
     
     if ("InlineResponse2002".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2002>(){}.getType();
     }
     
-    if ("InlineResponse2002Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2002Meta>(){}.getType();
-    }
-    
     if ("InlineResponse2003".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2003>(){}.getType();
-    }
-    
-    if ("InlineResponse2003Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2003Meta>(){}.getType();
     }
     
     if ("InlineResponse2004".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2004>(){}.getType();
     }
     
-    if ("InlineResponse2004Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2004Meta>(){}.getType();
-    }
-    
     if ("InlineResponse2005".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2005>(){}.getType();
-    }
-    
-    if ("InlineResponse2005Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2005Meta>(){}.getType();
     }
     
     if ("InlineResponse2006".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2006>(){}.getType();
     }
     
-    if ("InlineResponse2006Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2006Meta>(){}.getType();
-    }
-    
     if ("InlineResponse2007".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2007>(){}.getType();
-    }
-    
-    if ("InlineResponse2007Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2007Meta>(){}.getType();
     }
     
     if ("InlineResponse2008".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2008>(){}.getType();
     }
     
-    if ("InlineResponse2008Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2008Meta>(){}.getType();
-    }
-    
     if ("InlineResponse2009".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2009>(){}.getType();
     }
     
-    if ("InlineResponse2009Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse2009Meta>(){}.getType();
-    }
-    
     if ("InlineResponse200Meta".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse200Meta>(){}.getType();
+    }
+    
+    if ("Meta".equalsIgnoreCase(className)) {
+      return new TypeToken<Meta>(){}.getType();
     }
     
     if ("Pagination".equalsIgnoreCase(className)) {

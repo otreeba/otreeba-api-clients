@@ -1,7 +1,7 @@
 package io.swagger.client.model {
 
 import io.swagger.common.ListWrapper;
-import io.swagger.client.model.InlineResponse2009Meta;
+import io.swagger.client.model.Meta;
 
     public class InlineResponse2009List implements ListWrapper {
         // This declaration below of _inline_response_200_9_obj_class is to force flash compiler to include this class

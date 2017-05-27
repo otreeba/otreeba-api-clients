@@ -3,9 +3,9 @@ part of swagger.api;
 
 @Entity()
 class InlineResponse2007 {
-  
+  /* Gets the current list of Extracts for a Brand. */
   @Property(name: 'meta')
-  InlineResponse2007Meta meta = null;
+  Meta meta = null;
   
   InlineResponse2007();
 

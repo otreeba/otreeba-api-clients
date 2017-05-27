@@ -9,7 +9,8 @@ import Foundation
 
 
 public class InlineResponse20010: JSONEncodable {
-    public var meta: InlineResponse20010Meta?
+    /** Gets the current list of Products. */
+    public var meta: Meta?
 
     public init() {}
 

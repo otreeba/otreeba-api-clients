@@ -12,5 +12,6 @@ package swagger
 
 type InlineResponse2003 struct {
 
-	Meta InlineResponse2003Meta `json:"meta,omitempty"`
+	// Gets the current list of Extracts.
+	Meta Meta `json:"meta,omitempty"`
 }

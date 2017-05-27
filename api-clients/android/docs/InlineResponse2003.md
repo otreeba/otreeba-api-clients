@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse2003Meta**](InlineResponse2003Meta.md) |  |  [optional]
+**meta** | [**Meta**](Meta.md) | Gets the current list of Extracts. |  [optional]
 
 
 

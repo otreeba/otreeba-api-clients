@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse2008Meta**](InlineResponse2008Meta.md) |  |  [optional]
+**meta** | [**Meta**](Meta.md) | Gets the current list of Edibles for a Brand. |  [optional]
 
 
 

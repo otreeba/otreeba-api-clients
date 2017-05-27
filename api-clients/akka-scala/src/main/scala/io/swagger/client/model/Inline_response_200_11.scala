@@ -10,7 +10,8 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 
 case class Inline_response_200_11 (
-  meta: Option[Inline_response_200_11_meta]
+  /* Gets the current list of Strains. */
+  meta: Option[Meta]
 ) extends ApiModel
 
 

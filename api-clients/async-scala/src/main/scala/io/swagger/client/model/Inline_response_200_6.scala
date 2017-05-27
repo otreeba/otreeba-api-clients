@@ -5,5 +5,5 @@ import java.util.UUID
 
 
 case class Inline_response_200_6 (
-  meta: Option[Inline_response_200_6_meta]
+  meta: Option[Meta]  // Gets the current list of Flowers for a Brand.
 )

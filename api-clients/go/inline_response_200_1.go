@@ -12,5 +12,6 @@ package swagger
 
 type InlineResponse2001 struct {
 
-	Meta InlineResponse2001Meta `json:"meta,omitempty"`
+	// Gets the current list of Seed Comapnies.
+	Meta Meta `json:"meta,omitempty"`
 }

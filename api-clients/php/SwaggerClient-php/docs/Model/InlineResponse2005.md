@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**\Swagger\Client\Model\InlineResponse2005Meta**](InlineResponse2005Meta.md) |  | [optional] 
+**meta** | [**\Swagger\Client\Model\Meta**](Meta.md) | Gets the current list of Brands. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

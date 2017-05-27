@@ -13,6 +13,9 @@
 import * as models from './models';
 
 export interface InlineResponse2004 {
-    meta?: models.InlineResponse2004Meta;
+    /**
+     * Gets the current list of Flowers.
+     */
+    meta?: models.Meta;
 
 }

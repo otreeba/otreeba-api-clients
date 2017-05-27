@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGInlineResponse2005Meta.h"
+#import "SWGMeta.h"
 
 
 @protocol SWGInlineResponse2005
@@ -22,7 +22,8 @@
 
 @interface SWGInlineResponse2005 : SWGObject
 
-
-@property(nonatomic) SWGInlineResponse2005Meta* meta;
+/* Gets the current list of Brands. [optional]
+ */
+@property(nonatomic) SWGMeta* meta;
 
 @end

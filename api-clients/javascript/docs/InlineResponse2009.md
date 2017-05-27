@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse2009Meta**](InlineResponse2009Meta.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) | Gets the current list of Products for a Brand. | [optional] 
 
 

@@ -13,6 +13,9 @@
 import * as models from './models';
 
 export interface InlineResponse2003 {
-    meta?: models.InlineResponse2003Meta;
+    /**
+     * Gets the current list of Extracts.
+     */
+    meta?: models.Meta;
 
 }

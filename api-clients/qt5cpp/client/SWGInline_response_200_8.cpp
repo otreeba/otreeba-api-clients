@@ -38,7 +38,7 @@ SWGInline_response_200_8::~SWGInline_response_200_8() {
 
 void
 SWGInline_response_200_8::init() {
-    meta = new SWGInline_response_200_8_meta();
+    meta = new SWGMeta();
 }
 
 void
@@ -60,7 +60,7 @@ SWGInline_response_200_8::fromJson(QString &json) {
 
 void
 SWGInline_response_200_8::fromJsonObject(QJsonObject &pJson) {
-    ::Swagger::setValue(&meta, pJson["meta"], "SWGInline_response_200_8_meta", "SWGInline_response_200_8_meta");
+    ::Swagger::setValue(&meta, pJson["meta"], "SWGMeta", "SWGMeta");
 }
 
 QString
@@ -77,17 +77,17 @@ QJsonObject*
 SWGInline_response_200_8::asJsonObject() {
     QJsonObject* obj = new QJsonObject();
     
-    toJsonValue(QString("meta"), meta, obj, QString("SWGInline_response_200_8_meta"));
+    toJsonValue(QString("meta"), meta, obj, QString("SWGMeta"));
 
     return obj;
 }
 
-SWGInline_response_200_8_meta*
+SWGMeta*
 SWGInline_response_200_8::getMeta() {
     return meta;
 }
 void
-SWGInline_response_200_8::setMeta(SWGInline_response_200_8_meta* meta) {
+SWGInline_response_200_8::setMeta(SWGMeta* meta) {
     this->meta = meta;
 }
 

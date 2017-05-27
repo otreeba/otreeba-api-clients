@@ -9,7 +9,8 @@ import Foundation
 
 
 public class InlineResponse2003: JSONEncodable {
-    public var meta: InlineResponse2003Meta?
+    /** Gets the current list of Extracts. */
+    public var meta: Meta?
 
     public init() {}
 

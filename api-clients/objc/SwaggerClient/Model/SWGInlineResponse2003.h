@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGInlineResponse2003Meta.h"
+#import "SWGMeta.h"
 
 
 @protocol SWGInlineResponse2003
@@ -22,7 +22,8 @@
 
 @interface SWGInlineResponse2003 : SWGObject
 
-
-@property(nonatomic) SWGInlineResponse2003Meta* meta;
+/* Gets the current list of Extracts. [optional]
+ */
+@property(nonatomic) SWGMeta* meta;
 
 @end

@@ -12,5 +12,6 @@ package swagger
 
 type InlineResponse2004 struct {
 
-	Meta InlineResponse2004Meta `json:"meta,omitempty"`
+	// Gets the current list of Flowers.
+	Meta Meta `json:"meta,omitempty"`
 }

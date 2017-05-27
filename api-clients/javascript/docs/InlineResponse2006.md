@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse2006Meta**](InlineResponse2006Meta.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) | Gets the current list of Flowers for a Brand. | [optional] 
 
 

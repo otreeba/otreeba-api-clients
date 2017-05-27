@@ -6,7 +6,8 @@ goog.provide('API.Client.inline_response_200_8');
 API.Client.InlineResponse2008 = function() {}
 
 /**
- * @type {!API.Client.inline_response_200_8_meta}
+ * Gets the current list of Edibles for a Brand.
+ * @type {!API.Client.Meta}
  * @export
  */
 API.Client.InlineResponse2008.prototype.meta;

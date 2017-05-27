@@ -5,5 +5,5 @@ import java.util.UUID
 
 
 case class Inline_response_200_8 (
-  meta: Option[Inline_response_200_8_meta]
+  meta: Option[Meta]  // Gets the current list of Edibles for a Brand.
 )

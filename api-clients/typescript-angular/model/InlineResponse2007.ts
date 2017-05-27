@@ -13,6 +13,9 @@
 import * as models from './models';
 
 export interface InlineResponse2007 {
-    "meta"?: models.InlineResponse2007Meta;
+    /**
+     * Gets the current list of Extracts for a Brand.
+     */
+    "meta"?: models.Meta;
 }
 

@@ -6,7 +6,8 @@ goog.provide('API.Client.inline_response_200_5');
 API.Client.InlineResponse2005 = function() {}
 
 /**
- * @type {!API.Client.inline_response_200_5_meta}
+ * Gets the current list of Brands.
+ * @type {!API.Client.Meta}
  * @export
  */
 API.Client.InlineResponse2005.prototype.meta;

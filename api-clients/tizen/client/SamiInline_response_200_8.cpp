@@ -74,8 +74,8 @@ SamiInline_response_200_8::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pMetaKey, pMetaVal);
         if(pMetaVal != null) {
             
-            pMeta = new SamiInline_response_200_8_meta();
-            jsonToValue(pMeta, pMetaVal, L"SamiInline_response_200_8_meta", L"SamiInline_response_200_8_meta");
+            pMeta = new SamiMeta();
+            jsonToValue(pMeta, pMetaVal, L"SamiMeta", L"SamiMeta");
         }
         delete pMetaKey;
     }
@@ -129,17 +129,17 @@ SamiInline_response_200_8::asJsonObject() {
     pJsonObject->Construct();
 
     JsonString *pMetaKey = new JsonString(L"meta");
-    pJsonObject->Add(pMetaKey, toJson(getPMeta(), "SamiInline_response_200_8_meta", ""));
+    pJsonObject->Add(pMetaKey, toJson(getPMeta(), "SamiMeta", ""));
 
     return pJsonObject;
 }
 
-SamiInline_response_200_8_meta*
+SamiMeta*
 SamiInline_response_200_8::getPMeta() {
     return pMeta;
 }
 void
-SamiInline_response_200_8::setPMeta(SamiInline_response_200_8_meta* pMeta) {
+SamiInline_response_200_8::setPMeta(SamiMeta* pMeta) {
     this->pMeta = pMeta;
 }
 

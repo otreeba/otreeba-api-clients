@@ -9,7 +9,8 @@ import Foundation
 
 
 public class InlineResponse2002: JSONEncodable {
-    public var meta: InlineResponse2002Meta?
+    /** Gets the current list of Edibles. */
+    public var meta: Meta?
 
     public init() {}
 

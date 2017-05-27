@@ -12,5 +12,6 @@ package swagger
 
 type InlineResponse20011 struct {
 
-	Meta InlineResponse20011Meta `json:"meta,omitempty"`
+	// Gets the current list of Strains.
+	Meta Meta `json:"meta,omitempty"`
 }

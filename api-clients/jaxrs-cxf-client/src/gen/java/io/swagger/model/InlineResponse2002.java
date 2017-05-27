@@ -1,6 +1,6 @@
 package io.swagger.model;
 
-import io.swagger.model.InlineResponse2002Meta;
+import io.swagger.model.Meta;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,22 +13,22 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 public class InlineResponse2002  {
   
-  @ApiModelProperty(example = "null", value = "")
-  private InlineResponse2002Meta meta = null;
+  @ApiModelProperty(example = "null", value = "Gets the current list of Edibles.")
+  private Meta meta = null;
 
  /**
-   * Get meta
+   * Gets the current list of Edibles.
    * @return meta
   **/
-  public InlineResponse2002Meta getMeta() {
+  public Meta getMeta() {
     return meta;
   }
 
-  public void setMeta(InlineResponse2002Meta meta) {
+  public void setMeta(Meta meta) {
     this.meta = meta;
   }
 
-  public InlineResponse2002 meta(InlineResponse2002Meta meta) {
+  public InlineResponse2002 meta(Meta meta) {
     this.meta = meta;
     return this;
   }

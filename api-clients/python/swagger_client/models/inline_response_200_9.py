@@ -31,7 +31,7 @@ class InlineResponse2009(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'meta': 'InlineResponse2009Meta'
+            'meta': 'Meta'
         }
 
         self.attribute_map = {
@@ -44,9 +44,10 @@ class InlineResponse2009(object):
     def meta(self):
         """
         Gets the meta of this InlineResponse2009.
+        Gets the current list of Products for a Brand.
 
         :return: The meta of this InlineResponse2009.
-        :rtype: InlineResponse2009Meta
+        :rtype: Meta
         """
         return self._meta
 
@@ -54,9 +55,10 @@ class InlineResponse2009(object):
     def meta(self, meta):
         """
         Sets the meta of this InlineResponse2009.
+        Gets the current list of Products for a Brand.
 
         :param meta: The meta of this InlineResponse2009.
-        :type: InlineResponse2009Meta
+        :type: Meta
         """
 
         self._meta = meta

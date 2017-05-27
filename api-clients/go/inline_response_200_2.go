@@ -12,5 +12,6 @@ package swagger
 
 type InlineResponse2002 struct {
 
-	Meta InlineResponse2002Meta `json:"meta,omitempty"`
+	// Gets the current list of Edibles.
+	Meta Meta `json:"meta,omitempty"`
 }

@@ -56,48 +56,28 @@ class ApiClient {
           return dson.map(value, new InlineResponse2001());
         case 'InlineResponse20010':
           return dson.map(value, new InlineResponse20010());
-        case 'InlineResponse20010Meta':
-          return dson.map(value, new InlineResponse20010Meta());
         case 'InlineResponse20011':
           return dson.map(value, new InlineResponse20011());
-        case 'InlineResponse20011Meta':
-          return dson.map(value, new InlineResponse20011Meta());
-        case 'InlineResponse2001Meta':
-          return dson.map(value, new InlineResponse2001Meta());
         case 'InlineResponse2002':
           return dson.map(value, new InlineResponse2002());
-        case 'InlineResponse2002Meta':
-          return dson.map(value, new InlineResponse2002Meta());
         case 'InlineResponse2003':
           return dson.map(value, new InlineResponse2003());
-        case 'InlineResponse2003Meta':
-          return dson.map(value, new InlineResponse2003Meta());
         case 'InlineResponse2004':
           return dson.map(value, new InlineResponse2004());
-        case 'InlineResponse2004Meta':
-          return dson.map(value, new InlineResponse2004Meta());
         case 'InlineResponse2005':
           return dson.map(value, new InlineResponse2005());
-        case 'InlineResponse2005Meta':
-          return dson.map(value, new InlineResponse2005Meta());
         case 'InlineResponse2006':
           return dson.map(value, new InlineResponse2006());
-        case 'InlineResponse2006Meta':
-          return dson.map(value, new InlineResponse2006Meta());
         case 'InlineResponse2007':
           return dson.map(value, new InlineResponse2007());
-        case 'InlineResponse2007Meta':
-          return dson.map(value, new InlineResponse2007Meta());
         case 'InlineResponse2008':
           return dson.map(value, new InlineResponse2008());
-        case 'InlineResponse2008Meta':
-          return dson.map(value, new InlineResponse2008Meta());
         case 'InlineResponse2009':
           return dson.map(value, new InlineResponse2009());
-        case 'InlineResponse2009Meta':
-          return dson.map(value, new InlineResponse2009Meta());
         case 'InlineResponse200Meta':
           return dson.map(value, new InlineResponse200Meta());
+        case 'Meta':
+          return dson.map(value, new Meta());
         case 'Pagination':
           return dson.map(value, new Pagination());
         case 'Product':

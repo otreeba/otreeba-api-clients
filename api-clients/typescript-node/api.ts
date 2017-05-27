@@ -263,157 +263,80 @@ export class InlineResponse200 {
 }
 
 export class InlineResponse2001 {
-    'meta': InlineResponse2001Meta;
-}
-
-export class InlineResponse20010 {
-    'meta': InlineResponse20010Meta;
-}
-
-/**
-* Gets the current list of Products.
-*/
-export class InlineResponse20010Meta {
-    /**
-    * Gets the current list of Products.
-    */
-    'pagination': Pagination;
-}
-
-export class InlineResponse20011 {
-    'meta': InlineResponse20011Meta;
-}
-
-/**
-* Gets the current list of Strains.
-*/
-export class InlineResponse20011Meta {
-    /**
-    * Gets the current list of Strains.
-    */
-    'pagination': Pagination;
-}
-
-/**
-* Gets the current list of Seed Comapnies.
-*/
-export class InlineResponse2001Meta {
     /**
     * Gets the current list of Seed Comapnies.
     */
-    'pagination': Pagination;
+    'meta': Meta;
+}
+
+export class InlineResponse20010 {
+    /**
+    * Gets the current list of Products.
+    */
+    'meta': Meta;
+}
+
+export class InlineResponse20011 {
+    /**
+    * Gets the current list of Strains.
+    */
+    'meta': Meta;
 }
 
 export class InlineResponse2002 {
-    'meta': InlineResponse2002Meta;
-}
-
-/**
-* Gets the current list of Edibles.
-*/
-export class InlineResponse2002Meta {
     /**
     * Gets the current list of Edibles.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 export class InlineResponse2003 {
-    'meta': InlineResponse2003Meta;
-}
-
-/**
-* Gets the current list of Extracts.
-*/
-export class InlineResponse2003Meta {
     /**
     * Gets the current list of Extracts.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 export class InlineResponse2004 {
-    'meta': InlineResponse2004Meta;
-}
-
-/**
-* Gets the current list of Flowers.
-*/
-export class InlineResponse2004Meta {
     /**
     * Gets the current list of Flowers.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 export class InlineResponse2005 {
-    'meta': InlineResponse2005Meta;
-}
-
-/**
-* Gets the current list of Brands.
-*/
-export class InlineResponse2005Meta {
     /**
     * Gets the current list of Brands.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 export class InlineResponse2006 {
-    'meta': InlineResponse2006Meta;
-}
-
-/**
-* Gets the current list of Flowers for a Brand.
-*/
-export class InlineResponse2006Meta {
     /**
     * Gets the current list of Flowers for a Brand.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 export class InlineResponse2007 {
-    'meta': InlineResponse2007Meta;
-}
-
-/**
-* Gets the current list of Extracts for a Brand.
-*/
-export class InlineResponse2007Meta {
     /**
     * Gets the current list of Extracts for a Brand.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 export class InlineResponse2008 {
-    'meta': InlineResponse2008Meta;
-}
-
-/**
-* Gets the current list of Edibles for a Brand.
-*/
-export class InlineResponse2008Meta {
     /**
     * Gets the current list of Edibles for a Brand.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 export class InlineResponse2009 {
-    'meta': InlineResponse2009Meta;
-}
-
-/**
-* Gets the current list of Products for a Brand.
-*/
-export class InlineResponse2009Meta {
     /**
     * Gets the current list of Products for a Brand.
     */
-    'pagination': Pagination;
+    'meta': Meta;
 }
 
 /**
@@ -424,6 +347,13 @@ export class InlineResponse200Meta {
     * Gets the Strains for a Seed Company listing from a given OCPC.
     */
     'pagination': Pagination;
+}
+
+export class Meta {
+    /**
+    * Information about the pagination of the data.
+    */
+    'pagination': any;
 }
 
 export class ModelError {

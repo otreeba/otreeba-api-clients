@@ -1,11 +1,12 @@
 package io.swagger.client.model {
 
-import io.swagger.client.model.InlineResponse2004Meta;
+import io.swagger.client.model.Meta;
 
     [XmlRootNode(name="InlineResponse2004")]
     public class InlineResponse2004 {
-                [XmlElement(name="meta")]
-        public var meta: InlineResponse2004Meta = NaN;
+        /* Gets the current list of Flowers. */
+        [XmlElement(name="meta")]
+        public var meta: Meta = NaN;
 
     public function toString(): String {
         var str: String = "InlineResponse2004: ";

@@ -143,16 +143,16 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'meta' => {
-    	datatype => 'InlineResponse2001Meta',
+    	datatype => 'Meta',
     	base_name => 'meta',
-    	description => '',
+    	description => 'Gets the current list of Seed Comapnies.',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'meta' => 'InlineResponse2001Meta'
+    'meta' => 'Meta'
 } );
 
 __PACKAGE__->attribute_map( {

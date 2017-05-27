@@ -14,6 +14,7 @@ require 'date'
 module SwaggerClient
 
   class InlineResponse2009
+    # Gets the current list of Products for a Brand.
     attr_accessor :meta
 
 
@@ -27,7 +28,7 @@ module SwaggerClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'meta' => :'InlineResponse2009Meta'
+        :'meta' => :'Meta'
       }
     end
 

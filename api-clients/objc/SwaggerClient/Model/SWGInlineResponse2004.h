@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGInlineResponse2004Meta.h"
+#import "SWGMeta.h"
 
 
 @protocol SWGInlineResponse2004
@@ -22,7 +22,8 @@
 
 @interface SWGInlineResponse2004 : SWGObject
 
-
-@property(nonatomic) SWGInlineResponse2004Meta* meta;
+/* Gets the current list of Flowers. [optional]
+ */
+@property(nonatomic) SWGMeta* meta;
 
 @end

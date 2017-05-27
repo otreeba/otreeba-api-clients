@@ -12,7 +12,7 @@
 
 package io.swagger.client.model;
 
-import io.swagger.client.model.InlineResponse2005Meta;
+import io.swagger.client.model.Meta;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -20,15 +20,16 @@ import com.google.gson.annotations.SerializedName;
 public class InlineResponse2005 {
   
   @SerializedName("meta")
-  private InlineResponse2005Meta meta = null;
+  private Meta meta = null;
 
   /**
+   * Gets the current list of Brands.
    **/
-  @ApiModelProperty(value = "")
-  public InlineResponse2005Meta getMeta() {
+  @ApiModelProperty(value = "Gets the current list of Brands.")
+  public Meta getMeta() {
     return meta;
   }
-  public void setMeta(InlineResponse2005Meta meta) {
+  public void setMeta(Meta meta) {
     this.meta = meta;
   }
 

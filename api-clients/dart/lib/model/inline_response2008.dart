@@ -3,9 +3,9 @@ part of swagger.api;
 
 @Entity()
 class InlineResponse2008 {
-  
+  /* Gets the current list of Edibles for a Brand. */
   @Property(name: 'meta')
-  InlineResponse2008Meta meta = null;
+  Meta meta = null;
   
   InlineResponse2008();
 

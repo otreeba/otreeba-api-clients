@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**\Swagger\Client\Model\InlineResponse2007Meta**](InlineResponse2007Meta.md) |  | [optional] 
+**meta** | [**\Swagger\Client\Model\Meta**](Meta.md) | Gets the current list of Extracts for a Brand. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

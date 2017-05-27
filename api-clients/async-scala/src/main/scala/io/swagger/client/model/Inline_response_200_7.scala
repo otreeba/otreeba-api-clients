@@ -5,5 +5,5 @@ import java.util.UUID
 
 
 case class Inline_response_200_7 (
-  meta: Option[Inline_response_200_7_meta]
+  meta: Option[Meta]  // Gets the current list of Extracts for a Brand.
 )

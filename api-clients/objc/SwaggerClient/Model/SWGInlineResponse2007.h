@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGInlineResponse2007Meta.h"
+#import "SWGMeta.h"
 
 
 @protocol SWGInlineResponse2007
@@ -22,7 +22,8 @@
 
 @interface SWGInlineResponse2007 : SWGObject
 
-
-@property(nonatomic) SWGInlineResponse2007Meta* meta;
+/* Gets the current list of Extracts for a Brand. [optional]
+ */
+@property(nonatomic) SWGMeta* meta;
 
 @end

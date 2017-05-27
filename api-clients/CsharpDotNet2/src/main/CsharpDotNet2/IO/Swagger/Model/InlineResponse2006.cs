@@ -13,11 +13,12 @@ namespace IO.Swagger.Model {
   [DataContract]
   public class InlineResponse2006 {
     /// <summary>
-    /// Gets or Sets Meta
+    /// Gets the current list of Flowers for a Brand.
     /// </summary>
+    /// <value>Gets the current list of Flowers for a Brand.</value>
     [DataMember(Name="meta", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "meta")]
-    public InlineResponse2006Meta Meta { get; set; }
+    public Meta Meta { get; set; }
 
 
     /// <summary>

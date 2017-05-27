@@ -32,17 +32,18 @@ namespace IO.Swagger.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2006" /> class.
         /// </summary>
-        /// <param name="Meta">Meta.</param>
-        public InlineResponse2006(InlineResponse2006Meta Meta = default(InlineResponse2006Meta))
+        /// <param name="Meta">Gets the current list of Flowers for a Brand..</param>
+        public InlineResponse2006(Meta Meta = default(Meta))
         {
             this.Meta = Meta;
         }
         
         /// <summary>
-        /// Gets or Sets Meta
+        /// Gets the current list of Flowers for a Brand.
         /// </summary>
+        /// <value>Gets the current list of Flowers for a Brand.</value>
         [DataMember(Name="meta", EmitDefaultValue=false)]
-        public InlineResponse2006Meta Meta { get; set; }
+        public Meta Meta { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

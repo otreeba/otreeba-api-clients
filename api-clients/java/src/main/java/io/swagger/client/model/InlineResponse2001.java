@@ -17,31 +17,31 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.InlineResponse2001Meta;
+import io.swagger.client.model.Meta;
 
 /**
  * InlineResponse2001
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-26T06:12:20.858Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-27T16:43:57.839Z")
 public class InlineResponse2001 {
   @SerializedName("meta")
-  private InlineResponse2001Meta meta = null;
+  private Meta meta = null;
 
-  public InlineResponse2001 meta(InlineResponse2001Meta meta) {
+  public InlineResponse2001 meta(Meta meta) {
     this.meta = meta;
     return this;
   }
 
    /**
-   * Get meta
+   * Gets the current list of Seed Comapnies.
    * @return meta
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public InlineResponse2001Meta getMeta() {
+  @ApiModelProperty(example = "null", value = "Gets the current list of Seed Comapnies.")
+  public Meta getMeta() {
     return meta;
   }
 
-  public void setMeta(InlineResponse2001Meta meta) {
+  public void setMeta(Meta meta) {
     this.meta = meta;
   }
 

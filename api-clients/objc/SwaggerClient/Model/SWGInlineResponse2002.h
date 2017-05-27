@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGInlineResponse2002Meta.h"
+#import "SWGMeta.h"
 
 
 @protocol SWGInlineResponse2002
@@ -22,7 +22,8 @@
 
 @interface SWGInlineResponse2002 : SWGObject
 
-
-@property(nonatomic) SWGInlineResponse2002Meta* meta;
+/* Gets the current list of Edibles. [optional]
+ */
+@property(nonatomic) SWGMeta* meta;
 
 @end

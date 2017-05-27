@@ -6,7 +6,8 @@ goog.provide('API.Client.inline_response_200_4');
 API.Client.InlineResponse2004 = function() {}
 
 /**
- * @type {!API.Client.inline_response_200_4_meta}
+ * Gets the current list of Flowers.
+ * @type {!API.Client.Meta}
  * @export
  */
 API.Client.InlineResponse2004.prototype.meta;

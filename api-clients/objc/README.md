@@ -49,27 +49,17 @@ Import the following:
 #import <SwaggerClient/SWGInlineResponse200.h>
 #import <SwaggerClient/SWGInlineResponse2001.h>
 #import <SwaggerClient/SWGInlineResponse20010.h>
-#import <SwaggerClient/SWGInlineResponse20010Meta.h>
 #import <SwaggerClient/SWGInlineResponse20011.h>
-#import <SwaggerClient/SWGInlineResponse20011Meta.h>
-#import <SwaggerClient/SWGInlineResponse2001Meta.h>
 #import <SwaggerClient/SWGInlineResponse2002.h>
-#import <SwaggerClient/SWGInlineResponse2002Meta.h>
 #import <SwaggerClient/SWGInlineResponse2003.h>
-#import <SwaggerClient/SWGInlineResponse2003Meta.h>
 #import <SwaggerClient/SWGInlineResponse2004.h>
-#import <SwaggerClient/SWGInlineResponse2004Meta.h>
 #import <SwaggerClient/SWGInlineResponse2005.h>
-#import <SwaggerClient/SWGInlineResponse2005Meta.h>
 #import <SwaggerClient/SWGInlineResponse2006.h>
-#import <SwaggerClient/SWGInlineResponse2006Meta.h>
 #import <SwaggerClient/SWGInlineResponse2007.h>
-#import <SwaggerClient/SWGInlineResponse2007Meta.h>
 #import <SwaggerClient/SWGInlineResponse2008.h>
-#import <SwaggerClient/SWGInlineResponse2008Meta.h>
 #import <SwaggerClient/SWGInlineResponse2009.h>
-#import <SwaggerClient/SWGInlineResponse2009Meta.h>
 #import <SwaggerClient/SWGInlineResponse200Meta.h>
+#import <SwaggerClient/SWGMeta.h>
 #import <SwaggerClient/SWGPagination.h>
 #import <SwaggerClient/SWGProduct.h>
 #import <SwaggerClient/SWGSeedCompany.h>
@@ -150,27 +140,17 @@ Class | Method | HTTP request | Description
  - [SWGInlineResponse200](docs/SWGInlineResponse200.md)
  - [SWGInlineResponse2001](docs/SWGInlineResponse2001.md)
  - [SWGInlineResponse20010](docs/SWGInlineResponse20010.md)
- - [SWGInlineResponse20010Meta](docs/SWGInlineResponse20010Meta.md)
  - [SWGInlineResponse20011](docs/SWGInlineResponse20011.md)
- - [SWGInlineResponse20011Meta](docs/SWGInlineResponse20011Meta.md)
- - [SWGInlineResponse2001Meta](docs/SWGInlineResponse2001Meta.md)
  - [SWGInlineResponse2002](docs/SWGInlineResponse2002.md)
- - [SWGInlineResponse2002Meta](docs/SWGInlineResponse2002Meta.md)
  - [SWGInlineResponse2003](docs/SWGInlineResponse2003.md)
- - [SWGInlineResponse2003Meta](docs/SWGInlineResponse2003Meta.md)
  - [SWGInlineResponse2004](docs/SWGInlineResponse2004.md)
- - [SWGInlineResponse2004Meta](docs/SWGInlineResponse2004Meta.md)
  - [SWGInlineResponse2005](docs/SWGInlineResponse2005.md)
- - [SWGInlineResponse2005Meta](docs/SWGInlineResponse2005Meta.md)
  - [SWGInlineResponse2006](docs/SWGInlineResponse2006.md)
- - [SWGInlineResponse2006Meta](docs/SWGInlineResponse2006Meta.md)
  - [SWGInlineResponse2007](docs/SWGInlineResponse2007.md)
- - [SWGInlineResponse2007Meta](docs/SWGInlineResponse2007Meta.md)
  - [SWGInlineResponse2008](docs/SWGInlineResponse2008.md)
- - [SWGInlineResponse2008Meta](docs/SWGInlineResponse2008Meta.md)
  - [SWGInlineResponse2009](docs/SWGInlineResponse2009.md)
- - [SWGInlineResponse2009Meta](docs/SWGInlineResponse2009Meta.md)
  - [SWGInlineResponse200Meta](docs/SWGInlineResponse200Meta.md)
+ - [SWGMeta](docs/SWGMeta.md)
  - [SWGPagination](docs/SWGPagination.md)
  - [SWGProduct](docs/SWGProduct.md)
  - [SWGSeedCompany](docs/SWGSeedCompany.md)

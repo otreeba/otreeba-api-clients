@@ -13,6 +13,9 @@
 import * as models from './models';
 
 export interface InlineResponse20010 {
-    "meta"?: models.InlineResponse20010Meta;
+    /**
+     * Gets the current list of Products.
+     */
+    "meta"?: models.Meta;
 }
 

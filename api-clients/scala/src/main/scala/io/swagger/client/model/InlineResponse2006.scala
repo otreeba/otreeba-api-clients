@@ -14,5 +14,6 @@ package io.swagger.client.model
 
 
 case class InlineResponse2006 (
-  meta: InlineResponse2006Meta
+  /* Gets the current list of Flowers for a Brand. */
+  meta: Meta
 )

@@ -242,27 +242,17 @@ use WWW::SwaggerClient::Object::Flower;
 use WWW::SwaggerClient::Object::InlineResponse200;
 use WWW::SwaggerClient::Object::InlineResponse2001;
 use WWW::SwaggerClient::Object::InlineResponse20010;
-use WWW::SwaggerClient::Object::InlineResponse20010Meta;
 use WWW::SwaggerClient::Object::InlineResponse20011;
-use WWW::SwaggerClient::Object::InlineResponse20011Meta;
-use WWW::SwaggerClient::Object::InlineResponse2001Meta;
 use WWW::SwaggerClient::Object::InlineResponse2002;
-use WWW::SwaggerClient::Object::InlineResponse2002Meta;
 use WWW::SwaggerClient::Object::InlineResponse2003;
-use WWW::SwaggerClient::Object::InlineResponse2003Meta;
 use WWW::SwaggerClient::Object::InlineResponse2004;
-use WWW::SwaggerClient::Object::InlineResponse2004Meta;
 use WWW::SwaggerClient::Object::InlineResponse2005;
-use WWW::SwaggerClient::Object::InlineResponse2005Meta;
 use WWW::SwaggerClient::Object::InlineResponse2006;
-use WWW::SwaggerClient::Object::InlineResponse2006Meta;
 use WWW::SwaggerClient::Object::InlineResponse2007;
-use WWW::SwaggerClient::Object::InlineResponse2007Meta;
 use WWW::SwaggerClient::Object::InlineResponse2008;
-use WWW::SwaggerClient::Object::InlineResponse2008Meta;
 use WWW::SwaggerClient::Object::InlineResponse2009;
-use WWW::SwaggerClient::Object::InlineResponse2009Meta;
 use WWW::SwaggerClient::Object::InlineResponse200Meta;
+use WWW::SwaggerClient::Object::Meta;
 use WWW::SwaggerClient::Object::Pagination;
 use WWW::SwaggerClient::Object::Product;
 use WWW::SwaggerClient::Object::SeedCompany;
@@ -295,27 +285,17 @@ use WWW::SwaggerClient::Object::Flower;
 use WWW::SwaggerClient::Object::InlineResponse200;
 use WWW::SwaggerClient::Object::InlineResponse2001;
 use WWW::SwaggerClient::Object::InlineResponse20010;
-use WWW::SwaggerClient::Object::InlineResponse20010Meta;
 use WWW::SwaggerClient::Object::InlineResponse20011;
-use WWW::SwaggerClient::Object::InlineResponse20011Meta;
-use WWW::SwaggerClient::Object::InlineResponse2001Meta;
 use WWW::SwaggerClient::Object::InlineResponse2002;
-use WWW::SwaggerClient::Object::InlineResponse2002Meta;
 use WWW::SwaggerClient::Object::InlineResponse2003;
-use WWW::SwaggerClient::Object::InlineResponse2003Meta;
 use WWW::SwaggerClient::Object::InlineResponse2004;
-use WWW::SwaggerClient::Object::InlineResponse2004Meta;
 use WWW::SwaggerClient::Object::InlineResponse2005;
-use WWW::SwaggerClient::Object::InlineResponse2005Meta;
 use WWW::SwaggerClient::Object::InlineResponse2006;
-use WWW::SwaggerClient::Object::InlineResponse2006Meta;
 use WWW::SwaggerClient::Object::InlineResponse2007;
-use WWW::SwaggerClient::Object::InlineResponse2007Meta;
 use WWW::SwaggerClient::Object::InlineResponse2008;
-use WWW::SwaggerClient::Object::InlineResponse2008Meta;
 use WWW::SwaggerClient::Object::InlineResponse2009;
-use WWW::SwaggerClient::Object::InlineResponse2009Meta;
 use WWW::SwaggerClient::Object::InlineResponse200Meta;
+use WWW::SwaggerClient::Object::Meta;
 use WWW::SwaggerClient::Object::Pagination;
 use WWW::SwaggerClient::Object::Product;
 use WWW::SwaggerClient::Object::SeedCompany;
@@ -375,27 +355,17 @@ Class | Method | HTTP request | Description
  - [WWW::SwaggerClient::Object::InlineResponse200](docs/InlineResponse200.md)
  - [WWW::SwaggerClient::Object::InlineResponse2001](docs/InlineResponse2001.md)
  - [WWW::SwaggerClient::Object::InlineResponse20010](docs/InlineResponse20010.md)
- - [WWW::SwaggerClient::Object::InlineResponse20010Meta](docs/InlineResponse20010Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse20011](docs/InlineResponse20011.md)
- - [WWW::SwaggerClient::Object::InlineResponse20011Meta](docs/InlineResponse20011Meta.md)
- - [WWW::SwaggerClient::Object::InlineResponse2001Meta](docs/InlineResponse2001Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2002](docs/InlineResponse2002.md)
- - [WWW::SwaggerClient::Object::InlineResponse2002Meta](docs/InlineResponse2002Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2003](docs/InlineResponse2003.md)
- - [WWW::SwaggerClient::Object::InlineResponse2003Meta](docs/InlineResponse2003Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2004](docs/InlineResponse2004.md)
- - [WWW::SwaggerClient::Object::InlineResponse2004Meta](docs/InlineResponse2004Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2005](docs/InlineResponse2005.md)
- - [WWW::SwaggerClient::Object::InlineResponse2005Meta](docs/InlineResponse2005Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2006](docs/InlineResponse2006.md)
- - [WWW::SwaggerClient::Object::InlineResponse2006Meta](docs/InlineResponse2006Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2007](docs/InlineResponse2007.md)
- - [WWW::SwaggerClient::Object::InlineResponse2007Meta](docs/InlineResponse2007Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2008](docs/InlineResponse2008.md)
- - [WWW::SwaggerClient::Object::InlineResponse2008Meta](docs/InlineResponse2008Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2009](docs/InlineResponse2009.md)
- - [WWW::SwaggerClient::Object::InlineResponse2009Meta](docs/InlineResponse2009Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse200Meta](docs/InlineResponse200Meta.md)
+ - [WWW::SwaggerClient::Object::Meta](docs/Meta.md)
  - [WWW::SwaggerClient::Object::Pagination](docs/Pagination.md)
  - [WWW::SwaggerClient::Object::Product](docs/Product.md)
  - [WWW::SwaggerClient::Object::SeedCompany](docs/SeedCompany.md)

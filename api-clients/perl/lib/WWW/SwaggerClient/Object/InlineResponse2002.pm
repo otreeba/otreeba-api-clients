@@ -143,16 +143,16 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'meta' => {
-    	datatype => 'InlineResponse2002Meta',
+    	datatype => 'Meta',
     	base_name => 'meta',
-    	description => '',
+    	description => 'Gets the current list of Edibles.',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'meta' => 'InlineResponse2002Meta'
+    'meta' => 'Meta'
 } );
 
 __PACKAGE__->attribute_map( {

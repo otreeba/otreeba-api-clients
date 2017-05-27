@@ -9,7 +9,8 @@ import Foundation
 
 
 open class InlineResponse2004: JSONEncodable {
-    public var meta: InlineResponse2004Meta?
+    /** Gets the current list of Flowers. */
+    public var meta: Meta?
 
     public init() {}
 

@@ -104,15 +104,14 @@ open class EdiblesAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
-      "per_page" : 10,
-      "total" : 64,
+      "total" : 592,
       "count" : 10,
+      "per_page" : 10,
+      "current_page" : 1,
+      "total_pages" : 60,
       "links" : {
-        "previous" : "https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1",
-        "next" : "https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3"
-      },
-      "total_pages" : 1,
-      "current_page" : 1
+        "next" : "https://api.otreeba.com/v1/seed-companies?sort=-createdAt&count=10&page=2"
+      }
     }
   }
 }}]

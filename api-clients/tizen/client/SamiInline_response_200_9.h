@@ -17,7 +17,7 @@
 using namespace Tizen::Web::Json;
 
 
-#include "SamiInline_response_200_9_meta.h"
+#include "SamiMeta.h"
 
 
 namespace Swagger {
@@ -40,11 +40,11 @@ public:
 
     SamiInline_response_200_9* fromJson(String* obj);
 
-    SamiInline_response_200_9_meta* getPMeta();
-    void setPMeta(SamiInline_response_200_9_meta* pMeta);
+    SamiMeta* getPMeta();
+    void setPMeta(SamiMeta* pMeta);
 
 private:
-    SamiInline_response_200_9_meta* pMeta;
+    SamiMeta* pMeta;
 };
 
 } /* namespace Swagger */

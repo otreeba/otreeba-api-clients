@@ -10,7 +10,8 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 
 case class Inline_response_200_2 (
-  meta: Option[Inline_response_200_2_meta]
+  /* Gets the current list of Edibles. */
+  meta: Option[Meta]
 ) extends ApiModel
 
 

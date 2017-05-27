@@ -14,12 +14,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Brand', 'model/Edible', 'model/Error', 'model/Extract', 'model/Flower', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse20010', 'model/InlineResponse20010Meta', 'model/InlineResponse20011', 'model/InlineResponse20011Meta', 'model/InlineResponse2001Meta', 'model/InlineResponse2002', 'model/InlineResponse2002Meta', 'model/InlineResponse2003', 'model/InlineResponse2003Meta', 'model/InlineResponse2004', 'model/InlineResponse2004Meta', 'model/InlineResponse2005', 'model/InlineResponse2005Meta', 'model/InlineResponse2006', 'model/InlineResponse2006Meta', 'model/InlineResponse2007', 'model/InlineResponse2007Meta', 'model/InlineResponse2008', 'model/InlineResponse2008Meta', 'model/InlineResponse2009', 'model/InlineResponse2009Meta', 'model/InlineResponse200Meta', 'model/Pagination', 'model/Product', 'model/SeedCompany', 'model/Strain', 'api/BrandsApi', 'api/EdiblesApi', 'api/ExtractsApi', 'api/FlowersApi', 'api/ProductsApi', 'api/SeedCompaniesApi', 'api/StrainsApi'], factory);
+    define(['ApiClient', 'model/Brand', 'model/Edible', 'model/Error', 'model/Extract', 'model/Flower', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse20010', 'model/InlineResponse20011', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/InlineResponse2006', 'model/InlineResponse2007', 'model/InlineResponse2008', 'model/InlineResponse2009', 'model/InlineResponse200Meta', 'model/Meta', 'model/Pagination', 'model/Product', 'model/SeedCompany', 'model/Strain', 'api/BrandsApi', 'api/EdiblesApi', 'api/ExtractsApi', 'api/FlowersApi', 'api/ProductsApi', 'api/SeedCompaniesApi', 'api/StrainsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Brand'), require('./model/Edible'), require('./model/Error'), require('./model/Extract'), require('./model/Flower'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse20010'), require('./model/InlineResponse20010Meta'), require('./model/InlineResponse20011'), require('./model/InlineResponse20011Meta'), require('./model/InlineResponse2001Meta'), require('./model/InlineResponse2002'), require('./model/InlineResponse2002Meta'), require('./model/InlineResponse2003'), require('./model/InlineResponse2003Meta'), require('./model/InlineResponse2004'), require('./model/InlineResponse2004Meta'), require('./model/InlineResponse2005'), require('./model/InlineResponse2005Meta'), require('./model/InlineResponse2006'), require('./model/InlineResponse2006Meta'), require('./model/InlineResponse2007'), require('./model/InlineResponse2007Meta'), require('./model/InlineResponse2008'), require('./model/InlineResponse2008Meta'), require('./model/InlineResponse2009'), require('./model/InlineResponse2009Meta'), require('./model/InlineResponse200Meta'), require('./model/Pagination'), require('./model/Product'), require('./model/SeedCompany'), require('./model/Strain'), require('./api/BrandsApi'), require('./api/EdiblesApi'), require('./api/ExtractsApi'), require('./api/FlowersApi'), require('./api/ProductsApi'), require('./api/SeedCompaniesApi'), require('./api/StrainsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Brand'), require('./model/Edible'), require('./model/Error'), require('./model/Extract'), require('./model/Flower'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse20010'), require('./model/InlineResponse20011'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/InlineResponse2006'), require('./model/InlineResponse2007'), require('./model/InlineResponse2008'), require('./model/InlineResponse2009'), require('./model/InlineResponse200Meta'), require('./model/Meta'), require('./model/Pagination'), require('./model/Product'), require('./model/SeedCompany'), require('./model/Strain'), require('./api/BrandsApi'), require('./api/EdiblesApi'), require('./api/ExtractsApi'), require('./api/FlowersApi'), require('./api/ProductsApi'), require('./api/SeedCompaniesApi'), require('./api/StrainsApi'));
   }
-}(function(ApiClient, Brand, Edible, Error, Extract, Flower, InlineResponse200, InlineResponse2001, InlineResponse20010, InlineResponse20010Meta, InlineResponse20011, InlineResponse20011Meta, InlineResponse2001Meta, InlineResponse2002, InlineResponse2002Meta, InlineResponse2003, InlineResponse2003Meta, InlineResponse2004, InlineResponse2004Meta, InlineResponse2005, InlineResponse2005Meta, InlineResponse2006, InlineResponse2006Meta, InlineResponse2007, InlineResponse2007Meta, InlineResponse2008, InlineResponse2008Meta, InlineResponse2009, InlineResponse2009Meta, InlineResponse200Meta, Pagination, Product, SeedCompany, Strain, BrandsApi, EdiblesApi, ExtractsApi, FlowersApi, ProductsApi, SeedCompaniesApi, StrainsApi) {
+}(function(ApiClient, Brand, Edible, Error, Extract, Flower, InlineResponse200, InlineResponse2001, InlineResponse20010, InlineResponse20011, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, InlineResponse2006, InlineResponse2007, InlineResponse2008, InlineResponse2009, InlineResponse200Meta, Meta, Pagination, Product, SeedCompany, Strain, BrandsApi, EdiblesApi, ExtractsApi, FlowersApi, ProductsApi, SeedCompaniesApi, StrainsApi) {
   'use strict';
 
   /**
@@ -100,110 +100,60 @@
      */
     InlineResponse20010: InlineResponse20010,
     /**
-     * The InlineResponse20010Meta model constructor.
-     * @property {module:model/InlineResponse20010Meta}
-     */
-    InlineResponse20010Meta: InlineResponse20010Meta,
-    /**
      * The InlineResponse20011 model constructor.
      * @property {module:model/InlineResponse20011}
      */
     InlineResponse20011: InlineResponse20011,
-    /**
-     * The InlineResponse20011Meta model constructor.
-     * @property {module:model/InlineResponse20011Meta}
-     */
-    InlineResponse20011Meta: InlineResponse20011Meta,
-    /**
-     * The InlineResponse2001Meta model constructor.
-     * @property {module:model/InlineResponse2001Meta}
-     */
-    InlineResponse2001Meta: InlineResponse2001Meta,
     /**
      * The InlineResponse2002 model constructor.
      * @property {module:model/InlineResponse2002}
      */
     InlineResponse2002: InlineResponse2002,
     /**
-     * The InlineResponse2002Meta model constructor.
-     * @property {module:model/InlineResponse2002Meta}
-     */
-    InlineResponse2002Meta: InlineResponse2002Meta,
-    /**
      * The InlineResponse2003 model constructor.
      * @property {module:model/InlineResponse2003}
      */
     InlineResponse2003: InlineResponse2003,
-    /**
-     * The InlineResponse2003Meta model constructor.
-     * @property {module:model/InlineResponse2003Meta}
-     */
-    InlineResponse2003Meta: InlineResponse2003Meta,
     /**
      * The InlineResponse2004 model constructor.
      * @property {module:model/InlineResponse2004}
      */
     InlineResponse2004: InlineResponse2004,
     /**
-     * The InlineResponse2004Meta model constructor.
-     * @property {module:model/InlineResponse2004Meta}
-     */
-    InlineResponse2004Meta: InlineResponse2004Meta,
-    /**
      * The InlineResponse2005 model constructor.
      * @property {module:model/InlineResponse2005}
      */
     InlineResponse2005: InlineResponse2005,
-    /**
-     * The InlineResponse2005Meta model constructor.
-     * @property {module:model/InlineResponse2005Meta}
-     */
-    InlineResponse2005Meta: InlineResponse2005Meta,
     /**
      * The InlineResponse2006 model constructor.
      * @property {module:model/InlineResponse2006}
      */
     InlineResponse2006: InlineResponse2006,
     /**
-     * The InlineResponse2006Meta model constructor.
-     * @property {module:model/InlineResponse2006Meta}
-     */
-    InlineResponse2006Meta: InlineResponse2006Meta,
-    /**
      * The InlineResponse2007 model constructor.
      * @property {module:model/InlineResponse2007}
      */
     InlineResponse2007: InlineResponse2007,
-    /**
-     * The InlineResponse2007Meta model constructor.
-     * @property {module:model/InlineResponse2007Meta}
-     */
-    InlineResponse2007Meta: InlineResponse2007Meta,
     /**
      * The InlineResponse2008 model constructor.
      * @property {module:model/InlineResponse2008}
      */
     InlineResponse2008: InlineResponse2008,
     /**
-     * The InlineResponse2008Meta model constructor.
-     * @property {module:model/InlineResponse2008Meta}
-     */
-    InlineResponse2008Meta: InlineResponse2008Meta,
-    /**
      * The InlineResponse2009 model constructor.
      * @property {module:model/InlineResponse2009}
      */
     InlineResponse2009: InlineResponse2009,
     /**
-     * The InlineResponse2009Meta model constructor.
-     * @property {module:model/InlineResponse2009Meta}
-     */
-    InlineResponse2009Meta: InlineResponse2009Meta,
-    /**
      * The InlineResponse200Meta model constructor.
      * @property {module:model/InlineResponse200Meta}
      */
     InlineResponse200Meta: InlineResponse200Meta,
+    /**
+     * The Meta model constructor.
+     * @property {module:model/Meta}
+     */
+    Meta: Meta,
     /**
      * The Pagination model constructor.
      * @property {module:model/Pagination}

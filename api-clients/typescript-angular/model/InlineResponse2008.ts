@@ -13,6 +13,9 @@
 import * as models from './models';
 
 export interface InlineResponse2008 {
-    "meta"?: models.InlineResponse2008Meta;
+    /**
+     * Gets the current list of Edibles for a Brand.
+     */
+    "meta"?: models.Meta;
 }
 

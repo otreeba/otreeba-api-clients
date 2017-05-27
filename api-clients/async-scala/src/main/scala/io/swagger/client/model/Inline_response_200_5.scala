@@ -5,5 +5,5 @@ import java.util.UUID
 
 
 case class Inline_response_200_5 (
-  meta: Option[Inline_response_200_5_meta]
+  meta: Option[Meta]  // Gets the current list of Brands.
 )

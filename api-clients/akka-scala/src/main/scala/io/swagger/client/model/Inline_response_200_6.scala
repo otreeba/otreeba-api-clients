@@ -10,7 +10,8 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 
 case class Inline_response_200_6 (
-  meta: Option[Inline_response_200_6_meta]
+  /* Gets the current list of Flowers for a Brand. */
+  meta: Option[Meta]
 ) extends ApiModel
 
 

@@ -53,7 +53,7 @@ void Inline_response_200_3::fromJson(web::json::value& val)
     {
         if(!val[U("meta")].is_null())
         {
-            std::shared_ptr<Inline_response_200_3_meta> newItem(new Inline_response_200_3_meta());
+            std::shared_ptr<Meta> newItem(new Meta());
             newItem->fromJson(val[U("meta")]);
             setMeta( newItem );
         }
@@ -93,7 +93,7 @@ void Inline_response_200_3::fromMultiPart(std::shared_ptr<MultipartFormData> mul
     {
         if(multipart->hasContent(U("meta")))
         {
-            std::shared_ptr<Inline_response_200_3_meta> newItem(new Inline_response_200_3_meta());
+            std::shared_ptr<Meta> newItem(new Meta());
             newItem->fromMultiPart(multipart, U("meta."));
             setMeta( newItem );
         }
@@ -103,11 +103,11 @@ void Inline_response_200_3::fromMultiPart(std::shared_ptr<MultipartFormData> mul
 }
 
 
-std::shared_ptr<Inline_response_200_3_meta> Inline_response_200_3::getMeta() const
+std::shared_ptr<Meta> Inline_response_200_3::getMeta() const
 {
     return m_Meta;
 }
-void Inline_response_200_3::setMeta(std::shared_ptr<Inline_response_200_3_meta> value)
+void Inline_response_200_3::setMeta(std::shared_ptr<Meta> value)
 {
     m_Meta = value;
     m_MetaIsSet = true;

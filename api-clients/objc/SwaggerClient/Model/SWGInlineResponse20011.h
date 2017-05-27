@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGInlineResponse20011Meta.h"
+#import "SWGMeta.h"
 
 
 @protocol SWGInlineResponse20011
@@ -22,7 +22,8 @@
 
 @interface SWGInlineResponse20011 : SWGObject
 
-
-@property(nonatomic) SWGInlineResponse20011Meta* meta;
+/* Gets the current list of Strains. [optional]
+ */
+@property(nonatomic) SWGMeta* meta;
 
 @end

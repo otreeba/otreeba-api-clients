@@ -14,6 +14,7 @@ require 'date'
 module SwaggerClient
 
   class InlineResponse20011
+    # Gets the current list of Strains.
     attr_accessor :meta
 
 
@@ -27,7 +28,7 @@ module SwaggerClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'meta' => :'InlineResponse20011Meta'
+        :'meta' => :'Meta'
       }
     end
 

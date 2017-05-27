@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse20011Meta**](InlineResponse20011Meta.md) |  |  [optional]
+**meta** | [**Meta**](Meta.md) | Gets the current list of Strains. |  [optional]
 
 
 

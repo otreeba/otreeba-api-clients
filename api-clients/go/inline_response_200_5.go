@@ -12,5 +12,6 @@ package swagger
 
 type InlineResponse2005 struct {
 
-	Meta InlineResponse2005Meta `json:"meta,omitempty"`
+	// Gets the current list of Brands.
+	Meta Meta `json:"meta,omitempty"`
 }

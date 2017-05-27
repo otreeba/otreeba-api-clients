@@ -9,7 +9,8 @@ import Foundation
 
 
 public class InlineResponse2007: JSONEncodable {
-    public var meta: InlineResponse2007Meta?
+    /** Gets the current list of Extracts for a Brand. */
+    public var meta: Meta?
 
     public init() {}
 

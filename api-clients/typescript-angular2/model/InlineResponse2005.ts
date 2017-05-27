@@ -13,6 +13,9 @@
 import * as models from './models';
 
 export interface InlineResponse2005 {
-    meta?: models.InlineResponse2005Meta;
+    /**
+     * Gets the current list of Brands.
+     */
+    meta?: models.Meta;
 
 }

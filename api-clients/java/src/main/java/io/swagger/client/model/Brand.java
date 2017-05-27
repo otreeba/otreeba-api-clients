@@ -24,7 +24,7 @@ import org.joda.time.DateTime;
 /**
  * Brand
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-26T06:12:20.858Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-27T16:43:57.839Z")
 public class Brand {
   @SerializedName("name")
   private String name = null;

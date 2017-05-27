@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/InlineResponse20011Meta'], factory);
+    define(['ApiClient', 'model/Meta'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./InlineResponse20011Meta'));
+    module.exports = factory(require('../ApiClient'), require('./Meta'));
   } else {
     // Browser globals (root is window)
     if (!root.OtreebaOpenCannabisApi) {
       root.OtreebaOpenCannabisApi = {};
     }
-    root.OtreebaOpenCannabisApi.InlineResponse20011 = factory(root.OtreebaOpenCannabisApi.ApiClient, root.OtreebaOpenCannabisApi.InlineResponse20011Meta);
+    root.OtreebaOpenCannabisApi.InlineResponse20011 = factory(root.OtreebaOpenCannabisApi.ApiClient, root.OtreebaOpenCannabisApi.Meta);
   }
-}(this, function(ApiClient, InlineResponse20011Meta) {
+}(this, function(ApiClient, Meta) {
   'use strict';
 
 
@@ -60,14 +60,15 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('meta')) {
-        obj['meta'] = InlineResponse20011Meta.constructFromObject(data['meta']);
+        obj['meta'] = Meta.constructFromObject(data['meta']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/InlineResponse20011Meta} meta
+   * Gets the current list of Strains.
+   * @member {module:model/Meta} meta
    */
   exports.prototype['meta'] = undefined;
 

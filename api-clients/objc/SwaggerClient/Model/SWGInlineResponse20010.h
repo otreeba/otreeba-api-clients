@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGInlineResponse20010Meta.h"
+#import "SWGMeta.h"
 
 
 @protocol SWGInlineResponse20010
@@ -22,7 +22,8 @@
 
 @interface SWGInlineResponse20010 : SWGObject
 
-
-@property(nonatomic) SWGInlineResponse20010Meta* meta;
+/* Gets the current list of Products. [optional]
+ */
+@property(nonatomic) SWGMeta* meta;
 
 @end

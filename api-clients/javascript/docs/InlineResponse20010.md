@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse20010Meta**](InlineResponse20010Meta.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) | Gets the current list of Products. | [optional] 
 
 

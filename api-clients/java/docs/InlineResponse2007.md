@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse2007Meta**](InlineResponse2007Meta.md) |  |  [optional]
+**meta** | [**Meta**](Meta.md) | Gets the current list of Extracts for a Brand. |  [optional]
 
 
 

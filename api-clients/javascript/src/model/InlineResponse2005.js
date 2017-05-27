@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/InlineResponse2005Meta'], factory);
+    define(['ApiClient', 'model/Meta'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./InlineResponse2005Meta'));
+    module.exports = factory(require('../ApiClient'), require('./Meta'));
   } else {
     // Browser globals (root is window)
     if (!root.OtreebaOpenCannabisApi) {
       root.OtreebaOpenCannabisApi = {};
     }
-    root.OtreebaOpenCannabisApi.InlineResponse2005 = factory(root.OtreebaOpenCannabisApi.ApiClient, root.OtreebaOpenCannabisApi.InlineResponse2005Meta);
+    root.OtreebaOpenCannabisApi.InlineResponse2005 = factory(root.OtreebaOpenCannabisApi.ApiClient, root.OtreebaOpenCannabisApi.Meta);
   }
-}(this, function(ApiClient, InlineResponse2005Meta) {
+}(this, function(ApiClient, Meta) {
   'use strict';
 
 
@@ -60,14 +60,15 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('meta')) {
-        obj['meta'] = InlineResponse2005Meta.constructFromObject(data['meta']);
+        obj['meta'] = Meta.constructFromObject(data['meta']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/InlineResponse2005Meta} meta
+   * Gets the current list of Brands.
+   * @member {module:model/Meta} meta
    */
   exports.prototype['meta'] = undefined;
 

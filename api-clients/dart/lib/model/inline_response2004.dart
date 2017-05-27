@@ -3,9 +3,9 @@ part of swagger.api;
 
 @Entity()
 class InlineResponse2004 {
-  
+  /* Gets the current list of Flowers. */
   @Property(name: 'meta')
-  InlineResponse2004Meta meta = null;
+  Meta meta = null;
   
   InlineResponse2004();
 

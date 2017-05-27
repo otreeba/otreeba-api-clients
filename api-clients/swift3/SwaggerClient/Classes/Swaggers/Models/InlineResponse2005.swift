@@ -9,7 +9,8 @@ import Foundation
 
 
 open class InlineResponse2005: JSONEncodable {
-    public var meta: InlineResponse2005Meta?
+    /** Gets the current list of Brands. */
+    public var meta: Meta?
 
     public init() {}
 

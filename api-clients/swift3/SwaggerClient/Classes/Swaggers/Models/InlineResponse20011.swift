@@ -9,7 +9,8 @@ import Foundation
 
 
 open class InlineResponse20011: JSONEncodable {
-    public var meta: InlineResponse20011Meta?
+    /** Gets the current list of Strains. */
+    public var meta: Meta?
 
     public init() {}
 

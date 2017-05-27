@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse2004Meta**](InlineResponse2004Meta.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) | Gets the current list of Flowers. | [optional] 
 
 

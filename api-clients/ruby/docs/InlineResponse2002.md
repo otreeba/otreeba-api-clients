@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse2002Meta**](InlineResponse2002Meta.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) | Gets the current list of Edibles. | [optional] 
 
 

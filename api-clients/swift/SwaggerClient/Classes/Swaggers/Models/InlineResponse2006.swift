@@ -9,7 +9,8 @@ import Foundation
 
 
 public class InlineResponse2006: JSONEncodable {
-    public var meta: InlineResponse2006Meta?
+    /** Gets the current list of Flowers for a Brand. */
+    public var meta: Meta?
 
     public init() {}
 

@@ -3,11 +3,12 @@ package io.swagger.model;
 import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.InlineResponse2007Meta;
+import io.swagger.model.Meta;
 @Canonical
 class InlineResponse2007 {
 
-    InlineResponse2007Meta meta = null
+  /* Gets the current list of Extracts for a Brand. */
+  Meta meta = null
   
 
 }

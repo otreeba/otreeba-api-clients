@@ -54,7 +54,7 @@ class InlineResponse2007 implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'meta' => '\Swagger\Client\Model\InlineResponse2007Meta'
+        'meta' => '\Swagger\Client\Model\Meta'
     ];
 
     public static function swaggerTypes()
@@ -149,7 +149,7 @@ class InlineResponse2007 implements ArrayAccess
 
     /**
      * Gets meta
-     * @return \Swagger\Client\Model\InlineResponse2007Meta
+     * @return \Swagger\Client\Model\Meta
      */
     public function getMeta()
     {
@@ -158,7 +158,7 @@ class InlineResponse2007 implements ArrayAccess
 
     /**
      * Sets meta
-     * @param \Swagger\Client\Model\InlineResponse2007Meta $meta
+     * @param \Swagger\Client\Model\Meta $meta Gets the current list of Extracts for a Brand.
      * @return $this
      */
     public function setMeta($meta)

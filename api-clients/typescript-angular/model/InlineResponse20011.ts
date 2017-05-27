@@ -13,6 +13,9 @@
 import * as models from './models';
 
 export interface InlineResponse20011 {
-    "meta"?: models.InlineResponse20011Meta;
+    /**
+     * Gets the current list of Strains.
+     */
+    "meta"?: models.Meta;
 }
 
