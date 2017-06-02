@@ -42,6 +42,7 @@ Import the following:
 #import <SwaggerClient/SWGDefaultConfiguration.h>
 // load models
 #import <SwaggerClient/SWGBrand.h>
+#import <SwaggerClient/SWGCondition.h>
 #import <SwaggerClient/SWGEdible.h>
 #import <SwaggerClient/SWGError.h>
 #import <SwaggerClient/SWGExtract.h>
@@ -50,6 +51,8 @@ Import the following:
 #import <SwaggerClient/SWGInlineResponse2001.h>
 #import <SwaggerClient/SWGInlineResponse20010.h>
 #import <SwaggerClient/SWGInlineResponse20011.h>
+#import <SwaggerClient/SWGInlineResponse20012.h>
+#import <SwaggerClient/SWGInlineResponse20013.h>
 #import <SwaggerClient/SWGInlineResponse2002.h>
 #import <SwaggerClient/SWGInlineResponse2003.h>
 #import <SwaggerClient/SWGInlineResponse2004.h>
@@ -64,6 +67,7 @@ Import the following:
 #import <SwaggerClient/SWGProduct.h>
 #import <SwaggerClient/SWGSeedCompany.h>
 #import <SwaggerClient/SWGStrain.h>
+#import <SwaggerClient/SWGStudy.h>
 // load API classes for accessing endpoints
 #import <SwaggerClient/SWGBrandsApi.h>
 #import <SwaggerClient/SWGEdiblesApi.h>
@@ -72,6 +76,7 @@ Import the following:
 #import <SwaggerClient/SWGProductsApi.h>
 #import <SwaggerClient/SWGSeedCompaniesApi.h>
 #import <SwaggerClient/SWGStrainsApi.h>
+#import <SwaggerClient/SWGStudiesApi.h>
 
 ```
 
@@ -128,11 +133,16 @@ Class | Method | HTTP request | Description
 *SWGSeedCompaniesApi* | [**getSeedCompanyStrainsByOcpc**](docs/SWGSeedCompaniesApi.md#getseedcompanystrainsbyocpc) | **GET** /seed-companies/{ocpc}/strains | Find strains for a seed company by Open Cannabis Product Code (OCPC).
 *SWGStrainsApi* | [**getStrainByOcpc**](docs/SWGStrainsApi.md#getstrainbyocpc) | **GET** /strains/{ocpc} | Find strain by Open Cannabis Product Code (OCPC).
 *SWGStrainsApi* | [**getStrains**](docs/SWGStrainsApi.md#getstrains) | **GET** /strains | Get a list of all current strains.
+*SWGStudiesApi* | [**getStudies**](docs/SWGStudiesApi.md#getstudies) | **GET** /studies | Get a list of all current studies.
+*SWGStudiesApi* | [**getStudiesByCondition**](docs/SWGStudiesApi.md#getstudiesbycondition) | **GET** /studies/conditions/{conditionSlug} | Get a list of all current studies for a given condition.
+*SWGStudiesApi* | [**getStudiesConditions**](docs/SWGStudiesApi.md#getstudiesconditions) | **GET** /studies/conditions | Get a list of all current conditions for studies.
+*SWGStudiesApi* | [**getStudyByIdentifier**](docs/SWGStudiesApi.md#getstudybyidentifier) | **GET** /studies/{identifierType}/{identifier} | Find study by DOI, PubMed ID, or slug.
 
 
 ## Documentation For Models
 
  - [SWGBrand](docs/SWGBrand.md)
+ - [SWGCondition](docs/SWGCondition.md)
  - [SWGEdible](docs/SWGEdible.md)
  - [SWGError](docs/SWGError.md)
  - [SWGExtract](docs/SWGExtract.md)
@@ -141,6 +151,8 @@ Class | Method | HTTP request | Description
  - [SWGInlineResponse2001](docs/SWGInlineResponse2001.md)
  - [SWGInlineResponse20010](docs/SWGInlineResponse20010.md)
  - [SWGInlineResponse20011](docs/SWGInlineResponse20011.md)
+ - [SWGInlineResponse20012](docs/SWGInlineResponse20012.md)
+ - [SWGInlineResponse20013](docs/SWGInlineResponse20013.md)
  - [SWGInlineResponse2002](docs/SWGInlineResponse2002.md)
  - [SWGInlineResponse2003](docs/SWGInlineResponse2003.md)
  - [SWGInlineResponse2004](docs/SWGInlineResponse2004.md)
@@ -155,6 +167,7 @@ Class | Method | HTTP request | Description
  - [SWGProduct](docs/SWGProduct.md)
  - [SWGSeedCompany](docs/SWGSeedCompany.md)
  - [SWGStrain](docs/SWGStrain.md)
+ - [SWGStudy](docs/SWGStudy.md)
 
 
 ## Documentation For Authorization

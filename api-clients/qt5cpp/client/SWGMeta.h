@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 
-#include "SWGObject.h"
+#include "SWGPagination.h"
 
 #include "SWGObject.h"
 
@@ -42,12 +42,12 @@ public:
     void fromJsonObject(QJsonObject &json);
     SWGMeta* fromJson(QString &jsonString);
 
-    SWGObject* getPagination();
-    void setPagination(SWGObject* pagination);
+    SWGPagination* getPagination();
+    void setPagination(SWGPagination* pagination);
 
 
 private:
-    SWGObject* pagination;
+    SWGPagination* pagination;
 };
 
 } /* namespace Swagger */

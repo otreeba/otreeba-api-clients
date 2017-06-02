@@ -143,16 +143,16 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'pagination' => {
-    	datatype => 'object',
+    	datatype => 'Pagination',
     	base_name => 'pagination',
-    	description => 'Information about the pagination of the data.',
+    	description => '',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'pagination' => 'object'
+    'pagination' => 'Pagination'
 } );
 
 __PACKAGE__->attribute_map( {

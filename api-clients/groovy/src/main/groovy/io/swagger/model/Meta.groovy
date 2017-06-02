@@ -3,11 +3,11 @@ package io.swagger.model;
 import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.model.Pagination;
 @Canonical
 class Meta {
 
-  /* Information about the pagination of the data. */
-  Object pagination = null
+    Pagination pagination = null
   
 
 }

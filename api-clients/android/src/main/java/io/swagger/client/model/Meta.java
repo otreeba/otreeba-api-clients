@@ -12,6 +12,7 @@
 
 package io.swagger.client.model;
 
+import io.swagger.client.model.Pagination;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -19,16 +20,15 @@ import com.google.gson.annotations.SerializedName;
 public class Meta {
   
   @SerializedName("pagination")
-  private Object pagination = null;
+  private Pagination pagination = null;
 
   /**
-   * Information about the pagination of the data.
    **/
-  @ApiModelProperty(value = "Information about the pagination of the data.")
-  public Object getPagination() {
+  @ApiModelProperty(value = "")
+  public Pagination getPagination() {
     return pagination;
   }
-  public void setPagination(Object pagination) {
+  public void setPagination(Pagination pagination) {
     this.pagination = pagination;
   }
 

@@ -165,6 +165,23 @@ class Decoders {
             }
 
 
+            // Decoder for [Condition]
+            Decoders.addDecoder(clazz: [Condition].self) { (source: AnyObject) -> [Condition] in
+                return Decoders.decode(clazz: [Condition].self, source: source)
+            }
+            // Decoder for Condition
+            Decoders.addDecoder(clazz: Condition.self) { (source: AnyObject) -> Condition in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Condition()
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"])
+                instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"])
+                instance.createdAt = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createdAt"])
+                instance.updatedAt = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["updatedAt"])
+                return instance
+            }
+
+
             // Decoder for [Edible]
             Decoders.addDecoder(clazz: [Edible].self) { (source: AnyObject) -> [Edible] in
                 return Decoders.decode(clazz: [Edible].self, source: source)
@@ -311,6 +328,32 @@ class Decoders {
             }
 
 
+            // Decoder for [InlineResponse20012]
+            Decoders.addDecoder(clazz: [InlineResponse20012].self) { (source: AnyObject) -> [InlineResponse20012] in
+                return Decoders.decode(clazz: [InlineResponse20012].self, source: source)
+            }
+            // Decoder for InlineResponse20012
+            Decoders.addDecoder(clazz: InlineResponse20012.self) { (source: AnyObject) -> InlineResponse20012 in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InlineResponse20012()
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
+                return instance
+            }
+
+
+            // Decoder for [InlineResponse20013]
+            Decoders.addDecoder(clazz: [InlineResponse20013].self) { (source: AnyObject) -> [InlineResponse20013] in
+                return Decoders.decode(clazz: [InlineResponse20013].self, source: source)
+            }
+            // Decoder for InlineResponse20013
+            Decoders.addDecoder(clazz: InlineResponse20013.self) { (source: AnyObject) -> InlineResponse20013 in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InlineResponse20013()
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
+                return instance
+            }
+
+
             // Decoder for [InlineResponse2002]
             Decoders.addDecoder(clazz: [InlineResponse2002].self) { (source: AnyObject) -> [InlineResponse2002] in
                 return Decoders.decode(clazz: [InlineResponse2002].self, source: source)
@@ -436,7 +479,7 @@ class Decoders {
             Decoders.addDecoder(clazz: Meta.self) { (source: AnyObject) -> Meta in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["pagination"])
+                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
                 return instance
             }
 
@@ -525,6 +568,27 @@ class Decoders {
                 instance.lineage = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["lineage"])
                 instance.genetics = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["genetics"])
                 instance.children = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["children"])
+                instance.createdAt = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createdAt"])
+                instance.updatedAt = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["updatedAt"])
+                return instance
+            }
+
+
+            // Decoder for [Study]
+            Decoders.addDecoder(clazz: [Study].self) { (source: AnyObject) -> [Study] in
+                return Decoders.decode(clazz: [Study].self, source: source)
+            }
+            // Decoder for Study
+            Decoders.addDecoder(clazz: Study.self) { (source: AnyObject) -> Study in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Study()
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.year = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["year"])
+                instance.doi = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["doi"])
+                instance.pubMedId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pubMedId"])
+                instance.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"])
+                instance.keyFindings = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["keyFindings"])
+                instance.conditions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["conditions"])
                 instance.createdAt = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createdAt"])
                 instance.updatedAt = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["updatedAt"])
                 return instance

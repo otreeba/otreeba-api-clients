@@ -1,5 +1,6 @@
 package io.swagger.model;
 
+import io.swagger.model.Pagination;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
@@ -12,22 +13,22 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 public class Meta  {
   
-  @ApiModelProperty(example = "{&quot;total&quot;:592,&quot;count&quot;:10,&quot;per_page&quot;:10,&quot;current_page&quot;:1,&quot;total_pages&quot;:60,&quot;links&quot;:{&quot;next&quot;:&quot;https://api.otreeba.com/v1/seed-companies?sort&#x3D;-createdAt&amp;count&#x3D;10&amp;page&#x3D;2&quot;}}", value = "Information about the pagination of the data.")
-  private Object pagination = null;
+  @ApiModelProperty(example = "null", value = "")
+  private Pagination pagination = null;
 
  /**
-   * Information about the pagination of the data.
+   * Get pagination
    * @return pagination
   **/
-  public Object getPagination() {
+  public Pagination getPagination() {
     return pagination;
   }
 
-  public void setPagination(Object pagination) {
+  public void setPagination(Pagination pagination) {
     this.pagination = pagination;
   }
 
-  public Meta pagination(Object pagination) {
+  public Meta pagination(Pagination pagination) {
     this.pagination = pagination;
     return this;
   }

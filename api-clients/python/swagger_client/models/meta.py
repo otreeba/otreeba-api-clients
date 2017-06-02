@@ -31,7 +31,7 @@ class Meta(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'pagination': 'object'
+            'pagination': 'Pagination'
         }
 
         self.attribute_map = {
@@ -44,10 +44,9 @@ class Meta(object):
     def pagination(self):
         """
         Gets the pagination of this Meta.
-        Information about the pagination of the data.
 
         :return: The pagination of this Meta.
-        :rtype: object
+        :rtype: Pagination
         """
         return self._pagination
 
@@ -55,10 +54,9 @@ class Meta(object):
     def pagination(self, pagination):
         """
         Sets the pagination of this Meta.
-        Information about the pagination of the data.
 
         :param pagination: The pagination of this Meta.
-        :type: object
+        :type: Pagination
         """
 
         self._pagination = pagination

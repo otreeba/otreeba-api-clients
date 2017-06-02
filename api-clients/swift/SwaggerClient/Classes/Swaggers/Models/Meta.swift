@@ -9,15 +9,14 @@ import Foundation
 
 
 public class Meta: JSONEncodable {
-    /** Information about the pagination of the data. */
-    public var pagination: AnyObject?
+    public var pagination: Pagination?
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["pagination"] = self.pagination
+        nillableDictionary["pagination"] = self.pagination?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

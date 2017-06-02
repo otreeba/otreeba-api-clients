@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-05-27T16:43:46.457Z
+# ! Generated on: 2017-06-02T19:53:17.447Z
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -114,6 +114,16 @@ operation_parameters_minimum_occurences["getStrainByOcpc:::ocpc"]=1
 operation_parameters_minimum_occurences["getStrains:::page"]=0
 operation_parameters_minimum_occurences["getStrains:::count"]=0
 operation_parameters_minimum_occurences["getStrains:::sort"]=0
+operation_parameters_minimum_occurences["getStudies:::page"]=0
+operation_parameters_minimum_occurences["getStudies:::count"]=0
+operation_parameters_minimum_occurences["getStudies:::sort"]=0
+operation_parameters_minimum_occurences["getStudiesByCondition:::conditionSlug"]=1
+operation_parameters_minimum_occurences["getStudiesByCondition:::page"]=0
+operation_parameters_minimum_occurences["getStudiesByCondition:::count"]=0
+operation_parameters_minimum_occurences["getStudiesByCondition:::sort"]=0
+operation_parameters_minimum_occurences["getStudiesConditions:::sort"]=0
+operation_parameters_minimum_occurences["getStudyByIdentifier:::identifierType"]=1
+operation_parameters_minimum_occurences["getStudyByIdentifier:::identifier"]=1
 
 ##
 # This array stores the maximum number of allowed occurences for parameter
@@ -169,6 +179,16 @@ operation_parameters_maximum_occurences["getStrainByOcpc:::ocpc"]=0
 operation_parameters_maximum_occurences["getStrains:::page"]=0
 operation_parameters_maximum_occurences["getStrains:::count"]=0
 operation_parameters_maximum_occurences["getStrains:::sort"]=0
+operation_parameters_maximum_occurences["getStudies:::page"]=0
+operation_parameters_maximum_occurences["getStudies:::count"]=0
+operation_parameters_maximum_occurences["getStudies:::sort"]=0
+operation_parameters_maximum_occurences["getStudiesByCondition:::conditionSlug"]=0
+operation_parameters_maximum_occurences["getStudiesByCondition:::page"]=0
+operation_parameters_maximum_occurences["getStudiesByCondition:::count"]=0
+operation_parameters_maximum_occurences["getStudiesByCondition:::sort"]=0
+operation_parameters_maximum_occurences["getStudiesConditions:::sort"]=0
+operation_parameters_maximum_occurences["getStudyByIdentifier:::identifierType"]=0
+operation_parameters_maximum_occurences["getStudyByIdentifier:::identifier"]=0
 
 ##
 # The type of collection for specifying multiple values for parameter:
@@ -221,6 +241,16 @@ operation_parameters_collection_type["getStrainByOcpc:::ocpc"]=""
 operation_parameters_collection_type["getStrains:::page"]=""
 operation_parameters_collection_type["getStrains:::count"]=""
 operation_parameters_collection_type["getStrains:::sort"]=""
+operation_parameters_collection_type["getStudies:::page"]=""
+operation_parameters_collection_type["getStudies:::count"]=""
+operation_parameters_collection_type["getStudies:::sort"]=""
+operation_parameters_collection_type["getStudiesByCondition:::conditionSlug"]=""
+operation_parameters_collection_type["getStudiesByCondition:::page"]=""
+operation_parameters_collection_type["getStudiesByCondition:::count"]=""
+operation_parameters_collection_type["getStudiesByCondition:::sort"]=""
+operation_parameters_collection_type["getStudiesConditions:::sort"]=""
+operation_parameters_collection_type["getStudyByIdentifier:::identifierType"]=""
+operation_parameters_collection_type["getStudyByIdentifier:::identifier"]=""
 
 
 ##
@@ -738,6 +768,15 @@ echo "  $ops" | column -t -s ';'
 read -d '' ops <<EOF
   $(tput setaf 6)getStrainByOcpc$(tput sgr0);Find strain by Open Cannabis Product Code (OCPC).
   $(tput setaf 6)getStrains$(tput sgr0);Get a list of all current strains.
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[studies]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)getStudies$(tput sgr0);Get a list of all current studies.
+  $(tput setaf 6)getStudiesByCondition$(tput sgr0);Get a list of all current studies for a given condition.
+  $(tput setaf 6)getStudiesConditions$(tput sgr0);Get a list of all current conditions for studies.
+  $(tput setaf 6)getStudyByIdentifier$(tput sgr0);Find study by DOI, PubMed ID, or slug.
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -2677,6 +2716,383 @@ print_getStrains_help() {
         ;;
     esac
 }
+##############################################################################
+#
+# Print help for getStudies operation
+#
+##############################################################################
+print_getStudies_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getStudies - Get a list of all current studies.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a paginated list of studies." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Page to be returned.$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)count$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 6)(default: 10)$(tput sgr0) - The number of items to return. Default 10. Max 50.$(tput setaf 3) Specify as: count=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)sort$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 6)(default: -createdAt)$(tput sgr0) - How to sort the items.$(tput setaf 3) Specify as: sort=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 400 in
+        1*)
+        echo -e "$(tput setaf 7)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 401 in
+        1*)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getStudiesByCondition operation
+#
+##############################################################################
+print_getStudiesByCondition_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getStudiesByCondition - Get a list of all current studies for a given condition.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a paginated list of studies." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)conditionSlug$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Slug of the condition to return studies for. $(tput setaf 3)Specify as: conditionSlug=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Page to be returned.$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)count$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 6)(default: 10)$(tput sgr0) - The number of items to return. Default 10. Max 50.$(tput setaf 3) Specify as: count=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)sort$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 6)(default: -year)$(tput sgr0) - How to sort the items.$(tput setaf 3) Specify as: sort=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 400 in
+        1*)
+        echo -e "$(tput setaf 7)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 401 in
+        1*)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Condition.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Condition.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Condition.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Condition.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Condition.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Condition.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getStudiesConditions operation
+#
+##############################################################################
+print_getStudiesConditions_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getStudiesConditions - Get a list of all current conditions for studies.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a list of all current conditions for studies." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)sort$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 6)(default: name)$(tput sgr0) - How to sort the items.$(tput setaf 3) Specify as: sort=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 400 in
+        1*)
+        echo -e "$(tput setaf 7)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  400;Invalid arguments supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 401 in
+        1*)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getStudyByIdentifier operation
+#
+##############################################################################
+print_getStudyByIdentifier_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getStudyByIdentifier - Find study by DOI, PubMed ID, or slug.$(tput sgr0)"
+    echo -e ""
+    echo -e "Returns a single study." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)identifierType$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Type of identifier to for the study to return. $(tput setaf 3)Specify as: identifierType=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)identifier$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Identifier for the study to return. $(tput setaf 3)Specify as: identifier=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successful operation.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 400 in
+        1*)
+        echo -e "$(tput setaf 7)  400;Invalid argument supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  400;Invalid argument supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  400;Invalid argument supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  400;Invalid argument supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  400;Invalid argument supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  400;Invalid argument supplied.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 401 in
+        1*)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  401;Unauthorized action.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Study not found.$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
 
 
 ##############################################################################
@@ -3268,6 +3684,130 @@ call_getStrains() {
     fi
 }
 
+##############################################################################
+#
+# Call getStudies operation
+#
+##############################################################################
+call_getStudies() {
+    local path_parameter_names=()
+    local query_parameter_names=(page count sort)
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v1/studies" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v1/studies" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getStudiesByCondition operation
+#
+##############################################################################
+call_getStudiesByCondition() {
+    local path_parameter_names=(conditionSlug)
+    local query_parameter_names=(page count sort)
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v1/studies/conditions/{conditionSlug}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v1/studies/conditions/{conditionSlug}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getStudiesConditions operation
+#
+##############################################################################
+call_getStudiesConditions() {
+    local path_parameter_names=()
+    local query_parameter_names=(sort)
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v1/studies/conditions" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v1/studies/conditions" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getStudyByIdentifier operation
+#
+##############################################################################
+call_getStudyByIdentifier() {
+    local path_parameter_names=(identifierType identifier)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/v1/studies/{identifierType}/{identifier}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/v1/studies/{identifierType}/{identifier}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
 
 
 ##############################################################################
@@ -3410,6 +3950,18 @@ case $key in
     getStrains)
     operation="getStrains"
     ;;
+    getStudies)
+    operation="getStudies"
+    ;;
+    getStudiesByCondition)
+    operation="getStudiesByCondition"
+    ;;
+    getStudiesConditions)
+    operation="getStudiesConditions"
+    ;;
+    getStudyByIdentifier)
+    operation="getStudyByIdentifier"
+    ;;
     *==*)
     # Parse body arguments and convert them into top level
     # JSON properties passed in the body content as strings
@@ -3543,6 +4095,18 @@ case $operation in
     ;;
     getStrains)
     call_getStrains
+    ;;
+    getStudies)
+    call_getStudies
+    ;;
+    getStudiesByCondition)
+    call_getStudiesByCondition
+    ;;
+    getStudiesConditions)
+    call_getStudiesConditions
+    ;;
+    getStudyByIdentifier)
+    call_getStudyByIdentifier
     ;;
     *)
     echo "Error: Unknown operation: $operation"

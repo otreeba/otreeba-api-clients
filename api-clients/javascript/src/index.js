@@ -14,12 +14,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Brand', 'model/Edible', 'model/Error', 'model/Extract', 'model/Flower', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse20010', 'model/InlineResponse20011', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/InlineResponse2006', 'model/InlineResponse2007', 'model/InlineResponse2008', 'model/InlineResponse2009', 'model/InlineResponse200Meta', 'model/Meta', 'model/Pagination', 'model/Product', 'model/SeedCompany', 'model/Strain', 'api/BrandsApi', 'api/EdiblesApi', 'api/ExtractsApi', 'api/FlowersApi', 'api/ProductsApi', 'api/SeedCompaniesApi', 'api/StrainsApi'], factory);
+    define(['ApiClient', 'model/Brand', 'model/Condition', 'model/Edible', 'model/Error', 'model/Extract', 'model/Flower', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse20010', 'model/InlineResponse20011', 'model/InlineResponse20012', 'model/InlineResponse20013', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/InlineResponse2006', 'model/InlineResponse2007', 'model/InlineResponse2008', 'model/InlineResponse2009', 'model/InlineResponse200Meta', 'model/Meta', 'model/Pagination', 'model/Product', 'model/SeedCompany', 'model/Strain', 'model/Study', 'api/BrandsApi', 'api/EdiblesApi', 'api/ExtractsApi', 'api/FlowersApi', 'api/ProductsApi', 'api/SeedCompaniesApi', 'api/StrainsApi', 'api/StudiesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Brand'), require('./model/Edible'), require('./model/Error'), require('./model/Extract'), require('./model/Flower'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse20010'), require('./model/InlineResponse20011'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/InlineResponse2006'), require('./model/InlineResponse2007'), require('./model/InlineResponse2008'), require('./model/InlineResponse2009'), require('./model/InlineResponse200Meta'), require('./model/Meta'), require('./model/Pagination'), require('./model/Product'), require('./model/SeedCompany'), require('./model/Strain'), require('./api/BrandsApi'), require('./api/EdiblesApi'), require('./api/ExtractsApi'), require('./api/FlowersApi'), require('./api/ProductsApi'), require('./api/SeedCompaniesApi'), require('./api/StrainsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Brand'), require('./model/Condition'), require('./model/Edible'), require('./model/Error'), require('./model/Extract'), require('./model/Flower'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse20010'), require('./model/InlineResponse20011'), require('./model/InlineResponse20012'), require('./model/InlineResponse20013'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/InlineResponse2006'), require('./model/InlineResponse2007'), require('./model/InlineResponse2008'), require('./model/InlineResponse2009'), require('./model/InlineResponse200Meta'), require('./model/Meta'), require('./model/Pagination'), require('./model/Product'), require('./model/SeedCompany'), require('./model/Strain'), require('./model/Study'), require('./api/BrandsApi'), require('./api/EdiblesApi'), require('./api/ExtractsApi'), require('./api/FlowersApi'), require('./api/ProductsApi'), require('./api/SeedCompaniesApi'), require('./api/StrainsApi'), require('./api/StudiesApi'));
   }
-}(function(ApiClient, Brand, Edible, Error, Extract, Flower, InlineResponse200, InlineResponse2001, InlineResponse20010, InlineResponse20011, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, InlineResponse2006, InlineResponse2007, InlineResponse2008, InlineResponse2009, InlineResponse200Meta, Meta, Pagination, Product, SeedCompany, Strain, BrandsApi, EdiblesApi, ExtractsApi, FlowersApi, ProductsApi, SeedCompaniesApi, StrainsApi) {
+}(function(ApiClient, Brand, Condition, Edible, Error, Extract, Flower, InlineResponse200, InlineResponse2001, InlineResponse20010, InlineResponse20011, InlineResponse20012, InlineResponse20013, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, InlineResponse2006, InlineResponse2007, InlineResponse2008, InlineResponse2009, InlineResponse200Meta, Meta, Pagination, Product, SeedCompany, Strain, Study, BrandsApi, EdiblesApi, ExtractsApi, FlowersApi, ProductsApi, SeedCompaniesApi, StrainsApi, StudiesApi) {
   'use strict';
 
   /**
@@ -65,6 +65,11 @@
      */
     Brand: Brand,
     /**
+     * The Condition model constructor.
+     * @property {module:model/Condition}
+     */
+    Condition: Condition,
+    /**
      * The Edible model constructor.
      * @property {module:model/Edible}
      */
@@ -104,6 +109,16 @@
      * @property {module:model/InlineResponse20011}
      */
     InlineResponse20011: InlineResponse20011,
+    /**
+     * The InlineResponse20012 model constructor.
+     * @property {module:model/InlineResponse20012}
+     */
+    InlineResponse20012: InlineResponse20012,
+    /**
+     * The InlineResponse20013 model constructor.
+     * @property {module:model/InlineResponse20013}
+     */
+    InlineResponse20013: InlineResponse20013,
     /**
      * The InlineResponse2002 model constructor.
      * @property {module:model/InlineResponse2002}
@@ -175,6 +190,11 @@
      */
     Strain: Strain,
     /**
+     * The Study model constructor.
+     * @property {module:model/Study}
+     */
+    Study: Study,
+    /**
      * The BrandsApi service constructor.
      * @property {module:api/BrandsApi}
      */
@@ -208,7 +228,12 @@
      * The StrainsApi service constructor.
      * @property {module:api/StrainsApi}
      */
-    StrainsApi: StrainsApi
+    StrainsApi: StrainsApi,
+    /**
+     * The StudiesApi service constructor.
+     * @property {module:api/StudiesApi}
+     */
+    StudiesApi: StudiesApi
   };
 
   return exports;

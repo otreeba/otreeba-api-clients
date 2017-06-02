@@ -3,9 +3,9 @@ part of swagger.api;
 
 @Entity()
 class Meta {
-  /* Information about the pagination of the data. */
+  
   @Property(name: 'pagination')
-  Object pagination = null;
+  Pagination pagination = null;
   
   Meta();
 

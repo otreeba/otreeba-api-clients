@@ -53,7 +53,7 @@ void Meta::fromJson(web::json::value& val)
     {
         if(!val[U("pagination")].is_null())
         {
-            std::shared_ptr<Object> newItem(nullptr);
+            std::shared_ptr<Pagination> newItem(new Pagination());
             newItem->fromJson(val[U("pagination")]);
             setPagination( newItem );
         }
@@ -93,7 +93,7 @@ void Meta::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const uti
     {
         if(multipart->hasContent(U("pagination")))
         {
-            std::shared_ptr<Object> newItem(nullptr);
+            std::shared_ptr<Pagination> newItem(new Pagination());
             newItem->fromMultiPart(multipart, U("pagination."));
             setPagination( newItem );
         }
@@ -103,11 +103,11 @@ void Meta::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const uti
 }
 
 
-std::shared_ptr<Object> Meta::getPagination() const
+std::shared_ptr<Pagination> Meta::getPagination() const
 {
     return m_Pagination;
 }
-void Meta::setPagination(std::shared_ptr<Object> value)
+void Meta::setPagination(std::shared_ptr<Pagination> value)
 {
     m_Pagination = value;
     m_PaginationIsSet = true;

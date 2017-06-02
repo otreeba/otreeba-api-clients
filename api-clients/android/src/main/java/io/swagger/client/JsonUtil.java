@@ -61,6 +61,10 @@ public class JsonUtil {
       return new TypeToken<List<Brand>>(){}.getType();
     }
     
+    if ("Condition".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Condition>>(){}.getType();
+    }
+    
     if ("Edible".equalsIgnoreCase(className)) {
       return new TypeToken<List<Edible>>(){}.getType();
     }
@@ -91,6 +95,14 @@ public class JsonUtil {
     
     if ("InlineResponse20011".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse20011>>(){}.getType();
+    }
+    
+    if ("InlineResponse20012".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20012>>(){}.getType();
+    }
+    
+    if ("InlineResponse20013".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse20013>>(){}.getType();
     }
     
     if ("InlineResponse2002".equalsIgnoreCase(className)) {
@@ -149,6 +161,10 @@ public class JsonUtil {
       return new TypeToken<List<Strain>>(){}.getType();
     }
     
+    if ("Study".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Study>>(){}.getType();
+    }
+    
     return new TypeToken<List<Object>>(){}.getType();
   }
 
@@ -157,6 +173,10 @@ public class JsonUtil {
     
     if ("Brand".equalsIgnoreCase(className)) {
       return new TypeToken<Brand>(){}.getType();
+    }
+    
+    if ("Condition".equalsIgnoreCase(className)) {
+      return new TypeToken<Condition>(){}.getType();
     }
     
     if ("Edible".equalsIgnoreCase(className)) {
@@ -189,6 +209,14 @@ public class JsonUtil {
     
     if ("InlineResponse20011".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse20011>(){}.getType();
+    }
+    
+    if ("InlineResponse20012".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20012>(){}.getType();
+    }
+    
+    if ("InlineResponse20013".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse20013>(){}.getType();
     }
     
     if ("InlineResponse2002".equalsIgnoreCase(className)) {
@@ -245,6 +273,10 @@ public class JsonUtil {
     
     if ("Strain".equalsIgnoreCase(className)) {
       return new TypeToken<Strain>(){}.getType();
+    }
+    
+    if ("Study".equalsIgnoreCase(className)) {
+      return new TypeToken<Study>(){}.getType();
     }
     
     return new TypeToken<Object>(){}.getType();

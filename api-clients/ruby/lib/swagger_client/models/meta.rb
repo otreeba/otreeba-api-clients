@@ -14,7 +14,6 @@ require 'date'
 module SwaggerClient
 
   class Meta
-    # Information about the pagination of the data.
     attr_accessor :pagination
 
 
@@ -28,7 +27,7 @@ module SwaggerClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'pagination' => :'Object'
+        :'pagination' => :'Pagination'
       }
     end
 

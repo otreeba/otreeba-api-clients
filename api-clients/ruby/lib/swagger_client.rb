@@ -17,6 +17,7 @@ require 'swagger_client/configuration'
 
 # Models
 require 'swagger_client/models/brand'
+require 'swagger_client/models/condition'
 require 'swagger_client/models/edible'
 require 'swagger_client/models/error'
 require 'swagger_client/models/extract'
@@ -25,6 +26,8 @@ require 'swagger_client/models/inline_response_200'
 require 'swagger_client/models/inline_response_200_1'
 require 'swagger_client/models/inline_response_200_10'
 require 'swagger_client/models/inline_response_200_11'
+require 'swagger_client/models/inline_response_200_12'
+require 'swagger_client/models/inline_response_200_13'
 require 'swagger_client/models/inline_response_200_2'
 require 'swagger_client/models/inline_response_200_3'
 require 'swagger_client/models/inline_response_200_4'
@@ -39,6 +42,7 @@ require 'swagger_client/models/pagination'
 require 'swagger_client/models/product'
 require 'swagger_client/models/seed_company'
 require 'swagger_client/models/strain'
+require 'swagger_client/models/study'
 
 # APIs
 require 'swagger_client/api/brands_api'
@@ -48,6 +52,7 @@ require 'swagger_client/api/flowers_api'
 require 'swagger_client/api/products_api'
 require 'swagger_client/api/seed_companies_api'
 require 'swagger_client/api/strains_api'
+require 'swagger_client/api/studies_api'
 
 module SwaggerClient
   class << self

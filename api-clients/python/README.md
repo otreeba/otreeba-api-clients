@@ -88,11 +88,16 @@ Class | Method | HTTP request | Description
 *SeedCompaniesApi* | [**get_seed_company_strains_by_ocpc**](docs/SeedCompaniesApi.md#get_seed_company_strains_by_ocpc) | **GET** /seed-companies/{ocpc}/strains | Find strains for a seed company by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**get_strain_by_ocpc**](docs/StrainsApi.md#get_strain_by_ocpc) | **GET** /strains/{ocpc} | Find strain by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**get_strains**](docs/StrainsApi.md#get_strains) | **GET** /strains | Get a list of all current strains.
+*StudiesApi* | [**get_studies**](docs/StudiesApi.md#get_studies) | **GET** /studies | Get a list of all current studies.
+*StudiesApi* | [**get_studies_by_condition**](docs/StudiesApi.md#get_studies_by_condition) | **GET** /studies/conditions/{conditionSlug} | Get a list of all current studies for a given condition.
+*StudiesApi* | [**get_studies_conditions**](docs/StudiesApi.md#get_studies_conditions) | **GET** /studies/conditions | Get a list of all current conditions for studies.
+*StudiesApi* | [**get_study_by_identifier**](docs/StudiesApi.md#get_study_by_identifier) | **GET** /studies/{identifierType}/{identifier} | Find study by DOI, PubMed ID, or slug.
 
 
 ## Documentation For Models
 
  - [Brand](docs/Brand.md)
+ - [Condition](docs/Condition.md)
  - [Edible](docs/Edible.md)
  - [Error](docs/Error.md)
  - [Extract](docs/Extract.md)
@@ -101,6 +106,8 @@ Class | Method | HTTP request | Description
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse20010](docs/InlineResponse20010.md)
  - [InlineResponse20011](docs/InlineResponse20011.md)
+ - [InlineResponse20012](docs/InlineResponse20012.md)
+ - [InlineResponse20013](docs/InlineResponse20013.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
@@ -115,6 +122,7 @@ Class | Method | HTTP request | Description
  - [Product](docs/Product.md)
  - [SeedCompany](docs/SeedCompany.md)
  - [Strain](docs/Strain.md)
+ - [Study](docs/Study.md)
 
 
 ## Documentation For Authorization

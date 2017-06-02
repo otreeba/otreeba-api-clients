@@ -1,7 +1,7 @@
 package io.swagger.client.model {
 
 import io.swagger.common.ListWrapper;
-import io.swagger.client.model.Object;
+import io.swagger.client.model.Pagination;
 
     public class MetaList implements ListWrapper {
         // This declaration below of _Meta_obj_class is to force flash compiler to include this class

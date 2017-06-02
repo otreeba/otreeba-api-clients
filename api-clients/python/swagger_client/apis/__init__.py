@@ -8,3 +8,4 @@ from .flowers_api import FlowersApi
 from .products_api import ProductsApi
 from .seed_companies_api import SeedCompaniesApi
 from .strains_api import StrainsApi
+from .studies_api import StudiesApi

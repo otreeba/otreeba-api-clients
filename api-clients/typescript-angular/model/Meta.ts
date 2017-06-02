@@ -13,9 +13,6 @@
 import * as models from './models';
 
 export interface Meta {
-    /**
-     * Information about the pagination of the data.
-     */
-    "pagination"?: any;
+    "pagination"?: models.Pagination;
 }
 

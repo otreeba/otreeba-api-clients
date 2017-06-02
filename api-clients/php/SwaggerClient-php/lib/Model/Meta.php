@@ -54,7 +54,7 @@ class Meta implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'pagination' => 'object'
+        'pagination' => '\Swagger\Client\Model\Pagination'
     ];
 
     public static function swaggerTypes()
@@ -149,7 +149,7 @@ class Meta implements ArrayAccess
 
     /**
      * Gets pagination
-     * @return object
+     * @return \Swagger\Client\Model\Pagination
      */
     public function getPagination()
     {
@@ -158,7 +158,7 @@ class Meta implements ArrayAccess
 
     /**
      * Sets pagination
-     * @param object $pagination Information about the pagination of the data.
+     * @param \Swagger\Client\Model\Pagination $pagination
      * @return $this
      */
     public function setPagination($pagination)

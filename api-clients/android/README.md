@@ -102,11 +102,16 @@ Class | Method | HTTP request | Description
 *SeedCompaniesApi* | [**getSeedCompanyStrainsByOcpc**](docs/SeedCompaniesApi.md#getSeedCompanyStrainsByOcpc) | **GET** /seed-companies/{ocpc}/strains | Find strains for a seed company by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**getStrainByOcpc**](docs/StrainsApi.md#getStrainByOcpc) | **GET** /strains/{ocpc} | Find strain by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**getStrains**](docs/StrainsApi.md#getStrains) | **GET** /strains | Get a list of all current strains.
+*StudiesApi* | [**getStudies**](docs/StudiesApi.md#getStudies) | **GET** /studies | Get a list of all current studies.
+*StudiesApi* | [**getStudiesByCondition**](docs/StudiesApi.md#getStudiesByCondition) | **GET** /studies/conditions/{conditionSlug} | Get a list of all current studies for a given condition.
+*StudiesApi* | [**getStudiesConditions**](docs/StudiesApi.md#getStudiesConditions) | **GET** /studies/conditions | Get a list of all current conditions for studies.
+*StudiesApi* | [**getStudyByIdentifier**](docs/StudiesApi.md#getStudyByIdentifier) | **GET** /studies/{identifierType}/{identifier} | Find study by DOI, PubMed ID, or slug.
 
 
 ## Documentation for Models
 
  - [Brand](docs/Brand.md)
+ - [Condition](docs/Condition.md)
  - [Edible](docs/Edible.md)
  - [Error](docs/Error.md)
  - [Extract](docs/Extract.md)
@@ -115,6 +120,8 @@ Class | Method | HTTP request | Description
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse20010](docs/InlineResponse20010.md)
  - [InlineResponse20011](docs/InlineResponse20011.md)
+ - [InlineResponse20012](docs/InlineResponse20012.md)
+ - [InlineResponse20013](docs/InlineResponse20013.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
@@ -129,6 +136,7 @@ Class | Method | HTTP request | Description
  - [Product](docs/Product.md)
  - [SeedCompany](docs/SeedCompany.md)
  - [Strain](docs/Strain.md)
+ - [Study](docs/Study.md)
 
 
 ## Documentation for Authorization

@@ -23,7 +23,7 @@ import io.swagger.client.model.Pagination;
  * Gets the Strains for a Seed Company listing from a given OCPC.
  */
 @ApiModel(description = "Gets the Strains for a Seed Company listing from a given OCPC.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-27T16:43:57.839Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T19:53:28.884Z")
 public class InlineResponse200Meta {
   @SerializedName("pagination")
   private Pagination pagination = null;

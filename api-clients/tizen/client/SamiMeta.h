@@ -17,7 +17,7 @@
 using namespace Tizen::Web::Json;
 
 
-#include "SamiObject.h"
+#include "SamiPagination.h"
 
 
 namespace Swagger {
@@ -40,11 +40,11 @@ public:
 
     SamiMeta* fromJson(String* obj);
 
-    SamiObject* getPPagination();
-    void setPPagination(SamiObject* pPagination);
+    SamiPagination* getPPagination();
+    void setPPagination(SamiPagination* pPagination);
 
 private:
-    SamiObject* pPagination;
+    SamiPagination* pPagination;
 };
 
 } /* namespace Swagger */

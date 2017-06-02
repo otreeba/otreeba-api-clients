@@ -74,8 +74,8 @@ SamiMeta::fromJsonObject(IJsonValue* pJson) {
         pJsonObject->GetValue(pPaginationKey, pPaginationVal);
         if(pPaginationVal != null) {
             
-            pPagination = null;
-            jsonToValue(pPagination, pPaginationVal, L"SamiObject", L"SamiObject");
+            pPagination = new SamiPagination();
+            jsonToValue(pPagination, pPaginationVal, L"SamiPagination", L"SamiPagination");
         }
         delete pPaginationKey;
     }
@@ -129,17 +129,17 @@ SamiMeta::asJsonObject() {
     pJsonObject->Construct();
 
     JsonString *pPaginationKey = new JsonString(L"pagination");
-    pJsonObject->Add(pPaginationKey, toJson(getPPagination(), "SamiObject", ""));
+    pJsonObject->Add(pPaginationKey, toJson(getPPagination(), "SamiPagination", ""));
 
     return pJsonObject;
 }
 
-SamiObject*
+SamiPagination*
 SamiMeta::getPPagination() {
     return pPagination;
 }
 void
-SamiMeta::setPPagination(SamiObject* pPagination) {
+SamiMeta::setPPagination(SamiPagination* pPagination) {
     this->pPagination = pPagination;
 }
 

@@ -12,4 +12,6 @@ export * from './SeedCompaniesApi';
 import { SeedCompaniesApi }  from './SeedCompaniesApi';
 export * from './StrainsApi';
 import { StrainsApi }  from './StrainsApi';
-export const APIS = [ BrandsApi, EdiblesApi, ExtractsApi, FlowersApi, ProductsApi, SeedCompaniesApi, StrainsApi, ];
+export * from './StudiesApi';
+import { StudiesApi }  from './StudiesApi';
+export const APIS = [ BrandsApi, EdiblesApi, ExtractsApi, FlowersApi, ProductsApi, SeedCompaniesApi, StrainsApi, StudiesApi, ];

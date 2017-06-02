@@ -12,6 +12,5 @@ package swagger
 
 type Meta struct {
 
-	// Information about the pagination of the data.
-	Pagination interface{} `json:"pagination,omitempty"`
+	Pagination Pagination `json:"pagination,omitempty"`
 }

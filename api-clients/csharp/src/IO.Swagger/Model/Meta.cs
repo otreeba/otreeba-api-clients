@@ -32,18 +32,17 @@ namespace IO.Swagger.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Meta" /> class.
         /// </summary>
-        /// <param name="Pagination">Information about the pagination of the data..</param>
-        public Meta(Object Pagination = default(Object))
+        /// <param name="Pagination">Pagination.</param>
+        public Meta(Pagination Pagination = default(Pagination))
         {
             this.Pagination = Pagination;
         }
         
         /// <summary>
-        /// Information about the pagination of the data.
+        /// Gets or Sets Pagination
         /// </summary>
-        /// <value>Information about the pagination of the data.</value>
         [DataMember(Name="pagination", EmitDefaultValue=false)]
-        public Object Pagination { get; set; }
+        public Pagination Pagination { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

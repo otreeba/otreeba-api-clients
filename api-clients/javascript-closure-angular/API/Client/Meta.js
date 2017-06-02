@@ -6,8 +6,7 @@ goog.provide('API.Client.Meta');
 API.Client.Meta = function() {}
 
 /**
- * Information about the pagination of the data.
- * @type {!API.Client.Object}
+ * @type {!API.Client.Pagination}
  * @export
  */
 API.Client.Meta.prototype.pagination;

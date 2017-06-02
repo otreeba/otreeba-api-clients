@@ -93,11 +93,16 @@ Class | Method | HTTP request | Description
 *OtreebaOpenCannabisApi.SeedCompaniesApi* | [**getSeedCompanyStrainsByOcpc**](docs/SeedCompaniesApi.md#getSeedCompanyStrainsByOcpc) | **GET** /seed-companies/{ocpc}/strains | Find strains for a seed company by Open Cannabis Product Code (OCPC).
 *OtreebaOpenCannabisApi.StrainsApi* | [**getStrainByOcpc**](docs/StrainsApi.md#getStrainByOcpc) | **GET** /strains/{ocpc} | Find strain by Open Cannabis Product Code (OCPC).
 *OtreebaOpenCannabisApi.StrainsApi* | [**getStrains**](docs/StrainsApi.md#getStrains) | **GET** /strains | Get a list of all current strains.
+*OtreebaOpenCannabisApi.StudiesApi* | [**getStudies**](docs/StudiesApi.md#getStudies) | **GET** /studies | Get a list of all current studies.
+*OtreebaOpenCannabisApi.StudiesApi* | [**getStudiesByCondition**](docs/StudiesApi.md#getStudiesByCondition) | **GET** /studies/conditions/{conditionSlug} | Get a list of all current studies for a given condition.
+*OtreebaOpenCannabisApi.StudiesApi* | [**getStudiesConditions**](docs/StudiesApi.md#getStudiesConditions) | **GET** /studies/conditions | Get a list of all current conditions for studies.
+*OtreebaOpenCannabisApi.StudiesApi* | [**getStudyByIdentifier**](docs/StudiesApi.md#getStudyByIdentifier) | **GET** /studies/{identifierType}/{identifier} | Find study by DOI, PubMed ID, or slug.
 
 
 ## Documentation for Models
 
  - [OtreebaOpenCannabisApi.Brand](docs/Brand.md)
+ - [OtreebaOpenCannabisApi.Condition](docs/Condition.md)
  - [OtreebaOpenCannabisApi.Edible](docs/Edible.md)
  - [OtreebaOpenCannabisApi.Error](docs/Error.md)
  - [OtreebaOpenCannabisApi.Extract](docs/Extract.md)
@@ -106,6 +111,8 @@ Class | Method | HTTP request | Description
  - [OtreebaOpenCannabisApi.InlineResponse2001](docs/InlineResponse2001.md)
  - [OtreebaOpenCannabisApi.InlineResponse20010](docs/InlineResponse20010.md)
  - [OtreebaOpenCannabisApi.InlineResponse20011](docs/InlineResponse20011.md)
+ - [OtreebaOpenCannabisApi.InlineResponse20012](docs/InlineResponse20012.md)
+ - [OtreebaOpenCannabisApi.InlineResponse20013](docs/InlineResponse20013.md)
  - [OtreebaOpenCannabisApi.InlineResponse2002](docs/InlineResponse2002.md)
  - [OtreebaOpenCannabisApi.InlineResponse2003](docs/InlineResponse2003.md)
  - [OtreebaOpenCannabisApi.InlineResponse2004](docs/InlineResponse2004.md)
@@ -120,6 +127,7 @@ Class | Method | HTTP request | Description
  - [OtreebaOpenCannabisApi.Product](docs/Product.md)
  - [OtreebaOpenCannabisApi.SeedCompany](docs/SeedCompany.md)
  - [OtreebaOpenCannabisApi.Strain](docs/Strain.md)
+ - [OtreebaOpenCannabisApi.Study](docs/Study.md)
 
 
 ## Documentation for Authorization

@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-05-27T16:43:46.457Z
+# ! Generated on: 2017-06-02T19:53:17.447Z
 # !
 # !
 # ! Installation:
@@ -309,7 +309,10 @@ case $state in
             "getProducts[Get a list of all current products.]"             "getSeedCompanies[Get a list of all current seed companies.]" \
             "getSeedCompanyByOcpc[Find seed company by Open Cannabis Product Code (OCPC).]" \
             "getSeedCompanyStrainsByOcpc[Find strains for a seed company by Open Cannabis Product Code (OCPC).]"             "getStrainByOcpc[Find strain by Open Cannabis Product Code (OCPC).]" \
-            "getStrains[Get a list of all current strains.]" 
+            "getStrains[Get a list of all current strains.]"             "getStudies[Get a list of all current studies.]" \
+            "getStudiesByCondition[Get a list of all current studies for a given condition.]" \
+            "getStudiesConditions[Get a list of all current conditions for studies.]" \
+            "getStudyByIdentifier[Find study by DOI, PubMed ID, or slug.]" 
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
@@ -475,6 +478,40 @@ case $state in
 "count=:[QUERY] The number of items to return. Default 10. Max 50."
 "sort=:[QUERY] How to sort the items."
           )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getStudies)
+        local -a _op_arguments
+        _op_arguments=(
+                    "page=:[QUERY] Page to be returned."
+"count=:[QUERY] The number of items to return. Default 10. Max 50."
+"sort=:[QUERY] How to sort the items."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getStudiesByCondition)
+        local -a _op_arguments
+        _op_arguments=(
+          "conditionSlug=:[PATH] Slug of the condition to return studies for."
+          "page=:[QUERY] Page to be returned."
+"count=:[QUERY] The number of items to return. Default 10. Max 50."
+"sort=:[QUERY] How to sort the items."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getStudiesConditions)
+        local -a _op_arguments
+        _op_arguments=(
+                    "sort=:[QUERY] How to sort the items."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getStudyByIdentifier)
+        local -a _op_arguments
+        _op_arguments=(
+          "identifierType=:[PATH] Type of identifier to for the study to return."
+"identifier=:[PATH] Identifier for the study to return."
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
     esac

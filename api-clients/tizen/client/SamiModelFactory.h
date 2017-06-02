@@ -4,6 +4,7 @@
 #include "SamiObject.h"
 
 #include "SamiBrand.h"
+#include "SamiCondition.h"
 #include "SamiEdible.h"
 #include "SamiError.h"
 #include "SamiExtract.h"
@@ -12,6 +13,8 @@
 #include "SamiInline_response_200_1.h"
 #include "SamiInline_response_200_10.h"
 #include "SamiInline_response_200_11.h"
+#include "SamiInline_response_200_12.h"
+#include "SamiInline_response_200_13.h"
 #include "SamiInline_response_200_2.h"
 #include "SamiInline_response_200_3.h"
 #include "SamiInline_response_200_4.h"
@@ -26,12 +29,16 @@
 #include "SamiProduct.h"
 #include "SamiSeedCompany.h"
 #include "SamiStrain.h"
+#include "SamiStudy.h"
 
 namespace Swagger {
   void*
   create(String type) {
     if(type.Equals(L"SamiBrand", true)) {
       return new SamiBrand();
+    }
+    if(type.Equals(L"SamiCondition", true)) {
+      return new SamiCondition();
     }
     if(type.Equals(L"SamiEdible", true)) {
       return new SamiEdible();
@@ -56,6 +63,12 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiInline_response_200_11", true)) {
       return new SamiInline_response_200_11();
+    }
+    if(type.Equals(L"SamiInline_response_200_12", true)) {
+      return new SamiInline_response_200_12();
+    }
+    if(type.Equals(L"SamiInline_response_200_13", true)) {
+      return new SamiInline_response_200_13();
     }
     if(type.Equals(L"SamiInline_response_200_2", true)) {
       return new SamiInline_response_200_2();
@@ -98,6 +111,9 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiStrain", true)) {
       return new SamiStrain();
+    }
+    if(type.Equals(L"SamiStudy", true)) {
+      return new SamiStudy();
     }
     
     if(type.Equals(L"String", true)) {

@@ -13,12 +13,11 @@ namespace IO.Swagger.Model {
   [DataContract]
   public class Meta {
     /// <summary>
-    /// Information about the pagination of the data.
+    /// Gets or Sets Pagination
     /// </summary>
-    /// <value>Information about the pagination of the data.</value>
     [DataMember(Name="pagination", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "pagination")]
-    public Object Pagination { get; set; }
+    public Pagination Pagination { get; set; }
 
 
     /// <summary>

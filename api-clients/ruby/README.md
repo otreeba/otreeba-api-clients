@@ -94,11 +94,16 @@ Class | Method | HTTP request | Description
 *SwaggerClient::SeedCompaniesApi* | [**get_seed_company_strains_by_ocpc**](docs/SeedCompaniesApi.md#get_seed_company_strains_by_ocpc) | **GET** /seed-companies/{ocpc}/strains | Find strains for a seed company by Open Cannabis Product Code (OCPC).
 *SwaggerClient::StrainsApi* | [**get_strain_by_ocpc**](docs/StrainsApi.md#get_strain_by_ocpc) | **GET** /strains/{ocpc} | Find strain by Open Cannabis Product Code (OCPC).
 *SwaggerClient::StrainsApi* | [**get_strains**](docs/StrainsApi.md#get_strains) | **GET** /strains | Get a list of all current strains.
+*SwaggerClient::StudiesApi* | [**get_studies**](docs/StudiesApi.md#get_studies) | **GET** /studies | Get a list of all current studies.
+*SwaggerClient::StudiesApi* | [**get_studies_by_condition**](docs/StudiesApi.md#get_studies_by_condition) | **GET** /studies/conditions/{conditionSlug} | Get a list of all current studies for a given condition.
+*SwaggerClient::StudiesApi* | [**get_studies_conditions**](docs/StudiesApi.md#get_studies_conditions) | **GET** /studies/conditions | Get a list of all current conditions for studies.
+*SwaggerClient::StudiesApi* | [**get_study_by_identifier**](docs/StudiesApi.md#get_study_by_identifier) | **GET** /studies/{identifierType}/{identifier} | Find study by DOI, PubMed ID, or slug.
 
 
 ## Documentation for Models
 
  - [SwaggerClient::Brand](docs/Brand.md)
+ - [SwaggerClient::Condition](docs/Condition.md)
  - [SwaggerClient::Edible](docs/Edible.md)
  - [SwaggerClient::Error](docs/Error.md)
  - [SwaggerClient::Extract](docs/Extract.md)
@@ -107,6 +112,8 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::InlineResponse2001](docs/InlineResponse2001.md)
  - [SwaggerClient::InlineResponse20010](docs/InlineResponse20010.md)
  - [SwaggerClient::InlineResponse20011](docs/InlineResponse20011.md)
+ - [SwaggerClient::InlineResponse20012](docs/InlineResponse20012.md)
+ - [SwaggerClient::InlineResponse20013](docs/InlineResponse20013.md)
  - [SwaggerClient::InlineResponse2002](docs/InlineResponse2002.md)
  - [SwaggerClient::InlineResponse2003](docs/InlineResponse2003.md)
  - [SwaggerClient::InlineResponse2004](docs/InlineResponse2004.md)
@@ -121,6 +128,7 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::Product](docs/Product.md)
  - [SwaggerClient::SeedCompany](docs/SeedCompany.md)
  - [SwaggerClient::Strain](docs/Strain.md)
+ - [SwaggerClient::Study](docs/Study.md)
 
 
 ## Documentation for Authorization

@@ -73,6 +73,29 @@ export class Brand {
     'updatedAt': Date;
 }
 
+export class Condition {
+    /**
+    * Name of the condition.
+    */
+    'name': string;
+    /**
+    * Slug based on the condition name.
+    */
+    'slug': string;
+    /**
+    * Description of the condition.
+    */
+    'description': string;
+    /**
+    * Date and time record was created, UTC.
+    */
+    'createdAt': Date;
+    /**
+    * Date and time record was updated, UTC.
+    */
+    'updatedAt': Date;
+}
+
 export class Edible {
     /**
     * Name of the edible.
@@ -283,6 +306,20 @@ export class InlineResponse20011 {
     'meta': Meta;
 }
 
+export class InlineResponse20012 {
+    /**
+    * Gets the current list of Studies.
+    */
+    'meta': Meta;
+}
+
+export class InlineResponse20013 {
+    /**
+    * Gets the current list of Studies for a given Condition.
+    */
+    'meta': Meta;
+}
+
 export class InlineResponse2002 {
     /**
     * Gets the current list of Edibles.
@@ -350,10 +387,7 @@ export class InlineResponse200Meta {
 }
 
 export class Meta {
-    /**
-    * Information about the pagination of the data.
-    */
-    'pagination': any;
+    'pagination': Pagination;
 }
 
 export class ModelError {
@@ -531,6 +565,42 @@ export class Strain {
     * Open Cannabis Product Codes of the children of this strain.
     */
     'children': Array<string>;
+    /**
+    * Date and time record was created, UTC.
+    */
+    'createdAt': Date;
+    /**
+    * Date and time record was updated, UTC.
+    */
+    'updatedAt': Date;
+}
+
+export class Study {
+    /**
+    * Name of the study.
+    */
+    'name': string;
+    /**
+    * Year of the study.
+    */
+    'year': number;
+    /**
+    * Digital Object Identifier for the study.
+    */
+    'doi': string;
+    /**
+    * PubMed ID for the study.
+    */
+    'pubMedId': string;
+    /**
+    * Slug based on the study name.
+    */
+    'slug': string;
+    /**
+    * Key findings for the study.
+    */
+    'keyFindings': string;
+    'conditions': Array<Condition>;
     /**
     * Date and time record was created, UTC.
     */
@@ -1923,6 +1993,275 @@ export class StrainsApi {
             }
         }
         return new Promise<{ response: http.ClientResponse; body: InlineResponse20011;  }>((resolve, reject) => {
+            request(requestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    if (response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+}
+export enum StudiesApiApiKeys {
+}
+
+export class StudiesApi {
+    protected basePath = defaultBasePath;
+    protected defaultHeaders : any = {};
+    protected _useQuerystring : boolean = false;
+
+    protected authentications = {
+        'default': <Authentication>new VoidAuth(),
+    }
+
+    constructor(basePath?: string);
+    constructor(basePathOrUsername: string, password?: string, basePath?: string) {
+        if (password) {
+            if (basePath) {
+                this.basePath = basePath;
+            }
+        } else {
+            if (basePathOrUsername) {
+                this.basePath = basePathOrUsername
+            }
+        }
+    }
+
+    set useQuerystring(value: boolean) {
+        this._useQuerystring = value;
+    }
+
+    public setApiKey(key: StudiesApiApiKeys, value: string) {
+        this.authentications[StudiesApiApiKeys[key]].apiKey = value;
+    }
+    /**
+     * Get a list of all current studies.
+     * Returns a paginated list of studies.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    public getStudies (page?: number, count?: number, sort?: string) : Promise<{ response: http.ClientResponse; body: InlineResponse20012;  }> {
+        const localVarPath = this.basePath + '/studies';
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let formParams: any = {};
+
+
+        if (page !== undefined) {
+            queryParameters['page'] = page;
+        }
+
+        if (count !== undefined) {
+            queryParameters['count'] = count;
+        }
+
+        if (sort !== undefined) {
+            queryParameters['sort'] = sort;
+        }
+
+        let useFormData = false;
+
+        let requestOptions: request.Options = {
+            method: 'GET',
+            qs: queryParameters,
+            headers: headerParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(requestOptions);
+
+        if (Object.keys(formParams).length) {
+            if (useFormData) {
+                (<any>requestOptions).formData = formParams;
+            } else {
+                requestOptions.form = formParams;
+            }
+        }
+        return new Promise<{ response: http.ClientResponse; body: InlineResponse20012;  }>((resolve, reject) => {
+            request(requestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    if (response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Get a list of all current studies for a given condition.
+     * Returns a paginated list of studies.
+     * @param conditionSlug Slug of the condition to return studies for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    public getStudiesByCondition (conditionSlug: string, page?: number, count?: number, sort?: string) : Promise<{ response: http.ClientResponse; body: InlineResponse20013;  }> {
+        const localVarPath = this.basePath + '/studies/conditions/{conditionSlug}'
+            .replace('{' + 'conditionSlug' + '}', String(conditionSlug));
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let formParams: any = {};
+
+
+        // verify required parameter 'conditionSlug' is not null or undefined
+        if (conditionSlug === null || conditionSlug === undefined) {
+            throw new Error('Required parameter conditionSlug was null or undefined when calling getStudiesByCondition.');
+        }
+
+        if (page !== undefined) {
+            queryParameters['page'] = page;
+        }
+
+        if (count !== undefined) {
+            queryParameters['count'] = count;
+        }
+
+        if (sort !== undefined) {
+            queryParameters['sort'] = sort;
+        }
+
+        let useFormData = false;
+
+        let requestOptions: request.Options = {
+            method: 'GET',
+            qs: queryParameters,
+            headers: headerParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(requestOptions);
+
+        if (Object.keys(formParams).length) {
+            if (useFormData) {
+                (<any>requestOptions).formData = formParams;
+            } else {
+                requestOptions.form = formParams;
+            }
+        }
+        return new Promise<{ response: http.ClientResponse; body: InlineResponse20013;  }>((resolve, reject) => {
+            request(requestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    if (response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Get a list of all current conditions for studies.
+     * Returns a list of all current conditions for studies.
+     * @param sort How to sort the items.
+     */
+    public getStudiesConditions (sort?: string) : Promise<{ response: http.ClientResponse; body: any;  }> {
+        const localVarPath = this.basePath + '/studies/conditions';
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let formParams: any = {};
+
+
+        if (sort !== undefined) {
+            queryParameters['sort'] = sort;
+        }
+
+        let useFormData = false;
+
+        let requestOptions: request.Options = {
+            method: 'GET',
+            qs: queryParameters,
+            headers: headerParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(requestOptions);
+
+        if (Object.keys(formParams).length) {
+            if (useFormData) {
+                (<any>requestOptions).formData = formParams;
+            } else {
+                requestOptions.form = formParams;
+            }
+        }
+        return new Promise<{ response: http.ClientResponse; body: any;  }>((resolve, reject) => {
+            request(requestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    if (response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Find study by DOI, PubMed ID, or slug.
+     * Returns a single study.
+     * @param identifierType Type of identifier to for the study to return.
+     * @param identifier Identifier for the study to return.
+     */
+    public getStudyByIdentifier (identifierType: string, identifier: string) : Promise<{ response: http.ClientResponse; body: Study;  }> {
+        const localVarPath = this.basePath + '/studies/{identifierType}/{identifier}'
+            .replace('{' + 'identifierType' + '}', String(identifierType))
+            .replace('{' + 'identifier' + '}', String(identifier));
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let formParams: any = {};
+
+
+        // verify required parameter 'identifierType' is not null or undefined
+        if (identifierType === null || identifierType === undefined) {
+            throw new Error('Required parameter identifierType was null or undefined when calling getStudyByIdentifier.');
+        }
+
+        // verify required parameter 'identifier' is not null or undefined
+        if (identifier === null || identifier === undefined) {
+            throw new Error('Required parameter identifier was null or undefined when calling getStudyByIdentifier.');
+        }
+
+        let useFormData = false;
+
+        let requestOptions: request.Options = {
+            method: 'GET',
+            qs: queryParameters,
+            headers: headerParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(requestOptions);
+
+        if (Object.keys(formParams).length) {
+            if (useFormData) {
+                (<any>requestOptions).formData = formParams;
+            } else {
+                requestOptions.form = formParams;
+            }
+        }
+        return new Promise<{ response: http.ClientResponse; body: Study;  }>((resolve, reject) => {
             request(requestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);

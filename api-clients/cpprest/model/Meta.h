@@ -22,7 +22,7 @@
 
 #include "ModelBase.h"
 
-#include "Object.h"
+#include "Pagination.h"
 
 namespace io {
 namespace swagger {
@@ -54,15 +54,15 @@ public:
     /// Meta members
 
     /// <summary>
-    /// Information about the pagination of the data.
+    /// 
     /// </summary>
-    std::shared_ptr<Object> getPagination() const;
-    void setPagination(std::shared_ptr<Object> value);
+    std::shared_ptr<Pagination> getPagination() const;
+    void setPagination(std::shared_ptr<Pagination> value);
     bool paginationIsSet() const;
     void unsetPagination();
 
 protected:
-    std::shared_ptr<Object> m_Pagination;
+    std::shared_ptr<Pagination> m_Pagination;
     bool m_PaginationIsSet;
 };
 

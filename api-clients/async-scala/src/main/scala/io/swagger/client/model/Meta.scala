@@ -5,5 +5,5 @@ import java.util.UUID
 
 
 case class Meta (
-  pagination: Option[Any]  // Information about the pagination of the data.
+  pagination: Option[Pagination]
 )

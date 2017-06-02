@@ -38,7 +38,7 @@ SWGMeta::~SWGMeta() {
 
 void
 SWGMeta::init() {
-    pagination = NULL;
+    pagination = new SWGPagination();
 }
 
 void
@@ -60,7 +60,7 @@ SWGMeta::fromJson(QString &json) {
 
 void
 SWGMeta::fromJsonObject(QJsonObject &pJson) {
-    ::Swagger::setValue(&pagination, pJson["pagination"], "SWGObject", "SWGObject");
+    ::Swagger::setValue(&pagination, pJson["pagination"], "SWGPagination", "SWGPagination");
 }
 
 QString
@@ -77,17 +77,17 @@ QJsonObject*
 SWGMeta::asJsonObject() {
     QJsonObject* obj = new QJsonObject();
     
-    toJsonValue(QString("pagination"), pagination, obj, QString("SWGObject"));
+    toJsonValue(QString("pagination"), pagination, obj, QString("SWGPagination"));
 
     return obj;
 }
 
-SWGObject*
+SWGPagination*
 SWGMeta::getPagination() {
     return pagination;
 }
 void
-SWGMeta::setPagination(SWGObject* pagination) {
+SWGMeta::setPagination(SWGPagination* pagination) {
     this->pagination = pagination;
 }
 

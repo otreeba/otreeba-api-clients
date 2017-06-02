@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-05-27T16:43:46.457Z
+# ! Generated on: 2017-06-02T19:53:17.447Z
 # !
 # !
 # ! System wide installation:
@@ -88,6 +88,10 @@ _()
     operations["getSeedCompanyStrainsByOcpc"]=1
     operations["getStrainByOcpc"]=1
     operations["getStrains"]=1
+    operations["getStudies"]=1
+    operations["getStudiesByCondition"]=1
+    operations["getStudiesConditions"]=1
+    operations["getStudyByIdentifier"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
@@ -111,9 +115,15 @@ _()
     operation_parameters["getSeedCompanyStrainsByOcpc"]="ocpc= page= count= "
     operation_parameters["getStrainByOcpc"]="ocpc= "
     operation_parameters["getStrains"]="page= count= sort= "
+    operation_parameters["getStudies"]="page= count= sort= "
+    operation_parameters["getStudiesByCondition"]="conditionSlug= page= count= sort= "
+    operation_parameters["getStudiesConditions"]="sort= "
+    operation_parameters["getStudyByIdentifier"]="identifierType= identifier= "
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values
+    operation_parameters_enum_values["getStudyByIdentifier::identifierType"]=""
+    operation_parameters_enum_values["getStudyByIdentifier::identifierType"]=""
 
     #
     # Check if this is OSX and use special __osx_init_completion function

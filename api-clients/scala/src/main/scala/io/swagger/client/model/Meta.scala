@@ -14,6 +14,5 @@ package io.swagger.client.model
 
 
 case class Meta (
-  /* Information about the pagination of the data. */
-  pagination: Any
+  pagination: Pagination
 )

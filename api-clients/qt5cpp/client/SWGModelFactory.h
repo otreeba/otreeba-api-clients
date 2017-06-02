@@ -15,6 +15,7 @@
 
 
 #include "SWGBrand.h"
+#include "SWGCondition.h"
 #include "SWGEdible.h"
 #include "SWGError.h"
 #include "SWGExtract.h"
@@ -23,6 +24,8 @@
 #include "SWGInline_response_200_1.h"
 #include "SWGInline_response_200_10.h"
 #include "SWGInline_response_200_11.h"
+#include "SWGInline_response_200_12.h"
+#include "SWGInline_response_200_13.h"
 #include "SWGInline_response_200_2.h"
 #include "SWGInline_response_200_3.h"
 #include "SWGInline_response_200_4.h"
@@ -37,11 +40,15 @@
 #include "SWGProduct.h"
 #include "SWGSeedCompany.h"
 #include "SWGStrain.h"
+#include "SWGStudy.h"
 
 namespace Swagger {
   inline void* create(QString type) {
     if(QString("SWGBrand").compare(type) == 0) {
       return new SWGBrand();
+    }
+    if(QString("SWGCondition").compare(type) == 0) {
+      return new SWGCondition();
     }
     if(QString("SWGEdible").compare(type) == 0) {
       return new SWGEdible();
@@ -66,6 +73,12 @@ namespace Swagger {
     }
     if(QString("SWGInline_response_200_11").compare(type) == 0) {
       return new SWGInline_response_200_11();
+    }
+    if(QString("SWGInline_response_200_12").compare(type) == 0) {
+      return new SWGInline_response_200_12();
+    }
+    if(QString("SWGInline_response_200_13").compare(type) == 0) {
+      return new SWGInline_response_200_13();
     }
     if(QString("SWGInline_response_200_2").compare(type) == 0) {
       return new SWGInline_response_200_2();
@@ -108,6 +121,9 @@ namespace Swagger {
     }
     if(QString("SWGStrain").compare(type) == 0) {
       return new SWGStrain();
+    }
+    if(QString("SWGStudy").compare(type) == 0) {
+      return new SWGStudy();
     }
     
     return nullptr;

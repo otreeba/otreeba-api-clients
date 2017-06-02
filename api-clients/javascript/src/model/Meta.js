@@ -14,18 +14,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Pagination'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Pagination'));
   } else {
     // Browser globals (root is window)
     if (!root.OtreebaOpenCannabisApi) {
       root.OtreebaOpenCannabisApi = {};
     }
-    root.OtreebaOpenCannabisApi.Meta = factory(root.OtreebaOpenCannabisApi.ApiClient);
+    root.OtreebaOpenCannabisApi.Meta = factory(root.OtreebaOpenCannabisApi.ApiClient, root.OtreebaOpenCannabisApi.Pagination);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Pagination) {
   'use strict';
 
 
@@ -60,15 +60,14 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('pagination')) {
-        obj['pagination'] = ApiClient.convertToType(data['pagination'], Object);
+        obj['pagination'] = Pagination.constructFromObject(data['pagination']);
       }
     }
     return obj;
   }
 
   /**
-   * Information about the pagination of the data.
-   * @member {Object} pagination
+   * @member {module:model/Pagination} pagination
    */
   exports.prototype['pagination'] = undefined;
 

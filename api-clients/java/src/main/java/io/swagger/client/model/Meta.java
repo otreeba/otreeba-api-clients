@@ -17,30 +17,31 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.Pagination;
 
 /**
  * Meta
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-27T16:43:57.839Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T19:53:28.884Z")
 public class Meta {
   @SerializedName("pagination")
-  private Object pagination = null;
+  private Pagination pagination = null;
 
-  public Meta pagination(Object pagination) {
+  public Meta pagination(Pagination pagination) {
     this.pagination = pagination;
     return this;
   }
 
    /**
-   * Information about the pagination of the data.
+   * Get pagination
    * @return pagination
   **/
-  @ApiModelProperty(example = "{&quot;total&quot;:592,&quot;count&quot;:10,&quot;per_page&quot;:10,&quot;current_page&quot;:1,&quot;total_pages&quot;:60,&quot;links&quot;:{&quot;next&quot;:&quot;https://api.otreeba.com/v1/seed-companies?sort&#x3D;-createdAt&amp;count&#x3D;10&amp;page&#x3D;2&quot;}}", value = "Information about the pagination of the data.")
-  public Object getPagination() {
+  @ApiModelProperty(example = "null", value = "")
+  public Pagination getPagination() {
     return pagination;
   }
 
-  public void setPagination(Object pagination) {
+  public void setPagination(Pagination pagination) {
     this.pagination = pagination;
   }
 

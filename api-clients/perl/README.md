@@ -229,12 +229,14 @@ use WWW::SwaggerClient::FlowersApi;
 use WWW::SwaggerClient::ProductsApi;
 use WWW::SwaggerClient::SeedCompaniesApi;
 use WWW::SwaggerClient::StrainsApi;
+use WWW::SwaggerClient::StudiesApi;
 
 ```
 
 To load the models:
 ```perl
 use WWW::SwaggerClient::Object::Brand;
+use WWW::SwaggerClient::Object::Condition;
 use WWW::SwaggerClient::Object::Edible;
 use WWW::SwaggerClient::Object::Error;
 use WWW::SwaggerClient::Object::Extract;
@@ -243,6 +245,8 @@ use WWW::SwaggerClient::Object::InlineResponse200;
 use WWW::SwaggerClient::Object::InlineResponse2001;
 use WWW::SwaggerClient::Object::InlineResponse20010;
 use WWW::SwaggerClient::Object::InlineResponse20011;
+use WWW::SwaggerClient::Object::InlineResponse20012;
+use WWW::SwaggerClient::Object::InlineResponse20013;
 use WWW::SwaggerClient::Object::InlineResponse2002;
 use WWW::SwaggerClient::Object::InlineResponse2003;
 use WWW::SwaggerClient::Object::InlineResponse2004;
@@ -257,6 +261,7 @@ use WWW::SwaggerClient::Object::Pagination;
 use WWW::SwaggerClient::Object::Product;
 use WWW::SwaggerClient::Object::SeedCompany;
 use WWW::SwaggerClient::Object::Strain;
+use WWW::SwaggerClient::Object::Study;
 
 ````
 
@@ -275,9 +280,11 @@ use WWW::SwaggerClient::FlowersApi;
 use WWW::SwaggerClient::ProductsApi;
 use WWW::SwaggerClient::SeedCompaniesApi;
 use WWW::SwaggerClient::StrainsApi;
+use WWW::SwaggerClient::StudiesApi;
 
 # load the models
 use WWW::SwaggerClient::Object::Brand;
+use WWW::SwaggerClient::Object::Condition;
 use WWW::SwaggerClient::Object::Edible;
 use WWW::SwaggerClient::Object::Error;
 use WWW::SwaggerClient::Object::Extract;
@@ -286,6 +293,8 @@ use WWW::SwaggerClient::Object::InlineResponse200;
 use WWW::SwaggerClient::Object::InlineResponse2001;
 use WWW::SwaggerClient::Object::InlineResponse20010;
 use WWW::SwaggerClient::Object::InlineResponse20011;
+use WWW::SwaggerClient::Object::InlineResponse20012;
+use WWW::SwaggerClient::Object::InlineResponse20013;
 use WWW::SwaggerClient::Object::InlineResponse2002;
 use WWW::SwaggerClient::Object::InlineResponse2003;
 use WWW::SwaggerClient::Object::InlineResponse2004;
@@ -300,6 +309,7 @@ use WWW::SwaggerClient::Object::Pagination;
 use WWW::SwaggerClient::Object::Product;
 use WWW::SwaggerClient::Object::SeedCompany;
 use WWW::SwaggerClient::Object::Strain;
+use WWW::SwaggerClient::Object::Study;
 
 # for displaying the API response data
 use Data::Dumper;
@@ -344,10 +354,15 @@ Class | Method | HTTP request | Description
 *SeedCompaniesApi* | [**get_seed_company_strains_by_ocpc**](docs/SeedCompaniesApi.md#get_seed_company_strains_by_ocpc) | **GET** /seed-companies/{ocpc}/strains | Find strains for a seed company by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**get_strain_by_ocpc**](docs/StrainsApi.md#get_strain_by_ocpc) | **GET** /strains/{ocpc} | Find strain by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**get_strains**](docs/StrainsApi.md#get_strains) | **GET** /strains | Get a list of all current strains.
+*StudiesApi* | [**get_studies**](docs/StudiesApi.md#get_studies) | **GET** /studies | Get a list of all current studies.
+*StudiesApi* | [**get_studies_by_condition**](docs/StudiesApi.md#get_studies_by_condition) | **GET** /studies/conditions/{conditionSlug} | Get a list of all current studies for a given condition.
+*StudiesApi* | [**get_studies_conditions**](docs/StudiesApi.md#get_studies_conditions) | **GET** /studies/conditions | Get a list of all current conditions for studies.
+*StudiesApi* | [**get_study_by_identifier**](docs/StudiesApi.md#get_study_by_identifier) | **GET** /studies/{identifierType}/{identifier} | Find study by DOI, PubMed ID, or slug.
 
 
 # DOCUMENTATION FOR MODELS
  - [WWW::SwaggerClient::Object::Brand](docs/Brand.md)
+ - [WWW::SwaggerClient::Object::Condition](docs/Condition.md)
  - [WWW::SwaggerClient::Object::Edible](docs/Edible.md)
  - [WWW::SwaggerClient::Object::Error](docs/Error.md)
  - [WWW::SwaggerClient::Object::Extract](docs/Extract.md)
@@ -356,6 +371,8 @@ Class | Method | HTTP request | Description
  - [WWW::SwaggerClient::Object::InlineResponse2001](docs/InlineResponse2001.md)
  - [WWW::SwaggerClient::Object::InlineResponse20010](docs/InlineResponse20010.md)
  - [WWW::SwaggerClient::Object::InlineResponse20011](docs/InlineResponse20011.md)
+ - [WWW::SwaggerClient::Object::InlineResponse20012](docs/InlineResponse20012.md)
+ - [WWW::SwaggerClient::Object::InlineResponse20013](docs/InlineResponse20013.md)
  - [WWW::SwaggerClient::Object::InlineResponse2002](docs/InlineResponse2002.md)
  - [WWW::SwaggerClient::Object::InlineResponse2003](docs/InlineResponse2003.md)
  - [WWW::SwaggerClient::Object::InlineResponse2004](docs/InlineResponse2004.md)
@@ -370,6 +387,7 @@ Class | Method | HTTP request | Description
  - [WWW::SwaggerClient::Object::Product](docs/Product.md)
  - [WWW::SwaggerClient::Object::SeedCompany](docs/SeedCompany.md)
  - [WWW::SwaggerClient::Object::Strain](docs/Strain.md)
+ - [WWW::SwaggerClient::Object::Study](docs/Study.md)
 
 
 # DOCUMENTATION FOR AUTHORIZATION

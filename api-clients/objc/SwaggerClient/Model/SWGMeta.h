@@ -14,6 +14,7 @@
 */
 
 
+#import "SWGPagination.h"
 
 
 @protocol SWGMeta
@@ -21,8 +22,7 @@
 
 @interface SWGMeta : SWGObject
 
-/* Information about the pagination of the data. [optional]
- */
-@property(nonatomic) NSObject* pagination;
+
+@property(nonatomic) SWGPagination* pagination;
 
 @end

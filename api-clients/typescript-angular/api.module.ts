@@ -9,5 +9,6 @@ const apiModule = angular.module('api', [])
 .service('ProductsApi', api.ProductsApi)
 .service('SeedCompaniesApi', api.SeedCompaniesApi)
 .service('StrainsApi', api.StrainsApi)
+.service('StudiesApi', api.StudiesApi)
 
 export default apiModule;

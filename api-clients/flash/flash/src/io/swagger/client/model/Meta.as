@@ -1,12 +1,11 @@
 package io.swagger.client.model {
 
-import io.swagger.client.model.Object;
+import io.swagger.client.model.Pagination;
 
     [XmlRootNode(name="Meta")]
     public class Meta {
-        /* Information about the pagination of the data. */
-        [XmlElement(name="pagination")]
-        public var pagination: Object = NaN;
+                [XmlElement(name="pagination")]
+        public var pagination: Pagination = NaN;
 
     public function toString(): String {
         var str: String = "Meta: ";

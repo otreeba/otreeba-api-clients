@@ -28,6 +28,8 @@ class SwaggerClient(config: SwaggerConfig) extends Closeable {
   
   val strains = new StrainsApi(client, config)
   
+  val studies = new StudiesApi(client, config)
+  
 
   def close() {
     client.close()

@@ -22,8 +22,10 @@ part 'api/flowers_api.dart';
 part 'api/products_api.dart';
 part 'api/seed_companies_api.dart';
 part 'api/strains_api.dart';
+part 'api/studies_api.dart';
 
 part 'model/brand.dart';
+part 'model/condition.dart';
 part 'model/edible.dart';
 part 'model/error.dart';
 part 'model/extract.dart';
@@ -32,6 +34,8 @@ part 'model/inline_response200.dart';
 part 'model/inline_response2001.dart';
 part 'model/inline_response20010.dart';
 part 'model/inline_response20011.dart';
+part 'model/inline_response20012.dart';
+part 'model/inline_response20013.dart';
 part 'model/inline_response2002.dart';
 part 'model/inline_response2003.dart';
 part 'model/inline_response2004.dart';
@@ -46,6 +50,7 @@ part 'model/pagination.dart';
 part 'model/product.dart';
 part 'model/seed_company.dart';
 part 'model/strain.dart';
+part 'model/study.dart';
 
 
 ApiClient defaultApiClient = new ApiClient();

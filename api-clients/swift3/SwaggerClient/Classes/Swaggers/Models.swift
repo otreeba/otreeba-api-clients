@@ -174,6 +174,24 @@ class Decoders {
         }
 
 
+        // Decoder for [Condition]
+        Decoders.addDecoder(clazz: [Condition].self) { (source: AnyObject) -> [Condition] in
+            return Decoders.decode(clazz: [Condition].self, source: source)
+        }
+        // Decoder for Condition
+        Decoders.addDecoder(clazz: Condition.self) { (source: AnyObject) -> Condition in
+            let sourceDictionary = source as! [AnyHashable: Any]
+
+            let instance = Condition()
+            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            instance.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"] as AnyObject?)
+            instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
+            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return instance
+        }
+
+
         // Decoder for [Edible]
         Decoders.addDecoder(clazz: [Edible].self) { (source: AnyObject) -> [Edible] in
             return Decoders.decode(clazz: [Edible].self, source: source)
@@ -308,6 +326,34 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
 
             let instance = InlineResponse20011()
+            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return instance
+        }
+
+
+        // Decoder for [InlineResponse20012]
+        Decoders.addDecoder(clazz: [InlineResponse20012].self) { (source: AnyObject) -> [InlineResponse20012] in
+            return Decoders.decode(clazz: [InlineResponse20012].self, source: source)
+        }
+        // Decoder for InlineResponse20012
+        Decoders.addDecoder(clazz: InlineResponse20012.self) { (source: AnyObject) -> InlineResponse20012 in
+            let sourceDictionary = source as! [AnyHashable: Any]
+
+            let instance = InlineResponse20012()
+            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return instance
+        }
+
+
+        // Decoder for [InlineResponse20013]
+        Decoders.addDecoder(clazz: [InlineResponse20013].self) { (source: AnyObject) -> [InlineResponse20013] in
+            return Decoders.decode(clazz: [InlineResponse20013].self, source: source)
+        }
+        // Decoder for InlineResponse20013
+        Decoders.addDecoder(clazz: InlineResponse20013.self) { (source: AnyObject) -> InlineResponse20013 in
+            let sourceDictionary = source as! [AnyHashable: Any]
+
+            let instance = InlineResponse20013()
             instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
             return instance
         }
@@ -448,7 +494,7 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
 
             let instance = Meta()
-            instance.pagination = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["pagination"] as AnyObject?)
+            instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
             return instance
         }
 
@@ -556,6 +602,28 @@ class Decoders {
             instance.lineage = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["lineage"] as AnyObject?)
             instance.genetics = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["genetics"] as AnyObject?)
             instance.children = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["children"] as AnyObject?)
+            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return instance
+        }
+
+
+        // Decoder for [Study]
+        Decoders.addDecoder(clazz: [Study].self) { (source: AnyObject) -> [Study] in
+            return Decoders.decode(clazz: [Study].self, source: source)
+        }
+        // Decoder for Study
+        Decoders.addDecoder(clazz: Study.self) { (source: AnyObject) -> Study in
+            let sourceDictionary = source as! [AnyHashable: Any]
+
+            let instance = Study()
+            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            instance.year = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["year"] as AnyObject?)
+            instance.doi = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["doi"] as AnyObject?)
+            instance.pubMedId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pubMedId"] as AnyObject?)
+            instance.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"] as AnyObject?)
+            instance.keyFindings = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["keyFindings"] as AnyObject?)
+            instance.conditions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["conditions"] as AnyObject?)
             instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
             instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
             return instance

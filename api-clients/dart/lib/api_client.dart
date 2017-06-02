@@ -42,6 +42,8 @@ class ApiClient {
           return value is double ? value : double.parse('$value');
         case 'Brand':
           return dson.map(value, new Brand());
+        case 'Condition':
+          return dson.map(value, new Condition());
         case 'Edible':
           return dson.map(value, new Edible());
         case 'Error':
@@ -58,6 +60,10 @@ class ApiClient {
           return dson.map(value, new InlineResponse20010());
         case 'InlineResponse20011':
           return dson.map(value, new InlineResponse20011());
+        case 'InlineResponse20012':
+          return dson.map(value, new InlineResponse20012());
+        case 'InlineResponse20013':
+          return dson.map(value, new InlineResponse20013());
         case 'InlineResponse2002':
           return dson.map(value, new InlineResponse2002());
         case 'InlineResponse2003':
@@ -86,6 +92,8 @@ class ApiClient {
           return dson.map(value, new SeedCompany());
         case 'Strain':
           return dson.map(value, new Strain());
+        case 'Study':
+          return dson.map(value, new Study());
         default:
           {
             Match match;

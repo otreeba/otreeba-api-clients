@@ -113,12 +113,17 @@ Class | Method | HTTP request | Description
 *SeedCompaniesApi* | [**GetSeedCompanyStrainsByOcpc**](docs/SeedCompaniesApi.md#getseedcompanystrainsbyocpc) | **GET** /seed-companies/{ocpc}/strains | Find strains for a seed company by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**GetStrainByOcpc**](docs/StrainsApi.md#getstrainbyocpc) | **GET** /strains/{ocpc} | Find strain by Open Cannabis Product Code (OCPC).
 *StrainsApi* | [**GetStrains**](docs/StrainsApi.md#getstrains) | **GET** /strains | Get a list of all current strains.
+*StudiesApi* | [**GetStudies**](docs/StudiesApi.md#getstudies) | **GET** /studies | Get a list of all current studies.
+*StudiesApi* | [**GetStudiesByCondition**](docs/StudiesApi.md#getstudiesbycondition) | **GET** /studies/conditions/{conditionSlug} | Get a list of all current studies for a given condition.
+*StudiesApi* | [**GetStudiesConditions**](docs/StudiesApi.md#getstudiesconditions) | **GET** /studies/conditions | Get a list of all current conditions for studies.
+*StudiesApi* | [**GetStudyByIdentifier**](docs/StudiesApi.md#getstudybyidentifier) | **GET** /studies/{identifierType}/{identifier} | Find study by DOI, PubMed ID, or slug.
 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
  - [Model.Brand](docs/Brand.md)
+ - [Model.Condition](docs/Condition.md)
  - [Model.Edible](docs/Edible.md)
  - [Model.Error](docs/Error.md)
  - [Model.Extract](docs/Extract.md)
@@ -127,6 +132,8 @@ Class | Method | HTTP request | Description
  - [Model.InlineResponse2001](docs/InlineResponse2001.md)
  - [Model.InlineResponse20010](docs/InlineResponse20010.md)
  - [Model.InlineResponse20011](docs/InlineResponse20011.md)
+ - [Model.InlineResponse20012](docs/InlineResponse20012.md)
+ - [Model.InlineResponse20013](docs/InlineResponse20013.md)
  - [Model.InlineResponse2002](docs/InlineResponse2002.md)
  - [Model.InlineResponse2003](docs/InlineResponse2003.md)
  - [Model.InlineResponse2004](docs/InlineResponse2004.md)
@@ -141,6 +148,7 @@ Class | Method | HTTP request | Description
  - [Model.Product](docs/Product.md)
  - [Model.SeedCompany](docs/SeedCompany.md)
  - [Model.Strain](docs/Strain.md)
+ - [Model.Study](docs/Study.md)
 
 
 <a name="documentation-for-authorization"></a>

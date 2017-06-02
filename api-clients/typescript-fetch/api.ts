@@ -87,6 +87,29 @@ export interface Brand {
     "updatedAt"?: Date;
 }
 
+export interface Condition {
+    /**
+     * Name of the condition.
+     */
+    "name": string;
+    /**
+     * Slug based on the condition name.
+     */
+    "slug"?: string;
+    /**
+     * Description of the condition.
+     */
+    "description"?: string;
+    /**
+     * Date and time record was created, UTC.
+     */
+    "createdAt"?: Date;
+    /**
+     * Date and time record was updated, UTC.
+     */
+    "updatedAt"?: Date;
+}
+
 export interface Edible {
     /**
      * Name of the edible.
@@ -297,6 +320,20 @@ export interface InlineResponse20011 {
     "meta"?: Meta;
 }
 
+export interface InlineResponse20012 {
+    /**
+     * Gets the current list of Studies.
+     */
+    "meta"?: Meta;
+}
+
+export interface InlineResponse20013 {
+    /**
+     * Gets the current list of Studies for a given Condition.
+     */
+    "meta"?: Meta;
+}
+
 export interface InlineResponse2002 {
     /**
      * Gets the current list of Edibles.
@@ -364,10 +401,7 @@ export interface InlineResponse200Meta {
 }
 
 export interface Meta {
-    /**
-     * Information about the pagination of the data.
-     */
-    "pagination"?: any;
+    "pagination"?: Pagination;
 }
 
 export interface ModelError {
@@ -545,6 +579,42 @@ export interface Strain {
      * Open Cannabis Product Codes of the children of this strain.
      */
     "children"?: Array<string>;
+    /**
+     * Date and time record was created, UTC.
+     */
+    "createdAt"?: Date;
+    /**
+     * Date and time record was updated, UTC.
+     */
+    "updatedAt"?: Date;
+}
+
+export interface Study {
+    /**
+     * Name of the study.
+     */
+    "name": string;
+    /**
+     * Year of the study.
+     */
+    "year"?: number;
+    /**
+     * Digital Object Identifier for the study.
+     */
+    "doi"?: string;
+    /**
+     * PubMed ID for the study.
+     */
+    "pubMedId"?: string;
+    /**
+     * Slug based on the study name.
+     */
+    "slug"?: string;
+    /**
+     * Key findings for the study.
+     */
+    "keyFindings"?: string;
+    "conditions"?: Array<Condition>;
     /**
      * Date and time record was created, UTC.
      */
@@ -1960,6 +2030,293 @@ export const StrainsApiFactory = function (fetch?: FetchAPI, basePath?: string) 
          */
         getStrains(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return StrainsApiFp.getStrains(params, options)(fetch, basePath);
+        },
+    };
+};
+
+
+/**
+ * StudiesApi - fetch parameter creator
+ */
+export const StudiesApiFetchParamCreator = {
+    /** 
+     * Get a list of all current studies.
+     * Returns a paginated list of studies.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    getStudies(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any): FetchArgs {
+        const baseUrl = `/studies`;
+        let urlObj = url.parse(baseUrl, true);
+        urlObj.query = assign({}, urlObj.query, {
+            "page": params["page"],
+            "count": params["count"],
+            "sort": params["sort"],
+        });
+        let fetchOptions: RequestInit = assign({}, { method: "GET" }, options);
+
+        let contentTypeHeader: Dictionary<string> = {};
+        if (contentTypeHeader) {
+            fetchOptions.headers = contentTypeHeader;
+        }
+        return {
+            url: url.format(urlObj),
+            options: fetchOptions,
+        };
+    },
+    /** 
+     * Get a list of all current studies for a given condition.
+     * Returns a paginated list of studies.
+     * @param conditionSlug Slug of the condition to return studies for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    getStudiesByCondition(params: {  "conditionSlug": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any): FetchArgs {
+        // verify required parameter "conditionSlug" is set
+        if (params["conditionSlug"] == null) {
+            throw new Error("Missing required parameter conditionSlug when calling getStudiesByCondition");
+        }
+        const baseUrl = `/studies/conditions/{conditionSlug}`
+            .replace(`{${"conditionSlug"}}`, `${ params["conditionSlug"] }`);
+        let urlObj = url.parse(baseUrl, true);
+        urlObj.query = assign({}, urlObj.query, {
+            "page": params["page"],
+            "count": params["count"],
+            "sort": params["sort"],
+        });
+        let fetchOptions: RequestInit = assign({}, { method: "GET" }, options);
+
+        let contentTypeHeader: Dictionary<string> = {};
+        if (contentTypeHeader) {
+            fetchOptions.headers = contentTypeHeader;
+        }
+        return {
+            url: url.format(urlObj),
+            options: fetchOptions,
+        };
+    },
+    /** 
+     * Get a list of all current conditions for studies.
+     * Returns a list of all current conditions for studies.
+     * @param sort How to sort the items.
+     */
+    getStudiesConditions(params: {  "sort"?: string; }, options?: any): FetchArgs {
+        const baseUrl = `/studies/conditions`;
+        let urlObj = url.parse(baseUrl, true);
+        urlObj.query = assign({}, urlObj.query, {
+            "sort": params["sort"],
+        });
+        let fetchOptions: RequestInit = assign({}, { method: "GET" }, options);
+
+        let contentTypeHeader: Dictionary<string> = {};
+        if (contentTypeHeader) {
+            fetchOptions.headers = contentTypeHeader;
+        }
+        return {
+            url: url.format(urlObj),
+            options: fetchOptions,
+        };
+    },
+    /** 
+     * Find study by DOI, PubMed ID, or slug.
+     * Returns a single study.
+     * @param identifierType Type of identifier to for the study to return.
+     * @param identifier Identifier for the study to return.
+     */
+    getStudyByIdentifier(params: {  "identifierType": string; "identifier": string; }, options?: any): FetchArgs {
+        // verify required parameter "identifierType" is set
+        if (params["identifierType"] == null) {
+            throw new Error("Missing required parameter identifierType when calling getStudyByIdentifier");
+        }
+        // verify required parameter "identifier" is set
+        if (params["identifier"] == null) {
+            throw new Error("Missing required parameter identifier when calling getStudyByIdentifier");
+        }
+        const baseUrl = `/studies/{identifierType}/{identifier}`
+            .replace(`{${"identifierType"}}`, `${ params["identifierType"] }`)
+            .replace(`{${"identifier"}}`, `${ params["identifier"] }`);
+        let urlObj = url.parse(baseUrl, true);
+        let fetchOptions: RequestInit = assign({}, { method: "GET" }, options);
+
+        let contentTypeHeader: Dictionary<string> = {};
+        if (contentTypeHeader) {
+            fetchOptions.headers = contentTypeHeader;
+        }
+        return {
+            url: url.format(urlObj),
+            options: fetchOptions,
+        };
+    },
+};
+
+/**
+ * StudiesApi - functional programming interface
+ */
+export const StudiesApiFp = {
+    /** 
+     * Get a list of all current studies.
+     * Returns a paginated list of studies.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    getStudies(params: { "page"?: number; "count"?: number; "sort"?: string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse20012> {
+        const fetchArgs = StudiesApiFetchParamCreator.getStudies(params, options);
+        return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
+            return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                } else {
+                    throw response;
+                }
+            });
+        };
+    },
+    /** 
+     * Get a list of all current studies for a given condition.
+     * Returns a paginated list of studies.
+     * @param conditionSlug Slug of the condition to return studies for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    getStudiesByCondition(params: { "conditionSlug": string; "page"?: number; "count"?: number; "sort"?: string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse20013> {
+        const fetchArgs = StudiesApiFetchParamCreator.getStudiesByCondition(params, options);
+        return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
+            return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                } else {
+                    throw response;
+                }
+            });
+        };
+    },
+    /** 
+     * Get a list of all current conditions for studies.
+     * Returns a list of all current conditions for studies.
+     * @param sort How to sort the items.
+     */
+    getStudiesConditions(params: { "sort"?: string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<any> {
+        const fetchArgs = StudiesApiFetchParamCreator.getStudiesConditions(params, options);
+        return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
+            return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                } else {
+                    throw response;
+                }
+            });
+        };
+    },
+    /** 
+     * Find study by DOI, PubMed ID, or slug.
+     * Returns a single study.
+     * @param identifierType Type of identifier to for the study to return.
+     * @param identifier Identifier for the study to return.
+     */
+    getStudyByIdentifier(params: { "identifierType": string; "identifier": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Study> {
+        const fetchArgs = StudiesApiFetchParamCreator.getStudyByIdentifier(params, options);
+        return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
+            return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                } else {
+                    throw response;
+                }
+            });
+        };
+    },
+};
+
+/**
+ * StudiesApi - object-oriented interface
+ */
+export class StudiesApi extends BaseAPI {
+    /** 
+     * Get a list of all current studies.
+     * Returns a paginated list of studies.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    getStudies(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
+        return StudiesApiFp.getStudies(params, options)(this.fetch, this.basePath);
+    }
+    /** 
+     * Get a list of all current studies for a given condition.
+     * Returns a paginated list of studies.
+     * @param conditionSlug Slug of the condition to return studies for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    getStudiesByCondition(params: {  "conditionSlug": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
+        return StudiesApiFp.getStudiesByCondition(params, options)(this.fetch, this.basePath);
+    }
+    /** 
+     * Get a list of all current conditions for studies.
+     * Returns a list of all current conditions for studies.
+     * @param sort How to sort the items.
+     */
+    getStudiesConditions(params: {  "sort"?: string; }, options?: any) {
+        return StudiesApiFp.getStudiesConditions(params, options)(this.fetch, this.basePath);
+    }
+    /** 
+     * Find study by DOI, PubMed ID, or slug.
+     * Returns a single study.
+     * @param identifierType Type of identifier to for the study to return.
+     * @param identifier Identifier for the study to return.
+     */
+    getStudyByIdentifier(params: {  "identifierType": string; "identifier": string; }, options?: any) {
+        return StudiesApiFp.getStudyByIdentifier(params, options)(this.fetch, this.basePath);
+    }
+};
+
+/**
+ * StudiesApi - factory interface
+ */
+export const StudiesApiFactory = function (fetch?: FetchAPI, basePath?: string) {
+    return {
+        /** 
+         * Get a list of all current studies.
+         * Returns a paginated list of studies.
+         * @param page Page to be returned.
+         * @param count The number of items to return. Default 10. Max 50.
+         * @param sort How to sort the items.
+         */
+        getStudies(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
+            return StudiesApiFp.getStudies(params, options)(fetch, basePath);
+        },
+        /** 
+         * Get a list of all current studies for a given condition.
+         * Returns a paginated list of studies.
+         * @param conditionSlug Slug of the condition to return studies for.
+         * @param page Page to be returned.
+         * @param count The number of items to return. Default 10. Max 50.
+         * @param sort How to sort the items.
+         */
+        getStudiesByCondition(params: {  "conditionSlug": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
+            return StudiesApiFp.getStudiesByCondition(params, options)(fetch, basePath);
+        },
+        /** 
+         * Get a list of all current conditions for studies.
+         * Returns a list of all current conditions for studies.
+         * @param sort How to sort the items.
+         */
+        getStudiesConditions(params: {  "sort"?: string; }, options?: any) {
+            return StudiesApiFp.getStudiesConditions(params, options)(fetch, basePath);
+        },
+        /** 
+         * Find study by DOI, PubMed ID, or slug.
+         * Returns a single study.
+         * @param identifierType Type of identifier to for the study to return.
+         * @param identifier Identifier for the study to return.
+         */
+        getStudyByIdentifier(params: {  "identifierType": string; "identifier": string; }, options?: any) {
+            return StudiesApiFp.getStudyByIdentifier(params, options)(fetch, basePath);
         },
     };
 };

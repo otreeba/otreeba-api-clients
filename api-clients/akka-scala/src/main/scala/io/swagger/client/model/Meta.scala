@@ -10,8 +10,7 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 
 case class Meta (
-  /* Information about the pagination of the data. */
-  pagination: Option[Any]
+  pagination: Option[Pagination]
 ) extends ApiModel
 
 

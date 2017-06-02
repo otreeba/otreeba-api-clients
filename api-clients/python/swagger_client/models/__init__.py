@@ -15,6 +15,7 @@ from __future__ import absolute_import
 
 # import models into model package
 from .brand import Brand
+from .condition import Condition
 from .edible import Edible
 from .error import Error
 from .extract import Extract
@@ -23,6 +24,8 @@ from .inline_response_200 import InlineResponse200
 from .inline_response_200_1 import InlineResponse2001
 from .inline_response_200_10 import InlineResponse20010
 from .inline_response_200_11 import InlineResponse20011
+from .inline_response_200_12 import InlineResponse20012
+from .inline_response_200_13 import InlineResponse20013
 from .inline_response_200_2 import InlineResponse2002
 from .inline_response_200_3 import InlineResponse2003
 from .inline_response_200_4 import InlineResponse2004
@@ -37,3 +40,4 @@ from .pagination import Pagination
 from .product import Product
 from .seed_company import SeedCompany
 from .strain import Strain
+from .study import Study
