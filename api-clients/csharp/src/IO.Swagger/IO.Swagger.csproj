@@ -11,7 +11,7 @@ Contact: api@otreeba.com
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{53CB5E38-F24F-4323-A3C4-1E5E7647269E}</ProjectGuid>
+    <ProjectGuid>{1353C5C2-73EB-41CE-8B3A-7FC85EDDFB1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IO.Swagger</RootNamespace>
