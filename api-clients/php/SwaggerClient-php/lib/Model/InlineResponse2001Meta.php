@@ -35,7 +35,7 @@ use \ArrayAccess;
  * InlineResponse2001Meta Class Doc Comment
  *
  * @category    Class
- * @description Gets the current list of Seed Comapnies.
+ * @description Gets the Strains for a Seed Company listing from a given OCPC.
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -58,9 +58,22 @@ class InlineResponse2001Meta implements ArrayAccess
         'pagination' => '\Swagger\Client\Model\Pagination'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'pagination' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -159,7 +172,7 @@ class InlineResponse2001Meta implements ArrayAccess
 
     /**
      * Sets pagination
-     * @param \Swagger\Client\Model\Pagination $pagination Gets the current list of Seed Comapnies.
+     * @param \Swagger\Client\Model\Pagination $pagination Gets the Strains for a Seed Company listing from a given OCPC.
      * @return $this
      */
     public function setPagination($pagination)

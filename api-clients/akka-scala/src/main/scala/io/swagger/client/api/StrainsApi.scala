@@ -5,7 +5,7 @@
  */
 package io.swagger.client.api
 
-import io.swagger.client.model.Inline_response_200_11
+import io.swagger.client.model.InlineResponse20011
 import io.swagger.client.model.Strain
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
@@ -22,10 +22,14 @@ object StrainsApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Strain not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param ocpc OCPC of the strain to return.
    */
-  def getStrainByOcpc(ocpc: String): ApiRequest[Strain] =
+  def getStrainByOcpc(ocpc: String)(implicit apiKey: ApiKeyValue): ApiRequest[Strain] =
     ApiRequest[Strain](ApiMethods.GET, "https://api.otreeba.com/v1", "/strains/{ocpc}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("ocpc", ocpc)
       .withSuccessResponse[Strain](200)
       .withErrorResponse[Unit](400)
@@ -35,21 +39,25 @@ object StrainsApi {
    * Returns a paginated list of strains.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_11 (Successful operation.)
+   *   code 200 : InlineResponse20011 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Strain not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getStrains(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_11] =
-    ApiRequest[Inline_response_200_11](ApiMethods.GET, "https://api.otreeba.com/v1", "/strains", "application/json")
+  def getStrains(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse20011] =
+    ApiRequest[InlineResponse20011](ApiMethods.GET, "https://api.otreeba.com/v1", "/strains", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_11](200)
+      .withSuccessResponse[InlineResponse20011](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)

@@ -47,7 +47,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -55,7 +54,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -63,7 +61,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -71,7 +68,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -79,7 +75,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testStrain()
     {
-
     }
 
     /**
@@ -87,7 +82,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyName()
     {
-
     }
 
     /**
@@ -95,7 +89,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyOcpc()
     {
-
     }
 
     /**
@@ -103,7 +96,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertySeedCompany()
     {
-
     }
 
     /**
@@ -111,7 +103,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyQr()
     {
-
     }
 
     /**
@@ -119,7 +110,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUrl()
     {
-
     }
 
     /**
@@ -127,7 +117,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyImage()
     {
-
     }
 
     /**
@@ -135,7 +124,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyLineage()
     {
-
     }
 
     /**
@@ -143,7 +131,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyGenetics()
     {
-
     }
 
     /**
@@ -151,7 +138,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyChildren()
     {
-
     }
 
     /**
@@ -159,7 +145,6 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCreatedAt()
     {
-
     }
 
     /**
@@ -167,7 +152,5 @@ class StrainTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUpdatedAt()
     {
-
     }
-
 }

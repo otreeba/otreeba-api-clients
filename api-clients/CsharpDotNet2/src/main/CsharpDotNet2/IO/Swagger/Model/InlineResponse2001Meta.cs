@@ -8,14 +8,14 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Model {
 
   /// <summary>
-  /// Gets the current list of Seed Comapnies.
+  /// Gets the Strains for a Seed Company listing from a given OCPC.
   /// </summary>
   [DataContract]
   public class InlineResponse2001Meta {
     /// <summary>
-    /// Gets the current list of Seed Comapnies.
+    /// Gets the Strains for a Seed Company listing from a given OCPC.
     /// </summary>
-    /// <value>Gets the current list of Seed Comapnies.</value>
+    /// <value>Gets the Strains for a Seed Company listing from a given OCPC.</value>
     [DataMember(Name="pagination", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "pagination")]
     public Pagination Pagination { get; set; }

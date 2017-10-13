@@ -54,6 +54,14 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'swagger_client'
 
+# Setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['X-API-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-Key'] = 'Bearer'
+end
+
 api_instance = SwaggerClient::BrandsApi.new
 
 ocpc = "ocpc_example" # String | OCPC of the brand to return.
@@ -114,6 +122,7 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::InlineResponse20011](docs/InlineResponse20011.md)
  - [SwaggerClient::InlineResponse20012](docs/InlineResponse20012.md)
  - [SwaggerClient::InlineResponse20013](docs/InlineResponse20013.md)
+ - [SwaggerClient::InlineResponse2001Meta](docs/InlineResponse2001Meta.md)
  - [SwaggerClient::InlineResponse2002](docs/InlineResponse2002.md)
  - [SwaggerClient::InlineResponse2003](docs/InlineResponse2003.md)
  - [SwaggerClient::InlineResponse2004](docs/InlineResponse2004.md)
@@ -122,7 +131,6 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::InlineResponse2007](docs/InlineResponse2007.md)
  - [SwaggerClient::InlineResponse2008](docs/InlineResponse2008.md)
  - [SwaggerClient::InlineResponse2009](docs/InlineResponse2009.md)
- - [SwaggerClient::InlineResponse200Meta](docs/InlineResponse200Meta.md)
  - [SwaggerClient::Meta](docs/Meta.md)
  - [SwaggerClient::Pagination](docs/Pagination.md)
  - [SwaggerClient::Product](docs/Product.md)
@@ -133,5 +141,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
- All endpoints do not require authorization.
+
+### api_key
+
+- **Type**: API key
+- **API key parameter name**: X-API-Key
+- **Location**: HTTP header
 

@@ -62,9 +62,27 @@ class Pagination implements ArrayAccess
         'links' => 'object'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'total' => null,
+        'count' => null,
+        'per_page' => null,
+        'current_page' => null,
+        'total_pages' => null,
+        'links' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

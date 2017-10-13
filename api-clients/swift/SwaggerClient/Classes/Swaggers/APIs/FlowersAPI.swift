@@ -27,6 +27,9 @@ public class FlowersAPI: APIBase {
      Find flower by Open Cannabis Product Code (OCPC).
      - GET /flowers/{ocpc}
      - Returns a single flower.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "strain" : {
     "name" : "Half Dome Haze",
@@ -101,6 +104,9 @@ public class FlowersAPI: APIBase {
      Get a list of all current flowers.
      - GET /flowers
      - Returns a paginated list of flowers.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {

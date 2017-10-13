@@ -14,7 +14,7 @@
 */
 
 
-#import "SWGMeta.h"
+#import "SWGInlineResponse2001Meta.h"
 
 
 @protocol SWGInlineResponse2001
@@ -22,8 +22,7 @@
 
 @interface SWGInlineResponse2001 : SWGObject
 
-/* Gets the current list of Seed Comapnies. [optional]
- */
-@property(nonatomic) SWGMeta* meta;
+
+@property(nonatomic) SWGInlineResponse2001Meta* meta;
 
 @end

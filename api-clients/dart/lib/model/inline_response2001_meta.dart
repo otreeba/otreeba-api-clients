@@ -3,7 +3,7 @@ part of swagger.api;
 
 @Entity()
 class InlineResponse2001Meta {
-  /* Gets the current list of Seed Comapnies. */
+  /* Gets the Strains for a Seed Company listing from a given OCPC. */
   @Property(name: 'pagination')
   Pagination pagination = null;
   

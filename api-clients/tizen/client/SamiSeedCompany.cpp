@@ -24,6 +24,7 @@ void
 SamiSeedCompany::init() {
     pName = null;
 pOcpc = null;
+pDescription = null;
 pQr = null;
 pUrl = null;
 pImage = null;
@@ -44,6 +45,11 @@ if(pOcpc != null) {
         
         delete pOcpc;
         pOcpc = null;
+    }
+if(pDescription != null) {
+        
+        delete pDescription;
+        pDescription = null;
     }
 if(pQr != null) {
         
@@ -135,6 +141,15 @@ JsonString* pOcpcKey = new JsonString(L"ocpc");
             jsonToValue(pOcpc, pOcpcVal, L"String", L"String");
         }
         delete pOcpcKey;
+JsonString* pDescriptionKey = new JsonString(L"description");
+        IJsonValue* pDescriptionVal = null;
+        pJsonObject->GetValue(pDescriptionKey, pDescriptionVal);
+        if(pDescriptionVal != null) {
+            
+            pDescription = new String();
+            jsonToValue(pDescription, pDescriptionVal, L"String", L"String");
+        }
+        delete pDescriptionKey;
 JsonString* pQrKey = new JsonString(L"qr");
         IJsonValue* pQrVal = null;
         pJsonObject->GetValue(pQrKey, pQrVal);
@@ -254,6 +269,9 @@ SamiSeedCompany::asJsonObject() {
     JsonString *pOcpcKey = new JsonString(L"ocpc");
     pJsonObject->Add(pOcpcKey, toJson(getPOcpc(), "String", ""));
 
+    JsonString *pDescriptionKey = new JsonString(L"description");
+    pJsonObject->Add(pDescriptionKey, toJson(getPDescription(), "String", ""));
+
     JsonString *pQrKey = new JsonString(L"qr");
     pJsonObject->Add(pQrKey, toJson(getPQr(), "String", ""));
 
@@ -294,6 +312,15 @@ SamiSeedCompany::getPOcpc() {
 void
 SamiSeedCompany::setPOcpc(String* pOcpc) {
     this->pOcpc = pOcpc;
+}
+
+String*
+SamiSeedCompany::getPDescription() {
+    return pDescription;
+}
+void
+SamiSeedCompany::setPDescription(String* pDescription) {
+    this->pDescription = pDescription;
 }
 
 String*

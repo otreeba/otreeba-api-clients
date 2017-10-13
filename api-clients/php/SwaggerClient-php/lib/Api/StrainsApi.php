@@ -137,15 +137,17 @@ class StrainsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -183,7 +185,7 @@ class StrainsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse20011
      */
-    public function getStrains($page = null, $count = null, $sort = null)
+    public function getStrains($page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getStrainsWithHttpInfo($page, $count, $sort);
         return $response;
@@ -200,7 +202,7 @@ class StrainsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStrainsWithHttpInfo($page = null, $count = null, $sort = null)
+    public function getStrainsWithHttpInfo($page = null, $count = '10', $sort = '-createdAt')
     {
         // parse inputs
         $resourcePath = "/strains";
@@ -226,15 +228,17 @@ class StrainsApi
         if ($sort !== null) {
             $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {

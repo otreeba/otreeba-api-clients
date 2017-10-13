@@ -14,5 +14,6 @@ package io.swagger.client.model
 
 
 case class Meta (
-  pagination: Pagination
+  pagination: Option[Pagination]
 )
+

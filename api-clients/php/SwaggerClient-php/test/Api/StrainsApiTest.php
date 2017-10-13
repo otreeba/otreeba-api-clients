@@ -49,7 +49,6 @@ class StrainsApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -57,7 +56,6 @@ class StrainsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -65,7 +63,6 @@ class StrainsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -73,7 +70,6 @@ class StrainsApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -84,7 +80,6 @@ class StrainsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetStrainByOcpc()
     {
-
     }
 
     /**
@@ -95,7 +90,5 @@ class StrainsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetStrains()
     {
-
     }
-
 }

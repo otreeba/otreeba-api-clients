@@ -79,7 +79,7 @@ public class ProductsApiTest {
     @Test
     public void getProductByOcpcTest() {
         String ocpc = null;
-	//Product response = api.getProductByOcpc(ocpc);
+        //Product response = api.getProductByOcpc(ocpc);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -99,7 +99,7 @@ public class ProductsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse20010 response = api.getProducts(page, count, sort);
+        //InlineResponse20010 response = api.getProducts(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         

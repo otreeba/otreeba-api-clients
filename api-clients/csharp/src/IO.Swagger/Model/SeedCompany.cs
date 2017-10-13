@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 
 namespace IO.Swagger.Model
 {
@@ -39,6 +40,7 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <param name="Name">Name of the seed company. (required).</param>
         /// <param name="Ocpc">Open Cannabis Product Code for the seed company..</param>
+        /// <param name="Description">Description of the seed company..</param>
         /// <param name="Qr">URL for QR that leads to page on Cannabis Reports..</param>
         /// <param name="Url">URL for seed company on Cannabis Reports..</param>
         /// <param name="Image">URL for logo for seed company..</param>
@@ -46,7 +48,7 @@ namespace IO.Swagger.Model
         /// <param name="Strains">OCPCs of the strains from this seed company..</param>
         /// <param name="CreatedAt">Date and time record was created, UTC..</param>
         /// <param name="UpdatedAt">Date and time record was updated, UTC..</param>
-        public SeedCompany(string Name = default(string), string Ocpc = default(string), string Qr = default(string), string Url = default(string), string Image = default(string), Object Lineage = default(Object), List<string> Strains = default(List<string>), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?))
+        public SeedCompany(string Name = default(string), string Ocpc = default(string), string Description = default(string), string Qr = default(string), string Url = default(string), string Image = default(string), Object Lineage = default(Object), List<string> Strains = default(List<string>), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?))
         {
             // to ensure "Name" is required (not null)
             if (Name == null)
@@ -58,6 +60,7 @@ namespace IO.Swagger.Model
                 this.Name = Name;
             }
             this.Ocpc = Ocpc;
+            this.Description = Description;
             this.Qr = Qr;
             this.Url = Url;
             this.Image = Image;
@@ -73,54 +76,70 @@ namespace IO.Swagger.Model
         /// <value>Name of the seed company.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
         /// <summary>
         /// Open Cannabis Product Code for the seed company.
         /// </summary>
         /// <value>Open Cannabis Product Code for the seed company.</value>
         [DataMember(Name="ocpc", EmitDefaultValue=false)]
         public string Ocpc { get; set; }
+
+        /// <summary>
+        /// Description of the seed company.
+        /// </summary>
+        /// <value>Description of the seed company.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+
         /// <summary>
         /// URL for QR that leads to page on Cannabis Reports.
         /// </summary>
         /// <value>URL for QR that leads to page on Cannabis Reports.</value>
         [DataMember(Name="qr", EmitDefaultValue=false)]
         public string Qr { get; set; }
+
         /// <summary>
         /// URL for seed company on Cannabis Reports.
         /// </summary>
         /// <value>URL for seed company on Cannabis Reports.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
+
         /// <summary>
         /// URL for logo for seed company.
         /// </summary>
         /// <value>URL for logo for seed company.</value>
         [DataMember(Name="image", EmitDefaultValue=false)]
         public string Image { get; set; }
+
         /// <summary>
         /// Object of countries that this seed company has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}
         /// </summary>
         /// <value>Object of countries that this seed company has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}</value>
         [DataMember(Name="lineage", EmitDefaultValue=false)]
         public Object Lineage { get; set; }
+
         /// <summary>
         /// OCPCs of the strains from this seed company.
         /// </summary>
         /// <value>OCPCs of the strains from this seed company.</value>
         [DataMember(Name="strains", EmitDefaultValue=false)]
         public List<string> Strains { get; set; }
+
         /// <summary>
         /// Date and time record was created, UTC.
         /// </summary>
         /// <value>Date and time record was created, UTC.</value>
         [DataMember(Name="createdAt", EmitDefaultValue=false)]
         public DateTime? CreatedAt { get; set; }
+
         /// <summary>
         /// Date and time record was updated, UTC.
         /// </summary>
         /// <value>Date and time record was updated, UTC.</value>
         [DataMember(Name="updatedAt", EmitDefaultValue=false)]
         public DateTime? UpdatedAt { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -131,6 +150,7 @@ namespace IO.Swagger.Model
             sb.Append("class SeedCompany {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Ocpc: ").Append(Ocpc).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Qr: ").Append(Qr).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
@@ -185,6 +205,11 @@ namespace IO.Swagger.Model
                     this.Ocpc.Equals(other.Ocpc)
                 ) && 
                 (
+                    this.Description == other.Description ||
+                    this.Description != null &&
+                    this.Description.Equals(other.Description)
+                ) && 
+                (
                     this.Qr == other.Qr ||
                     this.Qr != null &&
                     this.Qr.Equals(other.Qr)
@@ -236,6 +261,8 @@ namespace IO.Swagger.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.Ocpc != null)
                     hash = hash * 59 + this.Ocpc.GetHashCode();
+                if (this.Description != null)
+                    hash = hash * 59 + this.Description.GetHashCode();
                 if (this.Qr != null)
                     hash = hash * 59 + this.Qr.GetHashCode();
                 if (this.Url != null)
@@ -254,8 +281,13 @@ namespace IO.Swagger.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -9,6 +9,7 @@ import Foundation
 
 
 open class Condition: JSONEncodable {
+
     /** Name of the condition. */
     public var name: String?
     /** Slug based on the condition name. */
@@ -30,6 +31,7 @@ open class Condition: JSONEncodable {
         nillableDictionary["description"] = self.description
         nillableDictionary["createdAt"] = self.createdAt?.encodeToJSON()
         nillableDictionary["updatedAt"] = self.updatedAt?.encodeToJSON()
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

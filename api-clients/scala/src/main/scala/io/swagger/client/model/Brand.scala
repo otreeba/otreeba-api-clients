@@ -18,25 +18,26 @@ case class Brand (
   /* Name of the brand. */
   name: String,
   /* Open Cannabis Product Code for the brand. */
-  ocpc: String,
+  ocpc: Option[String],
   /* URL for brand on Otreeba. */
-  link: String,
+  link: Option[String],
   /* URL for QR that leads to page on Cannabis Reports. */
-  qr: String,
+  qr: Option[String],
   /* URL for brand on Cannabis Reports. */
-  url: String,
+  url: Option[String],
   /* URL for logo for brand. */
-  image: String,
+  image: Option[String],
   /* OCPCs of the flowers from this brand. */
-  flowers: List[String],
+  flowers: Option[List[String]],
   /* OCPCs of the extracts from this brand. */
-  extracts: List[String],
+  extracts: Option[List[String]],
   /* OCPCs of the edibles from this brand. */
-  edibles: List[String],
+  edibles: Option[List[String]],
   /* OCPCs of the products from this brand. */
-  products: List[String],
+  products: Option[List[String]],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

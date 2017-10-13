@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["api_key"]}))
 
 (defn get-strain-by-ocpc
   "Find strain by Open Cannabis Product Code (OCPC).
@@ -33,7 +33,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-strains
   "Get a list of all current strains.

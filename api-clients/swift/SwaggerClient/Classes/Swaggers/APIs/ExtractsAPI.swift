@@ -27,6 +27,9 @@ public class ExtractsAPI: APIBase {
      Find extract by Open Cannabis Product Code (OCPC).
      - GET /extracts/{ocpc}
      - Returns a single extract.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "strain" : {
     "name" : "Confidential Cheese",
@@ -101,6 +104,9 @@ public class ExtractsAPI: APIBase {
      Get a list of all current extracts.
      - GET /extracts
      - Returns a paginated list of extracts.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {

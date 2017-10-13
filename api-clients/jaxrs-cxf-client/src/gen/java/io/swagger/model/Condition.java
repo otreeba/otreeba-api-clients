@@ -1,5 +1,6 @@
 package io.swagger.model;
 
+import java.util.Date;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,9 +20,9 @@ public class Condition  {
   @ApiModelProperty(example = "Fibromyalgia, an illness characterized by chronic pain combined with some form of psychiatric diagnosis, still lacks an observable underlying pathology. The disease picture of fibromyalgia usually includes widespread chronic pains in muscles and connective tissue, joint stiffness, general weakness, exhaustion, depression, anxiety, and insomnia. “Nearly 2 percent of the general population in the United States suffers from fibromyalgia, the majority of them being middle-aged females.”", value = "Description of the condition.")
   private String description = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was created, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar createdAt = null;
+  private Date createdAt = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was updated, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar updatedAt = null;
+  private Date updatedAt = null;
 
  /**
    * Name of the condition.
@@ -78,15 +79,15 @@ public class Condition  {
    * Date and time record was created, UTC.
    * @return createdAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Condition createdAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public Condition createdAt(Date createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -95,15 +96,15 @@ public class Condition  {
    * Date and time record was updated, UTC.
    * @return updatedAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Condition updatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public Condition updatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }

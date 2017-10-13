@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 
 namespace Swagger {
+
 SWGBrandsApi::SWGBrandsApi() {}
 
 SWGBrandsApi::~SWGBrandsApi() {}
@@ -39,9 +40,13 @@ SWGBrandsApi::getBrandByOcpc(QString* ocpc) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -54,6 +59,9 @@ SWGBrandsApi::getBrandByOcpc(QString* ocpc) {
 void
 SWGBrandsApi::getBrandByOcpcCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -61,16 +69,15 @@ SWGBrandsApi::getBrandByOcpcCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGBrand* output = static_cast<SWGBrand*>(create(json, QString("SWGBrand")));
-    
 
+    QString json(worker->response);
+    SWGBrand* output = static_cast<SWGBrand*>(create(json, QString("SWGBrand")));
     worker->deleteLater();
 
     emit getBrandByOcpcSignal(output);
-    
+    emit getBrandByOcpcSignalE(output, error_type, error_str);
 }
+
 void
 SWGBrandsApi::getBrandEdibles(QString* ocpc, qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -107,9 +114,13 @@ SWGBrandsApi::getBrandEdibles(QString* ocpc, qint32 page, qint32 count, QString*
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -122,6 +133,9 @@ SWGBrandsApi::getBrandEdibles(QString* ocpc, qint32 page, qint32 count, QString*
 void
 SWGBrandsApi::getBrandEdiblesCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -129,16 +143,15 @@ SWGBrandsApi::getBrandEdiblesCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_8* output = static_cast<SWGInline_response_200_8*>(create(json, QString("SWGInline_response_200_8")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_8* output = static_cast<SWGInline_response_200_8*>(create(json, QString("SWGInline_response_200_8")));
     worker->deleteLater();
 
     emit getBrandEdiblesSignal(output);
-    
+    emit getBrandEdiblesSignalE(output, error_type, error_str);
 }
+
 void
 SWGBrandsApi::getBrandExtracts(QString* ocpc, qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -175,9 +188,13 @@ SWGBrandsApi::getBrandExtracts(QString* ocpc, qint32 page, qint32 count, QString
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -190,6 +207,9 @@ SWGBrandsApi::getBrandExtracts(QString* ocpc, qint32 page, qint32 count, QString
 void
 SWGBrandsApi::getBrandExtractsCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -197,16 +217,15 @@ SWGBrandsApi::getBrandExtractsCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_7* output = static_cast<SWGInline_response_200_7*>(create(json, QString("SWGInline_response_200_7")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_7* output = static_cast<SWGInline_response_200_7*>(create(json, QString("SWGInline_response_200_7")));
     worker->deleteLater();
 
     emit getBrandExtractsSignal(output);
-    
+    emit getBrandExtractsSignalE(output, error_type, error_str);
 }
+
 void
 SWGBrandsApi::getBrandFlowers(QString* ocpc, qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -243,9 +262,13 @@ SWGBrandsApi::getBrandFlowers(QString* ocpc, qint32 page, qint32 count, QString*
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -258,6 +281,9 @@ SWGBrandsApi::getBrandFlowers(QString* ocpc, qint32 page, qint32 count, QString*
 void
 SWGBrandsApi::getBrandFlowersCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -265,16 +291,15 @@ SWGBrandsApi::getBrandFlowersCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_6* output = static_cast<SWGInline_response_200_6*>(create(json, QString("SWGInline_response_200_6")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_6* output = static_cast<SWGInline_response_200_6*>(create(json, QString("SWGInline_response_200_6")));
     worker->deleteLater();
 
     emit getBrandFlowersSignal(output);
-    
+    emit getBrandFlowersSignalE(output, error_type, error_str);
 }
+
 void
 SWGBrandsApi::getBrandProducts(QString* ocpc, qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -311,9 +336,13 @@ SWGBrandsApi::getBrandProducts(QString* ocpc, qint32 page, qint32 count, QString
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -326,6 +355,9 @@ SWGBrandsApi::getBrandProducts(QString* ocpc, qint32 page, qint32 count, QString
 void
 SWGBrandsApi::getBrandProductsCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -333,16 +365,15 @@ SWGBrandsApi::getBrandProductsCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_9* output = static_cast<SWGInline_response_200_9*>(create(json, QString("SWGInline_response_200_9")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_9* output = static_cast<SWGInline_response_200_9*>(create(json, QString("SWGInline_response_200_9")));
     worker->deleteLater();
 
     emit getBrandProductsSignal(output);
-    
+    emit getBrandProductsSignalE(output, error_type, error_str);
 }
+
 void
 SWGBrandsApi::getBrands(qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -377,9 +408,13 @@ SWGBrandsApi::getBrands(qint32 page, qint32 count, QString* sort) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -392,6 +427,9 @@ SWGBrandsApi::getBrands(qint32 page, qint32 count, QString* sort) {
 void
 SWGBrandsApi::getBrandsCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -399,14 +437,14 @@ SWGBrandsApi::getBrandsCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_5* output = static_cast<SWGInline_response_200_5*>(create(json, QString("SWGInline_response_200_5")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_5* output = static_cast<SWGInline_response_200_5*>(create(json, QString("SWGInline_response_200_5")));
     worker->deleteLater();
 
     emit getBrandsSignal(output);
-    
+    emit getBrandsSignalE(output, error_type, error_str);
 }
-} /* namespace Swagger */
+
+
+}

@@ -15,5 +15,6 @@ package io.swagger.client.model
 
 case class InlineResponse2004 (
   /* Gets the current list of Flowers. */
-  meta: Meta
+  meta: Option[Meta]
 )
+

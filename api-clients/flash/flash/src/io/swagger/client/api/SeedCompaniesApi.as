@@ -31,7 +31,7 @@ public class SeedCompaniesApi extends SwaggerApi {
 
 
     /*
-     * Returns InlineResponse2001 
+     * Returns InlineResponse200 
      */
     public function get_seed_companies (page: Number, count: Number, sort: String): String {
         // create path and map variables
@@ -69,7 +69,7 @@ if("null" != String(sort))
         token.requestId = requestId;
         token.completionEventType = "get_seed_companies";
 
-        token.returnType = InlineResponse2001;
+        token.returnType = InlineResponse200;
         return requestId;
 
     }
@@ -105,7 +105,7 @@ if("null" != String(sort))
     }
 
     /*
-     * Returns InlineResponse200 
+     * Returns InlineResponse2001 
      */
     public function get_seed_company_strains_by_ocpc (ocpc: String, page: Number, count: Number): String {
         // create path and map variables
@@ -141,7 +141,7 @@ if("null" != String(count))
         token.requestId = requestId;
         token.completionEventType = "get_seed_company_strains_by_ocpc";
 
-        token.returnType = InlineResponse200;
+        token.returnType = InlineResponse2001;
         return requestId;
 
     }

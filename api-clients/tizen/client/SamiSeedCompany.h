@@ -47,6 +47,8 @@ public:
     void setPName(String* pName);
     String* getPOcpc();
     void setPOcpc(String* pOcpc);
+    String* getPDescription();
+    void setPDescription(String* pDescription);
     String* getPQr();
     void setPQr(String* pQr);
     String* getPUrl();
@@ -65,6 +67,7 @@ public:
 private:
     String* pName;
 String* pOcpc;
+String* pDescription;
 String* pQr;
 String* pUrl;
 String* pImage;

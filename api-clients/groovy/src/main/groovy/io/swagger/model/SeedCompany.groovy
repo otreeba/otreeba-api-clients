@@ -15,6 +15,9 @@ class SeedCompany {
   /* Open Cannabis Product Code for the seed company. */
   String ocpc = null
 
+  /* Description of the seed company. */
+  String description = null
+
   /* URL for QR that leads to page on Cannabis Reports. */
   String qr = null
 

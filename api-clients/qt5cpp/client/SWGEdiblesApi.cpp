@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 
 namespace Swagger {
+
 SWGEdiblesApi::SWGEdiblesApi() {}
 
 SWGEdiblesApi::~SWGEdiblesApi() {}
@@ -39,9 +40,13 @@ SWGEdiblesApi::getEdibleByOcpc(QString* ocpc) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -54,6 +59,9 @@ SWGEdiblesApi::getEdibleByOcpc(QString* ocpc) {
 void
 SWGEdiblesApi::getEdibleByOcpcCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -61,16 +69,15 @@ SWGEdiblesApi::getEdibleByOcpcCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGEdible* output = static_cast<SWGEdible*>(create(json, QString("SWGEdible")));
-    
 
+    QString json(worker->response);
+    SWGEdible* output = static_cast<SWGEdible*>(create(json, QString("SWGEdible")));
     worker->deleteLater();
 
     emit getEdibleByOcpcSignal(output);
-    
+    emit getEdibleByOcpcSignalE(output, error_type, error_str);
 }
+
 void
 SWGEdiblesApi::getEdibles(qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -105,9 +112,13 @@ SWGEdiblesApi::getEdibles(qint32 page, qint32 count, QString* sort) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -120,6 +131,9 @@ SWGEdiblesApi::getEdibles(qint32 page, qint32 count, QString* sort) {
 void
 SWGEdiblesApi::getEdiblesCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -127,14 +141,14 @@ SWGEdiblesApi::getEdiblesCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_2* output = static_cast<SWGInline_response_200_2*>(create(json, QString("SWGInline_response_200_2")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_2* output = static_cast<SWGInline_response_200_2*>(create(json, QString("SWGInline_response_200_2")));
     worker->deleteLater();
 
     emit getEdiblesSignal(output);
-    
+    emit getEdiblesSignalE(output, error_type, error_str);
 }
-} /* namespace Swagger */
+
+
+}

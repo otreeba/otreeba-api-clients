@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 
 namespace IO.Swagger.Model
 {
@@ -73,53 +74,62 @@ namespace IO.Swagger.Model
         /// <value>Name of the study.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
         /// <summary>
         /// Year of the study.
         /// </summary>
         /// <value>Year of the study.</value>
         [DataMember(Name="year", EmitDefaultValue=false)]
         public int? Year { get; set; }
+
         /// <summary>
         /// Digital Object Identifier for the study.
         /// </summary>
         /// <value>Digital Object Identifier for the study.</value>
         [DataMember(Name="doi", EmitDefaultValue=false)]
         public string Doi { get; set; }
+
         /// <summary>
         /// PubMed ID for the study.
         /// </summary>
         /// <value>PubMed ID for the study.</value>
         [DataMember(Name="pubMedId", EmitDefaultValue=false)]
         public string PubMedId { get; set; }
+
         /// <summary>
         /// Slug based on the study name.
         /// </summary>
         /// <value>Slug based on the study name.</value>
         [DataMember(Name="slug", EmitDefaultValue=false)]
         public string Slug { get; set; }
+
         /// <summary>
         /// Key findings for the study.
         /// </summary>
         /// <value>Key findings for the study.</value>
         [DataMember(Name="keyFindings", EmitDefaultValue=false)]
         public string KeyFindings { get; set; }
+
         /// <summary>
         /// Gets or Sets Conditions
         /// </summary>
         [DataMember(Name="conditions", EmitDefaultValue=false)]
         public List<Condition> Conditions { get; set; }
+
         /// <summary>
         /// Date and time record was created, UTC.
         /// </summary>
         /// <value>Date and time record was created, UTC.</value>
         [DataMember(Name="createdAt", EmitDefaultValue=false)]
         public DateTime? CreatedAt { get; set; }
+
         /// <summary>
         /// Date and time record was updated, UTC.
         /// </summary>
         /// <value>Date and time record was updated, UTC.</value>
         [DataMember(Name="updatedAt", EmitDefaultValue=false)]
         public DateTime? UpdatedAt { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -253,8 +263,13 @@ namespace IO.Swagger.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

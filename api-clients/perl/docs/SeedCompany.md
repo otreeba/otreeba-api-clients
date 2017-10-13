@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the seed company. | 
 **ocpc** | **string** | Open Cannabis Product Code for the seed company. | [optional] 
+**description** | **string** | Description of the seed company. | [optional] 
 **qr** | **string** | URL for QR that leads to page on Cannabis Reports. | [optional] 
 **url** | **string** | URL for seed company on Cannabis Reports. | [optional] 
 **image** | **string** | URL for logo for seed company. | [optional] 

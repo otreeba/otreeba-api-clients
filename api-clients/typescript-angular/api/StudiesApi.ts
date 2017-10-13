@@ -27,12 +27,12 @@ export class StudiesApi {
     }
 
     /**
-        * Get a list of all current studies.
-        * Returns a paginated list of studies.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of studies.
+     * @summary Get a list of all current studies.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getStudies (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse20012> {
         const localVarPath = this.basePath + '/studies';
 
@@ -64,13 +64,13 @@ export class StudiesApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current studies for a given condition.
-        * Returns a paginated list of studies.
-        * @param conditionSlug Slug of the condition to return studies for.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of studies.
+     * @summary Get a list of all current studies for a given condition.
+     * @param conditionSlug Slug of the condition to return studies for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getStudiesByCondition (conditionSlug: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse20013> {
         const localVarPath = this.basePath + '/studies/conditions/{conditionSlug}'
             .replace('{' + 'conditionSlug' + '}', String(conditionSlug));
@@ -107,10 +107,10 @@ export class StudiesApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current conditions for studies.
-        * Returns a list of all current conditions for studies.
-        * @param sort How to sort the items.
-        */
+     * Returns a list of all current conditions for studies.
+     * @summary Get a list of all current conditions for studies.
+     * @param sort How to sort the items.
+     */
     public getStudiesConditions (sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/studies/conditions';
 
@@ -134,11 +134,11 @@ export class StudiesApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Find study by DOI, PubMed ID, or slug.
-        * Returns a single study.
-        * @param identifierType Type of identifier to for the study to return.
-        * @param identifier Identifier for the study to return.
-        */
+     * Returns a single study.
+     * @summary Find study by DOI, PubMed ID, or slug.
+     * @param identifierType Type of identifier to for the study to return.
+     * @param identifier Identifier for the study to return.
+     */
     public getStudyByIdentifier (identifierType: string, identifier: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Study> {
         const localVarPath = this.basePath + '/studies/{identifierType}/{identifier}'
             .replace('{' + 'identifierType' + '}', String(identifierType))

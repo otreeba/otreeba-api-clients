@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **getSeedCompanies**
-> InlineResponse2001 getSeedCompanies(page, count, sort)
+> InlineResponse200 getSeedCompanies(page, count, sort)
 
 Get a list of all current seed companies.
 
@@ -24,6 +24,10 @@ Returns a paginated list of seed companies.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new SeedCompaniesApi();
 var page = 56; // int | Page to be returned.
@@ -48,11 +52,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -71,6 +75,10 @@ Returns a single seed company.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new SeedCompaniesApi();
 var ocpc = ocpc_example; // String | OCPC of the seed company to return.
@@ -95,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -105,7 +113,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSeedCompanyStrainsByOcpc**
-> InlineResponse200 getSeedCompanyStrainsByOcpc(ocpc, page, count)
+> InlineResponse2001 getSeedCompanyStrainsByOcpc(ocpc, page, count)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -114,6 +122,10 @@ Returns a paginated list of strains for a single seed company.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new SeedCompaniesApi();
 var ocpc = ocpc_example; // String | OCPC of the seed company to return strains for.
@@ -138,11 +150,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

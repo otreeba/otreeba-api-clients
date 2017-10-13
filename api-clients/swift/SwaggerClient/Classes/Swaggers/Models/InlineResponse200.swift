@@ -9,7 +9,8 @@ import Foundation
 
 
 public class InlineResponse200: JSONEncodable {
-    public var meta: InlineResponse200Meta?
+    /** Gets the current list of Seed Comapnies. */
+    public var meta: Meta?
 
     public init() {}
 

@@ -24,8 +24,8 @@ getSeedCompaniesProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiInline_response_200_1* out = new SamiInline_response_200_1();
-    jsonToValue(out, pJson, L"SamiInline_response_200_1*", L"SamiInline_response_200_1");
+    SamiInline_response_200* out = new SamiInline_response_200();
+    jsonToValue(out, pJson, L"SamiInline_response_200*", L"SamiInline_response_200");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -51,8 +51,8 @@ getSeedCompaniesProcessor(HttpResponse* pHttpResponse, void (* handler)(void*, S
   }
 }
 
-SamiInline_response_200_1* 
-SamiSeedCompaniesApi::getSeedCompaniesWithCompletion(Integer* page, Integer* count, String* sort, void (* success)(SamiInline_response_200_1*, SamiError*)) {
+SamiInline_response_200* 
+SamiSeedCompaniesApi::getSeedCompaniesWithCompletion(Integer* page, Integer* count, String* sort, void (* success)(SamiInline_response_200*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getSeedCompaniesProcessor, (void(*)(void*, SamiError*))success);
@@ -150,8 +150,8 @@ getSeedCompanyStrainsByOcpcProcessor(HttpResponse* pHttpResponse, void (* handle
     ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
     IJsonValue* pJson = JsonParser::ParseN(*pBuffer);
 
-    SamiInline_response_200* out = new SamiInline_response_200();
-    jsonToValue(out, pJson, L"SamiInline_response_200*", L"SamiInline_response_200");
+    SamiInline_response_200_1* out = new SamiInline_response_200_1();
+    jsonToValue(out, pJson, L"SamiInline_response_200_1*", L"SamiInline_response_200_1");
 
     if (pJson) {
       if (pJson->GetType() == JSON_TYPE_OBJECT) {
@@ -177,8 +177,8 @@ getSeedCompanyStrainsByOcpcProcessor(HttpResponse* pHttpResponse, void (* handle
   }
 }
 
-SamiInline_response_200* 
-SamiSeedCompaniesApi::getSeedCompanyStrainsByOcpcWithCompletion(String* ocpc, Integer* page, Integer* count, void (* success)(SamiInline_response_200*, SamiError*)) {
+SamiInline_response_200_1* 
+SamiSeedCompaniesApi::getSeedCompanyStrainsByOcpcWithCompletion(String* ocpc, Integer* page, Integer* count, void (* success)(SamiInline_response_200_1*, SamiError*)) {
   client = new SamiApiClient();
 
   client->success(&getSeedCompanyStrainsByOcpcProcessor, (void(*)(void*, SamiError*))success);

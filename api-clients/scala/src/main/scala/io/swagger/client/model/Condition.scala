@@ -18,11 +18,12 @@ case class Condition (
   /* Name of the condition. */
   name: String,
   /* Slug based on the condition name. */
-  slug: String,
+  slug: Option[String],
   /* Description of the condition. */
-  description: String,
+  description: Option[String],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

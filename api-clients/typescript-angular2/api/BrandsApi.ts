@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 
+/* tslint:disable:no-unused-variable member-ordering */
+
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { Http, Headers, URLSearchParams }                    from '@angular/http';
 import { RequestMethod, RequestOptions, RequestOptionsArgs } from '@angular/http';
@@ -22,11 +24,10 @@ import * as models                                           from '../model/mode
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
-/* tslint:disable:no-unused-variable member-ordering */
-
 
 @Injectable()
 export class BrandsApi {
+
     protected basePath = 'https://api.otreeba.com/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
@@ -41,8 +42,8 @@ export class BrandsApi {
     }
 
     /**
-     * Find brand by Open Cannabis Product Code (OCPC).
      * Returns a single brand.
+     * @summary Find brand by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the brand to return.
      */
     public getBrandByOcpc(ocpc: string, extraHttpRequestParams?: any): Observable<models.Brand> {
@@ -51,14 +52,14 @@ export class BrandsApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current edibles for the given brand.
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles for the given brand.
      * @param ocpc OCPC of the brand to list edibles for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -70,14 +71,14 @@ export class BrandsApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current extracts for the given brand.
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts for the given brand.
      * @param ocpc OCPC of the brand to list extracts for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -89,14 +90,14 @@ export class BrandsApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current flowers for the given brand.
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers for the given brand.
      * @param ocpc OCPC of the brand to list flowers for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -108,14 +109,14 @@ export class BrandsApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current products for the given brand.
      * Returns a paginated list of products.
+     * @summary Get a list of all current products for the given brand.
      * @param ocpc OCPC of the brand to list products for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -127,14 +128,14 @@ export class BrandsApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current brands.
      * Returns a paginated list of brands.
+     * @summary Get a list of all current brands.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -145,7 +146,7 @@ export class BrandsApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
@@ -157,7 +158,8 @@ export class BrandsApi {
      * @param ocpc OCPC of the brand to return.
      */
     public getBrandByOcpcWithHttpInfo(ocpc: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/brands/${ocpc}`;
+        const path = this.basePath + '/brands/${ocpc}'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -175,12 +177,17 @@ export class BrandsApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -198,7 +205,8 @@ export class BrandsApi {
      * @param sort How to sort the items.
      */
     public getBrandEdiblesWithHttpInfo(ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/brands/${ocpc}/edibles`;
+        const path = this.basePath + '/brands/${ocpc}/edibles'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -207,27 +215,15 @@ export class BrandsApi {
             throw new Error('Required parameter ocpc was null or undefined when calling getBrandEdibles.');
         }
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -240,12 +236,17 @@ export class BrandsApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -263,7 +264,8 @@ export class BrandsApi {
      * @param sort How to sort the items.
      */
     public getBrandExtractsWithHttpInfo(ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/brands/${ocpc}/extracts`;
+        const path = this.basePath + '/brands/${ocpc}/extracts'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -272,27 +274,15 @@ export class BrandsApi {
             throw new Error('Required parameter ocpc was null or undefined when calling getBrandExtracts.');
         }
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -305,12 +295,17 @@ export class BrandsApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -328,7 +323,8 @@ export class BrandsApi {
      * @param sort How to sort the items.
      */
     public getBrandFlowersWithHttpInfo(ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/brands/${ocpc}/flowers`;
+        const path = this.basePath + '/brands/${ocpc}/flowers'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -337,27 +333,15 @@ export class BrandsApi {
             throw new Error('Required parameter ocpc was null or undefined when calling getBrandFlowers.');
         }
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -370,12 +354,17 @@ export class BrandsApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -393,7 +382,8 @@ export class BrandsApi {
      * @param sort How to sort the items.
      */
     public getBrandProductsWithHttpInfo(ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/brands/${ocpc}/products`;
+        const path = this.basePath + '/brands/${ocpc}/products'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -402,27 +392,15 @@ export class BrandsApi {
             throw new Error('Required parameter ocpc was null or undefined when calling getBrandProducts.');
         }
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -435,12 +413,17 @@ export class BrandsApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -457,32 +440,20 @@ export class BrandsApi {
      * @param sort How to sort the items.
      */
     public getBrandsWithHttpInfo(page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/brands`;
+        const path = this.basePath + '/brands';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -495,12 +466,17 @@ export class BrandsApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);

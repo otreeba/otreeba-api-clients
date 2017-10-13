@@ -33,6 +33,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new StudiesApi();
             var page = 56;  // int? | Page to be returned. (optional) 
             var count = 56;  // int? | The number of items to return. Default 10. Max 50. (optional)  (default to 10)
@@ -67,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -99,6 +104,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new StudiesApi();
             var conditionSlug = conditionSlug_example;  // string | Slug of the condition to return studies for.
             var page = 56;  // int? | Page to be returned. (optional) 
@@ -135,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -167,6 +177,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new StudiesApi();
             var sort = sort_example;  // string | How to sort the items. (optional)  (default to name)
 
@@ -197,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -229,6 +244,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new StudiesApi();
             var identifierType = identifierType_example;  // string | Type of identifier to for the study to return.
             var identifier = identifier_example;  // string | Identifier for the study to return.
@@ -261,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

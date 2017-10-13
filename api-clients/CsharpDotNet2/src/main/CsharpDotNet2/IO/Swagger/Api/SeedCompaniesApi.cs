@@ -17,8 +17,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned.</param>
         /// <param name="count">The number of items to return. Default 10. Max 50.</param>
         /// <param name="sort">How to sort the items.</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetSeedCompanies (int? page, int? count, string sort);
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 GetSeedCompanies (int? page, int? count, string sort);
         /// <summary>
         /// Find seed company by Open Cannabis Product Code (OCPC). Returns a single seed company.
         /// </summary>
@@ -31,8 +31,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned.</param>
         /// <param name="count">The number of items to return. Default 10. Max 50.</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetSeedCompanyStrainsByOcpc (string ocpc, int? page, int? count);
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 GetSeedCompanyStrainsByOcpc (string ocpc, int? page, int? count);
     }
   
     /// <summary>
@@ -94,8 +94,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned.</param> 
         /// <param name="count">The number of items to return. Default 10. Max 50.</param> 
         /// <param name="sort">How to sort the items.</param> 
-        /// <returns>InlineResponse2001</returns>            
-        public InlineResponse2001 GetSeedCompanies (int? page, int? count, string sort)
+        /// <returns>InlineResponse200</returns>            
+        public InlineResponse200 GetSeedCompanies (int? page, int? count, string sort)
         {
             
     
@@ -113,7 +113,7 @@ namespace IO.Swagger.Api
  if (sort != null) queryParams.Add("sort", ApiClient.ParameterToString(sort)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "api_key" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -123,7 +123,7 @@ namespace IO.Swagger.Api
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling GetSeedCompanies: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (InlineResponse2001) ApiClient.Deserialize(response.Content, typeof(InlineResponse2001), response.Headers);
+            return (InlineResponse200) ApiClient.Deserialize(response.Content, typeof(InlineResponse200), response.Headers);
         }
     
         /// <summary>
@@ -150,7 +150,7 @@ namespace IO.Swagger.Api
     
                                                     
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "api_key" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -169,8 +169,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param> 
         /// <param name="page">Page to be returned.</param> 
         /// <param name="count">The number of items to return. Default 10. Max 50.</param> 
-        /// <returns>InlineResponse200</returns>            
-        public InlineResponse200 GetSeedCompanyStrainsByOcpc (string ocpc, int? page, int? count)
+        /// <returns>InlineResponse2001</returns>            
+        public InlineResponse2001 GetSeedCompanyStrainsByOcpc (string ocpc, int? page, int? count)
         {
             
             // verify the required parameter 'ocpc' is set
@@ -191,7 +191,7 @@ namespace IO.Swagger.Api
  if (count != null) queryParams.Add("count", ApiClient.ParameterToString(count)); // query parameter
                                         
             // authentication setting, if any
-            String[] authSettings = new String[] {  };
+            String[] authSettings = new String[] { "api_key" };
     
             // make the HTTP request
             IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
@@ -201,7 +201,7 @@ namespace IO.Swagger.Api
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling GetSeedCompanyStrainsByOcpc: " + response.ErrorMessage, response.ErrorMessage);
     
-            return (InlineResponse200) ApiClient.Deserialize(response.Content, typeof(InlineResponse200), response.Headers);
+            return (InlineResponse2001) ApiClient.Deserialize(response.Content, typeof(InlineResponse2001), response.Headers);
         }
     
     }

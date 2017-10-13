@@ -23,6 +23,7 @@ class ApiClient {
 
   ApiClient({this.basePath: "https://api.otreeba.com/v1"}) {
     // Setup authentications (key: authentication name, value: authentication).
+    _authentications['api_key'] = new ApiKeyAuth("header", "X-API-Key");
   }
 
   void addDefaultHeader(String key, String value) {
@@ -64,6 +65,8 @@ class ApiClient {
           return dson.map(value, new InlineResponse20012());
         case 'InlineResponse20013':
           return dson.map(value, new InlineResponse20013());
+        case 'InlineResponse2001Meta':
+          return dson.map(value, new InlineResponse2001Meta());
         case 'InlineResponse2002':
           return dson.map(value, new InlineResponse2002());
         case 'InlineResponse2003':
@@ -80,8 +83,6 @@ class ApiClient {
           return dson.map(value, new InlineResponse2008());
         case 'InlineResponse2009':
           return dson.map(value, new InlineResponse2009());
-        case 'InlineResponse200Meta':
-          return dson.map(value, new InlineResponse200Meta());
         case 'Meta':
           return dson.map(value, new Meta());
         case 'Pagination':

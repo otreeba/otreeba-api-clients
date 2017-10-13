@@ -21,11 +21,16 @@ Returns a single brand.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.BrandsApi()
@@ -51,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -69,11 +74,16 @@ Returns a paginated list of edibles.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.BrandsApi()
@@ -105,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -123,11 +133,16 @@ Returns a paginated list of extracts.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.BrandsApi()
@@ -159,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -177,11 +192,16 @@ Returns a paginated list of flowers.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.BrandsApi()
@@ -213,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -231,11 +251,16 @@ Returns a paginated list of products.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.BrandsApi()
@@ -267,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -285,11 +310,16 @@ Returns a paginated list of brands.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.BrandsApi()
@@ -319,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

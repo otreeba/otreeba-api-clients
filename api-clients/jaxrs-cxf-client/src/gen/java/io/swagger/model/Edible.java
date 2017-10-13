@@ -1,5 +1,6 @@
 package io.swagger.model;
 
+import java.util.Date;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
@@ -12,17 +13,17 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 public class Edible  {
   
-  @ApiModelProperty(example = "Moxey&#39;s Mints - Ginger", required = true, value = "Name of the edible.")
+  @ApiModelProperty(example = "Moxey's Mints - Ginger", required = true, value = "Name of the edible.")
   private String name = null;
   @ApiModelProperty(example = "0000000000NJKLWH2HNZ00000", value = "Open Cannabis Product Code for the edible.")
   private String ocpc = null;
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Mr. Moxey&#39;s Mints&quot;,&quot;ocpc&quot;:&quot;0000000000NJKLW0000000000&quot;}", value = "Name and Open Cannabis Product Code of the brand that created this edible.")
+  @ApiModelProperty(example = "{\"name\":\"Mr. Moxey's Mints\",\"ocpc\":\"0000000000NJKLW0000000000\"}", value = "Name and Open Cannabis Product Code of the brand that created this edible.")
   private Object brand = null;
   @ApiModelProperty(example = "Mint", value = "Type of edible.")
   private String type = null;
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Confidential Cheese&quot;,&quot;ocpc&quot;:&quot;TTUYNUF3TP000000000000000&quot;}", value = "Name and Open Cannabis Product Code of the strain for this edible.")
+  @ApiModelProperty(example = "{\"name\":\"Confidential Cheese\",\"ocpc\":\"TTUYNUF3TP000000000000000\"}", value = "Name and Open Cannabis Product Code of the strain for this edible.")
   private Object strain = null;
-  @ApiModelProperty(example = "null", value = "Description of the edible.")
+  @ApiModelProperty(value = "Description of the edible.")
   private String description = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/edible-reports/qr-code/mr-moxeys-mints/moxeys-mints-ginger", value = "URL for QR that leads to page on Cannabis Reports.")
   private String qr = null;
@@ -41,9 +42,9 @@ public class Edible  {
   @ApiModelProperty(example = "0mg", value = "Hash oil measurement for this edible.")
   private String hashOil = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was created, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar createdAt = null;
+  private Date createdAt = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was updated, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar updatedAt = null;
+  private Date updatedAt = null;
 
  /**
    * Name of the edible.
@@ -287,15 +288,15 @@ public class Edible  {
    * Date and time record was created, UTC.
    * @return createdAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Edible createdAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public Edible createdAt(Date createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -304,15 +305,15 @@ public class Edible  {
    * Date and time record was updated, UTC.
    * @return updatedAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Edible updatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public Edible updatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }

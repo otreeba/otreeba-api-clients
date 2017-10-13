@@ -14,15 +14,20 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.joda.time.DateTime;
 
 /**
  * Edible
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class Edible {
   @SerializedName("name")
   private String name = null;
@@ -81,7 +86,7 @@ public class Edible {
    * Name of the edible.
    * @return name
   **/
-  @ApiModelProperty(example = "Moxey&#39;s Mints - Ginger", required = true, value = "Name of the edible.")
+  @ApiModelProperty(example = "Moxey's Mints - Ginger", required = true, value = "Name of the edible.")
   public String getName() {
     return name;
   }
@@ -117,7 +122,7 @@ public class Edible {
    * Name and Open Cannabis Product Code of the brand that created this edible.
    * @return brand
   **/
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Mr. Moxey&#39;s Mints&quot;,&quot;ocpc&quot;:&quot;0000000000NJKLW0000000000&quot;}", value = "Name and Open Cannabis Product Code of the brand that created this edible.")
+  @ApiModelProperty(example = "{\"name\":\"Mr. Moxey's Mints\",\"ocpc\":\"0000000000NJKLW0000000000\"}", value = "Name and Open Cannabis Product Code of the brand that created this edible.")
   public Object getBrand() {
     return brand;
   }
@@ -153,7 +158,7 @@ public class Edible {
    * Name and Open Cannabis Product Code of the strain for this edible.
    * @return strain
   **/
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Confidential Cheese&quot;,&quot;ocpc&quot;:&quot;TTUYNUF3TP000000000000000&quot;}", value = "Name and Open Cannabis Product Code of the strain for this edible.")
+  @ApiModelProperty(example = "{\"name\":\"Confidential Cheese\",\"ocpc\":\"TTUYNUF3TP000000000000000\"}", value = "Name and Open Cannabis Product Code of the strain for this edible.")
   public Object getStrain() {
     return strain;
   }
@@ -171,7 +176,7 @@ public class Edible {
    * Description of the edible.
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "Description of the edible.")
+  @ApiModelProperty(value = "Description of the edible.")
   public String getDescription() {
     return description;
   }

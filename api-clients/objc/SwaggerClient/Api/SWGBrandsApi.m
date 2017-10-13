@@ -76,9 +76,6 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/brands/{ocpc}"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
         pathParams[@"ocpc"] = ocpc;
@@ -100,7 +97,7 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -156,9 +153,6 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/brands/{ocpc}/edibles"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
         pathParams[@"ocpc"] = ocpc;
@@ -189,7 +183,7 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -245,9 +239,6 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/brands/{ocpc}/extracts"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
         pathParams[@"ocpc"] = ocpc;
@@ -278,7 +269,7 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -334,9 +325,6 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/brands/{ocpc}/flowers"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
         pathParams[@"ocpc"] = ocpc;
@@ -367,7 +355,7 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -423,9 +411,6 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/brands/{ocpc}/products"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
         pathParams[@"ocpc"] = ocpc;
@@ -456,7 +441,7 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -498,9 +483,6 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
     completionHandler: (void (^)(SWGInlineResponse2005* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/brands"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -528,7 +510,7 @@ NSInteger kSWGBrandsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];

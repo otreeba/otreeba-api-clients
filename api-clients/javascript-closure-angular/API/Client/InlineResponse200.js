@@ -6,7 +6,8 @@ goog.provide('API.Client.inline_response_200');
 API.Client.InlineResponse200 = function() {}
 
 /**
- * @type {!API.Client.inline_response_200_meta}
+ * Gets the current list of Seed Comapnies.
+ * @type {!API.Client.Meta}
  * @export
  */
 API.Client.InlineResponse200.prototype.meta;

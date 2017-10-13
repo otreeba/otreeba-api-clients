@@ -14,7 +14,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-seed-companies
   "Get a list of all current seed companies.
@@ -34,7 +34,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["api_key"]}))
 
 (defn get-seed-company-by-ocpc
   "Find seed company by Open Cannabis Product Code (OCPC).
@@ -54,7 +54,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-seed-company-strains-by-ocpc
   "Find strains for a seed company by Open Cannabis Product Code (OCPC).

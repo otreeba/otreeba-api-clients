@@ -14,6 +14,6 @@ package io.swagger.client.model
 
 
 case class InlineResponse2001 (
-  /* Gets the current list of Seed Comapnies. */
-  meta: Meta
+  meta: Option[InlineResponse2001Meta]
 )
+

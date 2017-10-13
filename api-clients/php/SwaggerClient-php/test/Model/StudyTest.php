@@ -47,7 +47,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -55,7 +54,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -63,7 +61,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -71,7 +68,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -79,7 +75,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testStudy()
     {
-
     }
 
     /**
@@ -87,7 +82,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyName()
     {
-
     }
 
     /**
@@ -95,7 +89,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyYear()
     {
-
     }
 
     /**
@@ -103,7 +96,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyDoi()
     {
-
     }
 
     /**
@@ -111,7 +103,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyPubMedId()
     {
-
     }
 
     /**
@@ -119,7 +110,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertySlug()
     {
-
     }
 
     /**
@@ -127,7 +117,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyKeyFindings()
     {
-
     }
 
     /**
@@ -135,7 +124,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyConditions()
     {
-
     }
 
     /**
@@ -143,7 +131,6 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCreatedAt()
     {
-
     }
 
     /**
@@ -151,7 +138,5 @@ class StudyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUpdatedAt()
     {
-
     }
-
 }

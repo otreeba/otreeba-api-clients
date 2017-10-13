@@ -83,7 +83,6 @@ sub get_brand_by_ocpc {
 
     # parse inputs
     my $_resource_path = '/brands/{ocpc}';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -106,7 +105,7 @@ sub get_brand_by_ocpc {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -169,7 +168,6 @@ sub get_brand_edibles {
 
     # parse inputs
     my $_resource_path = '/brands/{ocpc}/edibles';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -207,7 +205,7 @@ sub get_brand_edibles {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -270,7 +268,6 @@ sub get_brand_extracts {
 
     # parse inputs
     my $_resource_path = '/brands/{ocpc}/extracts';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -308,7 +305,7 @@ sub get_brand_extracts {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -371,7 +368,6 @@ sub get_brand_flowers {
 
     # parse inputs
     my $_resource_path = '/brands/{ocpc}/flowers';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -409,7 +405,7 @@ sub get_brand_flowers {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -472,7 +468,6 @@ sub get_brand_products {
 
     # parse inputs
     my $_resource_path = '/brands/{ocpc}/products';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -510,7 +505,7 @@ sub get_brand_products {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -562,7 +557,6 @@ sub get_brands {
 
     # parse inputs
     my $_resource_path = '/brands';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -593,7 +587,7 @@ sub get_brands {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

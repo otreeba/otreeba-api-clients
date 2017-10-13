@@ -75,7 +75,7 @@ public class BrandsApi {
     }
 
     // create path and map variables
-    String path = "/brands/{ocpc}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/brands/{ocpc}".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -97,7 +97,7 @@ public class BrandsApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -111,15 +111,15 @@ public class BrandsApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -131,13 +131,11 @@ public class BrandsApi {
   public void getBrandByOcpc (String ocpc, final Response.Listener<Brand> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandByOcpc",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandByOcpc"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandByOcpc",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandByOcpc"));
     }
-    
 
     // create path and map variables
     String path = "/brands/{ocpc}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -167,7 +165,7 @@ public class BrandsApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -208,7 +206,7 @@ public class BrandsApi {
     }
 
     // create path and map variables
-    String path = "/brands/{ocpc}/edibles".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/brands/{ocpc}/edibles".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -233,7 +231,7 @@ public class BrandsApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -247,15 +245,15 @@ public class BrandsApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -267,13 +265,11 @@ public class BrandsApi {
   public void getBrandEdibles (String ocpc, Integer page, Integer count, String sort, final Response.Listener<InlineResponse2008> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandEdibles",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandEdibles"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandEdibles",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandEdibles"));
     }
-    
 
     // create path and map variables
     String path = "/brands/{ocpc}/edibles".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -306,7 +302,7 @@ public class BrandsApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -347,7 +343,7 @@ public class BrandsApi {
     }
 
     // create path and map variables
-    String path = "/brands/{ocpc}/extracts".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/brands/{ocpc}/extracts".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -372,7 +368,7 @@ public class BrandsApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -386,15 +382,15 @@ public class BrandsApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -406,13 +402,11 @@ public class BrandsApi {
   public void getBrandExtracts (String ocpc, Integer page, Integer count, String sort, final Response.Listener<InlineResponse2007> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandExtracts",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandExtracts"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandExtracts",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandExtracts"));
     }
-    
 
     // create path and map variables
     String path = "/brands/{ocpc}/extracts".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -445,7 +439,7 @@ public class BrandsApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -486,7 +480,7 @@ public class BrandsApi {
     }
 
     // create path and map variables
-    String path = "/brands/{ocpc}/flowers".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/brands/{ocpc}/flowers".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -511,7 +505,7 @@ public class BrandsApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -525,15 +519,15 @@ public class BrandsApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -545,13 +539,11 @@ public class BrandsApi {
   public void getBrandFlowers (String ocpc, Integer page, Integer count, String sort, final Response.Listener<InlineResponse2006> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandFlowers",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandFlowers"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandFlowers",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandFlowers"));
     }
-    
 
     // create path and map variables
     String path = "/brands/{ocpc}/flowers".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -584,7 +576,7 @@ public class BrandsApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -625,7 +617,7 @@ public class BrandsApi {
     }
 
     // create path and map variables
-    String path = "/brands/{ocpc}/products".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/brands/{ocpc}/products".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -650,7 +642,7 @@ public class BrandsApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -664,15 +656,15 @@ public class BrandsApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -684,13 +676,11 @@ public class BrandsApi {
   public void getBrandProducts (String ocpc, Integer page, Integer count, String sort, final Response.Listener<InlineResponse2009> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandProducts",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandProducts"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getBrandProducts",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getBrandProducts"));
     }
-    
 
     // create path and map variables
     String path = "/brands/{ocpc}/products".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -723,7 +713,7 @@ public class BrandsApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -758,7 +748,7 @@ public class BrandsApi {
     Object postBody = null;
 
     // create path and map variables
-    String path = "/brands".replaceAll("\\{format\\}","json");
+    String path = "/brands";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -783,7 +773,7 @@ public class BrandsApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -797,15 +787,15 @@ public class BrandsApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -817,7 +807,6 @@ public class BrandsApi {
   public void getBrands (Integer page, Integer count, String sort, final Response.Listener<InlineResponse2005> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
 
     // create path and map variables
     String path = "/brands".replaceAll("\\{format\\}","json");
@@ -850,7 +839,7 @@ public class BrandsApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,

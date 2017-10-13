@@ -58,6 +58,9 @@ func (a StudiesApi) GetStudies(page int32, count int32, sort string) (*InlineRes
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -125,6 +128,9 @@ func (a StudiesApi) GetStudiesByCondition(conditionSlug string, page int32, coun
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -188,6 +194,9 @@ func (a StudiesApi) GetStudiesConditions(sort string) (*interface{}, *APIRespons
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -252,6 +261,9 @@ func (a StudiesApi) GetStudyByIdentifier(identifierType string, identifier strin
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]

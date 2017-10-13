@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getSeedCompanies"></a>
 # **getSeedCompanies**
-> InlineResponse2001 getSeedCompanies(page, count, sort)
+> InlineResponse200 getSeedCompanies(page, count, sort)
 
 Get a list of all current seed companies.
 
@@ -27,7 +27,7 @@ Integer page = 56; // Integer | Page to be returned.
 Integer count = 10; // Integer | The number of items to return. Default 10. Max 50.
 String sort = "-createdAt"; // String | How to sort the items.
 try {
-    InlineResponse2001 result = apiInstance.getSeedCompanies(page, count, sort);
+    InlineResponse200 result = apiInstance.getSeedCompanies(page, count, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SeedCompaniesApi#getSeedCompanies");
@@ -45,11 +45,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -101,7 +101,7 @@ No authorization required
 
 <a name="getSeedCompanyStrainsByOcpc"></a>
 # **getSeedCompanyStrainsByOcpc**
-> InlineResponse200 getSeedCompanyStrainsByOcpc(ocpc, page, count)
+> InlineResponse2001 getSeedCompanyStrainsByOcpc(ocpc, page, count)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -117,7 +117,7 @@ String ocpc = "ocpc_example"; // String | OCPC of the seed company to return str
 Integer page = 56; // Integer | Page to be returned.
 Integer count = 10; // Integer | The number of items to return. Default 10. Max 50.
 try {
-    InlineResponse200 result = apiInstance.getSeedCompanyStrainsByOcpc(ocpc, page, count);
+    InlineResponse2001 result = apiInstance.getSeedCompanyStrainsByOcpc(ocpc, page, count);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SeedCompaniesApi#getSeedCompanyStrainsByOcpc");
@@ -135,11 +135,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

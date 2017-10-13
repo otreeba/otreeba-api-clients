@@ -6,11 +6,11 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Brand
-import io.swagger.client.model.Inline_response_200_5
-import io.swagger.client.model.Inline_response_200_6
-import io.swagger.client.model.Inline_response_200_7
-import io.swagger.client.model.Inline_response_200_8
-import io.swagger.client.model.Inline_response_200_9
+import io.swagger.client.model.InlineResponse2005
+import io.swagger.client.model.InlineResponse2006
+import io.swagger.client.model.InlineResponse2007
+import io.swagger.client.model.InlineResponse2008
+import io.swagger.client.model.InlineResponse2009
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
 import io.swagger.client.core.ApiKeyLocations._
@@ -26,10 +26,14 @@ object BrandsApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Brand not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param ocpc OCPC of the brand to return.
    */
-  def getBrandByOcpc(ocpc: String): ApiRequest[Brand] =
+  def getBrandByOcpc(ocpc: String)(implicit apiKey: ApiKeyValue): ApiRequest[Brand] =
     ApiRequest[Brand](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("ocpc", ocpc)
       .withSuccessResponse[Brand](200)
       .withErrorResponse[Unit](400)
@@ -39,23 +43,27 @@ object BrandsApi {
    * Returns a paginated list of edibles.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_8 (Successful operation.)
+   *   code 200 : InlineResponse2008 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Brand not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param ocpc OCPC of the brand to list edibles for.
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getBrandEdibles(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_8] =
-    ApiRequest[Inline_response_200_8](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/edibles", "application/json")
+  def getBrandEdibles(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2008] =
+    ApiRequest[InlineResponse2008](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/edibles", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
       .withPathParam("ocpc", ocpc)
-      .withSuccessResponse[Inline_response_200_8](200)
+      .withSuccessResponse[InlineResponse2008](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)
@@ -63,23 +71,27 @@ object BrandsApi {
    * Returns a paginated list of extracts.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_7 (Successful operation.)
+   *   code 200 : InlineResponse2007 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Brand not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param ocpc OCPC of the brand to list extracts for.
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getBrandExtracts(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_7] =
-    ApiRequest[Inline_response_200_7](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/extracts", "application/json")
+  def getBrandExtracts(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2007] =
+    ApiRequest[InlineResponse2007](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/extracts", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
       .withPathParam("ocpc", ocpc)
-      .withSuccessResponse[Inline_response_200_7](200)
+      .withSuccessResponse[InlineResponse2007](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)
@@ -87,23 +99,27 @@ object BrandsApi {
    * Returns a paginated list of flowers.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_6 (Successful operation.)
+   *   code 200 : InlineResponse2006 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Brand not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param ocpc OCPC of the brand to list flowers for.
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getBrandFlowers(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_6] =
-    ApiRequest[Inline_response_200_6](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/flowers", "application/json")
+  def getBrandFlowers(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2006] =
+    ApiRequest[InlineResponse2006](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/flowers", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
       .withPathParam("ocpc", ocpc)
-      .withSuccessResponse[Inline_response_200_6](200)
+      .withSuccessResponse[InlineResponse2006](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)
@@ -111,23 +127,27 @@ object BrandsApi {
    * Returns a paginated list of products.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_9 (Successful operation.)
+   *   code 200 : InlineResponse2009 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Brand not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param ocpc OCPC of the brand to list products for.
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getBrandProducts(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_9] =
-    ApiRequest[Inline_response_200_9](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/products", "application/json")
+  def getBrandProducts(ocpc: String, page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2009] =
+    ApiRequest[InlineResponse2009](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands/{ocpc}/products", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
       .withPathParam("ocpc", ocpc)
-      .withSuccessResponse[Inline_response_200_9](200)
+      .withSuccessResponse[InlineResponse2009](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)
@@ -135,21 +155,25 @@ object BrandsApi {
    * Returns a paginated list of brands.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_5 (Successful operation.)
+   *   code 200 : InlineResponse2005 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Brand not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getBrands(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_5] =
-    ApiRequest[Inline_response_200_5](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands", "application/json")
+  def getBrands(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2005] =
+    ApiRequest[InlineResponse2005](ApiMethods.GET, "https://api.otreeba.com/v1", "/brands", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_5](200)
+      .withSuccessResponse[InlineResponse2005](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)

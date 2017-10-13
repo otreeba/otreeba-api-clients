@@ -82,7 +82,7 @@ public class StudiesApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse20012 response = api.getStudies(page, count, sort);
+        //InlineResponse20012 response = api.getStudies(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -103,7 +103,7 @@ public class StudiesApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse20013 response = api.getStudiesByCondition(conditionSlug, page, count, sort);
+        //InlineResponse20013 response = api.getStudiesByCondition(conditionSlug, page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -121,7 +121,7 @@ public class StudiesApiTest {
     @Test
     public void getStudiesConditionsTest() {
         String sort = null;
-	//Object response = api.getStudiesConditions(sort);
+        //Object response = api.getStudiesConditions(sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -140,7 +140,7 @@ public class StudiesApiTest {
     public void getStudyByIdentifierTest() {
         String identifierType = null;
         String identifier = null;
-	//Study response = api.getStudyByIdentifier(identifierType, identifier);
+        //Study response = api.getStudyByIdentifier(identifierType, identifier);
         //assertNotNull(response);
         // TODO: test validations
         

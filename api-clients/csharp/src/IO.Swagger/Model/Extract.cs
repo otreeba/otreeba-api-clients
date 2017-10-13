@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 
 namespace IO.Swagger.Model
 {
@@ -83,84 +84,98 @@ namespace IO.Swagger.Model
         /// <value>Name of the extract.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
         /// <summary>
         /// Open Cannabis Product Code for the extract.
         /// </summary>
         /// <value>Open Cannabis Product Code for the extract.</value>
         [DataMember(Name="ocpc", EmitDefaultValue=false)]
         public string Ocpc { get; set; }
+
         /// <summary>
         /// Name and Open Cannabis Product Code of the brand that created these extract.
         /// </summary>
         /// <value>Name and Open Cannabis Product Code of the brand that created these extract.</value>
         [DataMember(Name="brand", EmitDefaultValue=false)]
         public Object Brand { get; set; }
+
         /// <summary>
         /// Type of extract.
         /// </summary>
         /// <value>Type of extract.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
         /// <summary>
         /// Name and Open Cannabis Product Code of the strain for these extract.
         /// </summary>
         /// <value>Name and Open Cannabis Product Code of the strain for these extract.</value>
         [DataMember(Name="strain", EmitDefaultValue=false)]
         public Object Strain { get; set; }
+
         /// <summary>
         /// Description of the extract.
         /// </summary>
         /// <value>Description of the extract.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
         /// <summary>
         /// URL for QR that leads to page on Cannabis Reports.
         /// </summary>
         /// <value>URL for QR that leads to page on Cannabis Reports.</value>
         [DataMember(Name="qr", EmitDefaultValue=false)]
         public string Qr { get; set; }
+
         /// <summary>
         /// URL for the extract on Cannabis Reports.
         /// </summary>
         /// <value>URL for the extract on Cannabis Reports.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
+
         /// <summary>
         /// URL for the main photo of the extract.
         /// </summary>
         /// <value>URL for the main photo of the extract.</value>
         [DataMember(Name="image", EmitDefaultValue=false)]
         public string Image { get; set; }
+
         /// <summary>
         /// URL for the PDF containing lab testing information for these extract.
         /// </summary>
         /// <value>URL for the PDF containing lab testing information for these extract.</value>
         [DataMember(Name="labTest", EmitDefaultValue=false)]
         public string LabTest { get; set; }
+
         /// <summary>
         /// THC measurement for these extract.
         /// </summary>
         /// <value>THC measurement for these extract.</value>
         [DataMember(Name="thc", EmitDefaultValue=false)]
         public string Thc { get; set; }
+
         /// <summary>
         /// CBD measurement for these extract.
         /// </summary>
         /// <value>CBD measurement for these extract.</value>
         [DataMember(Name="cbd", EmitDefaultValue=false)]
         public string Cbd { get; set; }
+
         /// <summary>
         /// Date and time record was created, UTC.
         /// </summary>
         /// <value>Date and time record was created, UTC.</value>
         [DataMember(Name="createdAt", EmitDefaultValue=false)]
         public DateTime? CreatedAt { get; set; }
+
         /// <summary>
         /// Date and time record was updated, UTC.
         /// </summary>
         /// <value>Date and time record was updated, UTC.</value>
         [DataMember(Name="updatedAt", EmitDefaultValue=false)]
         public DateTime? UpdatedAt { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -334,8 +349,13 @@ namespace IO.Swagger.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

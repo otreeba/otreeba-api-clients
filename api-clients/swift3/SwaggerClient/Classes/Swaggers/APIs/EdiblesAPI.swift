@@ -5,6 +5,7 @@
 // https://github.com/swagger-api/swagger-codegen
 //
 
+import Foundation
 import Alamofire
 
 
@@ -27,6 +28,9 @@ open class EdiblesAPI: APIBase {
      Find edible by Open Cannabis Product Code (OCPC).
      - GET /edibles/{ocpc}
      - Returns a single edible.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "strain" : {
     "name" : "Confidential Cheese",
@@ -101,6 +105,9 @@ open class EdiblesAPI: APIBase {
      Get a list of all current edibles.
      - GET /edibles
      - Returns a paginated list of edibles.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {

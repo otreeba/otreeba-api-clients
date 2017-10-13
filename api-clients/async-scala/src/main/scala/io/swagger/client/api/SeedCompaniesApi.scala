@@ -12,7 +12,7 @@ class SeedCompaniesApi(client: TransportClient, config: SwaggerConfig) extends A
   def getSeedCompanies(page: Option[Integer] = None,
       count: Option[Integer] = Some(10),
       sort: Option[String] = Some(-createdAt)
-      )(implicit reader: ClientResponseReader[Inline_response_200_1]): Future[Inline_response_200_1] = {
+      )(implicit reader: ClientResponseReader[Inline_response_200]): Future[Inline_response_200] = {
     // create path and map variables
     val path = (addFmt("/seed-companies"))
 
@@ -60,7 +60,7 @@ class SeedCompaniesApi(client: TransportClient, config: SwaggerConfig) extends A
   def getSeedCompanyStrainsByOcpc(ocpc: String,
       page: Option[Integer] = None,
       count: Option[Integer] = Some(10)
-      )(implicit reader: ClientResponseReader[Inline_response_200]): Future[Inline_response_200] = {
+      )(implicit reader: ClientResponseReader[Inline_response_200_1]): Future[Inline_response_200_1] = {
     // create path and map variables
     val path = (addFmt("/seed-companies/{ocpc}/strains")
         replaceAll ("\\{" + "ocpc" + "\\}",ocpc.toString))

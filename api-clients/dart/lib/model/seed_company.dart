@@ -11,6 +11,10 @@ class SeedCompany {
   @Property(name: 'ocpc')
   String ocpc = null;
   
+/* Description of the seed company. */
+  @Property(name: 'description')
+  String description = null;
+  
 /* URL for QR that leads to page on Cannabis Reports. */
   @Property(name: 'qr')
   String qr = null;
@@ -43,7 +47,7 @@ class SeedCompany {
 
   @override
   String toString()  {
-    return 'SeedCompany[name=$name, ocpc=$ocpc, qr=$qr, url=$url, image=$image, lineage=$lineage, strains=$strains, createdAt=$createdAt, updatedAt=$updatedAt, ]';
+    return 'SeedCompany[name=$name, ocpc=$ocpc, description=$description, qr=$qr, url=$url, image=$image, lineage=$lineage, strains=$strains, createdAt=$createdAt, updatedAt=$updatedAt, ]';
   }
 
 }

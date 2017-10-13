@@ -5,6 +5,7 @@
 // https://github.com/swagger-api/swagger-codegen
 //
 
+import Foundation
 import Alamofire
 
 
@@ -27,6 +28,9 @@ open class StrainsAPI: APIBase {
      Find strain by Open Cannabis Product Code (OCPC).
      - GET /strains/{ocpc}
      - Returns a single strain.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "lineage" : {
     "Afghanistan" : "AF",
@@ -102,6 +106,9 @@ open class StrainsAPI: APIBase {
      Get a list of all current strains.
      - GET /strains
      - Returns a paginated list of strains.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {

@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["api_key"]}))
 
 (defn get-flower-by-ocpc
   "Find flower by Open Cannabis Product Code (OCPC).
@@ -33,7 +33,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-flowers
   "Get a list of all current flowers.

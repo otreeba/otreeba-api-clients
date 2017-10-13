@@ -4,7 +4,7 @@ import io.swagger.client.model.Pagination;
 
     [XmlRootNode(name="InlineResponse2001Meta")]
     public class InlineResponse2001Meta {
-        /* Gets the current list of Seed Comapnies. */
+        /* Gets the Strains for a Seed Company listing from a given OCPC. */
         [XmlElement(name="pagination")]
         public var pagination: Pagination = NaN;
 

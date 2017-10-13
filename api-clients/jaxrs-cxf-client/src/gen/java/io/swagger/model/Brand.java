@@ -1,6 +1,7 @@
 package io.swagger.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -26,18 +27,18 @@ public class Brand  {
   private String url = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/images/profile/8/full_8b44ce75bfba676790018d8a1d275d4d736883a9.jpg", value = "URL for logo for brand.")
   private String image = null;
-  @ApiModelProperty(example = "null", value = "OCPCs of the flowers from this brand.")
+  @ApiModelProperty(value = "OCPCs of the flowers from this brand.")
   private List<String> flowers = new ArrayList<String>();
-  @ApiModelProperty(example = "null", value = "OCPCs of the extracts from this brand.")
+  @ApiModelProperty(value = "OCPCs of the extracts from this brand.")
   private List<String> extracts = new ArrayList<String>();
-  @ApiModelProperty(example = "null", value = "OCPCs of the edibles from this brand.")
+  @ApiModelProperty(value = "OCPCs of the edibles from this brand.")
   private List<String> edibles = new ArrayList<String>();
-  @ApiModelProperty(example = "null", value = "OCPCs of the products from this brand.")
+  @ApiModelProperty(value = "OCPCs of the products from this brand.")
   private List<String> products = new ArrayList<String>();
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was created, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar createdAt = null;
+  private Date createdAt = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was updated, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar updatedAt = null;
+  private Date updatedAt = null;
 
  /**
    * Name of the brand.
@@ -233,15 +234,15 @@ public class Brand  {
    * Date and time record was created, UTC.
    * @return createdAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Brand createdAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public Brand createdAt(Date createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -250,15 +251,15 @@ public class Brand  {
    * Date and time record was updated, UTC.
    * @return updatedAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Brand updatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public Brand updatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }

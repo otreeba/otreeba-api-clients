@@ -83,7 +83,6 @@ sub get_extract_by_ocpc {
 
     # parse inputs
     my $_resource_path = '/extracts/{ocpc}';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -106,7 +105,7 @@ sub get_extract_by_ocpc {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -158,7 +157,6 @@ sub get_extracts {
 
     # parse inputs
     my $_resource_path = '/extracts';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -189,7 +187,7 @@ sub get_extracts {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

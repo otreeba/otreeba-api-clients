@@ -282,14 +282,14 @@ export class Flower {
 }
 
 export class InlineResponse200 {
-    'meta': InlineResponse200Meta;
-}
-
-export class InlineResponse2001 {
     /**
     * Gets the current list of Seed Comapnies.
     */
     'meta': Meta;
+}
+
+export class InlineResponse2001 {
+    'meta': InlineResponse2001Meta;
 }
 
 export class InlineResponse20010 {
@@ -318,6 +318,16 @@ export class InlineResponse20013 {
     * Gets the current list of Studies for a given Condition.
     */
     'meta': Meta;
+}
+
+/**
+* Gets the Strains for a Seed Company listing from a given OCPC.
+*/
+export class InlineResponse2001Meta {
+    /**
+    * Gets the Strains for a Seed Company listing from a given OCPC.
+    */
+    'pagination': Pagination;
 }
 
 export class InlineResponse2002 {
@@ -374,16 +384,6 @@ export class InlineResponse2009 {
     * Gets the current list of Products for a Brand.
     */
     'meta': Meta;
-}
-
-/**
-* Gets the Strains for a Seed Company listing from a given OCPC.
-*/
-export class InlineResponse200Meta {
-    /**
-    * Gets the Strains for a Seed Company listing from a given OCPC.
-    */
-    'pagination': Pagination;
 }
 
 export class Meta {
@@ -498,6 +498,10 @@ export class SeedCompany {
     * Open Cannabis Product Code for the seed company.
     */
     'ocpc': string;
+    /**
+    * Description of the seed company.
+    */
+    'description': string;
     /**
     * URL for QR that leads to page on Cannabis Reports.
     */
@@ -663,15 +667,17 @@ export class VoidAuth implements Authentication {
 }
 
 export enum BrandsApiApiKeys {
+    api_key,
 }
 
 export class BrandsApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -691,12 +697,24 @@ export class BrandsApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: BrandsApiApiKeys, value: string) {
         this.authentications[BrandsApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Find brand by Open Cannabis Product Code (OCPC).
      * Returns a single brand.
+     * @summary Find brand by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the brand to return.
      */
     public getBrandByOcpc (ocpc: string) : Promise<{ response: http.ClientResponse; body: Brand;  }> {
@@ -723,6 +741,8 @@ export class BrandsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -747,8 +767,8 @@ export class BrandsApi {
         });
     }
     /**
-     * Get a list of all current edibles for the given brand.
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles for the given brand.
      * @param ocpc OCPC of the brand to list edibles for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -790,6 +810,8 @@ export class BrandsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -814,8 +836,8 @@ export class BrandsApi {
         });
     }
     /**
-     * Get a list of all current extracts for the given brand.
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts for the given brand.
      * @param ocpc OCPC of the brand to list extracts for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -857,6 +879,8 @@ export class BrandsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -881,8 +905,8 @@ export class BrandsApi {
         });
     }
     /**
-     * Get a list of all current flowers for the given brand.
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers for the given brand.
      * @param ocpc OCPC of the brand to list flowers for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -924,6 +948,8 @@ export class BrandsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -948,8 +974,8 @@ export class BrandsApi {
         });
     }
     /**
-     * Get a list of all current products for the given brand.
      * Returns a paginated list of products.
+     * @summary Get a list of all current products for the given brand.
      * @param ocpc OCPC of the brand to list products for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -991,6 +1017,8 @@ export class BrandsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1015,8 +1043,8 @@ export class BrandsApi {
         });
     }
     /**
-     * Get a list of all current brands.
      * Returns a paginated list of brands.
+     * @summary Get a list of all current brands.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1051,6 +1079,8 @@ export class BrandsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1076,15 +1106,17 @@ export class BrandsApi {
     }
 }
 export enum EdiblesApiApiKeys {
+    api_key,
 }
 
 export class EdiblesApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -1104,12 +1136,24 @@ export class EdiblesApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: EdiblesApiApiKeys, value: string) {
         this.authentications[EdiblesApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Find edible by Open Cannabis Product Code (OCPC).
      * Returns a single edible.
+     * @summary Find edible by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the edible to return.
      */
     public getEdibleByOcpc (ocpc: string) : Promise<{ response: http.ClientResponse; body: Edible;  }> {
@@ -1136,6 +1180,8 @@ export class EdiblesApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1160,8 +1206,8 @@ export class EdiblesApi {
         });
     }
     /**
-     * Get a list of all current edibles.
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1196,6 +1242,8 @@ export class EdiblesApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1221,15 +1269,17 @@ export class EdiblesApi {
     }
 }
 export enum ExtractsApiApiKeys {
+    api_key,
 }
 
 export class ExtractsApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -1249,12 +1299,24 @@ export class ExtractsApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: ExtractsApiApiKeys, value: string) {
         this.authentications[ExtractsApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Find extract by Open Cannabis Product Code (OCPC).
      * Returns a single extract.
+     * @summary Find extract by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the extract to return.
      */
     public getExtractByOcpc (ocpc: string) : Promise<{ response: http.ClientResponse; body: Extract;  }> {
@@ -1281,6 +1343,8 @@ export class ExtractsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1305,8 +1369,8 @@ export class ExtractsApi {
         });
     }
     /**
-     * Get a list of all current extracts.
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1341,6 +1405,8 @@ export class ExtractsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1366,15 +1432,17 @@ export class ExtractsApi {
     }
 }
 export enum FlowersApiApiKeys {
+    api_key,
 }
 
 export class FlowersApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -1394,12 +1462,24 @@ export class FlowersApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: FlowersApiApiKeys, value: string) {
         this.authentications[FlowersApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Find flower by Open Cannabis Product Code (OCPC).
      * Returns a single flower.
+     * @summary Find flower by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the flower to return.
      */
     public getFlowerByOcpc (ocpc: string) : Promise<{ response: http.ClientResponse; body: Flower;  }> {
@@ -1426,6 +1506,8 @@ export class FlowersApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1450,8 +1532,8 @@ export class FlowersApi {
         });
     }
     /**
-     * Get a list of all current flowers.
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1486,6 +1568,8 @@ export class FlowersApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1511,15 +1595,17 @@ export class FlowersApi {
     }
 }
 export enum ProductsApiApiKeys {
+    api_key,
 }
 
 export class ProductsApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -1539,12 +1625,24 @@ export class ProductsApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: ProductsApiApiKeys, value: string) {
         this.authentications[ProductsApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Find product by Open Cannabis Product Code (OCPC).
      * Returns a single product.
+     * @summary Find product by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the product to return.
      */
     public getProductByOcpc (ocpc: string) : Promise<{ response: http.ClientResponse; body: Product;  }> {
@@ -1571,6 +1669,8 @@ export class ProductsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1595,8 +1695,8 @@ export class ProductsApi {
         });
     }
     /**
-     * Get a list of all current products.
      * Returns a paginated list of products.
+     * @summary Get a list of all current products.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1631,6 +1731,8 @@ export class ProductsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1656,15 +1758,17 @@ export class ProductsApi {
     }
 }
 export enum SeedCompaniesApiApiKeys {
+    api_key,
 }
 
 export class SeedCompaniesApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -1684,17 +1788,29 @@ export class SeedCompaniesApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: SeedCompaniesApiApiKeys, value: string) {
         this.authentications[SeedCompaniesApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Get a list of all current seed companies.
      * Returns a paginated list of seed companies.
+     * @summary Get a list of all current seed companies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
      */
-    public getSeedCompanies (page?: number, count?: number, sort?: string) : Promise<{ response: http.ClientResponse; body: InlineResponse2001;  }> {
+    public getSeedCompanies (page?: number, count?: number, sort?: string) : Promise<{ response: http.ClientResponse; body: InlineResponse200;  }> {
         const localVarPath = this.basePath + '/seed-companies';
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1724,6 +1840,8 @@ export class SeedCompaniesApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1733,7 +1851,7 @@ export class SeedCompaniesApi {
                 requestOptions.form = formParams;
             }
         }
-        return new Promise<{ response: http.ClientResponse; body: InlineResponse2001;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: InlineResponse200;  }>((resolve, reject) => {
             request(requestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1748,8 +1866,8 @@ export class SeedCompaniesApi {
         });
     }
     /**
-     * Find seed company by Open Cannabis Product Code (OCPC).
      * Returns a single seed company.
+     * @summary Find seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return.
      */
     public getSeedCompanyByOcpc (ocpc: string) : Promise<{ response: http.ClientResponse; body: SeedCompany;  }> {
@@ -1776,6 +1894,8 @@ export class SeedCompaniesApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1800,13 +1920,13 @@ export class SeedCompaniesApi {
         });
     }
     /**
-     * Find strains for a seed company by Open Cannabis Product Code (OCPC).
      * Returns a paginated list of strains for a single seed company.
+     * @summary Find strains for a seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return strains for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      */
-    public getSeedCompanyStrainsByOcpc (ocpc: string, page?: number, count?: number) : Promise<{ response: http.ClientResponse; body: InlineResponse200;  }> {
+    public getSeedCompanyStrainsByOcpc (ocpc: string, page?: number, count?: number) : Promise<{ response: http.ClientResponse; body: InlineResponse2001;  }> {
         const localVarPath = this.basePath + '/seed-companies/{ocpc}/strains'
             .replace('{' + 'ocpc' + '}', String(ocpc));
         let queryParameters: any = {};
@@ -1838,6 +1958,8 @@ export class SeedCompaniesApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1847,7 +1969,7 @@ export class SeedCompaniesApi {
                 requestOptions.form = formParams;
             }
         }
-        return new Promise<{ response: http.ClientResponse; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: InlineResponse2001;  }>((resolve, reject) => {
             request(requestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1863,15 +1985,17 @@ export class SeedCompaniesApi {
     }
 }
 export enum StrainsApiApiKeys {
+    api_key,
 }
 
 export class StrainsApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -1891,12 +2015,24 @@ export class StrainsApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: StrainsApiApiKeys, value: string) {
         this.authentications[StrainsApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Find strain by Open Cannabis Product Code (OCPC).
      * Returns a single strain.
+     * @summary Find strain by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the strain to return.
      */
     public getStrainByOcpc (ocpc: string) : Promise<{ response: http.ClientResponse; body: Strain;  }> {
@@ -1923,6 +2059,8 @@ export class StrainsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -1947,8 +2085,8 @@ export class StrainsApi {
         });
     }
     /**
-     * Get a list of all current strains.
      * Returns a paginated list of strains.
+     * @summary Get a list of all current strains.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1983,6 +2121,8 @@ export class StrainsApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -2008,15 +2148,17 @@ export class StrainsApi {
     }
 }
 export enum StudiesApiApiKeys {
+    api_key,
 }
 
 export class StudiesApi {
-    protected basePath = defaultBasePath;
+    protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
+        'api_key': new ApiKeyAuth('header', 'X-API-Key'),
     }
 
     constructor(basePath?: string);
@@ -2036,12 +2178,24 @@ export class StudiesApi {
         this._useQuerystring = value;
     }
 
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
     public setApiKey(key: StudiesApiApiKeys, value: string) {
         this.authentications[StudiesApiApiKeys[key]].apiKey = value;
     }
     /**
-     * Get a list of all current studies.
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -2076,6 +2230,8 @@ export class StudiesApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -2100,8 +2256,8 @@ export class StudiesApi {
         });
     }
     /**
-     * Get a list of all current studies for a given condition.
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies for a given condition.
      * @param conditionSlug Slug of the condition to return studies for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -2143,6 +2299,8 @@ export class StudiesApi {
             json: true,
         };
 
+        this.authentications.api_key.applyToRequest(requestOptions);
+
         this.authentications.default.applyToRequest(requestOptions);
 
         if (Object.keys(formParams).length) {
@@ -2167,8 +2325,8 @@ export class StudiesApi {
         });
     }
     /**
-     * Get a list of all current conditions for studies.
      * Returns a list of all current conditions for studies.
+     * @summary Get a list of all current conditions for studies.
      * @param sort How to sort the items.
      */
     public getStudiesConditions (sort?: string) : Promise<{ response: http.ClientResponse; body: any;  }> {
@@ -2192,6 +2350,8 @@ export class StudiesApi {
             useQuerystring: this._useQuerystring,
             json: true,
         };
+
+        this.authentications.api_key.applyToRequest(requestOptions);
 
         this.authentications.default.applyToRequest(requestOptions);
 
@@ -2217,8 +2377,8 @@ export class StudiesApi {
         });
     }
     /**
-     * Find study by DOI, PubMed ID, or slug.
      * Returns a single study.
+     * @summary Find study by DOI, PubMed ID, or slug.
      * @param identifierType Type of identifier to for the study to return.
      * @param identifier Identifier for the study to return.
      */
@@ -2251,6 +2411,8 @@ export class StudiesApi {
             useQuerystring: this._useQuerystring,
             json: true,
         };
+
+        this.authentications.api_key.applyToRequest(requestOptions);
 
         this.authentications.default.applyToRequest(requestOptions);
 

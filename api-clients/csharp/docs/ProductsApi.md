@@ -30,7 +30,11 @@ namespace Example
     {
         public void main()
         {
-            
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new ProductsApi();
             var ocpc = ocpc_example;  // string | OCPC of the product to return.
 
@@ -61,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -92,7 +96,11 @@ namespace Example
     {
         public void main()
         {
-            
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new ProductsApi();
             var page = 56;  // int? | Page to be returned. (optional) 
             var count = 56;  // int? | The number of items to return. Default 10. Max 50. (optional)  (default to 10)
@@ -127,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

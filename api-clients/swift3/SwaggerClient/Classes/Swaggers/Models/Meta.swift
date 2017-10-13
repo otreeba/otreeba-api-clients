@@ -9,6 +9,7 @@ import Foundation
 
 
 open class Meta: JSONEncodable {
+
     public var pagination: Pagination?
 
     public init() {}
@@ -17,6 +18,7 @@ open class Meta: JSONEncodable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["pagination"] = self.pagination?.encodeToJSON()
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

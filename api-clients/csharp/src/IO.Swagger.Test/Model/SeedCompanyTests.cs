@@ -81,6 +81,14 @@ namespace IO.Swagger.Test
             // TODO unit test for the property 'Ocpc'
         }
         /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Test]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+        /// <summary>
         /// Test the property 'Qr'
         /// </summary>
         [Test]

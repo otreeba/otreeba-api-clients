@@ -27,10 +27,10 @@ export class FlowersApi {
     }
 
     /**
-        * Find flower by Open Cannabis Product Code (OCPC).
-        * Returns a single flower.
-        * @param ocpc OCPC of the flower to return.
-        */
+     * Returns a single flower.
+     * @summary Find flower by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the flower to return.
+     */
     public getFlowerByOcpc (ocpc: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Flower> {
         const localVarPath = this.basePath + '/flowers/{ocpc}'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -55,12 +55,12 @@ export class FlowersApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current flowers.
-        * Returns a paginated list of flowers.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getFlowers (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2004> {
         const localVarPath = this.basePath + '/flowers';
 

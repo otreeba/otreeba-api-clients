@@ -72,9 +72,6 @@ NSInteger kSWGStrainsApiMissingParamErrorCode = 234513;
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/strains/{ocpc}"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
         pathParams[@"ocpc"] = ocpc;
@@ -96,7 +93,7 @@ NSInteger kSWGStrainsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -138,9 +135,6 @@ NSInteger kSWGStrainsApiMissingParamErrorCode = 234513;
     completionHandler: (void (^)(SWGInlineResponse20011* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/strains"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -168,7 +162,7 @@ NSInteger kSWGStrainsApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];

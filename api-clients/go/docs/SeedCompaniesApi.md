@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **GetSeedCompanies**
-> InlineResponse2001 GetSeedCompanies($page, $count, $sort)
+> InlineResponse200 GetSeedCompanies($page, $count, $sort)
 
 Get a list of all current seed companies.
 
@@ -27,11 +27,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](inline_response_200_1.md)
+[**InlineResponse200**](inline_response_200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -70,7 +70,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSeedCompanyStrainsByOcpc**
-> InlineResponse200 GetSeedCompanyStrainsByOcpc($ocpc, $page, $count)
+> InlineResponse2001 GetSeedCompanyStrainsByOcpc($ocpc, $page, $count)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -87,11 +87,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](inline_response_200.md)
+[**InlineResponse2001**](inline_response_200_1.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

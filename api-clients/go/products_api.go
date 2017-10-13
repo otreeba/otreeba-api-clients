@@ -57,6 +57,9 @@ func (a ProductsApi) GetProductByOcpc(ocpc string) (*Product, *APIResponse, erro
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -119,6 +122,9 @@ func (a ProductsApi) GetProducts(page int32, count int32, sort string) (*InlineR
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]

@@ -71,7 +71,7 @@ public class FlowersApi {
     }
 
     // create path and map variables
-    String path = "/flowers/{ocpc}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/flowers/{ocpc}".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -93,7 +93,7 @@ public class FlowersApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -107,15 +107,15 @@ public class FlowersApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -127,13 +127,11 @@ public class FlowersApi {
   public void getFlowerByOcpc (String ocpc, final Response.Listener<Flower> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getFlowerByOcpc",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getFlowerByOcpc"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getFlowerByOcpc",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getFlowerByOcpc"));
     }
-    
 
     // create path and map variables
     String path = "/flowers/{ocpc}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -163,7 +161,7 @@ public class FlowersApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -198,7 +196,7 @@ public class FlowersApi {
     Object postBody = null;
 
     // create path and map variables
-    String path = "/flowers".replaceAll("\\{format\\}","json");
+    String path = "/flowers";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -223,7 +221,7 @@ public class FlowersApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -237,15 +235,15 @@ public class FlowersApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -257,7 +255,6 @@ public class FlowersApi {
   public void getFlowers (Integer page, Integer count, String sort, final Response.Listener<InlineResponse2004> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
 
     // create path and map variables
     String path = "/flowers".replaceAll("\\{format\\}","json");
@@ -290,7 +287,7 @@ public class FlowersApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,

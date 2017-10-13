@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getSeedCompanies"></a>
 # **getSeedCompanies**
-> InlineResponse2001 getSeedCompanies(opts)
+> InlineResponse200 getSeedCompanies(opts)
 
 Get a list of all current seed companies.
 
@@ -20,6 +20,13 @@ Returns a paginated list of seed companies.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.SeedCompaniesApi();
 
@@ -49,11 +56,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -71,6 +78,13 @@ Returns a single seed company.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.SeedCompaniesApi();
 
@@ -99,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -108,7 +122,7 @@ No authorization required
 
 <a name="getSeedCompanyStrainsByOcpc"></a>
 # **getSeedCompanyStrainsByOcpc**
-> InlineResponse200 getSeedCompanyStrainsByOcpc(ocpc, opts)
+> InlineResponse2001 getSeedCompanyStrainsByOcpc(ocpc, opts)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -117,6 +131,13 @@ Returns a paginated list of strains for a single seed company.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.SeedCompaniesApi();
 
@@ -147,11 +168,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

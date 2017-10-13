@@ -10,7 +10,7 @@ class SeedCompaniesApi {
   /// Get a list of all current seed companies.
   ///
   /// Returns a paginated list of seed companies.
-  Future<InlineResponse2001> getSeedCompanies({ int page, int count, String sort }) async {
+  Future<InlineResponse200> getSeedCompanies({ int page, int count, String sort }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -35,7 +35,7 @@ class SeedCompaniesApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -59,7 +59,7 @@ class SeedCompaniesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'InlineResponse2001') as InlineResponse2001 ;
+      return apiClient.deserialize(response.body, 'InlineResponse200') as InlineResponse200 ;
     } else {
       return null;
     }
@@ -86,7 +86,7 @@ class SeedCompaniesApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -118,7 +118,7 @@ class SeedCompaniesApi {
   /// Find strains for a seed company by Open Cannabis Product Code (OCPC).
   ///
   /// Returns a paginated list of strains for a single seed company.
-  Future<InlineResponse200> getSeedCompanyStrainsByOcpc(String ocpc, { int page, int count }) async {
+  Future<InlineResponse2001> getSeedCompanyStrainsByOcpc(String ocpc, { int page, int count }) async {
     Object postBody = null;
 
     // verify required params are set
@@ -143,7 +143,7 @@ class SeedCompaniesApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -167,7 +167,7 @@ class SeedCompaniesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, response.body);
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'InlineResponse200') as InlineResponse200 ;
+      return apiClient.deserialize(response.body, 'InlineResponse2001') as InlineResponse2001 ;
     } else {
       return null;
     }

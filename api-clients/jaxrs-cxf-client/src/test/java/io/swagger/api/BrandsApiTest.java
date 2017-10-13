@@ -83,7 +83,7 @@ public class BrandsApiTest {
     @Test
     public void getBrandByOcpcTest() {
         String ocpc = null;
-	//Brand response = api.getBrandByOcpc(ocpc);
+        //Brand response = api.getBrandByOcpc(ocpc);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -104,7 +104,7 @@ public class BrandsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2008 response = api.getBrandEdibles(ocpc, page, count, sort);
+        //InlineResponse2008 response = api.getBrandEdibles(ocpc, page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -125,7 +125,7 @@ public class BrandsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2007 response = api.getBrandExtracts(ocpc, page, count, sort);
+        //InlineResponse2007 response = api.getBrandExtracts(ocpc, page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -146,7 +146,7 @@ public class BrandsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2006 response = api.getBrandFlowers(ocpc, page, count, sort);
+        //InlineResponse2006 response = api.getBrandFlowers(ocpc, page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -167,7 +167,7 @@ public class BrandsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2009 response = api.getBrandProducts(ocpc, page, count, sort);
+        //InlineResponse2009 response = api.getBrandProducts(ocpc, page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -187,7 +187,7 @@ public class BrandsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2005 response = api.getBrands(page, count, sort);
+        //InlineResponse2005 response = api.getBrands(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         

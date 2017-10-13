@@ -15,5 +15,6 @@ package io.swagger.client.model
 
 case class InlineResponse20011 (
   /* Gets the current list of Strains. */
-  meta: Meta
+  meta: Option[Meta]
 )
+

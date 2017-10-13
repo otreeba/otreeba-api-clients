@@ -57,7 +57,7 @@ class SeedCompaniesApi(object):
         :param int page: Page to be returned.
         :param int count: The number of items to return. Default 10. Max 50.
         :param str sort: How to sort the items.
-        :return: InlineResponse2001
+        :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -85,7 +85,7 @@ class SeedCompaniesApi(object):
         :param int page: Page to be returned.
         :param int count: The number of items to return. Default 10. Max 50.
         :param str sort: How to sort the items.
-        :return: InlineResponse2001
+        :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -109,16 +109,15 @@ class SeedCompaniesApi(object):
 
         collection_formats = {}
 
-        resource_path = '/seed-companies'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'count' in params:
-            query_params['count'] = params['count']
+            query_params.append(('count', params['count']))
         if 'sort' in params:
-            query_params['sort'] = params['sort']
+            query_params.append(('sort', params['sort']))
 
         header_params = {}
 
@@ -135,16 +134,16 @@ class SeedCompaniesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/seed-companies', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='InlineResponse2001',
+                                        response_type='InlineResponse200',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -220,12 +219,11 @@ class SeedCompaniesApi(object):
 
         collection_formats = {}
 
-        resource_path = '/seed-companies/{ocpc}'.replace('{format}', 'json')
         path_params = {}
         if 'ocpc' in params:
             path_params['ocpc'] = params['ocpc']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -242,9 +240,9 @@ class SeedCompaniesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/seed-companies/{ocpc}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -276,7 +274,7 @@ class SeedCompaniesApi(object):
         :param str ocpc: OCPC of the seed company to return strains for. (required)
         :param int page: Page to be returned.
         :param int count: The number of items to return. Default 10. Max 50.
-        :return: InlineResponse200
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -304,7 +302,7 @@ class SeedCompaniesApi(object):
         :param str ocpc: OCPC of the seed company to return strains for. (required)
         :param int page: Page to be returned.
         :param int count: The number of items to return. Default 10. Max 50.
-        :return: InlineResponse200
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -331,16 +329,15 @@ class SeedCompaniesApi(object):
 
         collection_formats = {}
 
-        resource_path = '/seed-companies/{ocpc}/strains'.replace('{format}', 'json')
         path_params = {}
         if 'ocpc' in params:
             path_params['ocpc'] = params['ocpc']
 
-        query_params = {}
+        query_params = []
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'count' in params:
-            query_params['count'] = params['count']
+            query_params.append(('count', params['count']))
 
         header_params = {}
 
@@ -357,16 +354,16 @@ class SeedCompaniesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/seed-companies/{ocpc}/strains', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='InlineResponse200',
+                                        response_type='InlineResponse2001',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

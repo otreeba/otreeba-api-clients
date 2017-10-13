@@ -1,5 +1,6 @@
 package io.swagger.model;
 
+import java.util.Date;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.xml.bind.annotation.XmlElement;
@@ -16,13 +17,13 @@ public class Extract  {
   private String name = null;
   @ApiModelProperty(example = "TTUYNUF3TP6DZTPWPG3200000", value = "Open Cannabis Product Code for the extract.")
   private String ocpc = null;
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Kaizen Medicinal&quot;,&quot;ocpc&quot;:&quot;00000000006DZTP0000000000&quot;}", value = "Name and Open Cannabis Product Code of the brand that created these extract.")
+  @ApiModelProperty(example = "{\"name\":\"Kaizen Medicinal\",\"ocpc\":\"00000000006DZTP0000000000\"}", value = "Name and Open Cannabis Product Code of the brand that created these extract.")
   private Object brand = null;
   @ApiModelProperty(example = "wax", value = "Type of extract.")
   private String type = null;
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Confidential Cheese&quot;,&quot;ocpc&quot;:&quot;TTUYNUF3TP000000000000000&quot;}", value = "Name and Open Cannabis Product Code of the strain for these extract.")
+  @ApiModelProperty(example = "{\"name\":\"Confidential Cheese\",\"ocpc\":\"TTUYNUF3TP000000000000000\"}", value = "Name and Open Cannabis Product Code of the strain for these extract.")
   private Object strain = null;
-  @ApiModelProperty(example = "null", value = "Description of the extract.")
+  @ApiModelProperty(value = "Description of the extract.")
   private String description = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png", value = "URL for QR that leads to page on Cannabis Reports.")
   private String qr = null;
@@ -37,9 +38,9 @@ public class Extract  {
   @ApiModelProperty(example = "0.22%", value = "CBD measurement for these extract.")
   private String cbd = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was created, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar createdAt = null;
+  private Date createdAt = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was updated, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar updatedAt = null;
+  private Date updatedAt = null;
 
  /**
    * Name of the extract.
@@ -249,15 +250,15 @@ public class Extract  {
    * Date and time record was created, UTC.
    * @return createdAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Extract createdAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public Extract createdAt(Date createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -266,15 +267,15 @@ public class Extract  {
    * Date and time record was updated, UTC.
    * @return updatedAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Extract updatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public Extract updatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }

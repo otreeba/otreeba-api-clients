@@ -10,7 +10,7 @@ open class SwaggerClientAPI {
     open static var basePath = "https://api.otreeba.com/v1"
     open static var credential: URLCredential?
     open static var customHeaders: [String:String] = [:]
-    static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
+    open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
 }
 
 open class APIBase {

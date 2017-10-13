@@ -33,6 +33,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getStrainByOcpc(QString* ocpc);
     void getStrains(qint32 page, qint32 count, QString* sort);
@@ -45,6 +46,10 @@ signals:
     void getStrainByOcpcSignal(SWGStrain* summary);
     void getStrainsSignal(SWGInline_response_200_11* summary);
     
+    void getStrainByOcpcSignalE(SWGStrain* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getStrainsSignalE(SWGInline_response_200_11* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 };
+
 }
 #endif

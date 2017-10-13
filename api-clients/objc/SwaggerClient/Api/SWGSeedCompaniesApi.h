@@ -37,11 +37,11 @@ extern NSInteger kSWGSeedCompaniesApiMissingParamErrorCode;
 ///  code:401 message:"Unauthorized action.",
 ///  code:404 message:"Seed company not found."
 ///
-/// @return SWGInlineResponse2001*
+/// @return SWGInlineResponse200*
 -(NSURLSessionTask*) getSeedCompaniesWithPage: (NSNumber*) page
     count: (NSNumber*) count
     sort: (NSString*) sort
-    completionHandler: (void (^)(SWGInlineResponse2001* output, NSError* error)) handler;
+    completionHandler: (void (^)(SWGInlineResponse200* output, NSError* error)) handler;
 
 
 /// Find seed company by Open Cannabis Product Code (OCPC).
@@ -71,11 +71,11 @@ extern NSInteger kSWGSeedCompaniesApiMissingParamErrorCode;
 ///  code:401 message:"Unauthorized action.",
 ///  code:404 message:"Seed company not found."
 ///
-/// @return SWGInlineResponse200*
+/// @return SWGInlineResponse2001*
 -(NSURLSessionTask*) getSeedCompanyStrainsByOcpcWithOcpc: (NSString*) ocpc
     page: (NSNumber*) page
     count: (NSNumber*) count
-    completionHandler: (void (^)(SWGInlineResponse200* output, NSError* error)) handler;
+    completionHandler: (void (^)(SWGInlineResponse2001* output, NSError* error)) handler;
 
 
 

@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 
 namespace IO.Swagger.Model
 {
@@ -77,66 +78,77 @@ namespace IO.Swagger.Model
         /// <value>Name of the strain.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
         /// <summary>
         /// Open Cannabis Product Code for the strain.
         /// </summary>
         /// <value>Open Cannabis Product Code for the strain.</value>
         [DataMember(Name="ocpc", EmitDefaultValue=false)]
         public string Ocpc { get; set; }
+
         /// <summary>
         /// Name and Open Cannabis Product Code of the seed company that created the strain.
         /// </summary>
         /// <value>Name and Open Cannabis Product Code of the seed company that created the strain.</value>
         [DataMember(Name="seedCompany", EmitDefaultValue=false)]
         public Object SeedCompany { get; set; }
+
         /// <summary>
         /// URL for QR that leads to page on Cannabis Reports.
         /// </summary>
         /// <value>URL for QR that leads to page on Cannabis Reports.</value>
         [DataMember(Name="qr", EmitDefaultValue=false)]
         public string Qr { get; set; }
+
         /// <summary>
         /// URL for strain on Cannabis Reports.
         /// </summary>
         /// <value>URL for strain on Cannabis Reports.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
+
         /// <summary>
         /// URL for the main photo of the strain.
         /// </summary>
         /// <value>URL for the main photo of the strain.</value>
         [DataMember(Name="image", EmitDefaultValue=false)]
         public string Image { get; set; }
+
         /// <summary>
         /// Object of countries that this strain has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}
         /// </summary>
         /// <value>Object of countries that this strain has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}</value>
         [DataMember(Name="lineage", EmitDefaultValue=false)]
         public Object Lineage { get; set; }
+
         /// <summary>
         /// Names of the parents of the strains and their associated Open Cannabis Product Codes.
         /// </summary>
         /// <value>Names of the parents of the strains and their associated Open Cannabis Product Codes.</value>
         [DataMember(Name="genetics", EmitDefaultValue=false)]
         public Object Genetics { get; set; }
+
         /// <summary>
         /// Open Cannabis Product Codes of the children of this strain.
         /// </summary>
         /// <value>Open Cannabis Product Codes of the children of this strain.</value>
         [DataMember(Name="children", EmitDefaultValue=false)]
         public List<string> Children { get; set; }
+
         /// <summary>
         /// Date and time record was created, UTC.
         /// </summary>
         /// <value>Date and time record was created, UTC.</value>
         [DataMember(Name="createdAt", EmitDefaultValue=false)]
         public DateTime? CreatedAt { get; set; }
+
         /// <summary>
         /// Date and time record was updated, UTC.
         /// </summary>
         /// <value>Date and time record was updated, UTC.</value>
         [DataMember(Name="updatedAt", EmitDefaultValue=false)]
         public DateTime? UpdatedAt { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -286,8 +298,13 @@ namespace IO.Swagger.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -14,9 +14,14 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -24,7 +29,7 @@ import org.joda.time.DateTime;
 /**
  * Strain
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class Strain {
   @SerializedName("name")
   private String name = null;
@@ -51,7 +56,7 @@ public class Strain {
   private Object genetics = null;
 
   @SerializedName("children")
-  private List<String> children = new ArrayList<String>();
+  private List<String> children = null;
 
   @SerializedName("createdAt")
   private DateTime createdAt = null;
@@ -104,7 +109,7 @@ public class Strain {
    * Name and Open Cannabis Product Code of the seed company that created the strain.
    * @return seedCompany
   **/
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Sensi Seeds&quot;,&quot;ocpc&quot;:&quot;VUJCJ00000000000000000000&quot;}", value = "Name and Open Cannabis Product Code of the seed company that created the strain.")
+  @ApiModelProperty(example = "{\"name\":\"Sensi Seeds\",\"ocpc\":\"VUJCJ00000000000000000000\"}", value = "Name and Open Cannabis Product Code of the seed company that created the strain.")
   public Object getSeedCompany() {
     return seedCompany;
   }
@@ -173,10 +178,10 @@ public class Strain {
   }
 
    /**
-   * Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+   * Object of countries that this strain has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}
    * @return lineage
   **/
-  @ApiModelProperty(example = "{&quot;Afghanistan&quot;:&quot;AF&quot;,&quot;Colombia&quot;:&quot;CO&quot;,&quot;India&quot;:&quot;IN&quot;,&quot;Mexico&quot;:&quot;MX&quot;,&quot;Thailand&quot;:&quot;TH&quot;}", value = "Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
+  @ApiModelProperty(example = "{\"Afghanistan\":\"AF\",\"Colombia\":\"CO\",\"India\":\"IN\",\"Mexico\":\"MX\",\"Thailand\":\"TH\"}", value = "Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
   public Object getLineage() {
     return lineage;
   }
@@ -194,7 +199,7 @@ public class Strain {
    * Names of the parents of the strains and their associated Open Cannabis Product Codes.
    * @return genetics
   **/
-  @ApiModelProperty(example = "{&quot;names&quot;:&quot;(Northern Lights #5 x Skunk #1) x Haze&quot;,&quot;ucpc&quot;:&quot;(VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000&quot;}", value = "Names of the parents of the strains and their associated Open Cannabis Product Codes.")
+  @ApiModelProperty(example = "{\"names\":\"(Northern Lights #5 x Skunk #1) x Haze\",\"ucpc\":\"(VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000\"}", value = "Names of the parents of the strains and their associated Open Cannabis Product Codes.")
   public Object getGenetics() {
     return genetics;
   }
@@ -209,6 +214,9 @@ public class Strain {
   }
 
   public Strain addChildrenItem(String childrenItem) {
+    if (this.children == null) {
+      this.children = new ArrayList<String>();
+    }
     this.children.add(childrenItem);
     return this;
   }
@@ -217,7 +225,7 @@ public class Strain {
    * Open Cannabis Product Codes of the children of this strain.
    * @return children
   **/
-  @ApiModelProperty(example = "null", value = "Open Cannabis Product Codes of the children of this strain.")
+  @ApiModelProperty(value = "Open Cannabis Product Codes of the children of this strain.")
   public List<String> getChildren() {
     return children;
   }

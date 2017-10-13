@@ -20,6 +20,13 @@ API.Client.SeedCompany.prototype.name;
 API.Client.SeedCompany.prototype.ocpc;
 
 /**
+ * Description of the seed company.
+ * @type {!string}
+ * @export
+ */
+API.Client.SeedCompany.prototype.description;
+
+/**
  * URL for QR that leads to page on Cannabis Reports.
  * @type {!string}
  * @export

@@ -23,6 +23,10 @@ Returns a single edible.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new EdiblesApi();
 var ocpc = ocpc_example; // String | OCPC of the edible to return.
@@ -47,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -66,6 +70,10 @@ Returns a paginated list of edibles.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new EdiblesApi();
 var page = 56; // int | Page to be returned.
@@ -94,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

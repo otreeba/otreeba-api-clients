@@ -80,17 +80,16 @@ sub new {
     __PACKAGE__->method_documentation->{ 'get_seed_companies' } = { 
     	summary => 'Get a list of all current seed companies.',
         params => $params,
-        returns => 'InlineResponse2001',
+        returns => 'InlineResponse200',
         };
 }
-# @return InlineResponse2001
+# @return InlineResponse200
 #
 sub get_seed_companies {
     my ($self, %args) = @_;
 
     # parse inputs
     my $_resource_path = '/seed-companies';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -121,7 +120,7 @@ sub get_seed_companies {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -130,7 +129,7 @@ sub get_seed_companies {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse2001', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse200', $response);
     return $_response_object;
 }
 
@@ -166,7 +165,6 @@ sub get_seed_company_by_ocpc {
 
     # parse inputs
     my $_resource_path = '/seed-companies/{ocpc}';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -189,7 +187,7 @@ sub get_seed_company_by_ocpc {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -231,10 +229,10 @@ sub get_seed_company_by_ocpc {
     __PACKAGE__->method_documentation->{ 'get_seed_company_strains_by_ocpc' } = { 
     	summary => 'Find strains for a seed company by Open Cannabis Product Code (OCPC).',
         params => $params,
-        returns => 'InlineResponse200',
+        returns => 'InlineResponse2001',
         };
 }
-# @return InlineResponse200
+# @return InlineResponse2001
 #
 sub get_seed_company_strains_by_ocpc {
     my ($self, %args) = @_;
@@ -246,7 +244,6 @@ sub get_seed_company_strains_by_ocpc {
 
     # parse inputs
     my $_resource_path = '/seed-companies/{ocpc}/strains';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -279,7 +276,7 @@ sub get_seed_company_strains_by_ocpc {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -288,7 +285,7 @@ sub get_seed_company_strains_by_ocpc {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse200', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2001', $response);
     return $_response_object;
 }
 

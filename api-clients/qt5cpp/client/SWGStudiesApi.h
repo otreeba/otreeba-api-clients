@@ -35,6 +35,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getStudies(qint32 page, qint32 count, QString* sort);
     void getStudiesByCondition(QString* condition_slug, qint32 page, qint32 count, QString* sort);
@@ -53,6 +54,12 @@ signals:
     void getStudiesConditionsSignal(SWGObject* summary);
     void getStudyByIdentifierSignal(SWGStudy* summary);
     
+    void getStudiesSignalE(SWGInline_response_200_12* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getStudiesByConditionSignalE(SWGInline_response_200_13* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getStudiesConditionsSignalE(SWGObject* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getStudyByIdentifierSignalE(SWGStudy* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 };
+
 }
 #endif

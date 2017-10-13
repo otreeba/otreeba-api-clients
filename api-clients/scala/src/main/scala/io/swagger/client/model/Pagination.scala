@@ -15,15 +15,16 @@ package io.swagger.client.model
 
 case class Pagination (
   /* Total number of results available. */
-  total: Integer,
+  total: Option[Integer],
   /* Number of results to return. Default 10. Max 50. */
-  count: Integer,
+  count: Option[Integer],
   /* Number of results per page. */
-  perPage: Integer,
+  perPage: Option[Integer],
   /* Page of results. */
-  currentPage: Integer,
+  currentPage: Option[Integer],
   /* Total number of pages of results. */
-  totalPages: Integer,
+  totalPages: Option[Integer],
   /* Links to the previous and/or next pages of results. */
-  links: Any
+  links: Option[Any]
 )
+

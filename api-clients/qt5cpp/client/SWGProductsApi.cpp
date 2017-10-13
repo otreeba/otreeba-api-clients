@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 
 namespace Swagger {
+
 SWGProductsApi::SWGProductsApi() {}
 
 SWGProductsApi::~SWGProductsApi() {}
@@ -39,9 +40,13 @@ SWGProductsApi::getProductByOcpc(QString* ocpc) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -54,6 +59,9 @@ SWGProductsApi::getProductByOcpc(QString* ocpc) {
 void
 SWGProductsApi::getProductByOcpcCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -61,16 +69,15 @@ SWGProductsApi::getProductByOcpcCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGProduct* output = static_cast<SWGProduct*>(create(json, QString("SWGProduct")));
-    
 
+    QString json(worker->response);
+    SWGProduct* output = static_cast<SWGProduct*>(create(json, QString("SWGProduct")));
     worker->deleteLater();
 
     emit getProductByOcpcSignal(output);
-    
+    emit getProductByOcpcSignalE(output, error_type, error_str);
 }
+
 void
 SWGProductsApi::getProducts(qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -105,9 +112,13 @@ SWGProductsApi::getProducts(qint32 page, qint32 count, QString* sort) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -120,6 +131,9 @@ SWGProductsApi::getProducts(qint32 page, qint32 count, QString* sort) {
 void
 SWGProductsApi::getProductsCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -127,14 +141,14 @@ SWGProductsApi::getProductsCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_10* output = static_cast<SWGInline_response_200_10*>(create(json, QString("SWGInline_response_200_10")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_10* output = static_cast<SWGInline_response_200_10*>(create(json, QString("SWGInline_response_200_10")));
     worker->deleteLater();
 
     emit getProductsSignal(output);
-    
+    emit getProductsSignalE(output, error_type, error_str);
 }
-} /* namespace Swagger */
+
+
+}

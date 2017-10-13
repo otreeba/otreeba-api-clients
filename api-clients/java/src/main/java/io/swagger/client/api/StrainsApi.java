@@ -55,13 +55,20 @@ public class StrainsApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getStrainByOcpc */
-    private com.squareup.okhttp.Call getStrainByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getStrainByOcpc
+     * @param ocpc OCPC of the strain to return. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStrainByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/strains/{ocpc}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/strains/{ocpc}"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -93,7 +100,7 @@ public class StrainsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -174,12 +181,21 @@ public class StrainsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getStrains */
-    private com.squareup.okhttp.Call getStrainsCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getStrains
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStrainsCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/strains".replaceAll("\\{format\\}","json");
+        String localVarPath = "/strains";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -217,7 +233,7 @@ public class StrainsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

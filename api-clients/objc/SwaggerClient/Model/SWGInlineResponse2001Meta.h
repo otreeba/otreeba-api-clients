@@ -22,7 +22,7 @@
 
 @interface SWGInlineResponse2001Meta : SWGObject
 
-/* Gets the current list of Seed Comapnies. [optional]
+/* Gets the Strains for a Seed Company listing from a given OCPC. [optional]
  */
 @property(nonatomic) SWGPagination* pagination;
 

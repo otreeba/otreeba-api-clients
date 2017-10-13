@@ -22,6 +22,10 @@ export interface SeedCompany {
      */
     "ocpc"?: string;
     /**
+     * Description of the seed company.
+     */
+    "description"?: string;
+    /**
      * URL for QR that leads to page on Cannabis Reports.
      */
     "qr"?: string;

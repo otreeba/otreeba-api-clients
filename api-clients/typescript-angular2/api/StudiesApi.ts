@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 
+/* tslint:disable:no-unused-variable member-ordering */
+
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { Http, Headers, URLSearchParams }                    from '@angular/http';
 import { RequestMethod, RequestOptions, RequestOptionsArgs } from '@angular/http';
@@ -22,11 +24,10 @@ import * as models                                           from '../model/mode
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
-/* tslint:disable:no-unused-variable member-ordering */
-
 
 @Injectable()
 export class StudiesApi {
+
     protected basePath = 'https://api.otreeba.com/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
@@ -41,8 +42,8 @@ export class StudiesApi {
     }
 
     /**
-     * Get a list of all current studies.
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -53,14 +54,14 @@ export class StudiesApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current studies for a given condition.
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies for a given condition.
      * @param conditionSlug Slug of the condition to return studies for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -72,14 +73,14 @@ export class StudiesApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current conditions for studies.
      * Returns a list of all current conditions for studies.
+     * @summary Get a list of all current conditions for studies.
      * @param sort How to sort the items.
      */
     public getStudiesConditions(sort?: string, extraHttpRequestParams?: any): Observable<any> {
@@ -88,14 +89,14 @@ export class StudiesApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Find study by DOI, PubMed ID, or slug.
      * Returns a single study.
+     * @summary Find study by DOI, PubMed ID, or slug.
      * @param identifierType Type of identifier to for the study to return.
      * @param identifier Identifier for the study to return.
      */
@@ -105,7 +106,7 @@ export class StudiesApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
@@ -119,32 +120,20 @@ export class StudiesApi {
      * @param sort How to sort the items.
      */
     public getStudiesWithHttpInfo(page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/studies`;
+        const path = this.basePath + '/studies';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -157,12 +146,17 @@ export class StudiesApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -180,7 +174,8 @@ export class StudiesApi {
      * @param sort How to sort the items.
      */
     public getStudiesByConditionWithHttpInfo(conditionSlug: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/studies/conditions/${conditionSlug}`;
+        const path = this.basePath + '/studies/conditions/${conditionSlug}'
+                    .replace('${' + 'conditionSlug' + '}', String(conditionSlug));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -189,27 +184,15 @@ export class StudiesApi {
             throw new Error('Required parameter conditionSlug was null or undefined when calling getStudiesByCondition.');
         }
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -222,12 +205,17 @@ export class StudiesApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -242,16 +230,12 @@ export class StudiesApi {
      * @param sort How to sort the items.
      */
     public getStudiesConditionsWithHttpInfo(sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/studies/conditions`;
+        const path = this.basePath + '/studies/conditions';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -264,12 +248,17 @@ export class StudiesApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -285,7 +274,9 @@ export class StudiesApi {
      * @param identifier Identifier for the study to return.
      */
     public getStudyByIdentifierWithHttpInfo(identifierType: string, identifier: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/studies/${identifierType}/${identifier}`;
+        const path = this.basePath + '/studies/${identifierType}/${identifier}'
+                    .replace('${' + 'identifierType' + '}', String(identifierType))
+                    .replace('${' + 'identifier' + '}', String(identifier));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -307,12 +298,17 @@ export class StudiesApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);

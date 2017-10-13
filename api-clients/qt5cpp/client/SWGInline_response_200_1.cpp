@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGInline_response_200_1::SWGInline_response_200_1(QString* json) {
     init();
     this->fromJson(*json);
@@ -38,7 +37,7 @@ SWGInline_response_200_1::~SWGInline_response_200_1() {
 
 void
 SWGInline_response_200_1::init() {
-    meta = new SWGMeta();
+    meta = new SWGInline_response_200_1_meta();
 }
 
 void
@@ -60,7 +59,7 @@ SWGInline_response_200_1::fromJson(QString &json) {
 
 void
 SWGInline_response_200_1::fromJsonObject(QJsonObject &pJson) {
-    ::Swagger::setValue(&meta, pJson["meta"], "SWGMeta", "SWGMeta");
+    ::Swagger::setValue(&meta, pJson["meta"], "SWGInline_response_200_1_meta", "SWGInline_response_200_1_meta");
 }
 
 QString
@@ -77,21 +76,20 @@ QJsonObject*
 SWGInline_response_200_1::asJsonObject() {
     QJsonObject* obj = new QJsonObject();
     
-    toJsonValue(QString("meta"), meta, obj, QString("SWGMeta"));
+    toJsonValue(QString("meta"), meta, obj, QString("SWGInline_response_200_1_meta"));
 
     return obj;
 }
 
-SWGMeta*
+SWGInline_response_200_1_meta*
 SWGInline_response_200_1::getMeta() {
     return meta;
 }
 void
-SWGInline_response_200_1::setMeta(SWGMeta* meta) {
+SWGInline_response_200_1::setMeta(SWGInline_response_200_1_meta* meta) {
     this->meta = meta;
 }
 
 
-
-} /* namespace Swagger */
+}
 

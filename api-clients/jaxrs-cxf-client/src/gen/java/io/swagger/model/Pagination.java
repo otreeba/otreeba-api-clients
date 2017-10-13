@@ -22,7 +22,7 @@ public class Pagination  {
   private Integer currentPage = null;
   @ApiModelProperty(example = "1", value = "Total number of pages of results.")
   private Integer totalPages = null;
-  @ApiModelProperty(example = "{&quot;previous&quot;:&quot;https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page&#x3D;1&quot;,&quot;next&quot;:&quot;https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page&#x3D;3&quot;}", value = "Links to the previous and/or next pages of results.")
+  @ApiModelProperty(example = "{\"previous\":\"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\"next\":\"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"}", value = "Links to the previous and/or next pages of results.")
   private Object links = null;
 
  /**

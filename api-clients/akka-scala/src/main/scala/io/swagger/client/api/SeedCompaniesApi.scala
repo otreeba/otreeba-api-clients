@@ -5,8 +5,8 @@
  */
 package io.swagger.client.api
 
-import io.swagger.client.model.Inline_response_200
-import io.swagger.client.model.Inline_response_200_1
+import io.swagger.client.model.InlineResponse200
+import io.swagger.client.model.InlineResponse2001
 import io.swagger.client.model.SeedCompany
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
@@ -18,21 +18,25 @@ object SeedCompaniesApi {
    * Returns a paginated list of seed companies.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_1 (Successful operation.)
+   *   code 200 : InlineResponse200 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Seed company not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getSeedCompanies(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_1] =
-    ApiRequest[Inline_response_200_1](ApiMethods.GET, "https://api.otreeba.com/v1", "/seed-companies", "application/json")
+  def getSeedCompanies(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse200] =
+    ApiRequest[InlineResponse200](ApiMethods.GET, "https://api.otreeba.com/v1", "/seed-companies", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_1](200)
+      .withSuccessResponse[InlineResponse200](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)
@@ -45,10 +49,14 @@ object SeedCompaniesApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Seed company not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param ocpc OCPC of the seed company to return.
    */
-  def getSeedCompanyByOcpc(ocpc: String): ApiRequest[SeedCompany] =
+  def getSeedCompanyByOcpc(ocpc: String)(implicit apiKey: ApiKeyValue): ApiRequest[SeedCompany] =
     ApiRequest[SeedCompany](ApiMethods.GET, "https://api.otreeba.com/v1", "/seed-companies/{ocpc}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("ocpc", ocpc)
       .withSuccessResponse[SeedCompany](200)
       .withErrorResponse[Unit](400)
@@ -58,21 +66,25 @@ object SeedCompaniesApi {
    * Returns a paginated list of strains for a single seed company.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200 (Successful operation.)
+   *   code 200 : InlineResponse2001 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Seed company not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param ocpc OCPC of the seed company to return strains for.
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    */
-  def getSeedCompanyStrainsByOcpc(ocpc: String, page: Option[Int] = None, count: Option[Int]): ApiRequest[Inline_response_200] =
-    ApiRequest[Inline_response_200](ApiMethods.GET, "https://api.otreeba.com/v1", "/seed-companies/{ocpc}/strains", "application/json")
+  def getSeedCompanyStrainsByOcpc(ocpc: String, page: Option[Int] = None, count: Option[Int])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2001] =
+    ApiRequest[InlineResponse2001](ApiMethods.GET, "https://api.otreeba.com/v1", "/seed-companies/{ocpc}/strains", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withPathParam("ocpc", ocpc)
-      .withSuccessResponse[Inline_response_200](200)
+      .withSuccessResponse[InlineResponse2001](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)

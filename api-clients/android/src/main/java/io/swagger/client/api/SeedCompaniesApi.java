@@ -63,13 +63,13 @@ public class SeedCompaniesApi {
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
-   * @return InlineResponse2001
+   * @return InlineResponse200
   */
-  public InlineResponse2001 getSeedCompanies (Integer page, Integer count, String sort) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InlineResponse200 getSeedCompanies (Integer page, Integer count, String sort) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
-    String path = "/seed-companies".replaceAll("\\{format\\}","json");
+    String path = "/seed-companies";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -94,12 +94,12 @@ public class SeedCompaniesApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (InlineResponse2001) ApiInvoker.deserialize(localVarResponse, "", InlineResponse2001.class);
+         return (InlineResponse200) ApiInvoker.deserialize(localVarResponse, "", InlineResponse200.class);
       } else {
          return null;
       }
@@ -108,15 +108,15 @@ public class SeedCompaniesApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -125,10 +125,9 @@ public class SeedCompaniesApi {
    * Returns a paginated list of seed companies.
    * @param page Page to be returned.   * @param count The number of items to return. Default 10. Max 50.   * @param sort How to sort the items.
   */
-  public void getSeedCompanies (Integer page, Integer count, String sort, final Response.Listener<InlineResponse2001> responseListener, final Response.ErrorListener errorListener) {
+  public void getSeedCompanies (Integer page, Integer count, String sort, final Response.Listener<InlineResponse200> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
 
     // create path and map variables
     String path = "/seed-companies".replaceAll("\\{format\\}","json");
@@ -161,7 +160,7 @@ public class SeedCompaniesApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -169,7 +168,7 @@ public class SeedCompaniesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((InlineResponse2001) ApiInvoker.deserialize(localVarResponse,  "", InlineResponse2001.class));
+              responseListener.onResponse((InlineResponse200) ApiInvoker.deserialize(localVarResponse,  "", InlineResponse200.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -199,7 +198,7 @@ public class SeedCompaniesApi {
     }
 
     // create path and map variables
-    String path = "/seed-companies/{ocpc}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/seed-companies/{ocpc}".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -221,7 +220,7 @@ public class SeedCompaniesApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -235,15 +234,15 @@ public class SeedCompaniesApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -255,13 +254,11 @@ public class SeedCompaniesApi {
   public void getSeedCompanyByOcpc (String ocpc, final Response.Listener<SeedCompany> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getSeedCompanyByOcpc",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getSeedCompanyByOcpc"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getSeedCompanyByOcpc",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getSeedCompanyByOcpc"));
     }
-    
 
     // create path and map variables
     String path = "/seed-companies/{ocpc}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -291,7 +288,7 @@ public class SeedCompaniesApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -320,9 +317,9 @@ public class SeedCompaniesApi {
    * @param ocpc OCPC of the seed company to return strains for.
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
-   * @return InlineResponse200
+   * @return InlineResponse2001
   */
-  public InlineResponse200 getSeedCompanyStrainsByOcpc (String ocpc, Integer page, Integer count) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InlineResponse2001 getSeedCompanyStrainsByOcpc (String ocpc, Integer page, Integer count) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
@@ -331,7 +328,7 @@ public class SeedCompaniesApi {
     }
 
     // create path and map variables
-    String path = "/seed-companies/{ocpc}/strains".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
+    String path = "/seed-companies/{ocpc}/strains".replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -355,12 +352,12 @@ public class SeedCompaniesApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (InlineResponse200) ApiInvoker.deserialize(localVarResponse, "", InlineResponse200.class);
+         return (InlineResponse2001) ApiInvoker.deserialize(localVarResponse, "", InlineResponse2001.class);
       } else {
          return null;
       }
@@ -369,15 +366,15 @@ public class SeedCompaniesApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -386,16 +383,14 @@ public class SeedCompaniesApi {
    * Returns a paginated list of strains for a single seed company.
    * @param ocpc OCPC of the seed company to return strains for.   * @param page Page to be returned.   * @param count The number of items to return. Default 10. Max 50.
   */
-  public void getSeedCompanyStrainsByOcpc (String ocpc, Integer page, Integer count, final Response.Listener<InlineResponse200> responseListener, final Response.ErrorListener errorListener) {
+  public void getSeedCompanyStrainsByOcpc (String ocpc, Integer page, Integer count, final Response.Listener<InlineResponse2001> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'ocpc' is set
     if (ocpc == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getSeedCompanyStrainsByOcpc",
-         new ApiException(400, "Missing the required parameter 'ocpc' when calling getSeedCompanyStrainsByOcpc"));
+      VolleyError error = new VolleyError("Missing the required parameter 'ocpc' when calling getSeedCompanyStrainsByOcpc",
+        new ApiException(400, "Missing the required parameter 'ocpc' when calling getSeedCompanyStrainsByOcpc"));
     }
-    
 
     // create path and map variables
     String path = "/seed-companies/{ocpc}/strains".replaceAll("\\{format\\}","json").replaceAll("\\{" + "ocpc" + "\\}", apiInvoker.escapeString(ocpc.toString()));
@@ -427,7 +422,7 @@ public class SeedCompaniesApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -435,7 +430,7 @@ public class SeedCompaniesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((InlineResponse200) ApiInvoker.deserialize(localVarResponse,  "", InlineResponse200.class));
+              responseListener.onResponse((InlineResponse2001) ApiInvoker.deserialize(localVarResponse,  "", InlineResponse2001.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

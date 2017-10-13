@@ -9,6 +9,7 @@ import Foundation
 
 
 open class Brand: JSONEncodable {
+
     /** Name of the brand. */
     public var name: String?
     /** Open Cannabis Product Code for the brand. */
@@ -51,6 +52,7 @@ open class Brand: JSONEncodable {
         nillableDictionary["products"] = self.products?.encodeToJSON()
         nillableDictionary["createdAt"] = self.createdAt?.encodeToJSON()
         nillableDictionary["updatedAt"] = self.updatedAt?.encodeToJSON()
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

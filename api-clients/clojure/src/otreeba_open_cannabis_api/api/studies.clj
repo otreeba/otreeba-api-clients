@@ -14,7 +14,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-studies
   "Get a list of all current studies.
@@ -35,7 +35,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-studies-by-condition
   "Get a list of all current studies for a given condition.
@@ -56,7 +56,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-studies-conditions
   "Get a list of all current conditions for studies.
@@ -76,7 +76,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["api_key"]}))
 
 (defn get-study-by-identifier
   "Find study by DOI, PubMed ID, or slug.

@@ -96,9 +96,9 @@ class SeedCompaniesApi
      * @param int $count The number of items to return. Default 10. Max 50. (optional, default to 10)
      * @param string $sort How to sort the items. (optional, default to -createdAt)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\InlineResponse2001
+     * @return \Swagger\Client\Model\InlineResponse200
      */
-    public function getSeedCompanies($page = null, $count = null, $sort = null)
+    public function getSeedCompanies($page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getSeedCompaniesWithHttpInfo($page, $count, $sort);
         return $response;
@@ -113,9 +113,9 @@ class SeedCompaniesApi
      * @param int $count The number of items to return. Default 10. Max 50. (optional, default to 10)
      * @param string $sort How to sort the items. (optional, default to -createdAt)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSeedCompaniesWithHttpInfo($page = null, $count = null, $sort = null)
+    public function getSeedCompaniesWithHttpInfo($page = null, $count = '10', $sort = '-createdAt')
     {
         // parse inputs
         $resourcePath = "/seed-companies";
@@ -141,15 +141,17 @@ class SeedCompaniesApi
         if ($sort !== null) {
             $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -159,15 +161,15 @@ class SeedCompaniesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\InlineResponse2001',
+                '\Swagger\Client\Model\InlineResponse200',
                 '/seed-companies'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2001', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2001', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -226,15 +228,17 @@ class SeedCompaniesApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -270,9 +274,9 @@ class SeedCompaniesApi
      * @param int $page Page to be returned. (optional)
      * @param int $count The number of items to return. Default 10. Max 50. (optional, default to 10)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\InlineResponse200
+     * @return \Swagger\Client\Model\InlineResponse2001
      */
-    public function getSeedCompanyStrainsByOcpc($ocpc, $page = null, $count = null)
+    public function getSeedCompanyStrainsByOcpc($ocpc, $page = null, $count = '10')
     {
         list($response) = $this->getSeedCompanyStrainsByOcpcWithHttpInfo($ocpc, $page, $count);
         return $response;
@@ -287,9 +291,9 @@ class SeedCompaniesApi
      * @param int $page Page to be returned. (optional)
      * @param int $count The number of items to return. Default 10. Max 50. (optional, default to 10)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSeedCompanyStrainsByOcpcWithHttpInfo($ocpc, $page = null, $count = null)
+    public function getSeedCompanyStrainsByOcpcWithHttpInfo($ocpc, $page = null, $count = '10')
     {
         // verify the required parameter 'ocpc' is set
         if ($ocpc === null) {
@@ -323,15 +327,17 @@ class SeedCompaniesApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -341,15 +347,15 @@ class SeedCompaniesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\InlineResponse200',
+                '\Swagger\Client\Model\InlineResponse2001',
                 '/seed-companies/{ocpc}/strains'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2001', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2001', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

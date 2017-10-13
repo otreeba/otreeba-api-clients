@@ -47,7 +47,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -55,7 +54,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -63,7 +61,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -71,7 +68,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -79,7 +75,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testEdible()
     {
-
     }
 
     /**
@@ -87,7 +82,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyName()
     {
-
     }
 
     /**
@@ -95,7 +89,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyOcpc()
     {
-
     }
 
     /**
@@ -103,7 +96,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyBrand()
     {
-
     }
 
     /**
@@ -111,7 +103,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyType()
     {
-
     }
 
     /**
@@ -119,7 +110,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyStrain()
     {
-
     }
 
     /**
@@ -127,7 +117,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyDescription()
     {
-
     }
 
     /**
@@ -135,7 +124,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyQr()
     {
-
     }
 
     /**
@@ -143,7 +131,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUrl()
     {
-
     }
 
     /**
@@ -151,7 +138,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyImage()
     {
-
     }
 
     /**
@@ -159,7 +145,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyLabTest()
     {
-
     }
 
     /**
@@ -167,7 +152,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyThc()
     {
-
     }
 
     /**
@@ -175,7 +159,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCbd()
     {
-
     }
 
     /**
@@ -183,7 +166,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCannabis()
     {
-
     }
 
     /**
@@ -191,7 +173,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyHashOil()
     {
-
     }
 
     /**
@@ -199,7 +180,6 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCreatedAt()
     {
-
     }
 
     /**
@@ -207,7 +187,5 @@ class EdibleTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUpdatedAt()
     {
-
     }
-
 }

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_seed_companies**
-> InlineResponse2001 get_seed_companies(page => $page, count => $count, sort => $sort)
+> InlineResponse200 get_seed_companies(page => $page, count => $count, sort => $sort)
 
 Get a list of all current seed companies.
 
@@ -26,6 +26,11 @@ Returns a paginated list of seed companies.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::SeedCompaniesApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::SeedCompaniesApi->new();
 my $page = 56; # int | Page to be returned.
@@ -51,11 +56,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -76,6 +81,11 @@ Returns a single seed company.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::SeedCompaniesApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::SeedCompaniesApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the seed company to return.
@@ -101,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -111,7 +121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_seed_company_strains_by_ocpc**
-> InlineResponse200 get_seed_company_strains_by_ocpc(ocpc => $ocpc, page => $page, count => $count)
+> InlineResponse2001 get_seed_company_strains_by_ocpc(ocpc => $ocpc, page => $page, count => $count)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -122,6 +132,11 @@ Returns a paginated list of strains for a single seed company.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::SeedCompaniesApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::SeedCompaniesApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the seed company to return strains for.
@@ -147,11 +162,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

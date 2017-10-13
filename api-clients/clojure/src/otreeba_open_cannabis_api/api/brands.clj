@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["api_key"]}))
 
 (defn get-brand-by-ocpc
   "Find brand by Open Cannabis Product Code (OCPC).
@@ -33,7 +33,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-brand-edibles
   "Get a list of all current edibles for the given brand.
@@ -54,7 +54,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-brand-extracts
   "Get a list of all current extracts for the given brand.
@@ -75,7 +75,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-brand-flowers
   "Get a list of all current flowers for the given brand.
@@ -96,7 +96,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-brand-products
   "Get a list of all current products for the given brand.
@@ -117,7 +117,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-brands
   "Get a list of all current brands.

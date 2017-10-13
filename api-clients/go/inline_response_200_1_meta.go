@@ -10,9 +10,9 @@
 
 package swagger
 
-// Gets the current list of Seed Comapnies.
+// Gets the Strains for a Seed Company listing from a given OCPC.
 type InlineResponse2001Meta struct {
 
-	// Gets the current list of Seed Comapnies.
+	// Gets the Strains for a Seed Company listing from a given OCPC.
 	Pagination Pagination `json:"pagination,omitempty"`
 }

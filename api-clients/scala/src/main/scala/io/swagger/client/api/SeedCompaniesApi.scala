@@ -41,9 +41,9 @@ class SeedCompaniesApi(val defBasePath: String = "https://api.otreeba.com/v1",
    * @param page Page to be returned. (optional)
    * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
    * @param sort How to sort the items. (optional, default to -createdAt)
-   * @return InlineResponse2001
+   * @return InlineResponse200
    */
-  def getSeedCompanies(page: Option[Integer] = None, count: Option[Integer] /* = 10*/, sort: Option[String] /* = -createdAt*/): Option[InlineResponse2001] = {
+  def getSeedCompanies(page: Option[Integer] = None, count: Option[Integer] /* = 10*/, sort: Option[String] /* = -createdAt*/): Option[InlineResponse200] = {
     // create path and map variables
     val path = "/seed-companies".replaceAll("\\{format\\}", "json")
 
@@ -70,7 +70,7 @@ class SeedCompaniesApi(val defBasePath: String = "https://api.otreeba.com/v1",
     try {
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(apiInvoker.deserialize(s, "", classOf[InlineResponse2001]).asInstanceOf[InlineResponse2001])
+           Some(apiInvoker.deserialize(s, "", classOf[InlineResponse200]).asInstanceOf[InlineResponse200])
         case _ => None
       }
     } catch {
@@ -126,9 +126,9 @@ class SeedCompaniesApi(val defBasePath: String = "https://api.otreeba.com/v1",
    * @param ocpc OCPC of the seed company to return strains for. 
    * @param page Page to be returned. (optional)
    * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
-   * @return InlineResponse200
+   * @return InlineResponse2001
    */
-  def getSeedCompanyStrainsByOcpc(ocpc: String, page: Option[Integer] = None, count: Option[Integer] /* = 10*/): Option[InlineResponse200] = {
+  def getSeedCompanyStrainsByOcpc(ocpc: String, page: Option[Integer] = None, count: Option[Integer] /* = 10*/): Option[InlineResponse2001] = {
     // create path and map variables
     val path = "/seed-companies/{ocpc}/strains".replaceAll("\\{format\\}", "json").replaceAll("\\{" + "ocpc" + "\\}",apiInvoker.escape(ocpc))
 
@@ -156,7 +156,7 @@ class SeedCompaniesApi(val defBasePath: String = "https://api.otreeba.com/v1",
     try {
       apiInvoker.invokeApi(basePath, path, "GET", queryParams.toMap, formParams.toMap, postBody, headerParams.toMap, contentType) match {
         case s: String =>
-           Some(apiInvoker.deserialize(s, "", classOf[InlineResponse200]).asInstanceOf[InlineResponse200])
+           Some(apiInvoker.deserialize(s, "", classOf[InlineResponse2001]).asInstanceOf[InlineResponse2001])
         case _ => None
       }
     } catch {

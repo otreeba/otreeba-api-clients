@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 
 namespace IO.Swagger.Model
 {
@@ -32,18 +33,18 @@ namespace IO.Swagger.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
-        /// <param name="Meta">Gets the current list of Seed Comapnies..</param>
-        public InlineResponse2001(Meta Meta = default(Meta))
+        /// <param name="Meta">Meta.</param>
+        public InlineResponse2001(InlineResponse2001Meta Meta = default(InlineResponse2001Meta))
         {
             this.Meta = Meta;
         }
         
         /// <summary>
-        /// Gets the current list of Seed Comapnies.
+        /// Gets or Sets Meta
         /// </summary>
-        /// <value>Gets the current list of Seed Comapnies.</value>
         [DataMember(Name="meta", EmitDefaultValue=false)]
-        public Meta Meta { get; set; }
+        public InlineResponse2001Meta Meta { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -113,8 +114,13 @@ namespace IO.Swagger.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -276,10 +276,13 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (ocpc != null) localVarPathParams.Add("ocpc", Configuration.ApiClient.ParameterToString(ocpc)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
 
             // make the HTTP request
@@ -298,7 +301,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<Edible>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Edible) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Edible)));
-            
         }
 
         /// <summary>
@@ -348,11 +350,13 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (ocpc != null) localVarPathParams.Add("ocpc", Configuration.ApiClient.ParameterToString(ocpc)); // path parameter
 
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -370,7 +374,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<Edible>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Edible) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Edible)));
-            
         }
 
         /// <summary>
@@ -420,12 +423,15 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
 
             // make the HTTP request
@@ -444,7 +450,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002)));
-            
         }
 
         /// <summary>
@@ -495,13 +500,15 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
 
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -519,7 +526,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002)));
-            
         }
 
     }

@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 
 namespace IO.Swagger.Model
 {
@@ -54,36 +55,42 @@ namespace IO.Swagger.Model
         /// <value>Total number of results available.</value>
         [DataMember(Name="total", EmitDefaultValue=false)]
         public int? Total { get; set; }
+
         /// <summary>
         /// Number of results to return. Default 10. Max 50.
         /// </summary>
         /// <value>Number of results to return. Default 10. Max 50.</value>
         [DataMember(Name="count", EmitDefaultValue=false)]
         public int? Count { get; set; }
+
         /// <summary>
         /// Number of results per page.
         /// </summary>
         /// <value>Number of results per page.</value>
         [DataMember(Name="per_page", EmitDefaultValue=false)]
         public int? PerPage { get; set; }
+
         /// <summary>
         /// Page of results.
         /// </summary>
         /// <value>Page of results.</value>
         [DataMember(Name="current_page", EmitDefaultValue=false)]
         public int? CurrentPage { get; set; }
+
         /// <summary>
         /// Total number of pages of results.
         /// </summary>
         /// <value>Total number of pages of results.</value>
         [DataMember(Name="total_pages", EmitDefaultValue=false)]
         public int? TotalPages { get; set; }
+
         /// <summary>
         /// Links to the previous and/or next pages of results.
         /// </summary>
         /// <value>Links to the previous and/or next pages of results.</value>
         [DataMember(Name="links", EmitDefaultValue=false)]
         public Object Links { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -193,8 +200,13 @@ namespace IO.Swagger.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 
-#include "SWGInline_response_200_meta.h"
+#include "SWGMeta.h"
 
 #include "SWGObject.h"
 
@@ -42,14 +42,14 @@ public:
     void fromJsonObject(QJsonObject &json);
     SWGInline_response_200* fromJson(QString &jsonString);
 
-    SWGInline_response_200_meta* getMeta();
-    void setMeta(SWGInline_response_200_meta* meta);
+    SWGMeta* getMeta();
+    void setMeta(SWGMeta* meta);
 
 
 private:
-    SWGInline_response_200_meta* meta;
+    SWGMeta* meta;
 };
 
-} /* namespace Swagger */
+}
 
 #endif /* SWGInline_response_200_H_ */

@@ -13,7 +13,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["api_key"]}))
 
 (defn get-extract-by-ocpc
   "Find extract by Open Cannabis Product Code (OCPC).
@@ -33,7 +33,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["api_key"]})))
 
 (defn get-extracts
   "Get a list of all current extracts.

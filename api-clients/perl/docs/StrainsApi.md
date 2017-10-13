@@ -26,6 +26,11 @@ use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::StrainsApi;
 
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
+
 my $api_instance = WWW::SwaggerClient::StrainsApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the strain to return.
 
@@ -50,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -71,6 +76,11 @@ Returns a paginated list of strains.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::StrainsApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::StrainsApi->new();
 my $page = 56; # int | Page to be returned.
@@ -100,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

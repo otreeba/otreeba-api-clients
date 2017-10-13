@@ -33,7 +33,7 @@ namespace Swagger\Client;
  * InlineResponse2001MetaTest Class Doc Comment
  *
  * @category    Class */
-// * @description Gets the current list of Seed Comapnies.
+// * @description Gets the Strains for a Seed Company listing from a given OCPC.
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
@@ -47,7 +47,6 @@ class InlineResponse2001MetaTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -55,7 +54,6 @@ class InlineResponse2001MetaTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -63,7 +61,6 @@ class InlineResponse2001MetaTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -71,7 +68,6 @@ class InlineResponse2001MetaTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -79,7 +75,6 @@ class InlineResponse2001MetaTest extends \PHPUnit_Framework_TestCase
      */
     public function testInlineResponse2001Meta()
     {
-
     }
 
     /**
@@ -87,7 +82,5 @@ class InlineResponse2001MetaTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyPagination()
     {
-
     }
-
 }

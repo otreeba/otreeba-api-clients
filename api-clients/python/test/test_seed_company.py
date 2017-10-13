@@ -35,7 +35,9 @@ class TestSeedCompany(unittest.TestCase):
         """
         Test SeedCompany
         """
-        model = swagger_client.models.seed_company.SeedCompany()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.seed_company.SeedCompany()
+        pass
 
 
 if __name__ == '__main__':

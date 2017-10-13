@@ -82,7 +82,7 @@ public class SeedCompaniesApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2001 response = api.getSeedCompanies(page, count, sort);
+        //InlineResponse200 response = api.getSeedCompanies(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -100,7 +100,7 @@ public class SeedCompaniesApiTest {
     @Test
     public void getSeedCompanyByOcpcTest() {
         String ocpc = null;
-	//SeedCompany response = api.getSeedCompanyByOcpc(ocpc);
+        //SeedCompany response = api.getSeedCompanyByOcpc(ocpc);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -120,7 +120,7 @@ public class SeedCompaniesApiTest {
         String ocpc = null;
         Integer page = null;
         Integer count = null;
-	//InlineResponse200 response = api.getSeedCompanyStrainsByOcpc(ocpc, page, count);
+        //InlineResponse2001 response = api.getSeedCompanyStrainsByOcpc(ocpc, page, count);
         //assertNotNull(response);
         // TODO: test validations
         

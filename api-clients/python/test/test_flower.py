@@ -35,7 +35,9 @@ class TestFlower(unittest.TestCase):
         """
         Test Flower
         """
-        model = swagger_client.models.flower.Flower()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.flower.Flower()
+        pass
 
 
 if __name__ == '__main__':

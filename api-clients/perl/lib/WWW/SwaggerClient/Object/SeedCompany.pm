@@ -156,6 +156,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'description' => {
+    	datatype => 'string',
+    	base_name => 'description',
+    	description => 'Description of the seed company.',
+    	format => '',
+    	read_only => '',
+    		},
     'qr' => {
     	datatype => 'string',
     	base_name => 'qr',
@@ -210,6 +217,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->swagger_types( {
     'name' => 'string',
     'ocpc' => 'string',
+    'description' => 'string',
     'qr' => 'string',
     'url' => 'string',
     'image' => 'string',
@@ -222,6 +230,7 @@ __PACKAGE__->swagger_types( {
 __PACKAGE__->attribute_map( {
     'name' => 'name',
     'ocpc' => 'ocpc',
+    'description' => 'description',
     'qr' => 'qr',
     'url' => 'url',
     'image' => 'image',

@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGCondition::SWGCondition(QString* json) {
     init();
     this->fromJson(*json);
@@ -160,6 +159,5 @@ SWGCondition::setUpdatedAt(QDateTime* updated_at) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

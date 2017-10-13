@@ -9,6 +9,7 @@ import Foundation
 
 
 open class Strain: JSONEncodable {
+
     /** Name of the strain. */
     public var name: String?
     /** Open Cannabis Product Code for the strain. */
@@ -48,6 +49,7 @@ open class Strain: JSONEncodable {
         nillableDictionary["children"] = self.children?.encodeToJSON()
         nillableDictionary["createdAt"] = self.createdAt?.encodeToJSON()
         nillableDictionary["updatedAt"] = self.updatedAt?.encodeToJSON()
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGFlower::SWGFlower(QString* json) {
     init();
     this->fromJson(*json);
@@ -313,6 +312,5 @@ SWGFlower::setUpdatedAt(QDateTime* updated_at) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

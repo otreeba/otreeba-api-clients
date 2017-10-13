@@ -35,7 +35,9 @@ class TestPagination(unittest.TestCase):
         """
         Test Pagination
         """
-        model = swagger_client.models.pagination.Pagination()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.pagination.Pagination()
+        pass
 
 
 if __name__ == '__main__':

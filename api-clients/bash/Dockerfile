@@ -6,7 +6,7 @@ RUN apt-get install -y bash-completion zsh curl cowsay git vim bsdmainutils
 ADD  /usr/bin/
 ADD _ /usr/local/share/zsh/site-functions/_
 ADD .bash-completion /etc/bash-completion.d/
-
+RUN chmod 755 /usr/bin/
 
 #
 # Install oh-my-zsh
@@ -37,6 +37,7 @@ line REST client for $(tput setaf 6)Otreeba Open Cannabis API$(tput sgr0).\n\
 \n\
 For convenience, you can export the following environment variables:\n\
 \n\
+
 
 \n\
 $(tput setaf 7)Basic usage:$(tput sgr0)\n\

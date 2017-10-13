@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 
 namespace Swagger {
+
 SWGSeedCompaniesApi::SWGSeedCompaniesApi() {}
 
 SWGSeedCompaniesApi::~SWGSeedCompaniesApi() {}
@@ -61,9 +62,13 @@ SWGSeedCompaniesApi::getSeedCompanies(qint32 page, qint32 count, QString* sort) 
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -76,6 +81,9 @@ SWGSeedCompaniesApi::getSeedCompanies(qint32 page, qint32 count, QString* sort) 
 void
 SWGSeedCompaniesApi::getSeedCompaniesCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -83,16 +91,15 @@ SWGSeedCompaniesApi::getSeedCompaniesCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_1* output = static_cast<SWGInline_response_200_1*>(create(json, QString("SWGInline_response_200_1")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200* output = static_cast<SWGInline_response_200*>(create(json, QString("SWGInline_response_200")));
     worker->deleteLater();
 
     emit getSeedCompaniesSignal(output);
-    
+    emit getSeedCompaniesSignalE(output, error_type, error_str);
 }
+
 void
 SWGSeedCompaniesApi::getSeedCompanyByOcpc(QString* ocpc) {
     QString fullPath;
@@ -105,9 +112,13 @@ SWGSeedCompaniesApi::getSeedCompanyByOcpc(QString* ocpc) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -120,6 +131,9 @@ SWGSeedCompaniesApi::getSeedCompanyByOcpc(QString* ocpc) {
 void
 SWGSeedCompaniesApi::getSeedCompanyByOcpcCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -127,16 +141,15 @@ SWGSeedCompaniesApi::getSeedCompanyByOcpcCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGSeedCompany* output = static_cast<SWGSeedCompany*>(create(json, QString("SWGSeedCompany")));
-    
 
+    QString json(worker->response);
+    SWGSeedCompany* output = static_cast<SWGSeedCompany*>(create(json, QString("SWGSeedCompany")));
     worker->deleteLater();
 
     emit getSeedCompanyByOcpcSignal(output);
-    
+    emit getSeedCompanyByOcpcSignalE(output, error_type, error_str);
 }
+
 void
 SWGSeedCompaniesApi::getSeedCompanyStrainsByOcpc(QString* ocpc, qint32 page, qint32 count) {
     QString fullPath;
@@ -165,9 +178,13 @@ SWGSeedCompaniesApi::getSeedCompanyStrainsByOcpc(QString* ocpc, qint32 page, qin
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -180,6 +197,9 @@ SWGSeedCompaniesApi::getSeedCompanyStrainsByOcpc(QString* ocpc, qint32 page, qin
 void
 SWGSeedCompaniesApi::getSeedCompanyStrainsByOcpcCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -187,14 +207,14 @@ SWGSeedCompaniesApi::getSeedCompanyStrainsByOcpcCallback(HttpRequestWorker * wor
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200* output = static_cast<SWGInline_response_200*>(create(json, QString("SWGInline_response_200")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_1* output = static_cast<SWGInline_response_200_1*>(create(json, QString("SWGInline_response_200_1")));
     worker->deleteLater();
 
     emit getSeedCompanyStrainsByOcpcSignal(output);
-    
+    emit getSeedCompanyStrainsByOcpcSignalE(output, error_type, error_str);
 }
-} /* namespace Swagger */
+
+
+}

@@ -49,7 +49,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -57,7 +56,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -65,7 +63,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -73,7 +70,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -84,7 +80,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetBrandByOcpc()
     {
-
     }
 
     /**
@@ -95,7 +90,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetBrandEdibles()
     {
-
     }
 
     /**
@@ -106,7 +100,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetBrandExtracts()
     {
-
     }
 
     /**
@@ -117,7 +110,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetBrandFlowers()
     {
-
     }
 
     /**
@@ -128,7 +120,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetBrandProducts()
     {
-
     }
 
     /**
@@ -139,7 +130,5 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetBrands()
     {
-
     }
-
 }

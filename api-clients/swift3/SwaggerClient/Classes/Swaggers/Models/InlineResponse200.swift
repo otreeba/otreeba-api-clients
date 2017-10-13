@@ -9,7 +9,9 @@ import Foundation
 
 
 open class InlineResponse200: JSONEncodable {
-    public var meta: InlineResponse200Meta?
+
+    /** Gets the current list of Seed Comapnies. */
+    public var meta: Meta?
 
     public init() {}
 
@@ -17,6 +19,7 @@ open class InlineResponse200: JSONEncodable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["meta"] = self.meta?.encodeToJSON()
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

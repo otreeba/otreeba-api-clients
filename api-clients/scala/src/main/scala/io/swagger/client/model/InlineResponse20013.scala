@@ -15,5 +15,6 @@ package io.swagger.client.model
 
 case class InlineResponse20013 (
   /* Gets the current list of Studies for a given Condition. */
-  meta: Meta
+  meta: Option[Meta]
 )
+

@@ -60,16 +60,13 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
 ///
 ///  @param sort How to sort the items. (optional, default to -createdAt)
 ///
-///  @returns SWGInlineResponse2001*
+///  @returns SWGInlineResponse200*
 ///
 -(NSURLSessionTask*) getSeedCompaniesWithPage: (NSNumber*) page
     count: (NSNumber*) count
     sort: (NSString*) sort
-    completionHandler: (void (^)(SWGInlineResponse2001* output, NSError* error)) handler {
+    completionHandler: (void (^)(SWGInlineResponse200* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/seed-companies"];
-
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
@@ -98,7 +95,7 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -115,10 +112,10 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"SWGInlineResponse2001*"
+                              responseType: @"SWGInlineResponse200*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((SWGInlineResponse2001*)data, error);
+                                    handler((SWGInlineResponse200*)data, error);
                                 }
                             }];
 }
@@ -145,9 +142,6 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/seed-companies/{ocpc}"];
 
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
-
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
         pathParams[@"ocpc"] = ocpc;
@@ -169,7 +163,7 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -203,12 +197,12 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
 ///
 ///  @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
 ///
-///  @returns SWGInlineResponse200*
+///  @returns SWGInlineResponse2001*
 ///
 -(NSURLSessionTask*) getSeedCompanyStrainsByOcpcWithOcpc: (NSString*) ocpc
     page: (NSNumber*) page
     count: (NSNumber*) count
-    completionHandler: (void (^)(SWGInlineResponse200* output, NSError* error)) handler {
+    completionHandler: (void (^)(SWGInlineResponse2001* output, NSError* error)) handler {
     // verify the required parameter 'ocpc' is set
     if (ocpc == nil) {
         NSParameterAssert(ocpc);
@@ -221,9 +215,6 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
     }
 
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/seed-companies/{ocpc}/strains"];
-
-    // remove format in URL if needed
-    [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (ocpc != nil) {
@@ -252,7 +243,7 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
-    NSArray *authSettings = @[];
+    NSArray *authSettings = @[@"api_key"];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -269,10 +260,10 @@ NSInteger kSWGSeedCompaniesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"SWGInlineResponse200*"
+                              responseType: @"SWGInlineResponse2001*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((SWGInlineResponse200*)data, error);
+                                    handler((SWGInlineResponse2001*)data, error);
                                 }
                             }];
 }

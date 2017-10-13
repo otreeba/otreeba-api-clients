@@ -17,3 +17,4 @@ case class Error (
   code: Integer,
   message: String
 )
+

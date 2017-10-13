@@ -6,7 +6,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Flower
-import io.swagger.client.model.Inline_response_200_4
+import io.swagger.client.model.InlineResponse2004
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
 import io.swagger.client.core.ApiKeyLocations._
@@ -22,10 +22,14 @@ object FlowersApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Flower not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param ocpc OCPC of the flower to return.
    */
-  def getFlowerByOcpc(ocpc: String): ApiRequest[Flower] =
+  def getFlowerByOcpc(ocpc: String)(implicit apiKey: ApiKeyValue): ApiRequest[Flower] =
     ApiRequest[Flower](ApiMethods.GET, "https://api.otreeba.com/v1", "/flowers/{ocpc}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("ocpc", ocpc)
       .withSuccessResponse[Flower](200)
       .withErrorResponse[Unit](400)
@@ -35,21 +39,25 @@ object FlowersApi {
    * Returns a paginated list of flowers.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_4 (Successful operation.)
+   *   code 200 : InlineResponse2004 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Flower not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getFlowers(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_4] =
-    ApiRequest[Inline_response_200_4](ApiMethods.GET, "https://api.otreeba.com/v1", "/flowers", "application/json")
+  def getFlowers(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2004] =
+    ApiRequest[InlineResponse2004](ApiMethods.GET, "https://api.otreeba.com/v1", "/flowers", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_4](200)
+      .withSuccessResponse[InlineResponse2004](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)

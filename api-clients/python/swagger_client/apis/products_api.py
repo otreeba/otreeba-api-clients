@@ -108,12 +108,11 @@ class ProductsApi(object):
 
         collection_formats = {}
 
-        resource_path = '/products/{ocpc}'.replace('{format}', 'json')
         path_params = {}
         if 'ocpc' in params:
             path_params['ocpc'] = params['ocpc']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -130,9 +129,9 @@ class ProductsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/products/{ocpc}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -216,16 +215,15 @@ class ProductsApi(object):
 
         collection_formats = {}
 
-        resource_path = '/products'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'count' in params:
-            query_params['count'] = params['count']
+            query_params.append(('count', params['count']))
         if 'sort' in params:
-            query_params['sort'] = params['sort']
+            query_params.append(('sort', params['sort']))
 
         header_params = {}
 
@@ -242,9 +240,9 @@ class ProductsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/products', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

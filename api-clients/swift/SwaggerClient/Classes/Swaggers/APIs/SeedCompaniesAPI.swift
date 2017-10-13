@@ -30,7 +30,7 @@ public class SeedCompaniesAPI: APIBase {
      - parameter sort: (query) How to sort the items. (optional, default to -createdAt)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getSeedCompanies(page page: Int32? = nil, count: Int32? = nil, sort: Sort_getSeedCompanies? = nil, completion: ((data: InlineResponse2001?, error: ErrorType?) -> Void)) {
+    public class func getSeedCompanies(page page: Int32? = nil, count: Int32? = nil, sort: Sort_getSeedCompanies? = nil, completion: ((data: InlineResponse200?, error: ErrorType?) -> Void)) {
         getSeedCompaniesWithRequestBuilder(page: page, count: count, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -41,6 +41,9 @@ public class SeedCompaniesAPI: APIBase {
      Get a list of all current seed companies.
      - GET /seed-companies
      - Returns a paginated list of seed companies.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -61,9 +64,9 @@ public class SeedCompaniesAPI: APIBase {
      - parameter count: (query) The number of items to return. Default 10. Max 50. (optional, default to 10)
      - parameter sort: (query) How to sort the items. (optional, default to -createdAt)
 
-     - returns: RequestBuilder<InlineResponse2001> 
+     - returns: RequestBuilder<InlineResponse200> 
      */
-    public class func getSeedCompaniesWithRequestBuilder(page page: Int32? = nil, count: Int32? = nil, sort: Sort_getSeedCompanies? = nil) -> RequestBuilder<InlineResponse2001> {
+    public class func getSeedCompaniesWithRequestBuilder(page page: Int32? = nil, count: Int32? = nil, sort: Sort_getSeedCompanies? = nil) -> RequestBuilder<InlineResponse200> {
         let path = "/seed-companies"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -77,7 +80,7 @@ public class SeedCompaniesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse2001>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
@@ -99,6 +102,9 @@ public class SeedCompaniesAPI: APIBase {
      Find seed company by Open Cannabis Product Code (OCPC).
      - GET /seed-companies/{ocpc}
      - Returns a single seed company.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "lineage" : {
     "Afghanistan" : "AF",
@@ -112,6 +118,7 @@ public class SeedCompaniesAPI: APIBase {
   "createdAt" : "2014-04-09 09:29:57",
   "ocpc" : "VUJCJ00000000000000000000",
   "name" : "Sensi Seeds",
+  "description" : "aeiou",
   "strains" : [ "aeiou" ],
   "url" : "https://www.cannabisreports.com/strain-reports/sensi-seeds",
   "updatedAt" : "2014-04-09 09:29:57"
@@ -145,7 +152,7 @@ public class SeedCompaniesAPI: APIBase {
      - parameter count: (query) The number of items to return. Default 10. Max 50. (optional, default to 10)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getSeedCompanyStrainsByOcpc(ocpc ocpc: String, page: Int32? = nil, count: Int32? = nil, completion: ((data: InlineResponse200?, error: ErrorType?) -> Void)) {
+    public class func getSeedCompanyStrainsByOcpc(ocpc ocpc: String, page: Int32? = nil, count: Int32? = nil, completion: ((data: InlineResponse2001?, error: ErrorType?) -> Void)) {
         getSeedCompanyStrainsByOcpcWithRequestBuilder(ocpc: ocpc, page: page, count: count).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -156,6 +163,9 @@ public class SeedCompaniesAPI: APIBase {
      Find strains for a seed company by Open Cannabis Product Code (OCPC).
      - GET /seed-companies/{ocpc}/strains
      - Returns a paginated list of strains for a single seed company.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -176,9 +186,9 @@ public class SeedCompaniesAPI: APIBase {
      - parameter page: (query) Page to be returned. (optional)
      - parameter count: (query) The number of items to return. Default 10. Max 50. (optional, default to 10)
 
-     - returns: RequestBuilder<InlineResponse200> 
+     - returns: RequestBuilder<InlineResponse2001> 
      */
-    public class func getSeedCompanyStrainsByOcpcWithRequestBuilder(ocpc ocpc: String, page: Int32? = nil, count: Int32? = nil) -> RequestBuilder<InlineResponse200> {
+    public class func getSeedCompanyStrainsByOcpcWithRequestBuilder(ocpc ocpc: String, page: Int32? = nil, count: Int32? = nil) -> RequestBuilder<InlineResponse2001> {
         var path = "/seed-companies/{ocpc}/strains"
         path = path.stringByReplacingOccurrencesOfString("{ocpc}", withString: "\(ocpc)", options: .LiteralSearch, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -192,7 +202,7 @@ public class SeedCompaniesAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<InlineResponse2001>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }

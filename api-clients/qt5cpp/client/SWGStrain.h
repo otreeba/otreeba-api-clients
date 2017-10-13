@@ -93,6 +93,6 @@ private:
     QDateTime* updated_at;
 };
 
-} /* namespace Swagger */
+}
 
 #endif /* SWGStrain_H_ */

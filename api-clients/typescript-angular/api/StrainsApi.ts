@@ -27,10 +27,10 @@ export class StrainsApi {
     }
 
     /**
-        * Find strain by Open Cannabis Product Code (OCPC).
-        * Returns a single strain.
-        * @param ocpc OCPC of the strain to return.
-        */
+     * Returns a single strain.
+     * @summary Find strain by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the strain to return.
+     */
     public getStrainByOcpc (ocpc: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Strain> {
         const localVarPath = this.basePath + '/strains/{ocpc}'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -55,12 +55,12 @@ export class StrainsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current strains.
-        * Returns a paginated list of strains.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of strains.
+     * @summary Get a list of all current strains.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getStrains (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse20011> {
         const localVarPath = this.basePath + '/strains';
 

@@ -14,6 +14,7 @@ package io.swagger.client.model
 
 
 case class InlineResponse2001Meta (
-  /* Gets the current list of Seed Comapnies. */
-  pagination: Pagination
+  /* Gets the Strains for a Seed Company listing from a given OCPC. */
+  pagination: Option[Pagination]
 )
+

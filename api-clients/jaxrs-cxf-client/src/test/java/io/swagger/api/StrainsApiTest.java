@@ -79,7 +79,7 @@ public class StrainsApiTest {
     @Test
     public void getStrainByOcpcTest() {
         String ocpc = null;
-	//Strain response = api.getStrainByOcpc(ocpc);
+        //Strain response = api.getStrainByOcpc(ocpc);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -99,7 +99,7 @@ public class StrainsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse20011 response = api.getStrains(page, count, sort);
+        //InlineResponse20011 response = api.getStrains(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         

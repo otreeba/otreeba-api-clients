@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGPagination::SWGPagination(QString* json) {
     init();
     this->fromJson(*json);
@@ -162,6 +161,5 @@ SWGPagination::setLinks(SWGObject* links) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

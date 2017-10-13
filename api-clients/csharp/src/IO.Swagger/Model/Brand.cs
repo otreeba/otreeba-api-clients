@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
 
 namespace IO.Swagger.Model
 {
@@ -79,72 +80,84 @@ namespace IO.Swagger.Model
         /// <value>Name of the brand.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
         /// <summary>
         /// Open Cannabis Product Code for the brand.
         /// </summary>
         /// <value>Open Cannabis Product Code for the brand.</value>
         [DataMember(Name="ocpc", EmitDefaultValue=false)]
         public string Ocpc { get; set; }
+
         /// <summary>
         /// URL for brand on Otreeba.
         /// </summary>
         /// <value>URL for brand on Otreeba.</value>
         [DataMember(Name="link", EmitDefaultValue=false)]
         public string Link { get; set; }
+
         /// <summary>
         /// URL for QR that leads to page on Cannabis Reports.
         /// </summary>
         /// <value>URL for QR that leads to page on Cannabis Reports.</value>
         [DataMember(Name="qr", EmitDefaultValue=false)]
         public string Qr { get; set; }
+
         /// <summary>
         /// URL for brand on Cannabis Reports.
         /// </summary>
         /// <value>URL for brand on Cannabis Reports.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
+
         /// <summary>
         /// URL for logo for brand.
         /// </summary>
         /// <value>URL for logo for brand.</value>
         [DataMember(Name="image", EmitDefaultValue=false)]
         public string Image { get; set; }
+
         /// <summary>
         /// OCPCs of the flowers from this brand.
         /// </summary>
         /// <value>OCPCs of the flowers from this brand.</value>
         [DataMember(Name="flowers", EmitDefaultValue=false)]
         public List<string> Flowers { get; set; }
+
         /// <summary>
         /// OCPCs of the extracts from this brand.
         /// </summary>
         /// <value>OCPCs of the extracts from this brand.</value>
         [DataMember(Name="extracts", EmitDefaultValue=false)]
         public List<string> Extracts { get; set; }
+
         /// <summary>
         /// OCPCs of the edibles from this brand.
         /// </summary>
         /// <value>OCPCs of the edibles from this brand.</value>
         [DataMember(Name="edibles", EmitDefaultValue=false)]
         public List<string> Edibles { get; set; }
+
         /// <summary>
         /// OCPCs of the products from this brand.
         /// </summary>
         /// <value>OCPCs of the products from this brand.</value>
         [DataMember(Name="products", EmitDefaultValue=false)]
         public List<string> Products { get; set; }
+
         /// <summary>
         /// Date and time record was created, UTC.
         /// </summary>
         /// <value>Date and time record was created, UTC.</value>
         [DataMember(Name="createdAt", EmitDefaultValue=false)]
         public DateTime? CreatedAt { get; set; }
+
         /// <summary>
         /// Date and time record was updated, UTC.
         /// </summary>
         /// <value>Date and time record was updated, UTC.</value>
         [DataMember(Name="updatedAt", EmitDefaultValue=false)]
         public DateTime? UpdatedAt { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -302,8 +315,13 @@ namespace IO.Swagger.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -13,7 +13,7 @@
 /*
  * SWGInline_response_200_1_meta.h
  * 
- * Gets the current list of Seed Comapnies.
+ * Gets the Strains for a Seed Company listing from a given OCPC.
  */
 
 #ifndef SWGInline_response_200_1_meta_H_
@@ -50,6 +50,6 @@ private:
     SWGPagination* pagination;
 };
 
-} /* namespace Swagger */
+}
 
 #endif /* SWGInline_response_200_1_meta_H_ */

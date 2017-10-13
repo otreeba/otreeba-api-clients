@@ -59,6 +59,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse20011](docs/InlineResponse20011.md)
  - [InlineResponse20012](docs/InlineResponse20012.md)
  - [InlineResponse20013](docs/InlineResponse20013.md)
+ - [InlineResponse2001Meta](docs/InlineResponse2001Meta.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
@@ -67,7 +68,6 @@ Class | Method | HTTP request | Description
  - [InlineResponse2007](docs/InlineResponse2007.md)
  - [InlineResponse2008](docs/InlineResponse2008.md)
  - [InlineResponse2009](docs/InlineResponse2009.md)
- - [InlineResponse200Meta](docs/InlineResponse200Meta.md)
  - [Meta](docs/Meta.md)
  - [ModelError](docs/ModelError.md)
  - [Pagination](docs/Pagination.md)
@@ -79,7 +79,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## api_key
+
+- **Type**: API key 
+- **API key parameter name**: X-API-Key
+- **Location**: HTTP header
 
 
 ## Author

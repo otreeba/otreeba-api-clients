@@ -22,6 +22,9 @@ type SeedCompany struct {
 	// Open Cannabis Product Code for the seed company.
 	Ocpc string `json:"ocpc,omitempty"`
 
+	// Description of the seed company.
+	Description string `json:"description,omitempty"`
+
 	// URL for QR that leads to page on Cannabis Reports.
 	Qr string `json:"qr,omitempty"`
 

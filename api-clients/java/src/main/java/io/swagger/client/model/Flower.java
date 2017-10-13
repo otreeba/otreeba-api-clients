@@ -14,15 +14,20 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.joda.time.DateTime;
 
 /**
  * Flower
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class Flower {
   @SerializedName("name")
   private String name = null;
@@ -111,7 +116,7 @@ public class Flower {
    * Name and Open Cannabis Product Code of the brand that created these flowers.
    * @return brand
   **/
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Advantage Healing&quot;,&quot;ocpc&quot;:&quot;0000000000LTE2A0000000000&quot;}", value = "Name and Open Cannabis Product Code of the brand that created these flowers.")
+  @ApiModelProperty(example = "{\"name\":\"Advantage Healing\",\"ocpc\":\"0000000000LTE2A0000000000\"}", value = "Name and Open Cannabis Product Code of the brand that created these flowers.")
   public Object getBrand() {
     return brand;
   }
@@ -147,7 +152,7 @@ public class Flower {
    * Name and Open Cannabis Product Code of the strain for these flowers.
    * @return strain
   **/
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Half Dome Haze&quot;,&quot;ocpc&quot;:&quot;9XVU7JDFUG000000000000000&quot;}", value = "Name and Open Cannabis Product Code of the strain for these flowers.")
+  @ApiModelProperty(example = "{\"name\":\"Half Dome Haze\",\"ocpc\":\"9XVU7JDFUG000000000000000\"}", value = "Name and Open Cannabis Product Code of the strain for these flowers.")
   public Object getStrain() {
     return strain;
   }
@@ -165,7 +170,7 @@ public class Flower {
    * Description of the flowers.
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "Description of the flowers.")
+  @ApiModelProperty(value = "Description of the flowers.")
   public String getDescription() {
     return description;
   }

@@ -47,7 +47,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -55,7 +54,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -63,7 +61,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -71,7 +68,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -79,7 +75,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testBrand()
     {
-
     }
 
     /**
@@ -87,7 +82,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyName()
     {
-
     }
 
     /**
@@ -95,7 +89,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyOcpc()
     {
-
     }
 
     /**
@@ -103,7 +96,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyLink()
     {
-
     }
 
     /**
@@ -111,7 +103,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyQr()
     {
-
     }
 
     /**
@@ -119,7 +110,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUrl()
     {
-
     }
 
     /**
@@ -127,7 +117,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyImage()
     {
-
     }
 
     /**
@@ -135,7 +124,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyFlowers()
     {
-
     }
 
     /**
@@ -143,7 +131,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyExtracts()
     {
-
     }
 
     /**
@@ -151,7 +138,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyEdibles()
     {
-
     }
 
     /**
@@ -159,7 +145,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyProducts()
     {
-
     }
 
     /**
@@ -167,7 +152,6 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCreatedAt()
     {
-
     }
 
     /**
@@ -175,7 +159,5 @@ class BrandTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUpdatedAt()
     {
-
     }
-
 }

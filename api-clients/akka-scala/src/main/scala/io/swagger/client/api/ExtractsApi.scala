@@ -6,7 +6,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Extract
-import io.swagger.client.model.Inline_response_200_3
+import io.swagger.client.model.InlineResponse2003
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
 import io.swagger.client.core.ApiKeyLocations._
@@ -22,10 +22,14 @@ object ExtractsApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Extract not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param ocpc OCPC of the extract to return.
    */
-  def getExtractByOcpc(ocpc: String): ApiRequest[Extract] =
+  def getExtractByOcpc(ocpc: String)(implicit apiKey: ApiKeyValue): ApiRequest[Extract] =
     ApiRequest[Extract](ApiMethods.GET, "https://api.otreeba.com/v1", "/extracts/{ocpc}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("ocpc", ocpc)
       .withSuccessResponse[Extract](200)
       .withErrorResponse[Unit](400)
@@ -35,21 +39,25 @@ object ExtractsApi {
    * Returns a paginated list of extracts.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_3 (Successful operation.)
+   *   code 200 : InlineResponse2003 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Extract not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getExtracts(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_3] =
-    ApiRequest[Inline_response_200_3](ApiMethods.GET, "https://api.otreeba.com/v1", "/extracts", "application/json")
+  def getExtracts(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2003] =
+    ApiRequest[InlineResponse2003](ApiMethods.GET, "https://api.otreeba.com/v1", "/extracts", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_3](200)
+      .withSuccessResponse[InlineResponse2003](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)

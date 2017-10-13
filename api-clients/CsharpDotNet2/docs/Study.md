@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name of the study. | [default to null]
-**Year** | **int?** | Year of the study. | [optional] [default to null]
-**Doi** | **string** | Digital Object Identifier for the study. | [optional] [default to null]
-**PubMedId** | **string** | PubMed ID for the study. | [optional] [default to null]
-**Slug** | **string** | Slug based on the study name. | [optional] [default to null]
-**KeyFindings** | **string** | Key findings for the study. | [optional] [default to null]
-**Conditions** | [**List&lt;Condition&gt;**](Condition.md) |  | [optional] [default to null]
-**CreatedAt** | **DateTime?** | Date and time record was created, UTC. | [optional] [default to null]
-**UpdatedAt** | **DateTime?** | Date and time record was updated, UTC. | [optional] [default to null]
+**Name** | **string** | Name of the study. | 
+**Year** | **int?** | Year of the study. | [optional] 
+**Doi** | **string** | Digital Object Identifier for the study. | [optional] 
+**PubMedId** | **string** | PubMed ID for the study. | [optional] 
+**Slug** | **string** | Slug based on the study name. | [optional] 
+**KeyFindings** | **string** | Key findings for the study. | [optional] 
+**Conditions** | [**List&lt;Condition&gt;**](Condition.md) |  | [optional] 
+**CreatedAt** | **DateTime?** | Date and time record was created, UTC. | [optional] 
+**UpdatedAt** | **DateTime?** | Date and time record was updated, UTC. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

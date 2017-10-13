@@ -79,7 +79,7 @@ public class EdiblesApiTest {
     @Test
     public void getEdibleByOcpcTest() {
         String ocpc = null;
-	//Edible response = api.getEdibleByOcpc(ocpc);
+        //Edible response = api.getEdibleByOcpc(ocpc);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -99,7 +99,7 @@ public class EdiblesApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2002 response = api.getEdibles(page, count, sort);
+        //InlineResponse2002 response = api.getEdibles(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         

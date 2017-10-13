@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 
 namespace Swagger {
+
 SWGStrainsApi::SWGStrainsApi() {}
 
 SWGStrainsApi::~SWGStrainsApi() {}
@@ -39,9 +40,13 @@ SWGStrainsApi::getStrainByOcpc(QString* ocpc) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -54,6 +59,9 @@ SWGStrainsApi::getStrainByOcpc(QString* ocpc) {
 void
 SWGStrainsApi::getStrainByOcpcCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -61,16 +69,15 @@ SWGStrainsApi::getStrainByOcpcCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGStrain* output = static_cast<SWGStrain*>(create(json, QString("SWGStrain")));
-    
 
+    QString json(worker->response);
+    SWGStrain* output = static_cast<SWGStrain*>(create(json, QString("SWGStrain")));
     worker->deleteLater();
 
     emit getStrainByOcpcSignal(output);
-    
+    emit getStrainByOcpcSignalE(output, error_type, error_str);
 }
+
 void
 SWGStrainsApi::getStrains(qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -105,9 +112,13 @@ SWGStrainsApi::getStrains(qint32 page, qint32 count, QString* sort) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -120,6 +131,9 @@ SWGStrainsApi::getStrains(qint32 page, qint32 count, QString* sort) {
 void
 SWGStrainsApi::getStrainsCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -127,14 +141,14 @@ SWGStrainsApi::getStrainsCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_11* output = static_cast<SWGInline_response_200_11*>(create(json, QString("SWGInline_response_200_11")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_11* output = static_cast<SWGInline_response_200_11*>(create(json, QString("SWGInline_response_200_11")));
     worker->deleteLater();
 
     emit getStrainsSignal(output);
-    
+    emit getStrainsSignalE(output, error_type, error_str);
 }
-} /* namespace Swagger */
+
+
+}

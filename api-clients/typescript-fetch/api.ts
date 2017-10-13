@@ -296,14 +296,14 @@ export interface Flower {
 }
 
 export interface InlineResponse200 {
-    "meta"?: InlineResponse200Meta;
-}
-
-export interface InlineResponse2001 {
     /**
      * Gets the current list of Seed Comapnies.
      */
     "meta"?: Meta;
+}
+
+export interface InlineResponse2001 {
+    "meta"?: InlineResponse2001Meta;
 }
 
 export interface InlineResponse20010 {
@@ -332,6 +332,16 @@ export interface InlineResponse20013 {
      * Gets the current list of Studies for a given Condition.
      */
     "meta"?: Meta;
+}
+
+/**
+ * Gets the Strains for a Seed Company listing from a given OCPC.
+ */
+export interface InlineResponse2001Meta {
+    /**
+     * Gets the Strains for a Seed Company listing from a given OCPC.
+     */
+    "pagination"?: Pagination;
 }
 
 export interface InlineResponse2002 {
@@ -388,16 +398,6 @@ export interface InlineResponse2009 {
      * Gets the current list of Products for a Brand.
      */
     "meta"?: Meta;
-}
-
-/**
- * Gets the Strains for a Seed Company listing from a given OCPC.
- */
-export interface InlineResponse200Meta {
-    /**
-     * Gets the Strains for a Seed Company listing from a given OCPC.
-     */
-    "pagination"?: Pagination;
 }
 
 export interface Meta {
@@ -512,6 +512,10 @@ export interface SeedCompany {
      * Open Cannabis Product Code for the seed company.
      */
     "ocpc"?: string;
+    /**
+     * Description of the seed company.
+     */
+    "description"?: string;
     /**
      * URL for QR that leads to page on Cannabis Reports.
      */
@@ -631,9 +635,9 @@ export interface Study {
  * BrandsApi - fetch parameter creator
  */
 export const BrandsApiFetchParamCreator = {
-    /** 
-     * Find brand by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single brand.
+     * @summary Find brand by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the brand to return.
      */
     getBrandByOcpc(params: {  "ocpc": string; }, options?: any): FetchArgs {
@@ -648,16 +652,16 @@ export const BrandsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current edibles for the given brand.
+    /**
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles for the given brand.
      * @param ocpc OCPC of the brand to list edibles for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -680,16 +684,16 @@ export const BrandsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current extracts for the given brand.
+    /**
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts for the given brand.
      * @param ocpc OCPC of the brand to list extracts for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -712,16 +716,16 @@ export const BrandsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current flowers for the given brand.
+    /**
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers for the given brand.
      * @param ocpc OCPC of the brand to list flowers for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -744,16 +748,16 @@ export const BrandsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current products for the given brand.
+    /**
      * Returns a paginated list of products.
+     * @summary Get a list of all current products for the given brand.
      * @param ocpc OCPC of the brand to list products for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -776,16 +780,16 @@ export const BrandsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current brands.
+    /**
      * Returns a paginated list of brands.
+     * @summary Get a list of all current brands.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -802,7 +806,7 @@ export const BrandsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -815,9 +819,9 @@ export const BrandsApiFetchParamCreator = {
  * BrandsApi - functional programming interface
  */
 export const BrandsApiFp = {
-    /** 
-     * Find brand by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single brand.
+     * @summary Find brand by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the brand to return.
      */
     getBrandByOcpc(params: { "ocpc": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Brand> {
@@ -832,9 +836,9 @@ export const BrandsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current edibles for the given brand.
+    /**
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles for the given brand.
      * @param ocpc OCPC of the brand to list edibles for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -852,9 +856,9 @@ export const BrandsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current extracts for the given brand.
+    /**
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts for the given brand.
      * @param ocpc OCPC of the brand to list extracts for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -872,9 +876,9 @@ export const BrandsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current flowers for the given brand.
+    /**
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers for the given brand.
      * @param ocpc OCPC of the brand to list flowers for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -892,9 +896,9 @@ export const BrandsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current products for the given brand.
+    /**
      * Returns a paginated list of products.
+     * @summary Get a list of all current products for the given brand.
      * @param ocpc OCPC of the brand to list products for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -912,9 +916,9 @@ export const BrandsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current brands.
+    /**
      * Returns a paginated list of brands.
+     * @summary Get a list of all current brands.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -937,17 +941,17 @@ export const BrandsApiFp = {
  * BrandsApi - object-oriented interface
  */
 export class BrandsApi extends BaseAPI {
-    /** 
-     * Find brand by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single brand.
+     * @summary Find brand by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the brand to return.
      */
     getBrandByOcpc(params: {  "ocpc": string; }, options?: any) {
         return BrandsApiFp.getBrandByOcpc(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current edibles for the given brand.
+    /**
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles for the given brand.
      * @param ocpc OCPC of the brand to list edibles for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -956,9 +960,9 @@ export class BrandsApi extends BaseAPI {
     getBrandEdibles(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
         return BrandsApiFp.getBrandEdibles(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current extracts for the given brand.
+    /**
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts for the given brand.
      * @param ocpc OCPC of the brand to list extracts for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -967,9 +971,9 @@ export class BrandsApi extends BaseAPI {
     getBrandExtracts(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
         return BrandsApiFp.getBrandExtracts(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current flowers for the given brand.
+    /**
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers for the given brand.
      * @param ocpc OCPC of the brand to list flowers for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -978,9 +982,9 @@ export class BrandsApi extends BaseAPI {
     getBrandFlowers(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
         return BrandsApiFp.getBrandFlowers(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current products for the given brand.
+    /**
      * Returns a paginated list of products.
+     * @summary Get a list of all current products for the given brand.
      * @param ocpc OCPC of the brand to list products for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -989,9 +993,9 @@ export class BrandsApi extends BaseAPI {
     getBrandProducts(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
         return BrandsApiFp.getBrandProducts(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current brands.
+    /**
      * Returns a paginated list of brands.
+     * @summary Get a list of all current brands.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1006,17 +1010,17 @@ export class BrandsApi extends BaseAPI {
  */
 export const BrandsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Find brand by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a single brand.
+         * @summary Find brand by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the brand to return.
          */
         getBrandByOcpc(params: {  "ocpc": string; }, options?: any) {
             return BrandsApiFp.getBrandByOcpc(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current edibles for the given brand.
+        /**
          * Returns a paginated list of edibles.
+         * @summary Get a list of all current edibles for the given brand.
          * @param ocpc OCPC of the brand to list edibles for.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
@@ -1025,9 +1029,9 @@ export const BrandsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
         getBrandEdibles(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return BrandsApiFp.getBrandEdibles(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current extracts for the given brand.
+        /**
          * Returns a paginated list of extracts.
+         * @summary Get a list of all current extracts for the given brand.
          * @param ocpc OCPC of the brand to list extracts for.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
@@ -1036,9 +1040,9 @@ export const BrandsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
         getBrandExtracts(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return BrandsApiFp.getBrandExtracts(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current flowers for the given brand.
+        /**
          * Returns a paginated list of flowers.
+         * @summary Get a list of all current flowers for the given brand.
          * @param ocpc OCPC of the brand to list flowers for.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
@@ -1047,9 +1051,9 @@ export const BrandsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
         getBrandFlowers(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return BrandsApiFp.getBrandFlowers(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current products for the given brand.
+        /**
          * Returns a paginated list of products.
+         * @summary Get a list of all current products for the given brand.
          * @param ocpc OCPC of the brand to list products for.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
@@ -1058,9 +1062,9 @@ export const BrandsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
         getBrandProducts(params: {  "ocpc": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return BrandsApiFp.getBrandProducts(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current brands.
+        /**
          * Returns a paginated list of brands.
+         * @summary Get a list of all current brands.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -1076,9 +1080,9 @@ export const BrandsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
  * EdiblesApi - fetch parameter creator
  */
 export const EdiblesApiFetchParamCreator = {
-    /** 
-     * Find edible by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single edible.
+     * @summary Find edible by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the edible to return.
      */
     getEdibleByOcpc(params: {  "ocpc": string; }, options?: any): FetchArgs {
@@ -1093,16 +1097,16 @@ export const EdiblesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current edibles.
+    /**
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1119,7 +1123,7 @@ export const EdiblesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -1132,9 +1136,9 @@ export const EdiblesApiFetchParamCreator = {
  * EdiblesApi - functional programming interface
  */
 export const EdiblesApiFp = {
-    /** 
-     * Find edible by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single edible.
+     * @summary Find edible by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the edible to return.
      */
     getEdibleByOcpc(params: { "ocpc": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Edible> {
@@ -1149,9 +1153,9 @@ export const EdiblesApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current edibles.
+    /**
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1174,17 +1178,17 @@ export const EdiblesApiFp = {
  * EdiblesApi - object-oriented interface
  */
 export class EdiblesApi extends BaseAPI {
-    /** 
-     * Find edible by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single edible.
+     * @summary Find edible by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the edible to return.
      */
     getEdibleByOcpc(params: {  "ocpc": string; }, options?: any) {
         return EdiblesApiFp.getEdibleByOcpc(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current edibles.
+    /**
      * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1199,17 +1203,17 @@ export class EdiblesApi extends BaseAPI {
  */
 export const EdiblesApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Find edible by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a single edible.
+         * @summary Find edible by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the edible to return.
          */
         getEdibleByOcpc(params: {  "ocpc": string; }, options?: any) {
             return EdiblesApiFp.getEdibleByOcpc(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current edibles.
+        /**
          * Returns a paginated list of edibles.
+         * @summary Get a list of all current edibles.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -1225,9 +1229,9 @@ export const EdiblesApiFactory = function (fetch?: FetchAPI, basePath?: string) 
  * ExtractsApi - fetch parameter creator
  */
 export const ExtractsApiFetchParamCreator = {
-    /** 
-     * Find extract by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single extract.
+     * @summary Find extract by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the extract to return.
      */
     getExtractByOcpc(params: {  "ocpc": string; }, options?: any): FetchArgs {
@@ -1242,16 +1246,16 @@ export const ExtractsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current extracts.
+    /**
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1268,7 +1272,7 @@ export const ExtractsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -1281,9 +1285,9 @@ export const ExtractsApiFetchParamCreator = {
  * ExtractsApi - functional programming interface
  */
 export const ExtractsApiFp = {
-    /** 
-     * Find extract by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single extract.
+     * @summary Find extract by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the extract to return.
      */
     getExtractByOcpc(params: { "ocpc": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Extract> {
@@ -1298,9 +1302,9 @@ export const ExtractsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current extracts.
+    /**
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1323,17 +1327,17 @@ export const ExtractsApiFp = {
  * ExtractsApi - object-oriented interface
  */
 export class ExtractsApi extends BaseAPI {
-    /** 
-     * Find extract by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single extract.
+     * @summary Find extract by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the extract to return.
      */
     getExtractByOcpc(params: {  "ocpc": string; }, options?: any) {
         return ExtractsApiFp.getExtractByOcpc(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current extracts.
+    /**
      * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1348,17 +1352,17 @@ export class ExtractsApi extends BaseAPI {
  */
 export const ExtractsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Find extract by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a single extract.
+         * @summary Find extract by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the extract to return.
          */
         getExtractByOcpc(params: {  "ocpc": string; }, options?: any) {
             return ExtractsApiFp.getExtractByOcpc(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current extracts.
+        /**
          * Returns a paginated list of extracts.
+         * @summary Get a list of all current extracts.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -1374,9 +1378,9 @@ export const ExtractsApiFactory = function (fetch?: FetchAPI, basePath?: string)
  * FlowersApi - fetch parameter creator
  */
 export const FlowersApiFetchParamCreator = {
-    /** 
-     * Find flower by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single flower.
+     * @summary Find flower by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the flower to return.
      */
     getFlowerByOcpc(params: {  "ocpc": string; }, options?: any): FetchArgs {
@@ -1391,16 +1395,16 @@ export const FlowersApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current flowers.
+    /**
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1417,7 +1421,7 @@ export const FlowersApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -1430,9 +1434,9 @@ export const FlowersApiFetchParamCreator = {
  * FlowersApi - functional programming interface
  */
 export const FlowersApiFp = {
-    /** 
-     * Find flower by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single flower.
+     * @summary Find flower by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the flower to return.
      */
     getFlowerByOcpc(params: { "ocpc": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Flower> {
@@ -1447,9 +1451,9 @@ export const FlowersApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current flowers.
+    /**
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1472,17 +1476,17 @@ export const FlowersApiFp = {
  * FlowersApi - object-oriented interface
  */
 export class FlowersApi extends BaseAPI {
-    /** 
-     * Find flower by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single flower.
+     * @summary Find flower by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the flower to return.
      */
     getFlowerByOcpc(params: {  "ocpc": string; }, options?: any) {
         return FlowersApiFp.getFlowerByOcpc(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current flowers.
+    /**
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1497,17 +1501,17 @@ export class FlowersApi extends BaseAPI {
  */
 export const FlowersApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Find flower by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a single flower.
+         * @summary Find flower by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the flower to return.
          */
         getFlowerByOcpc(params: {  "ocpc": string; }, options?: any) {
             return FlowersApiFp.getFlowerByOcpc(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current flowers.
+        /**
          * Returns a paginated list of flowers.
+         * @summary Get a list of all current flowers.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -1523,9 +1527,9 @@ export const FlowersApiFactory = function (fetch?: FetchAPI, basePath?: string) 
  * ProductsApi - fetch parameter creator
  */
 export const ProductsApiFetchParamCreator = {
-    /** 
-     * Find product by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single product.
+     * @summary Find product by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the product to return.
      */
     getProductByOcpc(params: {  "ocpc": string; }, options?: any): FetchArgs {
@@ -1540,16 +1544,16 @@ export const ProductsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current products.
+    /**
      * Returns a paginated list of products.
+     * @summary Get a list of all current products.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1566,7 +1570,7 @@ export const ProductsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -1579,9 +1583,9 @@ export const ProductsApiFetchParamCreator = {
  * ProductsApi - functional programming interface
  */
 export const ProductsApiFp = {
-    /** 
-     * Find product by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single product.
+     * @summary Find product by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the product to return.
      */
     getProductByOcpc(params: { "ocpc": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Product> {
@@ -1596,9 +1600,9 @@ export const ProductsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current products.
+    /**
      * Returns a paginated list of products.
+     * @summary Get a list of all current products.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1621,17 +1625,17 @@ export const ProductsApiFp = {
  * ProductsApi - object-oriented interface
  */
 export class ProductsApi extends BaseAPI {
-    /** 
-     * Find product by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single product.
+     * @summary Find product by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the product to return.
      */
     getProductByOcpc(params: {  "ocpc": string; }, options?: any) {
         return ProductsApiFp.getProductByOcpc(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current products.
+    /**
      * Returns a paginated list of products.
+     * @summary Get a list of all current products.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1646,17 +1650,17 @@ export class ProductsApi extends BaseAPI {
  */
 export const ProductsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Find product by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a single product.
+         * @summary Find product by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the product to return.
          */
         getProductByOcpc(params: {  "ocpc": string; }, options?: any) {
             return ProductsApiFp.getProductByOcpc(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current products.
+        /**
          * Returns a paginated list of products.
+         * @summary Get a list of all current products.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -1672,9 +1676,9 @@ export const ProductsApiFactory = function (fetch?: FetchAPI, basePath?: string)
  * SeedCompaniesApi - fetch parameter creator
  */
 export const SeedCompaniesApiFetchParamCreator = {
-    /** 
-     * Get a list of all current seed companies.
+    /**
      * Returns a paginated list of seed companies.
+     * @summary Get a list of all current seed companies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1691,16 +1695,16 @@ export const SeedCompaniesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Find seed company by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single seed company.
+     * @summary Find seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return.
      */
     getSeedCompanyByOcpc(params: {  "ocpc": string; }, options?: any): FetchArgs {
@@ -1715,16 +1719,16 @@ export const SeedCompaniesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Find strains for a seed company by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a paginated list of strains for a single seed company.
+     * @summary Find strains for a seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return strains for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -1745,7 +1749,7 @@ export const SeedCompaniesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -1758,14 +1762,14 @@ export const SeedCompaniesApiFetchParamCreator = {
  * SeedCompaniesApi - functional programming interface
  */
 export const SeedCompaniesApiFp = {
-    /** 
-     * Get a list of all current seed companies.
+    /**
      * Returns a paginated list of seed companies.
+     * @summary Get a list of all current seed companies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
      */
-    getSeedCompanies(params: { "page"?: number; "count"?: number; "sort"?: string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse2001> {
+    getSeedCompanies(params: { "page"?: number; "count"?: number; "sort"?: string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse200> {
         const fetchArgs = SeedCompaniesApiFetchParamCreator.getSeedCompanies(params, options);
         return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
             return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
@@ -1777,9 +1781,9 @@ export const SeedCompaniesApiFp = {
             });
         };
     },
-    /** 
-     * Find seed company by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single seed company.
+     * @summary Find seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return.
      */
     getSeedCompanyByOcpc(params: { "ocpc": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<SeedCompany> {
@@ -1794,14 +1798,14 @@ export const SeedCompaniesApiFp = {
             });
         };
     },
-    /** 
-     * Find strains for a seed company by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a paginated list of strains for a single seed company.
+     * @summary Find strains for a seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return strains for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      */
-    getSeedCompanyStrainsByOcpc(params: { "ocpc": string; "page"?: number; "count"?: number;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse200> {
+    getSeedCompanyStrainsByOcpc(params: { "ocpc": string; "page"?: number; "count"?: number;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<InlineResponse2001> {
         const fetchArgs = SeedCompaniesApiFetchParamCreator.getSeedCompanyStrainsByOcpc(params, options);
         return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
             return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
@@ -1819,9 +1823,9 @@ export const SeedCompaniesApiFp = {
  * SeedCompaniesApi - object-oriented interface
  */
 export class SeedCompaniesApi extends BaseAPI {
-    /** 
-     * Get a list of all current seed companies.
+    /**
      * Returns a paginated list of seed companies.
+     * @summary Get a list of all current seed companies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1829,17 +1833,17 @@ export class SeedCompaniesApi extends BaseAPI {
     getSeedCompanies(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
         return SeedCompaniesApiFp.getSeedCompanies(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Find seed company by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single seed company.
+     * @summary Find seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return.
      */
     getSeedCompanyByOcpc(params: {  "ocpc": string; }, options?: any) {
         return SeedCompaniesApiFp.getSeedCompanyByOcpc(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Find strains for a seed company by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a paginated list of strains for a single seed company.
+     * @summary Find strains for a seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return strains for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -1854,9 +1858,9 @@ export class SeedCompaniesApi extends BaseAPI {
  */
 export const SeedCompaniesApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Get a list of all current seed companies.
+        /**
          * Returns a paginated list of seed companies.
+         * @summary Get a list of all current seed companies.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -1864,17 +1868,17 @@ export const SeedCompaniesApiFactory = function (fetch?: FetchAPI, basePath?: st
         getSeedCompanies(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return SeedCompaniesApiFp.getSeedCompanies(params, options)(fetch, basePath);
         },
-        /** 
-         * Find seed company by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a single seed company.
+         * @summary Find seed company by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the seed company to return.
          */
         getSeedCompanyByOcpc(params: {  "ocpc": string; }, options?: any) {
             return SeedCompaniesApiFp.getSeedCompanyByOcpc(params, options)(fetch, basePath);
         },
-        /** 
-         * Find strains for a seed company by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a paginated list of strains for a single seed company.
+         * @summary Find strains for a seed company by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the seed company to return strains for.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
@@ -1890,9 +1894,9 @@ export const SeedCompaniesApiFactory = function (fetch?: FetchAPI, basePath?: st
  * StrainsApi - fetch parameter creator
  */
 export const StrainsApiFetchParamCreator = {
-    /** 
-     * Find strain by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single strain.
+     * @summary Find strain by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the strain to return.
      */
     getStrainByOcpc(params: {  "ocpc": string; }, options?: any): FetchArgs {
@@ -1907,16 +1911,16 @@ export const StrainsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current strains.
+    /**
      * Returns a paginated list of strains.
+     * @summary Get a list of all current strains.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1933,7 +1937,7 @@ export const StrainsApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -1946,9 +1950,9 @@ export const StrainsApiFetchParamCreator = {
  * StrainsApi - functional programming interface
  */
 export const StrainsApiFp = {
-    /** 
-     * Find strain by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single strain.
+     * @summary Find strain by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the strain to return.
      */
     getStrainByOcpc(params: { "ocpc": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Strain> {
@@ -1963,9 +1967,9 @@ export const StrainsApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current strains.
+    /**
      * Returns a paginated list of strains.
+     * @summary Get a list of all current strains.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -1988,17 +1992,17 @@ export const StrainsApiFp = {
  * StrainsApi - object-oriented interface
  */
 export class StrainsApi extends BaseAPI {
-    /** 
-     * Find strain by Open Cannabis Product Code (OCPC).
+    /**
      * Returns a single strain.
+     * @summary Find strain by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the strain to return.
      */
     getStrainByOcpc(params: {  "ocpc": string; }, options?: any) {
         return StrainsApiFp.getStrainByOcpc(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current strains.
+    /**
      * Returns a paginated list of strains.
+     * @summary Get a list of all current strains.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -2013,17 +2017,17 @@ export class StrainsApi extends BaseAPI {
  */
 export const StrainsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Find strain by Open Cannabis Product Code (OCPC).
+        /**
          * Returns a single strain.
+         * @summary Find strain by Open Cannabis Product Code (OCPC).
          * @param ocpc OCPC of the strain to return.
          */
         getStrainByOcpc(params: {  "ocpc": string; }, options?: any) {
             return StrainsApiFp.getStrainByOcpc(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current strains.
+        /**
          * Returns a paginated list of strains.
+         * @summary Get a list of all current strains.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -2039,9 +2043,9 @@ export const StrainsApiFactory = function (fetch?: FetchAPI, basePath?: string) 
  * StudiesApi - fetch parameter creator
  */
 export const StudiesApiFetchParamCreator = {
-    /** 
-     * Get a list of all current studies.
+    /**
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -2058,16 +2062,16 @@ export const StudiesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current studies for a given condition.
+    /**
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies for a given condition.
      * @param conditionSlug Slug of the condition to return studies for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -2090,16 +2094,16 @@ export const StudiesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Get a list of all current conditions for studies.
+    /**
      * Returns a list of all current conditions for studies.
+     * @summary Get a list of all current conditions for studies.
      * @param sort How to sort the items.
      */
     getStudiesConditions(params: {  "sort"?: string; }, options?: any): FetchArgs {
@@ -2112,16 +2116,16 @@ export const StudiesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
             options: fetchOptions,
         };
     },
-    /** 
-     * Find study by DOI, PubMed ID, or slug.
+    /**
      * Returns a single study.
+     * @summary Find study by DOI, PubMed ID, or slug.
      * @param identifierType Type of identifier to for the study to return.
      * @param identifier Identifier for the study to return.
      */
@@ -2142,7 +2146,7 @@ export const StudiesApiFetchParamCreator = {
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
-            fetchOptions.headers = contentTypeHeader;
+            fetchOptions.headers = assign({}, contentTypeHeader, fetchOptions.headers);
         }
         return {
             url: url.format(urlObj),
@@ -2155,9 +2159,9 @@ export const StudiesApiFetchParamCreator = {
  * StudiesApi - functional programming interface
  */
 export const StudiesApiFp = {
-    /** 
-     * Get a list of all current studies.
+    /**
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -2174,9 +2178,9 @@ export const StudiesApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current studies for a given condition.
+    /**
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies for a given condition.
      * @param conditionSlug Slug of the condition to return studies for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -2194,9 +2198,9 @@ export const StudiesApiFp = {
             });
         };
     },
-    /** 
-     * Get a list of all current conditions for studies.
+    /**
      * Returns a list of all current conditions for studies.
+     * @summary Get a list of all current conditions for studies.
      * @param sort How to sort the items.
      */
     getStudiesConditions(params: { "sort"?: string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<any> {
@@ -2211,9 +2215,9 @@ export const StudiesApiFp = {
             });
         };
     },
-    /** 
-     * Find study by DOI, PubMed ID, or slug.
+    /**
      * Returns a single study.
+     * @summary Find study by DOI, PubMed ID, or slug.
      * @param identifierType Type of identifier to for the study to return.
      * @param identifier Identifier for the study to return.
      */
@@ -2235,9 +2239,9 @@ export const StudiesApiFp = {
  * StudiesApi - object-oriented interface
  */
 export class StudiesApi extends BaseAPI {
-    /** 
-     * Get a list of all current studies.
+    /**
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -2245,9 +2249,9 @@ export class StudiesApi extends BaseAPI {
     getStudies(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
         return StudiesApiFp.getStudies(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current studies for a given condition.
+    /**
      * Returns a paginated list of studies.
+     * @summary Get a list of all current studies for a given condition.
      * @param conditionSlug Slug of the condition to return studies for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
@@ -2256,17 +2260,17 @@ export class StudiesApi extends BaseAPI {
     getStudiesByCondition(params: {  "conditionSlug": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
         return StudiesApiFp.getStudiesByCondition(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Get a list of all current conditions for studies.
+    /**
      * Returns a list of all current conditions for studies.
+     * @summary Get a list of all current conditions for studies.
      * @param sort How to sort the items.
      */
     getStudiesConditions(params: {  "sort"?: string; }, options?: any) {
         return StudiesApiFp.getStudiesConditions(params, options)(this.fetch, this.basePath);
     }
-    /** 
-     * Find study by DOI, PubMed ID, or slug.
+    /**
      * Returns a single study.
+     * @summary Find study by DOI, PubMed ID, or slug.
      * @param identifierType Type of identifier to for the study to return.
      * @param identifier Identifier for the study to return.
      */
@@ -2280,9 +2284,9 @@ export class StudiesApi extends BaseAPI {
  */
 export const StudiesApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
-        /** 
-         * Get a list of all current studies.
+        /**
          * Returns a paginated list of studies.
+         * @summary Get a list of all current studies.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
          * @param sort How to sort the items.
@@ -2290,9 +2294,9 @@ export const StudiesApiFactory = function (fetch?: FetchAPI, basePath?: string) 
         getStudies(params: {  "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return StudiesApiFp.getStudies(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current studies for a given condition.
+        /**
          * Returns a paginated list of studies.
+         * @summary Get a list of all current studies for a given condition.
          * @param conditionSlug Slug of the condition to return studies for.
          * @param page Page to be returned.
          * @param count The number of items to return. Default 10. Max 50.
@@ -2301,17 +2305,17 @@ export const StudiesApiFactory = function (fetch?: FetchAPI, basePath?: string) 
         getStudiesByCondition(params: {  "conditionSlug": string; "page"?: number; "count"?: number; "sort"?: string; }, options?: any) {
             return StudiesApiFp.getStudiesByCondition(params, options)(fetch, basePath);
         },
-        /** 
-         * Get a list of all current conditions for studies.
+        /**
          * Returns a list of all current conditions for studies.
+         * @summary Get a list of all current conditions for studies.
          * @param sort How to sort the items.
          */
         getStudiesConditions(params: {  "sort"?: string; }, options?: any) {
             return StudiesApiFp.getStudiesConditions(params, options)(fetch, basePath);
         },
-        /** 
-         * Find study by DOI, PubMed ID, or slug.
+        /**
          * Returns a single study.
+         * @summary Find study by DOI, PubMed ID, or slug.
          * @param identifierType Type of identifier to for the study to return.
          * @param identifier Identifier for the study to return.
          */

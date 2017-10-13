@@ -38,7 +38,6 @@ using IO.Swagger.Api;
 using IO.Swagger.Client;
 using IO.Swagger.Model;
 ```
-
 <a name="packaging"></a>
 ## Packaging
 
@@ -68,7 +67,12 @@ namespace Example
     {
         public void main()
         {
-            
+
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new BrandsApi();
             var ocpc = ocpc_example;  // string | OCPC of the brand to return.
 
@@ -82,6 +86,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling BrandsApi.GetBrandByOcpc: " + e.Message );
             }
+
         }
     }
 }
@@ -134,6 +139,7 @@ Class | Method | HTTP request | Description
  - [Model.InlineResponse20011](docs/InlineResponse20011.md)
  - [Model.InlineResponse20012](docs/InlineResponse20012.md)
  - [Model.InlineResponse20013](docs/InlineResponse20013.md)
+ - [Model.InlineResponse2001Meta](docs/InlineResponse2001Meta.md)
  - [Model.InlineResponse2002](docs/InlineResponse2002.md)
  - [Model.InlineResponse2003](docs/InlineResponse2003.md)
  - [Model.InlineResponse2004](docs/InlineResponse2004.md)
@@ -142,7 +148,6 @@ Class | Method | HTTP request | Description
  - [Model.InlineResponse2007](docs/InlineResponse2007.md)
  - [Model.InlineResponse2008](docs/InlineResponse2008.md)
  - [Model.InlineResponse2009](docs/InlineResponse2009.md)
- - [Model.InlineResponse200Meta](docs/InlineResponse200Meta.md)
  - [Model.Meta](docs/Meta.md)
  - [Model.Pagination](docs/Pagination.md)
  - [Model.Product](docs/Product.md)
@@ -154,4 +159,10 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+<a name="api_key"></a>
+### api_key
+
+- **Type**: API key
+- **API key parameter name**: X-API-Key
+- **Location**: HTTP header
+

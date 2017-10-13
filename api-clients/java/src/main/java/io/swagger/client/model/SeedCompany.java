@@ -14,9 +14,14 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -24,13 +29,16 @@ import org.joda.time.DateTime;
 /**
  * SeedCompany
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class SeedCompany {
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("ocpc")
   private String ocpc = null;
+
+  @SerializedName("description")
+  private String description = null;
 
   @SerializedName("qr")
   private String qr = null;
@@ -45,7 +53,7 @@ public class SeedCompany {
   private Object lineage = null;
 
   @SerializedName("strains")
-  private List<String> strains = new ArrayList<String>();
+  private List<String> strains = null;
 
   @SerializedName("createdAt")
   private DateTime createdAt = null;
@@ -87,6 +95,24 @@ public class SeedCompany {
 
   public void setOcpc(String ocpc) {
     this.ocpc = ocpc;
+  }
+
+  public SeedCompany description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the seed company.
+   * @return description
+  **/
+  @ApiModelProperty(value = "Description of the seed company.")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public SeedCompany qr(String qr) {
@@ -149,10 +175,10 @@ public class SeedCompany {
   }
 
    /**
-   * Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+   * Object of countries that this seed company has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}
    * @return lineage
   **/
-  @ApiModelProperty(example = "{&quot;Afghanistan&quot;:&quot;AF&quot;,&quot;Canada&quot;:&quot;CA&quot;,&quot;Colombia&quot;:&quot;CO&quot;,&quot;Hungary&quot;:&quot;HU&quot;,&quot;India&quot;:&quot;IN&quot;}", value = "Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
+  @ApiModelProperty(example = "{\"Afghanistan\":\"AF\",\"Canada\":\"CA\",\"Colombia\":\"CO\",\"Hungary\":\"HU\",\"India\":\"IN\"}", value = "Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
   public Object getLineage() {
     return lineage;
   }
@@ -167,6 +193,9 @@ public class SeedCompany {
   }
 
   public SeedCompany addStrainsItem(String strainsItem) {
+    if (this.strains == null) {
+      this.strains = new ArrayList<String>();
+    }
     this.strains.add(strainsItem);
     return this;
   }
@@ -175,7 +204,7 @@ public class SeedCompany {
    * OCPCs of the strains from this seed company.
    * @return strains
   **/
-  @ApiModelProperty(example = "null", value = "OCPCs of the strains from this seed company.")
+  @ApiModelProperty(value = "OCPCs of the strains from this seed company.")
   public List<String> getStrains() {
     return strains;
   }
@@ -232,6 +261,7 @@ public class SeedCompany {
     SeedCompany seedCompany = (SeedCompany) o;
     return Objects.equals(this.name, seedCompany.name) &&
         Objects.equals(this.ocpc, seedCompany.ocpc) &&
+        Objects.equals(this.description, seedCompany.description) &&
         Objects.equals(this.qr, seedCompany.qr) &&
         Objects.equals(this.url, seedCompany.url) &&
         Objects.equals(this.image, seedCompany.image) &&
@@ -243,7 +273,7 @@ public class SeedCompany {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, ocpc, qr, url, image, lineage, strains, createdAt, updatedAt);
+    return Objects.hash(name, ocpc, description, qr, url, image, lineage, strains, createdAt, updatedAt);
   }
 
 
@@ -254,6 +284,7 @@ public class SeedCompany {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ocpc: ").append(toIndentedString(ocpc)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    qr: ").append(toIndentedString(qr)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");

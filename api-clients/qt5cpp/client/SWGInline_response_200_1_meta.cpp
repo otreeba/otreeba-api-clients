@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGInline_response_200_1_meta::SWGInline_response_200_1_meta(QString* json) {
     init();
     this->fromJson(*json);
@@ -92,6 +91,5 @@ SWGInline_response_200_1_meta::setPagination(SWGPagination* pagination) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

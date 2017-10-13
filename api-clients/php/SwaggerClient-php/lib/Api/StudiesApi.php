@@ -98,7 +98,7 @@ class StudiesApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse20012
      */
-    public function getStudies($page = null, $count = null, $sort = null)
+    public function getStudies($page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getStudiesWithHttpInfo($page, $count, $sort);
         return $response;
@@ -115,7 +115,7 @@ class StudiesApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStudiesWithHttpInfo($page = null, $count = null, $sort = null)
+    public function getStudiesWithHttpInfo($page = null, $count = '10', $sort = '-createdAt')
     {
         // parse inputs
         $resourcePath = "/studies";
@@ -141,15 +141,17 @@ class StudiesApi
         if ($sort !== null) {
             $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -188,7 +190,7 @@ class StudiesApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse20013
      */
-    public function getStudiesByCondition($condition_slug, $page = null, $count = null, $sort = null)
+    public function getStudiesByCondition($condition_slug, $page = null, $count = '10', $sort = '-year')
     {
         list($response) = $this->getStudiesByConditionWithHttpInfo($condition_slug, $page, $count, $sort);
         return $response;
@@ -206,7 +208,7 @@ class StudiesApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStudiesByConditionWithHttpInfo($condition_slug, $page = null, $count = null, $sort = null)
+    public function getStudiesByConditionWithHttpInfo($condition_slug, $page = null, $count = '10', $sort = '-year')
     {
         // verify the required parameter 'condition_slug' is set
         if ($condition_slug === null) {
@@ -244,15 +246,17 @@ class StudiesApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -288,7 +292,7 @@ class StudiesApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return object
      */
-    public function getStudiesConditions($sort = null)
+    public function getStudiesConditions($sort = 'name')
     {
         list($response) = $this->getStudiesConditionsWithHttpInfo($sort);
         return $response;
@@ -303,7 +307,7 @@ class StudiesApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStudiesConditionsWithHttpInfo($sort = null)
+    public function getStudiesConditionsWithHttpInfo($sort = 'name')
     {
         // parse inputs
         $resourcePath = "/studies/conditions";
@@ -321,15 +325,17 @@ class StudiesApi
         if ($sort !== null) {
             $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -420,15 +426,17 @@ class StudiesApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {

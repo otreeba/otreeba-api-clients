@@ -5,7 +5,7 @@
  */
 package io.swagger.client.api
 
-import io.swagger.client.model.Inline_response_200_10
+import io.swagger.client.model.InlineResponse20010
 import io.swagger.client.model.Product
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
@@ -22,10 +22,14 @@ object ProductsApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Product not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param ocpc OCPC of the product to return.
    */
-  def getProductByOcpc(ocpc: String): ApiRequest[Product] =
+  def getProductByOcpc(ocpc: String)(implicit apiKey: ApiKeyValue): ApiRequest[Product] =
     ApiRequest[Product](ApiMethods.GET, "https://api.otreeba.com/v1", "/products/{ocpc}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("ocpc", ocpc)
       .withSuccessResponse[Product](200)
       .withErrorResponse[Unit](400)
@@ -35,21 +39,25 @@ object ProductsApi {
    * Returns a paginated list of products.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_10 (Successful operation.)
+   *   code 200 : InlineResponse20010 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Product not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getProducts(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_10] =
-    ApiRequest[Inline_response_200_10](ApiMethods.GET, "https://api.otreeba.com/v1", "/products", "application/json")
+  def getProducts(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse20010] =
+    ApiRequest[InlineResponse20010](ApiMethods.GET, "https://api.otreeba.com/v1", "/products", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_10](200)
+      .withSuccessResponse[InlineResponse20010](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)

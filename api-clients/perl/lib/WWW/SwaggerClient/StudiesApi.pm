@@ -90,7 +90,6 @@ sub get_studies {
 
     # parse inputs
     my $_resource_path = '/studies';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -121,7 +120,7 @@ sub get_studies {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -184,7 +183,6 @@ sub get_studies_by_condition {
 
     # parse inputs
     my $_resource_path = '/studies/conditions/{conditionSlug}';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -222,7 +220,7 @@ sub get_studies_by_condition {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -262,7 +260,6 @@ sub get_studies_conditions {
 
     # parse inputs
     my $_resource_path = '/studies/conditions';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -283,7 +280,7 @@ sub get_studies_conditions {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -339,7 +336,6 @@ sub get_study_by_identifier {
 
     # parse inputs
     my $_resource_path = '/studies/{identifierType}/{identifier}';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -369,7 +365,7 @@ sub get_study_by_identifier {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

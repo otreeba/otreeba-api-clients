@@ -257,6 +257,10 @@ namespace IO.Swagger.Client
                 // determine which one to use
                 switch(auth)
                 {
+                    case "api_key":
+                        headerParams["X-API-Key"] = GetApiKeyWithPrefix("X-API-Key");
+                        
+                        break;
                     default:
                         //TODO show warning about security definition not found
                         break;

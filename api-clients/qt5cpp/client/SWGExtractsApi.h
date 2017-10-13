@@ -33,6 +33,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getExtractByOcpc(QString* ocpc);
     void getExtracts(qint32 page, qint32 count, QString* sort);
@@ -45,6 +46,10 @@ signals:
     void getExtractByOcpcSignal(SWGExtract* summary);
     void getExtractsSignal(SWGInline_response_200_3* summary);
     
+    void getExtractByOcpcSignalE(SWGExtract* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getExtractsSignalE(SWGInline_response_200_3* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 };
+
 }
 #endif

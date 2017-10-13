@@ -35,7 +35,9 @@ class TestExtract(unittest.TestCase):
         """
         Test Extract
         """
-        model = swagger_client.models.extract.Extract()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.extract.Extract()
+        pass
 
 
 if __name__ == '__main__':

@@ -37,17 +37,17 @@ open class Response<T> {
 
 private var once = Int()
 class Decoders {
-    static fileprivate var decoders = Dictionary<String, ((AnyObject) -> AnyObject)>()
+    static fileprivate var decoders = Dictionary<String, ((AnyObject, AnyObject?) -> AnyObject)>()
 
-    static func addDecoder<T>(clazz: T.Type, decoder: @escaping ((AnyObject) -> T)) {
+    static func addDecoder<T>(clazz: T.Type, decoder: @escaping ((AnyObject, AnyObject?) -> T)) {
         let key = "\(T.self)"
-        decoders[key] = { decoder($0) as AnyObject }
+        decoders[key] = { decoder($0, $1) as AnyObject }
     }
 
     static func decode<T>(clazz: T.Type, discriminator: String, source: AnyObject) -> T {
         let key = discriminator;
         if let decoder = decoders[key] {
-            return decoder(source) as! T
+            return decoder(source, nil) as! T
         } else {
             fatalError("Source \(source) is not convertible to type \(clazz): Maybe swagger file is insufficient")
         }
@@ -55,25 +55,25 @@ class Decoders {
 
     static func decode<T>(clazz: [T].Type, source: AnyObject) -> [T] {
         let array = source as! [AnyObject]
-        return array.map { Decoders.decode(clazz: T.self, source: $0) }
+        return array.map { Decoders.decode(clazz: T.self, source: $0, instance: nil) }
     }
 
     static func decode<T, Key: Hashable>(clazz: [Key:T].Type, source: AnyObject) -> [Key:T] {
         let sourceDictionary = source as! [Key: AnyObject]
         var dictionary = [Key:T]()
         for (key, value) in sourceDictionary {
-            dictionary[key] = Decoders.decode(clazz: T.self, source: value)
+            dictionary[key] = Decoders.decode(clazz: T.self, source: value, instance: nil)
         }
         return dictionary
     }
 
-    static func decode<T>(clazz: T.Type, source: AnyObject) -> T {
+    static func decode<T>(clazz: T.Type, source: AnyObject, instance: AnyObject?) -> T {
         initialize()
         if T.self is Int32.Type && source is NSNumber {
-            return source.int32Value as! T;
+            return (source as! NSNumber).int32Value as! T
         }
         if T.self is Int64.Type && source is NSNumber {
-            return source.int64Value as! T;
+            return (source as! NSNumber).int64Value as! T
         }
         if T.self is UUID.Type && source is String {
             return UUID(uuidString: source as! String) as! T
@@ -87,7 +87,7 @@ class Decoders {
 
         let key = "\(T.self)"
         if let decoder = decoders[key] {
-           return decoder(source) as! T
+           return decoder(source, instance) as! T
         } else {
             fatalError("Source \(source) is not convertible to type \(clazz): Maybe swagger file is insufficient")
         }
@@ -98,7 +98,7 @@ class Decoders {
             return nil
         }
         return source.map { (source: AnyObject) -> T in
-            Decoders.decode(clazz: clazz, source: source)
+            Decoders.decode(clazz: clazz, source: source, instance: nil)
         }
     }
 
@@ -130,11 +130,12 @@ class Decoders {
             "yyyy-MM-dd HH:mm:ss"
         ].map { (format: String) -> DateFormatter in
             let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = format
             return formatter
         }
         // Decoder for Date
-        Decoders.addDecoder(clazz: Date.self) { (source: AnyObject) -> Date in
+        Decoders.addDecoder(clazz: Date.self) { (source: AnyObject, instance: AnyObject?) -> Date in
            if let sourceString = source as? String {
                 for formatter in formatters {
                     if let date = formatter.date(from: sourceString) {
@@ -150,483 +151,484 @@ class Decoders {
         } 
 
         // Decoder for [Brand]
-        Decoders.addDecoder(clazz: [Brand].self) { (source: AnyObject) -> [Brand] in
+        Decoders.addDecoder(clazz: [Brand].self) { (source: AnyObject, instance: AnyObject?) -> [Brand] in
             return Decoders.decode(clazz: [Brand].self, source: source)
         }
         // Decoder for Brand
-        Decoders.addDecoder(clazz: Brand.self) { (source: AnyObject) -> Brand in
+        Decoders.addDecoder(clazz: Brand.self) { (source: AnyObject, instance: AnyObject?) -> Brand in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Brand()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
-            instance.link = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["link"] as AnyObject?)
-            instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
-            instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
-            instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
-            instance.flowers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["flowers"] as AnyObject?)
-            instance.extracts = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["extracts"] as AnyObject?)
-            instance.edibles = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["edibles"] as AnyObject?)
-            instance.products = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["products"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Brand() : instance as! Brand
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
+            result.link = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["link"] as AnyObject?)
+            result.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
+            result.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
+            result.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
+            result.flowers = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["flowers"] as AnyObject?)
+            result.extracts = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["extracts"] as AnyObject?)
+            result.edibles = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["edibles"] as AnyObject?)
+            result.products = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["products"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Condition]
-        Decoders.addDecoder(clazz: [Condition].self) { (source: AnyObject) -> [Condition] in
+        Decoders.addDecoder(clazz: [Condition].self) { (source: AnyObject, instance: AnyObject?) -> [Condition] in
             return Decoders.decode(clazz: [Condition].self, source: source)
         }
         // Decoder for Condition
-        Decoders.addDecoder(clazz: Condition.self) { (source: AnyObject) -> Condition in
+        Decoders.addDecoder(clazz: Condition.self) { (source: AnyObject, instance: AnyObject?) -> Condition in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Condition()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"] as AnyObject?)
-            instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Condition() : instance as! Condition
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"] as AnyObject?)
+            result.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Edible]
-        Decoders.addDecoder(clazz: [Edible].self) { (source: AnyObject) -> [Edible] in
+        Decoders.addDecoder(clazz: [Edible].self) { (source: AnyObject, instance: AnyObject?) -> [Edible] in
             return Decoders.decode(clazz: [Edible].self, source: source)
         }
         // Decoder for Edible
-        Decoders.addDecoder(clazz: Edible.self) { (source: AnyObject) -> Edible in
+        Decoders.addDecoder(clazz: Edible.self) { (source: AnyObject, instance: AnyObject?) -> Edible in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Edible()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
-            instance.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
-            instance.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
-            instance.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
-            instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
-            instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
-            instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
-            instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
-            instance.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
-            instance.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
-            instance.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
-            instance.cannabis = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cannabis"] as AnyObject?)
-            instance.hashOil = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["hashOil"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Edible() : instance as! Edible
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
+            result.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
+            result.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
+            result.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
+            result.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
+            result.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
+            result.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
+            result.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
+            result.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
+            result.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
+            result.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
+            result.cannabis = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cannabis"] as AnyObject?)
+            result.hashOil = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["hashOil"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Extract]
-        Decoders.addDecoder(clazz: [Extract].self) { (source: AnyObject) -> [Extract] in
+        Decoders.addDecoder(clazz: [Extract].self) { (source: AnyObject, instance: AnyObject?) -> [Extract] in
             return Decoders.decode(clazz: [Extract].self, source: source)
         }
         // Decoder for Extract
-        Decoders.addDecoder(clazz: Extract.self) { (source: AnyObject) -> Extract in
+        Decoders.addDecoder(clazz: Extract.self) { (source: AnyObject, instance: AnyObject?) -> Extract in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Extract()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
-            instance.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
-            instance.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
-            instance.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
-            instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
-            instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
-            instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
-            instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
-            instance.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
-            instance.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
-            instance.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Extract() : instance as! Extract
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
+            result.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
+            result.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
+            result.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
+            result.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
+            result.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
+            result.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
+            result.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
+            result.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
+            result.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
+            result.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Flower]
-        Decoders.addDecoder(clazz: [Flower].self) { (source: AnyObject) -> [Flower] in
+        Decoders.addDecoder(clazz: [Flower].self) { (source: AnyObject, instance: AnyObject?) -> [Flower] in
             return Decoders.decode(clazz: [Flower].self, source: source)
         }
         // Decoder for Flower
-        Decoders.addDecoder(clazz: Flower.self) { (source: AnyObject) -> Flower in
+        Decoders.addDecoder(clazz: Flower.self) { (source: AnyObject, instance: AnyObject?) -> Flower in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Flower()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
-            instance.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
-            instance.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
-            instance.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
-            instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
-            instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
-            instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
-            instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
-            instance.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
-            instance.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
-            instance.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Flower() : instance as! Flower
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
+            result.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
+            result.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
+            result.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
+            result.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
+            result.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
+            result.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
+            result.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
+            result.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
+            result.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
+            result.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse200]
-        Decoders.addDecoder(clazz: [InlineResponse200].self) { (source: AnyObject) -> [InlineResponse200] in
+        Decoders.addDecoder(clazz: [InlineResponse200].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse200] in
             return Decoders.decode(clazz: [InlineResponse200].self, source: source)
         }
         // Decoder for InlineResponse200
-        Decoders.addDecoder(clazz: InlineResponse200.self) { (source: AnyObject) -> InlineResponse200 in
+        Decoders.addDecoder(clazz: InlineResponse200.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse200 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse200()
-            instance.meta = Decoders.decodeOptional(clazz: InlineResponse200Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse200() : instance as! InlineResponse200
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2001]
-        Decoders.addDecoder(clazz: [InlineResponse2001].self) { (source: AnyObject) -> [InlineResponse2001] in
+        Decoders.addDecoder(clazz: [InlineResponse2001].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2001] in
             return Decoders.decode(clazz: [InlineResponse2001].self, source: source)
         }
         // Decoder for InlineResponse2001
-        Decoders.addDecoder(clazz: InlineResponse2001.self) { (source: AnyObject) -> InlineResponse2001 in
+        Decoders.addDecoder(clazz: InlineResponse2001.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2001 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2001()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2001() : instance as! InlineResponse2001
+            
+            result.meta = Decoders.decodeOptional(clazz: InlineResponse2001Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse20010]
-        Decoders.addDecoder(clazz: [InlineResponse20010].self) { (source: AnyObject) -> [InlineResponse20010] in
+        Decoders.addDecoder(clazz: [InlineResponse20010].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse20010] in
             return Decoders.decode(clazz: [InlineResponse20010].self, source: source)
         }
         // Decoder for InlineResponse20010
-        Decoders.addDecoder(clazz: InlineResponse20010.self) { (source: AnyObject) -> InlineResponse20010 in
+        Decoders.addDecoder(clazz: InlineResponse20010.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse20010 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse20010()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse20010() : instance as! InlineResponse20010
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse20011]
-        Decoders.addDecoder(clazz: [InlineResponse20011].self) { (source: AnyObject) -> [InlineResponse20011] in
+        Decoders.addDecoder(clazz: [InlineResponse20011].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse20011] in
             return Decoders.decode(clazz: [InlineResponse20011].self, source: source)
         }
         // Decoder for InlineResponse20011
-        Decoders.addDecoder(clazz: InlineResponse20011.self) { (source: AnyObject) -> InlineResponse20011 in
+        Decoders.addDecoder(clazz: InlineResponse20011.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse20011 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse20011()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse20011() : instance as! InlineResponse20011
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse20012]
-        Decoders.addDecoder(clazz: [InlineResponse20012].self) { (source: AnyObject) -> [InlineResponse20012] in
+        Decoders.addDecoder(clazz: [InlineResponse20012].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse20012] in
             return Decoders.decode(clazz: [InlineResponse20012].self, source: source)
         }
         // Decoder for InlineResponse20012
-        Decoders.addDecoder(clazz: InlineResponse20012.self) { (source: AnyObject) -> InlineResponse20012 in
+        Decoders.addDecoder(clazz: InlineResponse20012.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse20012 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse20012()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse20012() : instance as! InlineResponse20012
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse20013]
-        Decoders.addDecoder(clazz: [InlineResponse20013].self) { (source: AnyObject) -> [InlineResponse20013] in
+        Decoders.addDecoder(clazz: [InlineResponse20013].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse20013] in
             return Decoders.decode(clazz: [InlineResponse20013].self, source: source)
         }
         // Decoder for InlineResponse20013
-        Decoders.addDecoder(clazz: InlineResponse20013.self) { (source: AnyObject) -> InlineResponse20013 in
+        Decoders.addDecoder(clazz: InlineResponse20013.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse20013 in
             let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? InlineResponse20013() : instance as! InlineResponse20013
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
+        }
 
-            let instance = InlineResponse20013()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+
+        // Decoder for [InlineResponse2001Meta]
+        Decoders.addDecoder(clazz: [InlineResponse2001Meta].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2001Meta] in
+            return Decoders.decode(clazz: [InlineResponse2001Meta].self, source: source)
+        }
+        // Decoder for InlineResponse2001Meta
+        Decoders.addDecoder(clazz: InlineResponse2001Meta.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2001Meta in
+            let sourceDictionary = source as! [AnyHashable: Any]
+            let result = instance == nil ? InlineResponse2001Meta() : instance as! InlineResponse2001Meta
+            
+            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2002]
-        Decoders.addDecoder(clazz: [InlineResponse2002].self) { (source: AnyObject) -> [InlineResponse2002] in
+        Decoders.addDecoder(clazz: [InlineResponse2002].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2002] in
             return Decoders.decode(clazz: [InlineResponse2002].self, source: source)
         }
         // Decoder for InlineResponse2002
-        Decoders.addDecoder(clazz: InlineResponse2002.self) { (source: AnyObject) -> InlineResponse2002 in
+        Decoders.addDecoder(clazz: InlineResponse2002.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2002 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2002()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2002() : instance as! InlineResponse2002
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2003]
-        Decoders.addDecoder(clazz: [InlineResponse2003].self) { (source: AnyObject) -> [InlineResponse2003] in
+        Decoders.addDecoder(clazz: [InlineResponse2003].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2003] in
             return Decoders.decode(clazz: [InlineResponse2003].self, source: source)
         }
         // Decoder for InlineResponse2003
-        Decoders.addDecoder(clazz: InlineResponse2003.self) { (source: AnyObject) -> InlineResponse2003 in
+        Decoders.addDecoder(clazz: InlineResponse2003.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2003 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2003()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2003() : instance as! InlineResponse2003
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2004]
-        Decoders.addDecoder(clazz: [InlineResponse2004].self) { (source: AnyObject) -> [InlineResponse2004] in
+        Decoders.addDecoder(clazz: [InlineResponse2004].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2004] in
             return Decoders.decode(clazz: [InlineResponse2004].self, source: source)
         }
         // Decoder for InlineResponse2004
-        Decoders.addDecoder(clazz: InlineResponse2004.self) { (source: AnyObject) -> InlineResponse2004 in
+        Decoders.addDecoder(clazz: InlineResponse2004.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2004 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2004()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2004() : instance as! InlineResponse2004
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2005]
-        Decoders.addDecoder(clazz: [InlineResponse2005].self) { (source: AnyObject) -> [InlineResponse2005] in
+        Decoders.addDecoder(clazz: [InlineResponse2005].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2005] in
             return Decoders.decode(clazz: [InlineResponse2005].self, source: source)
         }
         // Decoder for InlineResponse2005
-        Decoders.addDecoder(clazz: InlineResponse2005.self) { (source: AnyObject) -> InlineResponse2005 in
+        Decoders.addDecoder(clazz: InlineResponse2005.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2005 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2005()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2005() : instance as! InlineResponse2005
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2006]
-        Decoders.addDecoder(clazz: [InlineResponse2006].self) { (source: AnyObject) -> [InlineResponse2006] in
+        Decoders.addDecoder(clazz: [InlineResponse2006].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2006] in
             return Decoders.decode(clazz: [InlineResponse2006].self, source: source)
         }
         // Decoder for InlineResponse2006
-        Decoders.addDecoder(clazz: InlineResponse2006.self) { (source: AnyObject) -> InlineResponse2006 in
+        Decoders.addDecoder(clazz: InlineResponse2006.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2006 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2006()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2006() : instance as! InlineResponse2006
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2007]
-        Decoders.addDecoder(clazz: [InlineResponse2007].self) { (source: AnyObject) -> [InlineResponse2007] in
+        Decoders.addDecoder(clazz: [InlineResponse2007].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2007] in
             return Decoders.decode(clazz: [InlineResponse2007].self, source: source)
         }
         // Decoder for InlineResponse2007
-        Decoders.addDecoder(clazz: InlineResponse2007.self) { (source: AnyObject) -> InlineResponse2007 in
+        Decoders.addDecoder(clazz: InlineResponse2007.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2007 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2007()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2007() : instance as! InlineResponse2007
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2008]
-        Decoders.addDecoder(clazz: [InlineResponse2008].self) { (source: AnyObject) -> [InlineResponse2008] in
+        Decoders.addDecoder(clazz: [InlineResponse2008].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2008] in
             return Decoders.decode(clazz: [InlineResponse2008].self, source: source)
         }
         // Decoder for InlineResponse2008
-        Decoders.addDecoder(clazz: InlineResponse2008.self) { (source: AnyObject) -> InlineResponse2008 in
+        Decoders.addDecoder(clazz: InlineResponse2008.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2008 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2008()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2008() : instance as! InlineResponse2008
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [InlineResponse2009]
-        Decoders.addDecoder(clazz: [InlineResponse2009].self) { (source: AnyObject) -> [InlineResponse2009] in
+        Decoders.addDecoder(clazz: [InlineResponse2009].self) { (source: AnyObject, instance: AnyObject?) -> [InlineResponse2009] in
             return Decoders.decode(clazz: [InlineResponse2009].self, source: source)
         }
         // Decoder for InlineResponse2009
-        Decoders.addDecoder(clazz: InlineResponse2009.self) { (source: AnyObject) -> InlineResponse2009 in
+        Decoders.addDecoder(clazz: InlineResponse2009.self) { (source: AnyObject, instance: AnyObject?) -> InlineResponse2009 in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse2009()
-            instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
-            return instance
-        }
-
-
-        // Decoder for [InlineResponse200Meta]
-        Decoders.addDecoder(clazz: [InlineResponse200Meta].self) { (source: AnyObject) -> [InlineResponse200Meta] in
-            return Decoders.decode(clazz: [InlineResponse200Meta].self, source: source)
-        }
-        // Decoder for InlineResponse200Meta
-        Decoders.addDecoder(clazz: InlineResponse200Meta.self) { (source: AnyObject) -> InlineResponse200Meta in
-            let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse200Meta()
-            instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            return instance
+            let result = instance == nil ? InlineResponse2009() : instance as! InlineResponse2009
+            
+            result.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Meta]
-        Decoders.addDecoder(clazz: [Meta].self) { (source: AnyObject) -> [Meta] in
+        Decoders.addDecoder(clazz: [Meta].self) { (source: AnyObject, instance: AnyObject?) -> [Meta] in
             return Decoders.decode(clazz: [Meta].self, source: source)
         }
         // Decoder for Meta
-        Decoders.addDecoder(clazz: Meta.self) { (source: AnyObject) -> Meta in
+        Decoders.addDecoder(clazz: Meta.self) { (source: AnyObject, instance: AnyObject?) -> Meta in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Meta()
-            instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Meta() : instance as! Meta
+            
+            result.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [ModelError]
-        Decoders.addDecoder(clazz: [ModelError].self) { (source: AnyObject) -> [ModelError] in
+        Decoders.addDecoder(clazz: [ModelError].self) { (source: AnyObject, instance: AnyObject?) -> [ModelError] in
             return Decoders.decode(clazz: [ModelError].self, source: source)
         }
         // Decoder for ModelError
-        Decoders.addDecoder(clazz: ModelError.self) { (source: AnyObject) -> ModelError in
+        Decoders.addDecoder(clazz: ModelError.self) { (source: AnyObject, instance: AnyObject?) -> ModelError in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = ModelError()
-            instance.code = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["code"] as AnyObject?)
-            instance.message = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["message"] as AnyObject?)
-            return instance
+            let result = instance == nil ? ModelError() : instance as! ModelError
+            
+            result.code = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["code"] as AnyObject?)
+            result.message = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["message"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Pagination]
-        Decoders.addDecoder(clazz: [Pagination].self) { (source: AnyObject) -> [Pagination] in
+        Decoders.addDecoder(clazz: [Pagination].self) { (source: AnyObject, instance: AnyObject?) -> [Pagination] in
             return Decoders.decode(clazz: [Pagination].self, source: source)
         }
         // Decoder for Pagination
-        Decoders.addDecoder(clazz: Pagination.self) { (source: AnyObject) -> Pagination in
+        Decoders.addDecoder(clazz: Pagination.self) { (source: AnyObject, instance: AnyObject?) -> Pagination in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Pagination()
-            instance.total = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["total"] as AnyObject?)
-            instance.count = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["count"] as AnyObject?)
-            instance.perPage = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["per_page"] as AnyObject?)
-            instance.currentPage = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["current_page"] as AnyObject?)
-            instance.totalPages = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["total_pages"] as AnyObject?)
-            instance.links = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["links"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Pagination() : instance as! Pagination
+            
+            result.total = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["total"] as AnyObject?)
+            result.count = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["count"] as AnyObject?)
+            result.perPage = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["per_page"] as AnyObject?)
+            result.currentPage = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["current_page"] as AnyObject?)
+            result.totalPages = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["total_pages"] as AnyObject?)
+            result.links = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["links"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Product]
-        Decoders.addDecoder(clazz: [Product].self) { (source: AnyObject) -> [Product] in
+        Decoders.addDecoder(clazz: [Product].self) { (source: AnyObject, instance: AnyObject?) -> [Product] in
             return Decoders.decode(clazz: [Product].self, source: source)
         }
         // Decoder for Product
-        Decoders.addDecoder(clazz: Product.self) { (source: AnyObject) -> Product in
+        Decoders.addDecoder(clazz: Product.self) { (source: AnyObject, instance: AnyObject?) -> Product in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Product()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
-            instance.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
-            instance.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
-            instance.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
-            instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
-            instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
-            instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
-            instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
-            instance.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
-            instance.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
-            instance.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
-            instance.cannabis = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cannabis"] as AnyObject?)
-            instance.hashOil = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["hashOil"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Product() : instance as! Product
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
+            result.brand = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["brand"] as AnyObject?)
+            result.type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"] as AnyObject?)
+            result.strain = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["strain"] as AnyObject?)
+            result.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
+            result.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
+            result.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
+            result.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
+            result.labTest = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["labTest"] as AnyObject?)
+            result.thc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thc"] as AnyObject?)
+            result.cbd = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cbd"] as AnyObject?)
+            result.cannabis = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cannabis"] as AnyObject?)
+            result.hashOil = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["hashOil"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [SeedCompany]
-        Decoders.addDecoder(clazz: [SeedCompany].self) { (source: AnyObject) -> [SeedCompany] in
+        Decoders.addDecoder(clazz: [SeedCompany].self) { (source: AnyObject, instance: AnyObject?) -> [SeedCompany] in
             return Decoders.decode(clazz: [SeedCompany].self, source: source)
         }
         // Decoder for SeedCompany
-        Decoders.addDecoder(clazz: SeedCompany.self) { (source: AnyObject) -> SeedCompany in
+        Decoders.addDecoder(clazz: SeedCompany.self) { (source: AnyObject, instance: AnyObject?) -> SeedCompany in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = SeedCompany()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
-            instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
-            instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
-            instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
-            instance.lineage = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["lineage"] as AnyObject?)
-            instance.strains = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["strains"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? SeedCompany() : instance as! SeedCompany
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
+            result.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"] as AnyObject?)
+            result.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
+            result.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
+            result.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
+            result.lineage = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["lineage"] as AnyObject?)
+            result.strains = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["strains"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Strain]
-        Decoders.addDecoder(clazz: [Strain].self) { (source: AnyObject) -> [Strain] in
+        Decoders.addDecoder(clazz: [Strain].self) { (source: AnyObject, instance: AnyObject?) -> [Strain] in
             return Decoders.decode(clazz: [Strain].self, source: source)
         }
         // Decoder for Strain
-        Decoders.addDecoder(clazz: Strain.self) { (source: AnyObject) -> Strain in
+        Decoders.addDecoder(clazz: Strain.self) { (source: AnyObject, instance: AnyObject?) -> Strain in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Strain()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
-            instance.seedCompany = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["seedCompany"] as AnyObject?)
-            instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
-            instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
-            instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
-            instance.lineage = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["lineage"] as AnyObject?)
-            instance.genetics = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["genetics"] as AnyObject?)
-            instance.children = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["children"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Strain() : instance as! Strain
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"] as AnyObject?)
+            result.seedCompany = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["seedCompany"] as AnyObject?)
+            result.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"] as AnyObject?)
+            result.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"] as AnyObject?)
+            result.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"] as AnyObject?)
+            result.lineage = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["lineage"] as AnyObject?)
+            result.genetics = Decoders.decodeOptional(clazz: Any.self, source: sourceDictionary["genetics"] as AnyObject?)
+            result.children = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["children"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
 
 
         // Decoder for [Study]
-        Decoders.addDecoder(clazz: [Study].self) { (source: AnyObject) -> [Study] in
+        Decoders.addDecoder(clazz: [Study].self) { (source: AnyObject, instance: AnyObject?) -> [Study] in
             return Decoders.decode(clazz: [Study].self, source: source)
         }
         // Decoder for Study
-        Decoders.addDecoder(clazz: Study.self) { (source: AnyObject) -> Study in
+        Decoders.addDecoder(clazz: Study.self) { (source: AnyObject, instance: AnyObject?) -> Study in
             let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = Study()
-            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
-            instance.year = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["year"] as AnyObject?)
-            instance.doi = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["doi"] as AnyObject?)
-            instance.pubMedId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pubMedId"] as AnyObject?)
-            instance.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"] as AnyObject?)
-            instance.keyFindings = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["keyFindings"] as AnyObject?)
-            instance.conditions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["conditions"] as AnyObject?)
-            instance.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
-            instance.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
-            return instance
+            let result = instance == nil ? Study() : instance as! Study
+            
+            result.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
+            result.year = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["year"] as AnyObject?)
+            result.doi = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["doi"] as AnyObject?)
+            result.pubMedId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pubMedId"] as AnyObject?)
+            result.slug = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["slug"] as AnyObject?)
+            result.keyFindings = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["keyFindings"] as AnyObject?)
+            result.conditions = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["conditions"] as AnyObject?)
+            result.createdAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["createdAt"] as AnyObject?)
+            result.updatedAt = Decoders.decodeOptional(clazz: Date.self, source: sourceDictionary["updatedAt"] as AnyObject?)
+            return result
         }
     }()
 

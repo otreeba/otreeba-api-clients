@@ -27,6 +27,9 @@ public class ProductsAPI: APIBase {
      Find product by Open Cannabis Product Code (OCPC).
      - GET /products/{ocpc}
      - Returns a single product.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "strain" : {
     "name" : "Confidential Cheese",
@@ -103,6 +106,9 @@ public class ProductsAPI: APIBase {
      Get a list of all current products.
      - GET /products
      - Returns a paginated list of products.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {

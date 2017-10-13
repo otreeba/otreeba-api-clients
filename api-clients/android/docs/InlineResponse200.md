@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
+**meta** | [**Meta**](Meta.md) | Gets the current list of Seed Comapnies. |  [optional]
 
 
 

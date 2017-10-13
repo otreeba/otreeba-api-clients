@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGEdible::SWGEdible(QString* json) {
     init();
     this->fromJson(*json);
@@ -347,6 +346,5 @@ SWGEdible::setUpdatedAt(QDateTime* updated_at) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

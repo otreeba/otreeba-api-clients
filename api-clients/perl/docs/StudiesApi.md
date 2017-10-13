@@ -28,6 +28,11 @@ use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::StudiesApi;
 
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
+
 my $api_instance = WWW::SwaggerClient::StudiesApi->new();
 my $page = 56; # int | Page to be returned.
 my $count = 56; # int | The number of items to return. Default 10. Max 50.
@@ -56,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -77,6 +82,11 @@ Returns a paginated list of studies.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::StudiesApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::StudiesApi->new();
 my $condition_slug = 'condition_slug_example'; # string | Slug of the condition to return studies for.
@@ -108,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -129,6 +139,11 @@ Returns a list of all current conditions for studies.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::StudiesApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::StudiesApi->new();
 my $sort = 'sort_example'; # string | How to sort the items.
@@ -154,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -175,6 +190,11 @@ Returns a single study.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::StudiesApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::StudiesApi->new();
 my $identifier_type = 'identifier_type_example'; # string | Type of identifier to for the study to return.
@@ -202,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

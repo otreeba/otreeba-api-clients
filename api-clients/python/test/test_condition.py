@@ -35,7 +35,9 @@ class TestCondition(unittest.TestCase):
         """
         Test Condition
         """
-        model = swagger_client.models.condition.Condition()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.condition.Condition()
+        pass
 
 
 if __name__ == '__main__':

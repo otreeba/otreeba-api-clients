@@ -18,18 +18,19 @@ case class Study (
   /* Name of the study. */
   name: String,
   /* Year of the study. */
-  year: Integer,
+  year: Option[Integer],
   /* Digital Object Identifier for the study. */
-  doi: String,
+  doi: Option[String],
   /* PubMed ID for the study. */
-  pubMedId: String,
+  pubMedId: Option[String],
   /* Slug based on the study name. */
-  slug: String,
+  slug: Option[String],
   /* Key findings for the study. */
-  keyFindings: String,
-  conditions: List[Condition],
+  keyFindings: Option[String],
+  conditions: Option[List[Condition]],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

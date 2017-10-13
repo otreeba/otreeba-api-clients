@@ -24,6 +24,11 @@ Returns a single brand.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 $api_instance = new Swagger\Client\Api\BrandsApi();
 $ocpc = "ocpc_example"; // string | OCPC of the brand to return.
 
@@ -48,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -68,6 +73,11 @@ Returns a paginated list of edibles.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\BrandsApi();
 $ocpc = "ocpc_example"; // string | OCPC of the brand to list edibles for.
@@ -99,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -119,6 +129,11 @@ Returns a paginated list of extracts.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\BrandsApi();
 $ocpc = "ocpc_example"; // string | OCPC of the brand to list extracts for.
@@ -150,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -170,6 +185,11 @@ Returns a paginated list of flowers.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\BrandsApi();
 $ocpc = "ocpc_example"; // string | OCPC of the brand to list flowers for.
@@ -201,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -221,6 +241,11 @@ Returns a paginated list of products.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\BrandsApi();
 $ocpc = "ocpc_example"; // string | OCPC of the brand to list products for.
@@ -252,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -272,6 +297,11 @@ Returns a paginated list of brands.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\BrandsApi();
 $page = 56; // int | Page to be returned.
@@ -301,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 

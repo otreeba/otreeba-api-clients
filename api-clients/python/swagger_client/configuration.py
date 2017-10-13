@@ -86,6 +86,11 @@ class Configuration(object):
         # client key file
         self.key_file = None
 
+        # Proxy URL
+        self.proxy = None
+        # Safe chars for path_param
+        self.safe_chars_for_path_param = ''
+
     @property
     def logger_file(self):
         """
@@ -202,6 +207,13 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         return {
+            'api_key':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'X-API-Key',
+                    'value': self.get_api_key_with_prefix('X-API-Key')
+                },
 
         }
 

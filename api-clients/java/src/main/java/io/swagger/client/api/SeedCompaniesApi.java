@@ -56,12 +56,21 @@ public class SeedCompaniesApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getSeedCompanies */
-    private com.squareup.okhttp.Call getSeedCompaniesCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getSeedCompanies
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSeedCompaniesCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/seed-companies".replaceAll("\\{format\\}","json");
+        String localVarPath = "/seed-companies";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -99,7 +108,7 @@ public class SeedCompaniesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -122,11 +131,11 @@ public class SeedCompaniesApi {
      * @param page Page to be returned. (optional)
      * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
      * @param sort How to sort the items. (optional, default to -createdAt)
-     * @return InlineResponse2001
+     * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 getSeedCompanies(Integer page, Integer count, String sort) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = getSeedCompaniesWithHttpInfo(page, count, sort);
+    public InlineResponse200 getSeedCompanies(Integer page, Integer count, String sort) throws ApiException {
+        ApiResponse<InlineResponse200> resp = getSeedCompaniesWithHttpInfo(page, count, sort);
         return resp.getData();
     }
 
@@ -136,12 +145,12 @@ public class SeedCompaniesApi {
      * @param page Page to be returned. (optional)
      * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
      * @param sort How to sort the items. (optional, default to -createdAt)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> getSeedCompaniesWithHttpInfo(Integer page, Integer count, String sort) throws ApiException {
+    public ApiResponse<InlineResponse200> getSeedCompaniesWithHttpInfo(Integer page, Integer count, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getSeedCompaniesValidateBeforeCall(page, count, sort, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -155,7 +164,7 @@ public class SeedCompaniesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSeedCompaniesAsync(Integer page, Integer count, String sort, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSeedCompaniesAsync(Integer page, Integer count, String sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -177,17 +186,24 @@ public class SeedCompaniesApi {
         }
 
         com.squareup.okhttp.Call call = getSeedCompaniesValidateBeforeCall(page, count, sort, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getSeedCompanyByOcpc */
-    private com.squareup.okhttp.Call getSeedCompanyByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getSeedCompanyByOcpc
+     * @param ocpc OCPC of the seed company to return. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSeedCompanyByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/seed-companies/{ocpc}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/seed-companies/{ocpc}"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -219,7 +235,7 @@ public class SeedCompaniesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -300,13 +316,22 @@ public class SeedCompaniesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getSeedCompanyStrainsByOcpc */
-    private com.squareup.okhttp.Call getSeedCompanyStrainsByOcpcCall(String ocpc, Integer page, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getSeedCompanyStrainsByOcpc
+     * @param ocpc OCPC of the seed company to return strains for. (required)
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSeedCompanyStrainsByOcpcCall(String ocpc, Integer page, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/seed-companies/{ocpc}/strains".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/seed-companies/{ocpc}/strains"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -342,7 +367,7 @@ public class SeedCompaniesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -370,11 +395,11 @@ public class SeedCompaniesApi {
      * @param ocpc OCPC of the seed company to return strains for. (required)
      * @param page Page to be returned. (optional)
      * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
-     * @return InlineResponse200
+     * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 getSeedCompanyStrainsByOcpc(String ocpc, Integer page, Integer count) throws ApiException {
-        ApiResponse<InlineResponse200> resp = getSeedCompanyStrainsByOcpcWithHttpInfo(ocpc, page, count);
+    public InlineResponse2001 getSeedCompanyStrainsByOcpc(String ocpc, Integer page, Integer count) throws ApiException {
+        ApiResponse<InlineResponse2001> resp = getSeedCompanyStrainsByOcpcWithHttpInfo(ocpc, page, count);
         return resp.getData();
     }
 
@@ -384,12 +409,12 @@ public class SeedCompaniesApi {
      * @param ocpc OCPC of the seed company to return strains for. (required)
      * @param page Page to be returned. (optional)
      * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> getSeedCompanyStrainsByOcpcWithHttpInfo(String ocpc, Integer page, Integer count) throws ApiException {
+    public ApiResponse<InlineResponse2001> getSeedCompanyStrainsByOcpcWithHttpInfo(String ocpc, Integer page, Integer count) throws ApiException {
         com.squareup.okhttp.Call call = getSeedCompanyStrainsByOcpcValidateBeforeCall(ocpc, page, count, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -403,7 +428,7 @@ public class SeedCompaniesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSeedCompanyStrainsByOcpcAsync(String ocpc, Integer page, Integer count, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSeedCompanyStrainsByOcpcAsync(String ocpc, Integer page, Integer count, final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -425,7 +450,7 @@ public class SeedCompaniesApi {
         }
 
         com.squareup.okhttp.Call call = getSeedCompanyStrainsByOcpcValidateBeforeCall(ocpc, page, count, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

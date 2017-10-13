@@ -55,13 +55,20 @@ public class EdiblesApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getEdibleByOcpc */
-    private com.squareup.okhttp.Call getEdibleByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getEdibleByOcpc
+     * @param ocpc OCPC of the edible to return. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEdibleByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/edibles/{ocpc}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/edibles/{ocpc}"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -93,7 +100,7 @@ public class EdiblesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -174,12 +181,21 @@ public class EdiblesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getEdibles */
-    private com.squareup.okhttp.Call getEdiblesCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getEdibles
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getEdiblesCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/edibles".replaceAll("\\{format\\}","json");
+        String localVarPath = "/edibles";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -217,7 +233,7 @@ public class EdiblesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

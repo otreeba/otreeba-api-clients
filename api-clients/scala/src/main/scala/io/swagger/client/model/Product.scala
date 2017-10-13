@@ -18,33 +18,34 @@ case class Product (
   /* Name of the product. */
   name: String,
   /* Open Cannabis Product Code for the product. */
-  ocpc: String,
+  ocpc: Option[String],
   /* Name and Open Cannabis Product Code of the brand that created this product. */
-  brand: Any,
+  brand: Option[Any],
   /* Type of product. */
-  _type: String,
+  _type: Option[String],
   /* Name and Open Cannabis Product Code of the strain for this product. */
-  strain: Any,
+  strain: Option[Any],
   /* Description of the product. */
-  description: String,
+  description: Option[String],
   /* URL for QR that leads to page on Cannabis Reports. */
-  qr: String,
+  qr: Option[String],
   /* URL for the product on Cannabis Reports. */
-  url: String,
+  url: Option[String],
   /* URL for the main photo of the product. */
-  image: String,
+  image: Option[String],
   /* URL for the PDF containing lab testing information for this product. */
-  labTest: String,
+  labTest: Option[String],
   /* THC measurement for this product. */
-  thc: String,
+  thc: Option[String],
   /* CBD measurement for this product. */
-  cbd: String,
+  cbd: Option[String],
   /* Cannabis measurement for this product. */
-  cannabis: String,
+  cannabis: Option[String],
   /* Hash oil measurement for this product. */
-  hashOil: String,
+  hashOil: Option[String],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

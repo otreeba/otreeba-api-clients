@@ -72,9 +72,37 @@ class Edible implements ArrayAccess
         'updated_at' => '\DateTime'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'name' => null,
+        'ocpc' => null,
+        'brand' => null,
+        'type' => null,
+        'strain' => null,
+        'description' => null,
+        'qr' => null,
+        'url' => null,
+        'image' => null,
+        'lab_test' => null,
+        'thc' => null,
+        'cbd' => null,
+        'cannabis' => null,
+        'hash_oil' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

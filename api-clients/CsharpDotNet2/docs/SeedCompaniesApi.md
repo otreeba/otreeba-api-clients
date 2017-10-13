@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getseedcompanies"></a>
 # **GetSeedCompanies**
-> InlineResponse2001 GetSeedCompanies (int? page, int? count, string sort)
+> InlineResponse200 GetSeedCompanies (int? page, int? count, string sort)
 
 Get a list of all current seed companies.
 
@@ -32,6 +32,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new SeedCompaniesApi();
             var page = 56;  // int? | Page to be returned. (optional) 
             var count = 56;  // int? | The number of items to return. Default 10. Max 50. (optional)  (default to 10)
@@ -40,7 +45,7 @@ namespace Example
             try
             {
                 // Get a list of all current seed companies.
-                InlineResponse2001 result = apiInstance.GetSeedCompanies(page, count, sort);
+                InlineResponse200 result = apiInstance.GetSeedCompanies(page, count, sort);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -62,11 +67,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -98,6 +103,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new SeedCompaniesApi();
             var ocpc = ocpc_example;  // string | OCPC of the seed company to return.
 
@@ -128,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -139,7 +149,7 @@ No authorization required
 
 <a name="getseedcompanystrainsbyocpc"></a>
 # **GetSeedCompanyStrainsByOcpc**
-> InlineResponse200 GetSeedCompanyStrainsByOcpc (string ocpc, int? page, int? count)
+> InlineResponse2001 GetSeedCompanyStrainsByOcpc (string ocpc, int? page, int? count)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -160,6 +170,11 @@ namespace Example
         public void main()
         {
             
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-Key", "Bearer");
+
             var apiInstance = new SeedCompaniesApi();
             var ocpc = ocpc_example;  // string | OCPC of the seed company to return strains for.
             var page = 56;  // int? | Page to be returned. (optional) 
@@ -168,7 +183,7 @@ namespace Example
             try
             {
                 // Find strains for a seed company by Open Cannabis Product Code (OCPC).
-                InlineResponse200 result = apiInstance.GetSeedCompanyStrainsByOcpc(ocpc, page, count);
+                InlineResponse2001 result = apiInstance.GetSeedCompanyStrainsByOcpc(ocpc, page, count);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -190,11 +205,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

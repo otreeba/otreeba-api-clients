@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getSeedCompanies**
-> \Swagger\Client\Model\InlineResponse2001 getSeedCompanies($page, $count, $sort)
+> \Swagger\Client\Model\InlineResponse200 getSeedCompanies($page, $count, $sort)
 
 Get a list of all current seed companies.
 
@@ -20,6 +20,11 @@ Returns a paginated list of seed companies.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\SeedCompaniesApi();
 $page = 56; // int | Page to be returned.
@@ -45,11 +50,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Swagger\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -69,6 +74,11 @@ Returns a single seed company.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\SeedCompaniesApi();
 $ocpc = "ocpc_example"; // string | OCPC of the seed company to return.
@@ -94,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -104,7 +114,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSeedCompanyStrainsByOcpc**
-> \Swagger\Client\Model\InlineResponse200 getSeedCompanyStrainsByOcpc($ocpc, $page, $count)
+> \Swagger\Client\Model\InlineResponse2001 getSeedCompanyStrainsByOcpc($ocpc, $page, $count)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -114,6 +124,11 @@ Returns a paginated list of strains for a single seed company.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\SeedCompaniesApi();
 $ocpc = "ocpc_example"; // string | OCPC of the seed company to return strains for.
@@ -139,11 +154,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Swagger\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 

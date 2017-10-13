@@ -5,5 +5,5 @@ import java.util.UUID
 
 
 case class Inline_response_200_1_meta (
-  pagination: Option[Pagination]  // Gets the current list of Seed Comapnies.
+  pagination: Option[Pagination]  // Gets the Strains for a Seed Company listing from a given OCPC.
 )

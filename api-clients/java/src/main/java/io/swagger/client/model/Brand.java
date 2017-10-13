@@ -14,9 +14,14 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -24,7 +29,7 @@ import org.joda.time.DateTime;
 /**
  * Brand
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class Brand {
   @SerializedName("name")
   private String name = null;
@@ -45,16 +50,16 @@ public class Brand {
   private String image = null;
 
   @SerializedName("flowers")
-  private List<String> flowers = new ArrayList<String>();
+  private List<String> flowers = null;
 
   @SerializedName("extracts")
-  private List<String> extracts = new ArrayList<String>();
+  private List<String> extracts = null;
 
   @SerializedName("edibles")
-  private List<String> edibles = new ArrayList<String>();
+  private List<String> edibles = null;
 
   @SerializedName("products")
-  private List<String> products = new ArrayList<String>();
+  private List<String> products = null;
 
   @SerializedName("createdAt")
   private DateTime createdAt = null;
@@ -176,6 +181,9 @@ public class Brand {
   }
 
   public Brand addFlowersItem(String flowersItem) {
+    if (this.flowers == null) {
+      this.flowers = new ArrayList<String>();
+    }
     this.flowers.add(flowersItem);
     return this;
   }
@@ -184,7 +192,7 @@ public class Brand {
    * OCPCs of the flowers from this brand.
    * @return flowers
   **/
-  @ApiModelProperty(example = "null", value = "OCPCs of the flowers from this brand.")
+  @ApiModelProperty(value = "OCPCs of the flowers from this brand.")
   public List<String> getFlowers() {
     return flowers;
   }
@@ -199,6 +207,9 @@ public class Brand {
   }
 
   public Brand addExtractsItem(String extractsItem) {
+    if (this.extracts == null) {
+      this.extracts = new ArrayList<String>();
+    }
     this.extracts.add(extractsItem);
     return this;
   }
@@ -207,7 +218,7 @@ public class Brand {
    * OCPCs of the extracts from this brand.
    * @return extracts
   **/
-  @ApiModelProperty(example = "null", value = "OCPCs of the extracts from this brand.")
+  @ApiModelProperty(value = "OCPCs of the extracts from this brand.")
   public List<String> getExtracts() {
     return extracts;
   }
@@ -222,6 +233,9 @@ public class Brand {
   }
 
   public Brand addEdiblesItem(String ediblesItem) {
+    if (this.edibles == null) {
+      this.edibles = new ArrayList<String>();
+    }
     this.edibles.add(ediblesItem);
     return this;
   }
@@ -230,7 +244,7 @@ public class Brand {
    * OCPCs of the edibles from this brand.
    * @return edibles
   **/
-  @ApiModelProperty(example = "null", value = "OCPCs of the edibles from this brand.")
+  @ApiModelProperty(value = "OCPCs of the edibles from this brand.")
   public List<String> getEdibles() {
     return edibles;
   }
@@ -245,6 +259,9 @@ public class Brand {
   }
 
   public Brand addProductsItem(String productsItem) {
+    if (this.products == null) {
+      this.products = new ArrayList<String>();
+    }
     this.products.add(productsItem);
     return this;
   }
@@ -253,7 +270,7 @@ public class Brand {
    * OCPCs of the products from this brand.
    * @return products
   **/
-  @ApiModelProperty(example = "null", value = "OCPCs of the products from this brand.")
+  @ApiModelProperty(value = "OCPCs of the products from this brand.")
   public List<String> getProducts() {
     return products;
   }

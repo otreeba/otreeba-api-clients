@@ -8,6 +8,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Brands do
   plug Tesla.Middleware.BaseUrl, "https://api.otreeba.com/v1"
   plug Tesla.Middleware.JSON
 
+  @doc """
+  Find brand by Open Cannabis Product Code (OCPC).
+
+  Returns a single brand.
+  """
   def get_brand_by_ocpc(ocpc) do
     method = [method: :get]
     url = [url: "/brands/#{ocpc}"]
@@ -22,6 +27,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Brands do
     request(options)
   end
 
+  @doc """
+  Get a list of all current edibles for the given brand.
+
+  Returns a paginated list of edibles.
+  """
   def get_brand_edibles(ocpc, page, count, sort) do
     method = [method: :get]
     url = [url: "/brands/#{ocpc}/edibles"]
@@ -36,6 +46,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Brands do
     request(options)
   end
 
+  @doc """
+  Get a list of all current extracts for the given brand.
+
+  Returns a paginated list of extracts.
+  """
   def get_brand_extracts(ocpc, page, count, sort) do
     method = [method: :get]
     url = [url: "/brands/#{ocpc}/extracts"]
@@ -50,6 +65,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Brands do
     request(options)
   end
 
+  @doc """
+  Get a list of all current flowers for the given brand.
+
+  Returns a paginated list of flowers.
+  """
   def get_brand_flowers(ocpc, page, count, sort) do
     method = [method: :get]
     url = [url: "/brands/#{ocpc}/flowers"]
@@ -64,6 +84,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Brands do
     request(options)
   end
 
+  @doc """
+  Get a list of all current products for the given brand.
+
+  Returns a paginated list of products.
+  """
   def get_brand_products(ocpc, page, count, sort) do
     method = [method: :get]
     url = [url: "/brands/#{ocpc}/products"]
@@ -78,6 +103,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Brands do
     request(options)
   end
 
+  @doc """
+  Get a list of all current brands.
+
+  Returns a paginated list of brands.
+  """
   def get_brands(page, count, sort) do
     method = [method: :get]
     url = [url: "/brands"]

@@ -54,12 +54,25 @@ class InlineResponse2001 implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'meta' => '\Swagger\Client\Model\Meta'
+        'meta' => '\Swagger\Client\Model\InlineResponse2001Meta'
+    ];
+
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'meta' => null
     ];
 
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -149,7 +162,7 @@ class InlineResponse2001 implements ArrayAccess
 
     /**
      * Gets meta
-     * @return \Swagger\Client\Model\Meta
+     * @return \Swagger\Client\Model\InlineResponse2001Meta
      */
     public function getMeta()
     {
@@ -158,7 +171,7 @@ class InlineResponse2001 implements ArrayAccess
 
     /**
      * Sets meta
-     * @param \Swagger\Client\Model\Meta $meta Gets the current list of Seed Comapnies.
+     * @param \Swagger\Client\Model\InlineResponse2001Meta $meta
      * @return $this
      */
     public function setMeta($meta)

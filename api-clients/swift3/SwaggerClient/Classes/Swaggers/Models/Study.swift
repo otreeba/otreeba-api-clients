@@ -9,6 +9,7 @@ import Foundation
 
 
 open class Study: JSONEncodable {
+
     /** Name of the study. */
     public var name: String?
     /** Year of the study. */
@@ -41,6 +42,7 @@ open class Study: JSONEncodable {
         nillableDictionary["conditions"] = self.conditions?.encodeToJSON()
         nillableDictionary["createdAt"] = self.createdAt?.encodeToJSON()
         nillableDictionary["updatedAt"] = self.updatedAt?.encodeToJSON()
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

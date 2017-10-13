@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGInline_response_200_7::SWGInline_response_200_7(QString* json) {
     init();
     this->fromJson(*json);
@@ -92,6 +91,5 @@ SWGInline_response_200_7::setMeta(SWGMeta* meta) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

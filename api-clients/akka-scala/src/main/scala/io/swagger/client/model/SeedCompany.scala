@@ -8,12 +8,15 @@ package io.swagger.client.model
 
 import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
+import java.util.UUID
 
 case class SeedCompany (
   /* Name of the seed company. */
   name: String,
   /* Open Cannabis Product Code for the seed company. */
   ocpc: Option[String],
+  /* Description of the seed company. */
+  description: Option[String],
   /* URL for QR that leads to page on Cannabis Reports. */
   qr: Option[String],
   /* URL for seed company on Cannabis Reports. */

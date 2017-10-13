@@ -25,6 +25,10 @@ Returns a paginated list of studies.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new StudiesApi();
 var page = 56; // int | Page to be returned.
@@ -53,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -72,6 +76,10 @@ Returns a paginated list of studies.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new StudiesApi();
 var conditionSlug = conditionSlug_example; // String | Slug of the condition to return studies for.
@@ -102,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -121,6 +129,10 @@ Returns a list of all current conditions for studies.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new StudiesApi();
 var sort = sort_example; // String | How to sort the items.
@@ -145,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -164,6 +176,10 @@ Returns a single study.
 ### Example 
 ```dart
 import 'package:swagger/api.dart';
+// TODO Configure API key authorization: api_key
+//swagger.api.Configuration.apiKey{'X-API-Key'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//swagger.api.Configuration.apiKeyPrefix{'X-API-Key'} = "Bearer";
 
 var api_instance = new StudiesApi();
 var identifierType = identifierType_example; // String | Type of identifier to for the study to return.
@@ -190,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

@@ -14,16 +14,21 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Pagination;
+import java.io.IOException;
 
 /**
- * Gets the current list of Seed Comapnies.
+ * Gets the Strains for a Seed Company listing from a given OCPC.
  */
-@ApiModel(description = "Gets the current list of Seed Comapnies.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-05-26T06:12:20.858Z")
+@ApiModel(description = "Gets the Strains for a Seed Company listing from a given OCPC.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class InlineResponse2001Meta {
   @SerializedName("pagination")
   private Pagination pagination = null;
@@ -34,10 +39,10 @@ public class InlineResponse2001Meta {
   }
 
    /**
-   * Gets the current list of Seed Comapnies.
+   * Gets the Strains for a Seed Company listing from a given OCPC.
    * @return pagination
   **/
-  @ApiModelProperty(example = "null", value = "Gets the current list of Seed Comapnies.")
+  @ApiModelProperty(value = "Gets the Strains for a Seed Company listing from a given OCPC.")
   public Pagination getPagination() {
     return pagination;
   }

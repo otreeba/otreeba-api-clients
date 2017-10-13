@@ -57,6 +57,9 @@ func (a StrainsApi) GetStrainByOcpc(ocpc string) (*Strain, *APIResponse, error) 
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -119,6 +122,9 @@ func (a StrainsApi) GetStrains(page int32, count int32, sort string) (*InlineRes
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]

@@ -18,19 +18,22 @@ case class SeedCompany (
   /* Name of the seed company. */
   name: String,
   /* Open Cannabis Product Code for the seed company. */
-  ocpc: String,
+  ocpc: Option[String],
+  /* Description of the seed company. */
+  description: Option[String],
   /* URL for QR that leads to page on Cannabis Reports. */
-  qr: String,
+  qr: Option[String],
   /* URL for seed company on Cannabis Reports. */
-  url: String,
+  url: Option[String],
   /* URL for logo for seed company. */
-  image: String,
+  image: Option[String],
   /* Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'} */
-  lineage: Any,
+  lineage: Option[Any],
   /* OCPCs of the strains from this seed company. */
-  strains: List[String],
+  strains: Option[List[String]],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

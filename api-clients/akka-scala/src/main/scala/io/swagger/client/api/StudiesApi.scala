@@ -5,8 +5,8 @@
  */
 package io.swagger.client.api
 
-import io.swagger.client.model.Inline_response_200_12
-import io.swagger.client.model.Inline_response_200_13
+import io.swagger.client.model.InlineResponse20012
+import io.swagger.client.model.InlineResponse20013
 import io.swagger.client.model.Study
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
@@ -18,21 +18,25 @@ object StudiesApi {
    * Returns a paginated list of studies.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_12 (Successful operation.)
+   *   code 200 : InlineResponse20012 (Successful operation.)
    *   code 400 :  (Invalid arguments supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Study not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getStudies(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_12] =
-    ApiRequest[Inline_response_200_12](ApiMethods.GET, "https://api.otreeba.com/v1", "/studies", "application/json")
+  def getStudies(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse20012] =
+    ApiRequest[InlineResponse20012](ApiMethods.GET, "https://api.otreeba.com/v1", "/studies", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_12](200)
+      .withSuccessResponse[InlineResponse20012](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)
@@ -40,23 +44,27 @@ object StudiesApi {
    * Returns a paginated list of studies.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_13 (Successful operation.)
+   *   code 200 : InlineResponse20013 (Successful operation.)
    *   code 400 :  (Invalid arguments supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Condition.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param conditionSlug Slug of the condition to return studies for.
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getStudiesByCondition(conditionSlug: String, page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_13] =
-    ApiRequest[Inline_response_200_13](ApiMethods.GET, "https://api.otreeba.com/v1", "/studies/conditions/{conditionSlug}", "application/json")
+  def getStudiesByCondition(conditionSlug: String, page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse20013] =
+    ApiRequest[InlineResponse20013](ApiMethods.GET, "https://api.otreeba.com/v1", "/studies/conditions/{conditionSlug}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
       .withPathParam("conditionSlug", conditionSlug)
-      .withSuccessResponse[Inline_response_200_13](200)
+      .withSuccessResponse[InlineResponse20013](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)
@@ -68,10 +76,14 @@ object StudiesApi {
    *   code 400 :  (Invalid arguments supplied.)
    *   code 401 :  (Unauthorized action.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param sort How to sort the items.
    */
-  def getStudiesConditions(sort: Option[String]): ApiRequest[Any] =
+  def getStudiesConditions(sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[Any] =
     ApiRequest[Any](ApiMethods.GET, "https://api.otreeba.com/v1", "/studies/conditions", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("sort", sort)
       .withSuccessResponse[Any](200)
       .withErrorResponse[Unit](400)
@@ -85,11 +97,15 @@ object StudiesApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Study not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param identifierType Type of identifier to for the study to return.
    * @param identifier Identifier for the study to return.
    */
-  def getStudyByIdentifier(identifierType: String, identifier: String): ApiRequest[Study] =
+  def getStudyByIdentifier(identifierType: String, identifier: String)(implicit apiKey: ApiKeyValue): ApiRequest[Study] =
     ApiRequest[Study](ApiMethods.GET, "https://api.otreeba.com/v1", "/studies/{identifierType}/{identifier}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("identifierType", identifierType)
       .withPathParam("identifier", identifier)
       .withSuccessResponse[Study](200)

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 -(NSURLSessionTask*) getSeedCompaniesWithPage: (NSNumber*) page
     count: (NSNumber*) count
     sort: (NSString*) sort
-        completionHandler: (void (^)(SWGInlineResponse2001* output, NSError* error)) handler;
+        completionHandler: (void (^)(SWGInlineResponse200* output, NSError* error)) handler;
 ```
 
 Get a list of all current seed companies.
@@ -23,6 +23,13 @@ Returns a paginated list of seed companies.
 
 ### Example 
 ```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: api_key)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"X-API-Key"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"X-API-Key"];
+
 
 NSNumber* page = @56; // Page to be returned. (optional)
 NSNumber* count = @10; // The number of items to return. Default 10. Max 50. (optional) (default to 10)
@@ -34,7 +41,7 @@ SWGSeedCompaniesApi*apiInstance = [[SWGSeedCompaniesApi alloc] init];
 [apiInstance getSeedCompaniesWithPage:page
               count:count
               sort:sort
-          completionHandler: ^(SWGInlineResponse2001* output, NSError* error) {
+          completionHandler: ^(SWGInlineResponse200* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -54,11 +61,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SWGInlineResponse2001***](SWGInlineResponse2001.md)
+[**SWGInlineResponse200***](SWGInlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -79,6 +86,13 @@ Returns a single seed company.
 
 ### Example 
 ```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: api_key)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"X-API-Key"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"X-API-Key"];
+
 
 NSString* ocpc = @"ocpc_example"; // OCPC of the seed company to return.
 
@@ -108,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -122,7 +136,7 @@ No authorization required
 -(NSURLSessionTask*) getSeedCompanyStrainsByOcpcWithOcpc: (NSString*) ocpc
     page: (NSNumber*) page
     count: (NSNumber*) count
-        completionHandler: (void (^)(SWGInlineResponse200* output, NSError* error)) handler;
+        completionHandler: (void (^)(SWGInlineResponse2001* output, NSError* error)) handler;
 ```
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
@@ -131,6 +145,13 @@ Returns a paginated list of strains for a single seed company.
 
 ### Example 
 ```objc
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: api_key)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"X-API-Key"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"X-API-Key"];
+
 
 NSString* ocpc = @"ocpc_example"; // OCPC of the seed company to return strains for.
 NSNumber* page = @56; // Page to be returned. (optional)
@@ -142,7 +163,7 @@ SWGSeedCompaniesApi*apiInstance = [[SWGSeedCompaniesApi alloc] init];
 [apiInstance getSeedCompanyStrainsByOcpcWithOcpc:ocpc
               page:page
               count:count
-          completionHandler: ^(SWGInlineResponse200* output, NSError* error) {
+          completionHandler: ^(SWGInlineResponse2001* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -162,11 +183,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SWGInlineResponse200***](SWGInlineResponse200.md)
+[**SWGInlineResponse2001***](SWGInlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

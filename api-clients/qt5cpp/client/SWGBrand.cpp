@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGBrand::SWGBrand(QString* json) {
     init();
     this->fromJson(*json);
@@ -311,6 +310,5 @@ SWGBrand::setUpdatedAt(QDateTime* updated_at) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

@@ -56,12 +56,21 @@ public class StudiesApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getStudies */
-    private com.squareup.okhttp.Call getStudiesCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getStudies
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStudiesCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/studies".replaceAll("\\{format\\}","json");
+        String localVarPath = "/studies";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -99,7 +108,7 @@ public class StudiesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -181,13 +190,23 @@ public class StudiesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getStudiesByCondition */
-    private com.squareup.okhttp.Call getStudiesByConditionCall(String conditionSlug, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getStudiesByCondition
+     * @param conditionSlug Slug of the condition to return studies for. (required)
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -year)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStudiesByConditionCall(String conditionSlug, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/studies/conditions/{conditionSlug}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "conditionSlug" + "\\}", apiClient.escapeString(conditionSlug.toString()));
+        String localVarPath = "/studies/conditions/{conditionSlug}"
+            .replaceAll("\\{" + "conditionSlug" + "\\}", apiClient.escapeString(conditionSlug.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -225,7 +244,7 @@ public class StudiesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -315,12 +334,19 @@ public class StudiesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getStudiesConditions */
-    private com.squareup.okhttp.Call getStudiesConditionsCall(String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getStudiesConditions
+     * @param sort How to sort the items. (optional, default to name)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStudiesConditionsCall(String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/studies/conditions".replaceAll("\\{format\\}","json");
+        String localVarPath = "/studies/conditions";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (sort != null)
@@ -354,7 +380,7 @@ public class StudiesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -430,14 +456,22 @@ public class StudiesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getStudyByIdentifier */
-    private com.squareup.okhttp.Call getStudyByIdentifierCall(String identifierType, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getStudyByIdentifier
+     * @param identifierType Type of identifier to for the study to return. (required)
+     * @param identifier Identifier for the study to return. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStudyByIdentifierCall(String identifierType, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/studies/{identifierType}/{identifier}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "identifierType" + "\\}", apiClient.escapeString(identifierType.toString()))
-        .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+        String localVarPath = "/studies/{identifierType}/{identifier}"
+            .replaceAll("\\{" + "identifierType" + "\\}", apiClient.escapeString(identifierType.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -469,7 +503,7 @@ public class StudiesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

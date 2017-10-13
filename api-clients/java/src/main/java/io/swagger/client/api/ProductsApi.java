@@ -55,13 +55,20 @@ public class ProductsApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getProductByOcpc */
-    private com.squareup.okhttp.Call getProductByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getProductByOcpc
+     * @param ocpc OCPC of the product to return. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getProductByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/products/{ocpc}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/products/{ocpc}"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -93,7 +100,7 @@ public class ProductsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -174,12 +181,21 @@ public class ProductsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getProducts */
-    private com.squareup.okhttp.Call getProductsCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getProducts
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getProductsCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/products".replaceAll("\\{format\\}","json");
+        String localVarPath = "/products";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -217,7 +233,7 @@ public class ProductsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

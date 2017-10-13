@@ -13,6 +13,8 @@ public class SeedCompany: JSONEncodable {
     public var name: String?
     /** Open Cannabis Product Code for the seed company. */
     public var ocpc: String?
+    /** Description of the seed company. */
+    public var description: String?
     /** URL for QR that leads to page on Cannabis Reports. */
     public var qr: String?
     /** URL for seed company on Cannabis Reports. */
@@ -35,6 +37,7 @@ public class SeedCompany: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["name"] = self.name
         nillableDictionary["ocpc"] = self.ocpc
+        nillableDictionary["description"] = self.description
         nillableDictionary["qr"] = self.qr
         nillableDictionary["url"] = self.url
         nillableDictionary["image"] = self.image

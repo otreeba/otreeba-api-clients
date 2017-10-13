@@ -3,9 +3,9 @@ part of swagger.api;
 
 @Entity()
 class InlineResponse200 {
-  
+  /* Gets the current list of Seed Comapnies. */
   @Property(name: 'meta')
-  InlineResponse200Meta meta = null;
+  Meta meta = null;
   
   InlineResponse200();
 

@@ -8,6 +8,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Products do
   plug Tesla.Middleware.BaseUrl, "https://api.otreeba.com/v1"
   plug Tesla.Middleware.JSON
 
+  @doc """
+  Find product by Open Cannabis Product Code (OCPC).
+
+  Returns a single product.
+  """
   def get_product_by_ocpc(ocpc) do
     method = [method: :get]
     url = [url: "/products/#{ocpc}"]
@@ -22,6 +27,11 @@ defmodule OtreebaOpenCannabisAPI.Api.Products do
     request(options)
   end
 
+  @doc """
+  Get a list of all current products.
+
+  Returns a paginated list of products.
+  """
   def get_products(page, count, sort) do
     method = [method: :get]
     url = [url: "/products"]

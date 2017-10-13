@@ -27,10 +27,10 @@ export class ExtractsApi {
     }
 
     /**
-        * Find extract by Open Cannabis Product Code (OCPC).
-        * Returns a single extract.
-        * @param ocpc OCPC of the extract to return.
-        */
+     * Returns a single extract.
+     * @summary Find extract by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the extract to return.
+     */
     public getExtractByOcpc (ocpc: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Extract> {
         const localVarPath = this.basePath + '/extracts/{ocpc}'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -55,12 +55,12 @@ export class ExtractsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current extracts.
-        * Returns a paginated list of extracts.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getExtracts (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2003> {
         const localVarPath = this.basePath + '/extracts';
 

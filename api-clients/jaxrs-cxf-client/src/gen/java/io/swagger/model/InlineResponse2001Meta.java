@@ -12,14 +12,14 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 
-@ApiModel(description="Gets the current list of Seed Comapnies.")
+@ApiModel(description="Gets the Strains for a Seed Company listing from a given OCPC.")
 public class InlineResponse2001Meta  {
   
-  @ApiModelProperty(example = "null", value = "Gets the current list of Seed Comapnies.")
+  @ApiModelProperty(value = "Gets the Strains for a Seed Company listing from a given OCPC.")
   private Pagination pagination = null;
 
  /**
-   * Gets the current list of Seed Comapnies.
+   * Gets the Strains for a Seed Company listing from a given OCPC.
    * @return pagination
   **/
   public Pagination getPagination() {

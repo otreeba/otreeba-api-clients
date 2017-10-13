@@ -2,6 +2,7 @@ package io.swagger.model;
 
 import io.swagger.model.Condition;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -27,12 +28,12 @@ public class Study  {
   private String slug = null;
   @ApiModelProperty(example = "This study pointed out β -caryophyllene as an effective antileishmanial compound.", value = "Key findings for the study.")
   private String keyFindings = null;
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   private List<Condition> conditions = new ArrayList<Condition>();
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was created, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar createdAt = null;
+  private Date createdAt = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was updated, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar updatedAt = null;
+  private Date updatedAt = null;
 
  /**
    * Name of the study.
@@ -162,15 +163,15 @@ public class Study  {
    * Date and time record was created, UTC.
    * @return createdAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Study createdAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public Study createdAt(Date createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -179,15 +180,15 @@ public class Study  {
    * Date and time record was updated, UTC.
    * @return updatedAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Study updatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public Study updatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }

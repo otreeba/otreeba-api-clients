@@ -67,9 +67,32 @@ class Strain implements ArrayAccess
         'updated_at' => '\DateTime'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'name' => null,
+        'ocpc' => null,
+        'seed_company' => null,
+        'qr' => null,
+        'url' => null,
+        'image' => null,
+        'lineage' => null,
+        'genetics' => null,
+        'children' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

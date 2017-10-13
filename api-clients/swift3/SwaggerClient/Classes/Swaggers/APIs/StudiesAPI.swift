@@ -5,6 +5,7 @@
 // https://github.com/swagger-api/swagger-codegen
 //
 
+import Foundation
 import Alamofire
 
 
@@ -41,6 +42,9 @@ open class StudiesAPI: APIBase {
      Get a list of all current studies.
      - GET /studies
      - Returns a paginated list of studies.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -113,6 +117,9 @@ open class StudiesAPI: APIBase {
      Get a list of all current studies for a given condition.
      - GET /studies/conditions/{conditionSlug}
      - Returns a paginated list of studies.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -184,6 +191,9 @@ open class StudiesAPI: APIBase {
      Get a list of all current conditions for studies.
      - GET /studies/conditions
      - Returns a list of all current conditions for studies.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example="{}"}]
      
      - parameter sort: (query) How to sort the items. (optional, default to name)
@@ -233,6 +243,9 @@ open class StudiesAPI: APIBase {
      Find study by DOI, PubMed ID, or slug.
      - GET /studies/{identifierType}/{identifier}
      - Returns a single study.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "createdAt" : "2014-04-09 09:29:57",
   "year" : 2013,

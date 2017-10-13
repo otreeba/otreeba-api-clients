@@ -15,5 +15,6 @@ package io.swagger.client.model
 
 case class InlineResponse2007 (
   /* Gets the current list of Extracts for a Brand. */
-  meta: Meta
+  meta: Option[Meta]
 )
+

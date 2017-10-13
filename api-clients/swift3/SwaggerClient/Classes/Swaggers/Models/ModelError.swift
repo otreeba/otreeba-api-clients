@@ -9,6 +9,7 @@ import Foundation
 
 
 open class ModelError: JSONEncodable {
+
     public var code: Int32?
     public var message: String?
 
@@ -19,6 +20,7 @@ open class ModelError: JSONEncodable {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["code"] = self.code?.encodeToJSON()
         nillableDictionary["message"] = self.message
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

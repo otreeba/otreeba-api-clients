@@ -53,6 +53,7 @@ Import the following:
 #import <SwaggerClient/SWGInlineResponse20011.h>
 #import <SwaggerClient/SWGInlineResponse20012.h>
 #import <SwaggerClient/SWGInlineResponse20013.h>
+#import <SwaggerClient/SWGInlineResponse2001Meta.h>
 #import <SwaggerClient/SWGInlineResponse2002.h>
 #import <SwaggerClient/SWGInlineResponse2003.h>
 #import <SwaggerClient/SWGInlineResponse2004.h>
@@ -61,7 +62,6 @@ Import the following:
 #import <SwaggerClient/SWGInlineResponse2007.h>
 #import <SwaggerClient/SWGInlineResponse2008.h>
 #import <SwaggerClient/SWGInlineResponse2009.h>
-#import <SwaggerClient/SWGInlineResponse200Meta.h>
 #import <SwaggerClient/SWGMeta.h>
 #import <SwaggerClient/SWGPagination.h>
 #import <SwaggerClient/SWGProduct.h>
@@ -89,6 +89,13 @@ It's recommended to create an instance of ApiClient per thread in a multi-thread
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```objc
+
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: api_key)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"X-API-Key"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"X-API-Key"];
 
 
 NSString* *ocpc = @"ocpc_example"; // OCPC of the brand to return.
@@ -153,6 +160,7 @@ Class | Method | HTTP request | Description
  - [SWGInlineResponse20011](docs/SWGInlineResponse20011.md)
  - [SWGInlineResponse20012](docs/SWGInlineResponse20012.md)
  - [SWGInlineResponse20013](docs/SWGInlineResponse20013.md)
+ - [SWGInlineResponse2001Meta](docs/SWGInlineResponse2001Meta.md)
  - [SWGInlineResponse2002](docs/SWGInlineResponse2002.md)
  - [SWGInlineResponse2003](docs/SWGInlineResponse2003.md)
  - [SWGInlineResponse2004](docs/SWGInlineResponse2004.md)
@@ -161,7 +169,6 @@ Class | Method | HTTP request | Description
  - [SWGInlineResponse2007](docs/SWGInlineResponse2007.md)
  - [SWGInlineResponse2008](docs/SWGInlineResponse2008.md)
  - [SWGInlineResponse2009](docs/SWGInlineResponse2009.md)
- - [SWGInlineResponse200Meta](docs/SWGInlineResponse200Meta.md)
  - [SWGMeta](docs/SWGMeta.md)
  - [SWGPagination](docs/SWGPagination.md)
  - [SWGProduct](docs/SWGProduct.md)
@@ -172,7 +179,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## api_key
+
+- **Type**: API key
+- **API key parameter name**: X-API-Key
+- **Location**: HTTP header
 
 
 ## Author

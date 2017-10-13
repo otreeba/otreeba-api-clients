@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 
+/* tslint:disable:no-unused-variable member-ordering */
+
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { Http, Headers, URLSearchParams }                    from '@angular/http';
 import { RequestMethod, RequestOptions, RequestOptionsArgs } from '@angular/http';
@@ -22,11 +24,10 @@ import * as models                                           from '../model/mode
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
-/* tslint:disable:no-unused-variable member-ordering */
-
 
 @Injectable()
 export class SeedCompaniesApi {
+
     protected basePath = 'https://api.otreeba.com/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
@@ -41,26 +42,26 @@ export class SeedCompaniesApi {
     }
 
     /**
-     * Get a list of all current seed companies.
      * Returns a paginated list of seed companies.
+     * @summary Get a list of all current seed companies.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
      */
-    public getSeedCompanies(page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<models.InlineResponse2001> {
+    public getSeedCompanies(page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
         return this.getSeedCompaniesWithHttpInfo(page, count, sort, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Find seed company by Open Cannabis Product Code (OCPC).
      * Returns a single seed company.
+     * @summary Find seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return.
      */
     public getSeedCompanyByOcpc(ocpc: string, extraHttpRequestParams?: any): Observable<models.SeedCompany> {
@@ -69,25 +70,25 @@ export class SeedCompaniesApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Find strains for a seed company by Open Cannabis Product Code (OCPC).
      * Returns a paginated list of strains for a single seed company.
+     * @summary Find strains for a seed company by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the seed company to return strains for.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      */
-    public getSeedCompanyStrainsByOcpc(ocpc: string, page?: number, count?: number, extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
+    public getSeedCompanyStrainsByOcpc(ocpc: string, page?: number, count?: number, extraHttpRequestParams?: any): Observable<models.InlineResponse2001> {
         return this.getSeedCompanyStrainsByOcpcWithHttpInfo(ocpc, page, count, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
@@ -101,32 +102,20 @@ export class SeedCompaniesApi {
      * @param sort How to sort the items.
      */
     public getSeedCompaniesWithHttpInfo(page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/seed-companies`;
+        const path = this.basePath + '/seed-companies';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -139,12 +128,17 @@ export class SeedCompaniesApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -159,7 +153,8 @@ export class SeedCompaniesApi {
      * @param ocpc OCPC of the seed company to return.
      */
     public getSeedCompanyByOcpcWithHttpInfo(ocpc: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/seed-companies/${ocpc}`;
+        const path = this.basePath + '/seed-companies/${ocpc}'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -177,12 +172,17 @@ export class SeedCompaniesApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -199,7 +199,8 @@ export class SeedCompaniesApi {
      * @param count The number of items to return. Default 10. Max 50.
      */
     public getSeedCompanyStrainsByOcpcWithHttpInfo(ocpc: string, page?: number, count?: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/seed-companies/${ocpc}/strains`;
+        const path = this.basePath + '/seed-companies/${ocpc}/strains'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -208,19 +209,11 @@ export class SeedCompaniesApi {
             throw new Error('Required parameter ocpc was null or undefined when calling getSeedCompanyStrainsByOcpc.');
         }
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         // to determine the Content-Type header
@@ -233,12 +226,17 @@ export class SeedCompaniesApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);

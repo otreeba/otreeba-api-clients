@@ -17,7 +17,7 @@ class SeedCompaniesApi {
     String versionPath = "/api/v1"
 
     def getSeedCompanies ( Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/seed-companies"
 
         // query params
@@ -33,13 +33,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
-                    InlineResponse2001.class )
+                    InlineResponse200.class )
                     
     }
     def getSeedCompanyByOcpc ( String ocpc, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/seed-companies/{ocpc}"
 
         // query params
@@ -53,13 +55,15 @@ if (!"null".equals(String.valueOf(sort)))
 
         
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     SeedCompany.class )
                     
     }
     def getSeedCompanyStrainsByOcpc ( String ocpc, Integer page, Integer count, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/seed-companies/{ocpc}/strains"
 
         // query params
@@ -77,9 +81,11 @@ if (!"null".equals(String.valueOf(count)))
             queryParams.put("count", String.valueOf(count))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
-                    InlineResponse200.class )
+                    InlineResponse2001.class )
                     
     }
 }

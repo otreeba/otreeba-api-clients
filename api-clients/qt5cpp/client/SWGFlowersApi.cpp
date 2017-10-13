@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 
 namespace Swagger {
+
 SWGFlowersApi::SWGFlowersApi() {}
 
 SWGFlowersApi::~SWGFlowersApi() {}
@@ -39,9 +40,13 @@ SWGFlowersApi::getFlowerByOcpc(QString* ocpc) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -54,6 +59,9 @@ SWGFlowersApi::getFlowerByOcpc(QString* ocpc) {
 void
 SWGFlowersApi::getFlowerByOcpcCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -61,16 +69,15 @@ SWGFlowersApi::getFlowerByOcpcCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGFlower* output = static_cast<SWGFlower*>(create(json, QString("SWGFlower")));
-    
 
+    QString json(worker->response);
+    SWGFlower* output = static_cast<SWGFlower*>(create(json, QString("SWGFlower")));
     worker->deleteLater();
 
     emit getFlowerByOcpcSignal(output);
-    
+    emit getFlowerByOcpcSignalE(output, error_type, error_str);
 }
+
 void
 SWGFlowersApi::getFlowers(qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -105,9 +112,13 @@ SWGFlowersApi::getFlowers(qint32 page, qint32 count, QString* sort) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -120,6 +131,9 @@ SWGFlowersApi::getFlowers(qint32 page, qint32 count, QString* sort) {
 void
 SWGFlowersApi::getFlowersCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -127,14 +141,14 @@ SWGFlowersApi::getFlowersCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_4* output = static_cast<SWGInline_response_200_4*>(create(json, QString("SWGInline_response_200_4")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_4* output = static_cast<SWGInline_response_200_4*>(create(json, QString("SWGInline_response_200_4")));
     worker->deleteLater();
 
     emit getFlowersSignal(output);
-    
+    emit getFlowersSignalE(output, error_type, error_str);
 }
-} /* namespace Swagger */
+
+
+}

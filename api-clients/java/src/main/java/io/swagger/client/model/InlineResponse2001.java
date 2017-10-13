@@ -14,34 +14,39 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.Meta;
+import io.swagger.client.model.InlineResponse2001Meta;
+import java.io.IOException;
 
 /**
  * InlineResponse2001
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class InlineResponse2001 {
   @SerializedName("meta")
-  private Meta meta = null;
+  private InlineResponse2001Meta meta = null;
 
-  public InlineResponse2001 meta(Meta meta) {
+  public InlineResponse2001 meta(InlineResponse2001Meta meta) {
     this.meta = meta;
     return this;
   }
 
    /**
-   * Gets the current list of Seed Comapnies.
+   * Get meta
    * @return meta
   **/
-  @ApiModelProperty(example = "null", value = "Gets the current list of Seed Comapnies.")
-  public Meta getMeta() {
+  @ApiModelProperty(value = "")
+  public InlineResponse2001Meta getMeta() {
     return meta;
   }
 
-  public void setMeta(Meta meta) {
+  public void setMeta(InlineResponse2001Meta meta) {
     this.meta = meta;
   }
 

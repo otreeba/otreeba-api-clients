@@ -18,29 +18,30 @@ case class Flower (
   /* Name of the flowers. */
   name: String,
   /* Open Cannabis Product Code for the flowers. */
-  ocpc: String,
+  ocpc: Option[String],
   /* Name and Open Cannabis Product Code of the brand that created these flowers. */
-  brand: Any,
+  brand: Option[Any],
   /* Type of flowers. */
-  _type: String,
+  _type: Option[String],
   /* Name and Open Cannabis Product Code of the strain for these flowers. */
-  strain: Any,
+  strain: Option[Any],
   /* Description of the flowers. */
-  description: String,
+  description: Option[String],
   /* URL for QR that leads to page on Cannabis Reports. */
-  qr: String,
+  qr: Option[String],
   /* URL for the flowers on Cannabis Reports. */
-  url: String,
+  url: Option[String],
   /* URL for the main photo of the flowers. */
-  image: String,
+  image: Option[String],
   /* URL for the PDF containing lab testing information for these flowers. */
-  labTest: String,
+  labTest: Option[String],
   /* THC measurement for these flowers. */
-  thc: String,
+  thc: Option[String],
   /* CBD measurement for these flowers. */
-  cbd: String,
+  cbd: Option[String],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

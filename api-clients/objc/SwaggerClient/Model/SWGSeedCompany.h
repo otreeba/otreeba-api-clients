@@ -27,6 +27,9 @@
 /* Open Cannabis Product Code for the seed company. [optional]
  */
 @property(nonatomic) NSString* ocpc;
+/* Description of the seed company. [optional]
+ */
+@property(nonatomic) NSString* _description;
 /* URL for QR that leads to page on Cannabis Reports. [optional]
  */
 @property(nonatomic) NSString* qr;

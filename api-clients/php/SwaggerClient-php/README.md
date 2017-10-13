@@ -56,6 +56,11 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 $api_instance = new Swagger\Client\Api\BrandsApi();
 $ocpc = "ocpc_example"; // string | OCPC of the brand to return.
 
@@ -114,6 +119,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse20011](docs/Model/InlineResponse20011.md)
  - [InlineResponse20012](docs/Model/InlineResponse20012.md)
  - [InlineResponse20013](docs/Model/InlineResponse20013.md)
+ - [InlineResponse2001Meta](docs/Model/InlineResponse2001Meta.md)
  - [InlineResponse2002](docs/Model/InlineResponse2002.md)
  - [InlineResponse2003](docs/Model/InlineResponse2003.md)
  - [InlineResponse2004](docs/Model/InlineResponse2004.md)
@@ -122,7 +128,6 @@ Class | Method | HTTP request | Description
  - [InlineResponse2007](docs/Model/InlineResponse2007.md)
  - [InlineResponse2008](docs/Model/InlineResponse2008.md)
  - [InlineResponse2009](docs/Model/InlineResponse2009.md)
- - [InlineResponse200Meta](docs/Model/InlineResponse200Meta.md)
  - [Meta](docs/Model/Meta.md)
  - [Pagination](docs/Model/Pagination.md)
  - [Product](docs/Model/Product.md)
@@ -133,7 +138,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## api_key
+
+- **Type**: API key
+- **API key parameter name**: X-API-Key
+- **Location**: HTTP header
 
 
 ## Author

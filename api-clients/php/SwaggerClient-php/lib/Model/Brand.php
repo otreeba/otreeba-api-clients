@@ -68,9 +68,33 @@ class Brand implements ArrayAccess
         'updated_at' => '\DateTime'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'name' => null,
+        'ocpc' => null,
+        'link' => null,
+        'qr' => null,
+        'url' => null,
+        'image' => null,
+        'flowers' => null,
+        'extracts' => null,
+        'edibles' => null,
+        'products' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**

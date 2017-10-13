@@ -34,6 +34,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getSeedCompanies(qint32 page, qint32 count, QString* sort);
     void getSeedCompanyByOcpc(QString* ocpc);
@@ -45,10 +46,15 @@ private:
     void getSeedCompanyStrainsByOcpcCallback (HttpRequestWorker * worker);
     
 signals:
-    void getSeedCompaniesSignal(SWGInline_response_200_1* summary);
+    void getSeedCompaniesSignal(SWGInline_response_200* summary);
     void getSeedCompanyByOcpcSignal(SWGSeedCompany* summary);
-    void getSeedCompanyStrainsByOcpcSignal(SWGInline_response_200* summary);
+    void getSeedCompanyStrainsByOcpcSignal(SWGInline_response_200_1* summary);
+    
+    void getSeedCompaniesSignalE(SWGInline_response_200* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getSeedCompanyByOcpcSignalE(SWGSeedCompany* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getSeedCompanyStrainsByOcpcSignalE(SWGInline_response_200_1* summary, QNetworkReply::NetworkError error_type, QString& error_str);
     
 };
+
 }
 #endif

@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 
 namespace Swagger {
+
 SWGStudiesApi::SWGStudiesApi() {}
 
 SWGStudiesApi::~SWGStudiesApi() {}
@@ -61,9 +62,13 @@ SWGStudiesApi::getStudies(qint32 page, qint32 count, QString* sort) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -76,6 +81,9 @@ SWGStudiesApi::getStudies(qint32 page, qint32 count, QString* sort) {
 void
 SWGStudiesApi::getStudiesCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -83,16 +91,15 @@ SWGStudiesApi::getStudiesCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_12* output = static_cast<SWGInline_response_200_12*>(create(json, QString("SWGInline_response_200_12")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_12* output = static_cast<SWGInline_response_200_12*>(create(json, QString("SWGInline_response_200_12")));
     worker->deleteLater();
 
     emit getStudiesSignal(output);
-    
+    emit getStudiesSignalE(output, error_type, error_str);
 }
+
 void
 SWGStudiesApi::getStudiesByCondition(QString* condition_slug, qint32 page, qint32 count, QString* sort) {
     QString fullPath;
@@ -129,9 +136,13 @@ SWGStudiesApi::getStudiesByCondition(QString* condition_slug, qint32 page, qint3
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -144,6 +155,9 @@ SWGStudiesApi::getStudiesByCondition(QString* condition_slug, qint32 page, qint3
 void
 SWGStudiesApi::getStudiesByConditionCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -151,16 +165,15 @@ SWGStudiesApi::getStudiesByConditionCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGInline_response_200_13* output = static_cast<SWGInline_response_200_13*>(create(json, QString("SWGInline_response_200_13")));
-    
 
+    QString json(worker->response);
+    SWGInline_response_200_13* output = static_cast<SWGInline_response_200_13*>(create(json, QString("SWGInline_response_200_13")));
     worker->deleteLater();
 
     emit getStudiesByConditionSignal(output);
-    
+    emit getStudiesByConditionSignalE(output, error_type, error_str);
 }
+
 void
 SWGStudiesApi::getStudiesConditions(QString* sort) {
     QString fullPath;
@@ -179,9 +192,13 @@ SWGStudiesApi::getStudiesConditions(QString* sort) {
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -194,6 +211,9 @@ SWGStudiesApi::getStudiesConditions(QString* sort) {
 void
 SWGStudiesApi::getStudiesConditionsCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -201,16 +221,15 @@ SWGStudiesApi::getStudiesConditionsCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGObject* output = static_cast<SWGObject*>(create(json, QString("SWGObject")));
-    
 
+    QString json(worker->response);
+    SWGObject* output = static_cast<SWGObject*>(create(json, QString("SWGObject")));
     worker->deleteLater();
 
     emit getStudiesConditionsSignal(output);
-    
+    emit getStudiesConditionsSignalE(output, error_type, error_str);
 }
+
 void
 SWGStudiesApi::getStudyByIdentifier(QString* identifier_type, QString* identifier) {
     QString fullPath;
@@ -225,9 +244,13 @@ SWGStudiesApi::getStudyByIdentifier(QString* identifier_type, QString* identifie
     HttpRequestWorker *worker = new HttpRequestWorker();
     HttpRequestInput input(fullPath, "GET");
 
-    
 
 
+
+
+    foreach(QString key, this->defaultHeaders.keys()) {
+        input.headers.insert(key, this->defaultHeaders.value(key));
+    }
 
     connect(worker,
             &HttpRequestWorker::on_execution_finished,
@@ -240,6 +263,9 @@ SWGStudiesApi::getStudyByIdentifier(QString* identifier_type, QString* identifie
 void
 SWGStudiesApi::getStudyByIdentifierCallback(HttpRequestWorker * worker) {
     QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
     if (worker->error_type == QNetworkReply::NoError) {
         msg = QString("Success! %1 bytes").arg(worker->response.length());
     }
@@ -247,14 +273,14 @@ SWGStudiesApi::getStudyByIdentifierCallback(HttpRequestWorker * worker) {
         msg = "Error: " + worker->error_str;
     }
 
-    
-        QString json(worker->response);
-    SWGStudy* output = static_cast<SWGStudy*>(create(json, QString("SWGStudy")));
-    
 
+    QString json(worker->response);
+    SWGStudy* output = static_cast<SWGStudy*>(create(json, QString("SWGStudy")));
     worker->deleteLater();
 
     emit getStudyByIdentifierSignal(output);
-    
+    emit getStudyByIdentifierSignalE(output, error_type, error_str);
 }
-} /* namespace Swagger */
+
+
+}

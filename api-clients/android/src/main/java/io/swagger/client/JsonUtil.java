@@ -105,6 +105,10 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse20013>>(){}.getType();
     }
     
+    if ("InlineResponse2001Meta".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineResponse2001Meta>>(){}.getType();
+    }
+    
     if ("InlineResponse2002".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2002>>(){}.getType();
     }
@@ -135,10 +139,6 @@ public class JsonUtil {
     
     if ("InlineResponse2009".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineResponse2009>>(){}.getType();
-    }
-    
-    if ("InlineResponse200Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse200Meta>>(){}.getType();
     }
     
     if ("Meta".equalsIgnoreCase(className)) {
@@ -219,6 +219,10 @@ public class JsonUtil {
       return new TypeToken<InlineResponse20013>(){}.getType();
     }
     
+    if ("InlineResponse2001Meta".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineResponse2001Meta>(){}.getType();
+    }
+    
     if ("InlineResponse2002".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2002>(){}.getType();
     }
@@ -249,10 +253,6 @@ public class JsonUtil {
     
     if ("InlineResponse2009".equalsIgnoreCase(className)) {
       return new TypeToken<InlineResponse2009>(){}.getType();
-    }
-    
-    if ("InlineResponse200Meta".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse200Meta>(){}.getType();
     }
     
     if ("Meta".equalsIgnoreCase(className)) {

@@ -8,9 +8,9 @@
 import Foundation
 
 
-/** Gets the current list of Seed Comapnies. */
+/** Gets the Strains for a Seed Company listing from a given OCPC. */
 public class InlineResponse2001Meta: JSONEncodable {
-    /** Gets the current list of Seed Comapnies. */
+    /** Gets the Strains for a Seed Company listing from a given OCPC. */
     public var pagination: Pagination?
 
     public init() {}

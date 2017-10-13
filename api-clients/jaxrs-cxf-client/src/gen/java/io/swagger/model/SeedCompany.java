@@ -1,6 +1,7 @@
 package io.swagger.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -18,20 +19,22 @@ public class SeedCompany  {
   private String name = null;
   @ApiModelProperty(example = "VUJCJ00000000000000000000", value = "Open Cannabis Product Code for the seed company.")
   private String ocpc = null;
+  @ApiModelProperty(value = "Description of the seed company.")
+  private String description = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/strain-reports/sensi-seeds/qr-code.svg", value = "URL for QR that leads to page on Cannabis Reports.")
   private String qr = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/strain-reports/sensi-seeds", value = "URL for seed company on Cannabis Reports.")
   private String url = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/images/profile/1/full_15fda07a135540c1de6afbb38dafe2113a11a7a4.jpg", value = "URL for logo for seed company.")
   private String image = null;
-  @ApiModelProperty(example = "{&quot;Afghanistan&quot;:&quot;AF&quot;,&quot;Canada&quot;:&quot;CA&quot;,&quot;Colombia&quot;:&quot;CO&quot;,&quot;Hungary&quot;:&quot;HU&quot;,&quot;India&quot;:&quot;IN&quot;}", value = "Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
+  @ApiModelProperty(example = "{\"Afghanistan\":\"AF\",\"Canada\":\"CA\",\"Colombia\":\"CO\",\"Hungary\":\"HU\",\"India\":\"IN\"}", value = "Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
   private Object lineage = null;
-  @ApiModelProperty(example = "null", value = "OCPCs of the strains from this seed company.")
+  @ApiModelProperty(value = "OCPCs of the strains from this seed company.")
   private List<String> strains = new ArrayList<String>();
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was created, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar createdAt = null;
+  private Date createdAt = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was updated, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar updatedAt = null;
+  private Date updatedAt = null;
 
  /**
    * Name of the seed company.
@@ -64,6 +67,23 @@ public class SeedCompany  {
 
   public SeedCompany ocpc(String ocpc) {
     this.ocpc = ocpc;
+    return this;
+  }
+
+ /**
+   * Description of the seed company.
+   * @return description
+  **/
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public SeedCompany description(String description) {
+    this.description = description;
     return this;
   }
 
@@ -119,7 +139,7 @@ public class SeedCompany  {
   }
 
  /**
-   * Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+   * Object of countries that this seed company has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}
    * @return lineage
   **/
   public Object getLineage() {
@@ -161,15 +181,15 @@ public class SeedCompany  {
    * Date and time record was created, UTC.
    * @return createdAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
-  public SeedCompany createdAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public SeedCompany createdAt(Date createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -178,15 +198,15 @@ public class SeedCompany  {
    * Date and time record was updated, UTC.
    * @return updatedAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public SeedCompany updatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public SeedCompany updatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -199,6 +219,7 @@ public class SeedCompany  {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ocpc: ").append(toIndentedString(ocpc)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    qr: ").append(toIndentedString(qr)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");

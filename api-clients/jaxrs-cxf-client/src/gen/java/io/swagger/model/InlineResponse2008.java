@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 public class InlineResponse2008  {
   
-  @ApiModelProperty(example = "null", value = "Gets the current list of Edibles for a Brand.")
+  @ApiModelProperty(value = "Gets the current list of Edibles for a Brand.")
   private Meta meta = null;
 
  /**

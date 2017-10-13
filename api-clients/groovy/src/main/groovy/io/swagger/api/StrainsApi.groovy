@@ -16,7 +16,7 @@ class StrainsApi {
     String versionPath = "/api/v1"
 
     def getStrainByOcpc ( String ocpc, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/strains/{ocpc}"
 
         // query params
@@ -30,13 +30,15 @@ class StrainsApi {
 
         
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     Strain.class )
                     
     }
     def getStrains ( Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/strains"
 
         // query params
@@ -51,6 +53,8 @@ if (!"null".equals(String.valueOf(count)))
 if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
+
+        // Also still TODO: form params, body param
 
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",

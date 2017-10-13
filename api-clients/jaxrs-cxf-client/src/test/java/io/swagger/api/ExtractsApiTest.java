@@ -79,7 +79,7 @@ public class ExtractsApiTest {
     @Test
     public void getExtractByOcpcTest() {
         String ocpc = null;
-	//Extract response = api.getExtractByOcpc(ocpc);
+        //Extract response = api.getExtractByOcpc(ocpc);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -99,7 +99,7 @@ public class ExtractsApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2003 response = api.getExtracts(page, count, sort);
+        //InlineResponse2003 response = api.getExtracts(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         

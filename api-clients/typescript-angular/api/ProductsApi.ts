@@ -27,10 +27,10 @@ export class ProductsApi {
     }
 
     /**
-        * Find product by Open Cannabis Product Code (OCPC).
-        * Returns a single product.
-        * @param ocpc OCPC of the product to return.
-        */
+     * Returns a single product.
+     * @summary Find product by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the product to return.
+     */
     public getProductByOcpc (ocpc: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Product> {
         const localVarPath = this.basePath + '/products/{ocpc}'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -55,12 +55,12 @@ export class ProductsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current products.
-        * Returns a paginated list of products.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of products.
+     * @summary Get a list of all current products.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getProducts (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse20010> {
         const localVarPath = this.basePath + '/products';
 

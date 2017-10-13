@@ -47,7 +47,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -55,7 +54,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -63,7 +61,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -71,7 +68,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -79,7 +75,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testSeedCompany()
     {
-
     }
 
     /**
@@ -87,7 +82,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyName()
     {
-
     }
 
     /**
@@ -95,7 +89,13 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyOcpc()
     {
+    }
 
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
     }
 
     /**
@@ -103,7 +103,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyQr()
     {
-
     }
 
     /**
@@ -111,7 +110,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUrl()
     {
-
     }
 
     /**
@@ -119,7 +117,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyImage()
     {
-
     }
 
     /**
@@ -127,7 +124,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyLineage()
     {
-
     }
 
     /**
@@ -135,7 +131,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyStrains()
     {
-
     }
 
     /**
@@ -143,7 +138,6 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCreatedAt()
     {
-
     }
 
     /**
@@ -151,7 +145,5 @@ class SeedCompanyTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUpdatedAt()
     {
-
     }
-
 }

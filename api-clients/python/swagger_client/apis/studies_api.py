@@ -109,16 +109,15 @@ class StudiesApi(object):
 
         collection_formats = {}
 
-        resource_path = '/studies'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'count' in params:
-            query_params['count'] = params['count']
+            query_params.append(('count', params['count']))
         if 'sort' in params:
-            query_params['sort'] = params['sort']
+            query_params.append(('sort', params['sort']))
 
         header_params = {}
 
@@ -135,9 +134,9 @@ class StudiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/studies', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -226,18 +225,17 @@ class StudiesApi(object):
 
         collection_formats = {}
 
-        resource_path = '/studies/conditions/{conditionSlug}'.replace('{format}', 'json')
         path_params = {}
         if 'condition_slug' in params:
             path_params['conditionSlug'] = params['condition_slug']
 
-        query_params = {}
+        query_params = []
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'count' in params:
-            query_params['count'] = params['count']
+            query_params.append(('count', params['count']))
         if 'sort' in params:
-            query_params['sort'] = params['sort']
+            query_params.append(('sort', params['sort']))
 
         header_params = {}
 
@@ -254,9 +252,9 @@ class StudiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/studies/conditions/{conditionSlug}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -336,12 +334,11 @@ class StudiesApi(object):
 
         collection_formats = {}
 
-        resource_path = '/studies/conditions'.replace('{format}', 'json')
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'sort' in params:
-            query_params['sort'] = params['sort']
+            query_params.append(('sort', params['sort']))
 
         header_params = {}
 
@@ -358,9 +355,9 @@ class StudiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/studies/conditions', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -448,14 +445,13 @@ class StudiesApi(object):
 
         collection_formats = {}
 
-        resource_path = '/studies/{identifierType}/{identifier}'.replace('{format}', 'json')
         path_params = {}
         if 'identifier_type' in params:
             path_params['identifierType'] = params['identifier_type']
         if 'identifier' in params:
             path_params['identifier'] = params['identifier']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -472,9 +468,9 @@ class StudiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['api_key']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api('/studies/{identifierType}/{identifier}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

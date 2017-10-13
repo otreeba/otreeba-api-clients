@@ -20,7 +20,7 @@ class BrandsApi {
     String versionPath = "/api/v1"
 
     def getBrandByOcpc ( String ocpc, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/brands/{ocpc}"
 
         // query params
@@ -34,13 +34,15 @@ class BrandsApi {
 
         
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     Brand.class )
                     
     }
     def getBrandEdibles ( String ocpc, Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/brands/{ocpc}/edibles"
 
         // query params
@@ -60,13 +62,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     InlineResponse2008.class )
                     
     }
     def getBrandExtracts ( String ocpc, Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/brands/{ocpc}/extracts"
 
         // query params
@@ -86,13 +90,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     InlineResponse2007.class )
                     
     }
     def getBrandFlowers ( String ocpc, Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/brands/{ocpc}/flowers"
 
         // query params
@@ -112,13 +118,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     InlineResponse2006.class )
                     
     }
     def getBrandProducts ( String ocpc, Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/brands/{ocpc}/products"
 
         // query params
@@ -138,13 +146,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     InlineResponse2009.class )
                     
     }
     def getBrands ( Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/brands"
 
         // query params
@@ -159,6 +169,8 @@ if (!"null".equals(String.valueOf(count)))
 if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
+
+        // Also still TODO: form params, body param
 
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",

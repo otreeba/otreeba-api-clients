@@ -247,6 +247,7 @@ use WWW::SwaggerClient::Object::InlineResponse20010;
 use WWW::SwaggerClient::Object::InlineResponse20011;
 use WWW::SwaggerClient::Object::InlineResponse20012;
 use WWW::SwaggerClient::Object::InlineResponse20013;
+use WWW::SwaggerClient::Object::InlineResponse2001Meta;
 use WWW::SwaggerClient::Object::InlineResponse2002;
 use WWW::SwaggerClient::Object::InlineResponse2003;
 use WWW::SwaggerClient::Object::InlineResponse2004;
@@ -255,7 +256,6 @@ use WWW::SwaggerClient::Object::InlineResponse2006;
 use WWW::SwaggerClient::Object::InlineResponse2007;
 use WWW::SwaggerClient::Object::InlineResponse2008;
 use WWW::SwaggerClient::Object::InlineResponse2009;
-use WWW::SwaggerClient::Object::InlineResponse200Meta;
 use WWW::SwaggerClient::Object::Meta;
 use WWW::SwaggerClient::Object::Pagination;
 use WWW::SwaggerClient::Object::Product;
@@ -295,6 +295,7 @@ use WWW::SwaggerClient::Object::InlineResponse20010;
 use WWW::SwaggerClient::Object::InlineResponse20011;
 use WWW::SwaggerClient::Object::InlineResponse20012;
 use WWW::SwaggerClient::Object::InlineResponse20013;
+use WWW::SwaggerClient::Object::InlineResponse2001Meta;
 use WWW::SwaggerClient::Object::InlineResponse2002;
 use WWW::SwaggerClient::Object::InlineResponse2003;
 use WWW::SwaggerClient::Object::InlineResponse2004;
@@ -303,7 +304,6 @@ use WWW::SwaggerClient::Object::InlineResponse2006;
 use WWW::SwaggerClient::Object::InlineResponse2007;
 use WWW::SwaggerClient::Object::InlineResponse2008;
 use WWW::SwaggerClient::Object::InlineResponse2009;
-use WWW::SwaggerClient::Object::InlineResponse200Meta;
 use WWW::SwaggerClient::Object::Meta;
 use WWW::SwaggerClient::Object::Pagination;
 use WWW::SwaggerClient::Object::Product;
@@ -315,6 +315,11 @@ use WWW::SwaggerClient::Object::Study;
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = 'Bearer';
 
 my $api_instance = WWW::SwaggerClient::BrandsApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the brand to return.
@@ -373,6 +378,7 @@ Class | Method | HTTP request | Description
  - [WWW::SwaggerClient::Object::InlineResponse20011](docs/InlineResponse20011.md)
  - [WWW::SwaggerClient::Object::InlineResponse20012](docs/InlineResponse20012.md)
  - [WWW::SwaggerClient::Object::InlineResponse20013](docs/InlineResponse20013.md)
+ - [WWW::SwaggerClient::Object::InlineResponse2001Meta](docs/InlineResponse2001Meta.md)
  - [WWW::SwaggerClient::Object::InlineResponse2002](docs/InlineResponse2002.md)
  - [WWW::SwaggerClient::Object::InlineResponse2003](docs/InlineResponse2003.md)
  - [WWW::SwaggerClient::Object::InlineResponse2004](docs/InlineResponse2004.md)
@@ -381,7 +387,6 @@ Class | Method | HTTP request | Description
  - [WWW::SwaggerClient::Object::InlineResponse2007](docs/InlineResponse2007.md)
  - [WWW::SwaggerClient::Object::InlineResponse2008](docs/InlineResponse2008.md)
  - [WWW::SwaggerClient::Object::InlineResponse2009](docs/InlineResponse2009.md)
- - [WWW::SwaggerClient::Object::InlineResponse200Meta](docs/InlineResponse200Meta.md)
  - [WWW::SwaggerClient::Object::Meta](docs/Meta.md)
  - [WWW::SwaggerClient::Object::Pagination](docs/Pagination.md)
  - [WWW::SwaggerClient::Object::Product](docs/Product.md)
@@ -391,5 +396,10 @@ Class | Method | HTTP request | Description
 
 
 # DOCUMENTATION FOR AUTHORIZATION
- All endpoints do not require authorization.
+
+## api_key
+
+- **Type**: API key
+- **API key parameter name**: X-API-Key
+- **Location**: HTTP header
 

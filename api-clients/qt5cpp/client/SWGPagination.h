@@ -70,6 +70,6 @@ private:
     SWGObject* links;
 };
 
-} /* namespace Swagger */
+}
 
 #endif /* SWGPagination_H_ */

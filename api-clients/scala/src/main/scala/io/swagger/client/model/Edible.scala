@@ -18,33 +18,34 @@ case class Edible (
   /* Name of the edible. */
   name: String,
   /* Open Cannabis Product Code for the edible. */
-  ocpc: String,
+  ocpc: Option[String],
   /* Name and Open Cannabis Product Code of the brand that created this edible. */
-  brand: Any,
+  brand: Option[Any],
   /* Type of edible. */
-  _type: String,
+  _type: Option[String],
   /* Name and Open Cannabis Product Code of the strain for this edible. */
-  strain: Any,
+  strain: Option[Any],
   /* Description of the edible. */
-  description: String,
+  description: Option[String],
   /* URL for QR that leads to page on Cannabis Reports. */
-  qr: String,
+  qr: Option[String],
   /* URL for the edible on Cannabis Reports. */
-  url: String,
+  url: Option[String],
   /* URL for the main photo of the edible. */
-  image: String,
+  image: Option[String],
   /* URL for the PDF containing lab testing information for this edible. */
-  labTest: String,
+  labTest: Option[String],
   /* THC measurement for this edible. */
-  thc: String,
+  thc: Option[String],
   /* CBD measurement for this edible. */
-  cbd: String,
+  cbd: Option[String],
   /* Cannabis measurement for this edible. */
-  cannabis: String,
+  cannabis: Option[String],
   /* Hash oil measurement for this edible. */
-  hashOil: String,
+  hashOil: Option[String],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

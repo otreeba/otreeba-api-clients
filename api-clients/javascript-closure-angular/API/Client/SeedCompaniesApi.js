@@ -52,7 +52,7 @@ API.Client.SeedCompaniesApi.$inject = ['$http', '$httpParamSerializer', '$inject
  * @param {!number=} opt_count The number of items to return. Default 10. Max 50.
  * @param {!string=} opt_sort How to sort the items.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client.inline_response_200_1>}
+ * @return {!angular.$q.Promise<!API.Client.inline_response_200>}
  */
 API.Client.SeedCompaniesApi.prototype.getSeedCompanies = function(opt_page, opt_count, opt_sort, opt_extraHttpRequestParams) {
   /** @const {string} */
@@ -135,7 +135,7 @@ API.Client.SeedCompaniesApi.prototype.getSeedCompanyByOcpc = function(ocpc, opt_
  * @param {!number=} opt_page Page to be returned.
  * @param {!number=} opt_count The number of items to return. Default 10. Max 50.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client.inline_response_200>}
+ * @return {!angular.$q.Promise<!API.Client.inline_response_200_1>}
  */
 API.Client.SeedCompaniesApi.prototype.getSeedCompanyStrainsByOcpc = function(ocpc, opt_page, opt_count, opt_extraHttpRequestParams) {
   /** @const {string} */

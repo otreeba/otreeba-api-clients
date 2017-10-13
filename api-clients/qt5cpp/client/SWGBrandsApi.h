@@ -37,6 +37,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getBrandByOcpc(QString* ocpc);
     void getBrandEdibles(QString* ocpc, qint32 page, qint32 count, QString* sort);
@@ -61,6 +62,14 @@ signals:
     void getBrandProductsSignal(SWGInline_response_200_9* summary);
     void getBrandsSignal(SWGInline_response_200_5* summary);
     
+    void getBrandByOcpcSignalE(SWGBrand* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getBrandEdiblesSignalE(SWGInline_response_200_8* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getBrandExtractsSignalE(SWGInline_response_200_7* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getBrandFlowersSignalE(SWGInline_response_200_6* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getBrandProductsSignalE(SWGInline_response_200_9* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getBrandsSignalE(SWGInline_response_200_5* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 };
+
 }
 #endif

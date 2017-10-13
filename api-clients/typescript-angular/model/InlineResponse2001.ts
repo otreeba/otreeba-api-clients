@@ -13,9 +13,6 @@
 import * as models from './models';
 
 export interface InlineResponse2001 {
-    /**
-     * Gets the current list of Seed Comapnies.
-     */
-    "meta"?: models.Meta;
+    "meta"?: models.InlineResponse2001Meta;
 }
 

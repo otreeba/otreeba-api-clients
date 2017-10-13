@@ -35,7 +35,9 @@ class TestMeta(unittest.TestCase):
         """
         Test Meta
         """
-        model = swagger_client.models.meta.Meta()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.meta.Meta()
+        pass
 
 
 if __name__ == '__main__':

@@ -50,6 +50,6 @@ private:
     SWGMeta* meta;
 };
 
-} /* namespace Swagger */
+}
 
 #endif /* SWGInline_response_200_5_H_ */

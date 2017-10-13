@@ -27,13 +27,13 @@ export class SeedCompaniesApi {
     }
 
     /**
-        * Get a list of all current seed companies.
-        * Returns a paginated list of seed companies.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
-    public getSeedCompanies (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2001> {
+     * Returns a paginated list of seed companies.
+     * @summary Get a list of all current seed companies.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
+    public getSeedCompanies (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse200> {
         const localVarPath = this.basePath + '/seed-companies';
 
         let queryParameters: any = {};
@@ -64,10 +64,10 @@ export class SeedCompaniesApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Find seed company by Open Cannabis Product Code (OCPC).
-        * Returns a single seed company.
-        * @param ocpc OCPC of the seed company to return.
-        */
+     * Returns a single seed company.
+     * @summary Find seed company by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the seed company to return.
+     */
     public getSeedCompanyByOcpc (ocpc: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.SeedCompany> {
         const localVarPath = this.basePath + '/seed-companies/{ocpc}'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -92,13 +92,13 @@ export class SeedCompaniesApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Find strains for a seed company by Open Cannabis Product Code (OCPC).
-        * Returns a paginated list of strains for a single seed company.
-        * @param ocpc OCPC of the seed company to return strains for.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        */
-    public getSeedCompanyStrainsByOcpc (ocpc: string, page?: number, count?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse200> {
+     * Returns a paginated list of strains for a single seed company.
+     * @summary Find strains for a seed company by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the seed company to return strains for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     */
+    public getSeedCompanyStrainsByOcpc (ocpc: string, page?: number, count?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2001> {
         const localVarPath = this.basePath + '/seed-companies/{ocpc}/strains'
             .replace('{' + 'ocpc' + '}', String(ocpc));
 

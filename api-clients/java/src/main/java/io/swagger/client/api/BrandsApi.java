@@ -59,13 +59,20 @@ public class BrandsApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getBrandByOcpc */
-    private com.squareup.okhttp.Call getBrandByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getBrandByOcpc
+     * @param ocpc OCPC of the brand to return. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBrandByOcpcCall(String ocpc, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/brands/{ocpc}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/brands/{ocpc}"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -97,7 +104,7 @@ public class BrandsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -178,13 +185,23 @@ public class BrandsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getBrandEdibles */
-    private com.squareup.okhttp.Call getBrandEdiblesCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getBrandEdibles
+     * @param ocpc OCPC of the brand to list edibles for. (required)
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBrandEdiblesCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/brands/{ocpc}/edibles".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/brands/{ocpc}/edibles"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -222,7 +239,7 @@ public class BrandsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -312,13 +329,23 @@ public class BrandsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getBrandExtracts */
-    private com.squareup.okhttp.Call getBrandExtractsCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getBrandExtracts
+     * @param ocpc OCPC of the brand to list extracts for. (required)
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBrandExtractsCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/brands/{ocpc}/extracts".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/brands/{ocpc}/extracts"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -356,7 +383,7 @@ public class BrandsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -446,13 +473,23 @@ public class BrandsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getBrandFlowers */
-    private com.squareup.okhttp.Call getBrandFlowersCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getBrandFlowers
+     * @param ocpc OCPC of the brand to list flowers for. (required)
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBrandFlowersCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/brands/{ocpc}/flowers".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/brands/{ocpc}/flowers"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -490,7 +527,7 @@ public class BrandsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -580,13 +617,23 @@ public class BrandsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getBrandProducts */
-    private com.squareup.okhttp.Call getBrandProductsCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getBrandProducts
+     * @param ocpc OCPC of the brand to list products for. (required)
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBrandProductsCall(String ocpc, Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/brands/{ocpc}/products".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
+        String localVarPath = "/brands/{ocpc}/products"
+            .replaceAll("\\{" + "ocpc" + "\\}", apiClient.escapeString(ocpc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -624,7 +671,7 @@ public class BrandsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -714,12 +761,21 @@ public class BrandsApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getBrands */
-    private com.squareup.okhttp.Call getBrandsCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getBrands
+     * @param page Page to be returned. (optional)
+     * @param count The number of items to return. Default 10. Max 50. (optional, default to 10)
+     * @param sort How to sort the items. (optional, default to -createdAt)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBrandsCall(Integer page, Integer count, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/brands".replaceAll("\\{format\\}","json");
+        String localVarPath = "/brands";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (page != null)
@@ -757,7 +813,7 @@ public class BrandsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api_key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

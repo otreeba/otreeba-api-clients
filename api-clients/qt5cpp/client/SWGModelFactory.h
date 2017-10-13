@@ -26,6 +26,7 @@
 #include "SWGInline_response_200_11.h"
 #include "SWGInline_response_200_12.h"
 #include "SWGInline_response_200_13.h"
+#include "SWGInline_response_200_1_meta.h"
 #include "SWGInline_response_200_2.h"
 #include "SWGInline_response_200_3.h"
 #include "SWGInline_response_200_4.h"
@@ -34,7 +35,6 @@
 #include "SWGInline_response_200_7.h"
 #include "SWGInline_response_200_8.h"
 #include "SWGInline_response_200_9.h"
-#include "SWGInline_response_200_meta.h"
 #include "SWGMeta.h"
 #include "SWGPagination.h"
 #include "SWGProduct.h"
@@ -43,6 +43,7 @@
 #include "SWGStudy.h"
 
 namespace Swagger {
+
   inline void* create(QString type) {
     if(QString("SWGBrand").compare(type) == 0) {
       return new SWGBrand();
@@ -80,6 +81,9 @@ namespace Swagger {
     if(QString("SWGInline_response_200_13").compare(type) == 0) {
       return new SWGInline_response_200_13();
     }
+    if(QString("SWGInline_response_200_1_meta").compare(type) == 0) {
+      return new SWGInline_response_200_1_meta();
+    }
     if(QString("SWGInline_response_200_2").compare(type) == 0) {
       return new SWGInline_response_200_2();
     }
@@ -103,9 +107,6 @@ namespace Swagger {
     }
     if(QString("SWGInline_response_200_9").compare(type) == 0) {
       return new SWGInline_response_200_9();
-    }
-    if(QString("SWGInline_response_200_meta").compare(type) == 0) {
-      return new SWGInline_response_200_meta();
     }
     if(QString("SWGMeta").compare(type) == 0) {
       return new SWGMeta();
@@ -140,6 +141,7 @@ namespace Swagger {
     }
     return nullptr;
   }
-} /* namespace Swagger */
+
+}
 
 #endif /* ModelFactory_H_ */

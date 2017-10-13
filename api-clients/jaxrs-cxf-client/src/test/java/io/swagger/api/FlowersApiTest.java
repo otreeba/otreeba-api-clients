@@ -79,7 +79,7 @@ public class FlowersApiTest {
     @Test
     public void getFlowerByOcpcTest() {
         String ocpc = null;
-	//Flower response = api.getFlowerByOcpc(ocpc);
+        //Flower response = api.getFlowerByOcpc(ocpc);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -99,7 +99,7 @@ public class FlowersApiTest {
         Integer page = null;
         Integer count = null;
         String sort = null;
-	//InlineResponse2004 response = api.getFlowers(page, count, sort);
+        //InlineResponse2004 response = api.getFlowers(page, count, sort);
         //assertNotNull(response);
         // TODO: test validations
         

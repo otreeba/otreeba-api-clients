@@ -14,15 +14,20 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.joda.time.DateTime;
 
 /**
  * Product
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class Product {
   @SerializedName("name")
   private String name = null;
@@ -117,7 +122,7 @@ public class Product {
    * Name and Open Cannabis Product Code of the brand that created this product.
    * @return brand
   **/
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Elixinol&quot;,&quot;ocpc&quot;:&quot;0000000000YPLU30000000000&quot;}", value = "Name and Open Cannabis Product Code of the brand that created this product.")
+  @ApiModelProperty(example = "{\"name\":\"Elixinol\",\"ocpc\":\"0000000000YPLU30000000000\"}", value = "Name and Open Cannabis Product Code of the brand that created this product.")
   public Object getBrand() {
     return brand;
   }
@@ -153,7 +158,7 @@ public class Product {
    * Name and Open Cannabis Product Code of the strain for this product.
    * @return strain
   **/
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Confidential Cheese&quot;,&quot;ocpc&quot;:&quot;TTUYNUF3TP000000000000000&quot;}", value = "Name and Open Cannabis Product Code of the strain for this product.")
+  @ApiModelProperty(example = "{\"name\":\"Confidential Cheese\",\"ocpc\":\"TTUYNUF3TP000000000000000\"}", value = "Name and Open Cannabis Product Code of the strain for this product.")
   public Object getStrain() {
     return strain;
   }
@@ -171,7 +176,7 @@ public class Product {
    * Description of the product.
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "Description of the product.")
+  @ApiModelProperty(value = "Description of the product.")
   public String getDescription() {
     return description;
   }

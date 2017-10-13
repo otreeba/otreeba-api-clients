@@ -13,11 +13,11 @@
 import * as models from './models';
 
 /**
- * Gets the current list of Seed Comapnies.
+ * Gets the Strains for a Seed Company listing from a given OCPC.
  */
 export interface InlineResponse2001Meta {
     /**
-     * Gets the current list of Seed Comapnies.
+     * Gets the Strains for a Seed Company listing from a given OCPC.
      */
     "pagination"?: models.Pagination;
 }

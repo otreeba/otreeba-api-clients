@@ -30,6 +30,11 @@ use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::BrandsApi;
 
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
+
 my $api_instance = WWW::SwaggerClient::BrandsApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the brand to return.
 
@@ -54,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -75,6 +80,11 @@ Returns a paginated list of edibles.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::BrandsApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::BrandsApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the brand to list edibles for.
@@ -106,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -127,6 +137,11 @@ Returns a paginated list of extracts.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::BrandsApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::BrandsApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the brand to list extracts for.
@@ -158,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -179,6 +194,11 @@ Returns a paginated list of flowers.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::BrandsApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::BrandsApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the brand to list flowers for.
@@ -210,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -231,6 +251,11 @@ Returns a paginated list of products.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::BrandsApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::BrandsApi->new();
 my $ocpc = 'ocpc_example'; # string | OCPC of the brand to list products for.
@@ -262,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -283,6 +308,11 @@ Returns a paginated list of brands.
 use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::BrandsApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-Key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::BrandsApi->new();
 my $page = 56; # int | Page to be returned.
@@ -312,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

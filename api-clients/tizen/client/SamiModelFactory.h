@@ -15,6 +15,7 @@
 #include "SamiInline_response_200_11.h"
 #include "SamiInline_response_200_12.h"
 #include "SamiInline_response_200_13.h"
+#include "SamiInline_response_200_1_meta.h"
 #include "SamiInline_response_200_2.h"
 #include "SamiInline_response_200_3.h"
 #include "SamiInline_response_200_4.h"
@@ -23,7 +24,6 @@
 #include "SamiInline_response_200_7.h"
 #include "SamiInline_response_200_8.h"
 #include "SamiInline_response_200_9.h"
-#include "SamiInline_response_200_meta.h"
 #include "SamiMeta.h"
 #include "SamiPagination.h"
 #include "SamiProduct.h"
@@ -70,6 +70,9 @@ namespace Swagger {
     if(type.Equals(L"SamiInline_response_200_13", true)) {
       return new SamiInline_response_200_13();
     }
+    if(type.Equals(L"SamiInline_response_200_1_meta", true)) {
+      return new SamiInline_response_200_1_meta();
+    }
     if(type.Equals(L"SamiInline_response_200_2", true)) {
       return new SamiInline_response_200_2();
     }
@@ -93,9 +96,6 @@ namespace Swagger {
     }
     if(type.Equals(L"SamiInline_response_200_9", true)) {
       return new SamiInline_response_200_9();
-    }
-    if(type.Equals(L"SamiInline_response_200_meta", true)) {
-      return new SamiInline_response_200_meta();
     }
     if(type.Equals(L"SamiMeta", true)) {
       return new SamiMeta();

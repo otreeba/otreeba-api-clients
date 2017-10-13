@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGSeedCompany::SWGSeedCompany(QString* json) {
     init();
     this->fromJson(*json);
@@ -40,6 +39,7 @@ void
 SWGSeedCompany::init() {
     name = new QString("");
     ocpc = new QString("");
+    description = new QString("");
     qr = new QString("");
     url = new QString("");
     image = new QString("");
@@ -58,6 +58,10 @@ SWGSeedCompany::cleanup() {
 
     if(ocpc != nullptr) {
         delete ocpc;
+    }
+
+    if(description != nullptr) {
+        delete description;
     }
 
     if(qr != nullptr) {
@@ -106,6 +110,7 @@ void
 SWGSeedCompany::fromJsonObject(QJsonObject &pJson) {
     ::Swagger::setValue(&name, pJson["name"], "QString", "QString");
     ::Swagger::setValue(&ocpc, pJson["ocpc"], "QString", "QString");
+    ::Swagger::setValue(&description, pJson["description"], "QString", "QString");
     ::Swagger::setValue(&qr, pJson["qr"], "QString", "QString");
     ::Swagger::setValue(&url, pJson["url"], "QString", "QString");
     ::Swagger::setValue(&image, pJson["image"], "QString", "QString");
@@ -134,6 +139,8 @@ SWGSeedCompany::asJsonObject() {
     toJsonValue(QString("name"), name, obj, QString("QString"));
 
     toJsonValue(QString("ocpc"), ocpc, obj, QString("QString"));
+
+    toJsonValue(QString("description"), description, obj, QString("QString"));
 
     toJsonValue(QString("qr"), qr, obj, QString("QString"));
 
@@ -170,6 +177,15 @@ SWGSeedCompany::getOcpc() {
 void
 SWGSeedCompany::setOcpc(QString* ocpc) {
     this->ocpc = ocpc;
+}
+
+QString*
+SWGSeedCompany::getDescription() {
+    return description;
+}
+void
+SWGSeedCompany::setDescription(QString* description) {
+    this->description = description;
 }
 
 QString*
@@ -236,6 +252,5 @@ SWGSeedCompany::setUpdatedAt(QDateTime* updated_at) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

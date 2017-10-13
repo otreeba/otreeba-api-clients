@@ -24,6 +24,8 @@ public class SeedCompany {
   private String name = null;
   @SerializedName("ocpc")
   private String ocpc = null;
+  @SerializedName("description")
+  private String description = null;
   @SerializedName("qr")
   private String qr = null;
   @SerializedName("url")
@@ -59,6 +61,17 @@ public class SeedCompany {
   }
   public void setOcpc(String ocpc) {
     this.ocpc = ocpc;
+  }
+
+  /**
+   * Description of the seed company.
+   **/
+  @ApiModelProperty(value = "Description of the seed company.")
+  public String getDescription() {
+    return description;
+  }
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   /**
@@ -150,6 +163,7 @@ public class SeedCompany {
     SeedCompany seedCompany = (SeedCompany) o;
     return (this.name == null ? seedCompany.name == null : this.name.equals(seedCompany.name)) &&
         (this.ocpc == null ? seedCompany.ocpc == null : this.ocpc.equals(seedCompany.ocpc)) &&
+        (this.description == null ? seedCompany.description == null : this.description.equals(seedCompany.description)) &&
         (this.qr == null ? seedCompany.qr == null : this.qr.equals(seedCompany.qr)) &&
         (this.url == null ? seedCompany.url == null : this.url.equals(seedCompany.url)) &&
         (this.image == null ? seedCompany.image == null : this.image.equals(seedCompany.image)) &&
@@ -164,6 +178,7 @@ public class SeedCompany {
     int result = 17;
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
     result = 31 * result + (this.ocpc == null ? 0: this.ocpc.hashCode());
+    result = 31 * result + (this.description == null ? 0: this.description.hashCode());
     result = 31 * result + (this.qr == null ? 0: this.qr.hashCode());
     result = 31 * result + (this.url == null ? 0: this.url.hashCode());
     result = 31 * result + (this.image == null ? 0: this.image.hashCode());
@@ -181,6 +196,7 @@ public class SeedCompany {
     
     sb.append("  name: ").append(name).append("\n");
     sb.append("  ocpc: ").append(ocpc).append("\n");
+    sb.append("  description: ").append(description).append("\n");
     sb.append("  qr: ").append(qr).append("\n");
     sb.append("  url: ").append(url).append("\n");
     sb.append("  image: ").append(image).append("\n");

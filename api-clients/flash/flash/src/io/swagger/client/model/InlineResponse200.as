@@ -1,11 +1,12 @@
 package io.swagger.client.model {
 
-import io.swagger.client.model.InlineResponse200Meta;
+import io.swagger.client.model.Meta;
 
     [XmlRootNode(name="InlineResponse200")]
     public class InlineResponse200 {
-                [XmlElement(name="meta")]
-        public var meta: InlineResponse200Meta = NaN;
+        /* Gets the current list of Seed Comapnies. */
+        [XmlElement(name="meta")]
+        public var meta: Meta = NaN;
 
     public function toString(): String {
         var str: String = "InlineResponse200: ";

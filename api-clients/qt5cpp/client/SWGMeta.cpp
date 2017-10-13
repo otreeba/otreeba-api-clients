@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGMeta::SWGMeta(QString* json) {
     init();
     this->fromJson(*json);
@@ -92,6 +91,5 @@ SWGMeta::setPagination(SWGPagination* pagination) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

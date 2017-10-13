@@ -17,18 +17,18 @@ import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Gets the current list of Seed Comapnies.
+ * Gets the Strains for a Seed Company listing from a given OCPC.
  **/
-@ApiModel(description = "Gets the current list of Seed Comapnies.")
+@ApiModel(description = "Gets the Strains for a Seed Company listing from a given OCPC.")
 public class InlineResponse2001Meta {
   
   @SerializedName("pagination")
   private Pagination pagination = null;
 
   /**
-   * Gets the current list of Seed Comapnies.
+   * Gets the Strains for a Seed Company listing from a given OCPC.
    **/
-  @ApiModelProperty(value = "Gets the current list of Seed Comapnies.")
+  @ApiModelProperty(value = "Gets the Strains for a Seed Company listing from a given OCPC.")
   public Pagination getPagination() {
     return pagination;
   }

@@ -35,7 +35,9 @@ class TestBrand(unittest.TestCase):
         """
         Test Brand
         """
-        model = swagger_client.models.brand.Brand()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.brand.Brand()
+        pass
 
 
 if __name__ == '__main__':

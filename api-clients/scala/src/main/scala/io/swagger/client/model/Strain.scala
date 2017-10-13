@@ -18,23 +18,24 @@ case class Strain (
   /* Name of the strain. */
   name: String,
   /* Open Cannabis Product Code for the strain. */
-  ocpc: String,
+  ocpc: Option[String],
   /* Name and Open Cannabis Product Code of the seed company that created the strain. */
-  seedCompany: Any,
+  seedCompany: Option[Any],
   /* URL for QR that leads to page on Cannabis Reports. */
-  qr: String,
+  qr: Option[String],
   /* URL for strain on Cannabis Reports. */
-  url: String,
+  url: Option[String],
   /* URL for the main photo of the strain. */
-  image: String,
+  image: Option[String],
   /* Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'} */
-  lineage: Any,
+  lineage: Option[Any],
   /* Names of the parents of the strains and their associated Open Cannabis Product Codes. */
-  genetics: Any,
+  genetics: Option[Any],
   /* Open Cannabis Product Codes of the children of this strain. */
-  children: List[String],
+  children: Option[List[String]],
   /* Date and time record was created, UTC. */
-  createdAt: DateTime,
+  createdAt: Option[DateTime],
   /* Date and time record was updated, UTC. */
-  updatedAt: DateTime
+  updatedAt: Option[DateTime]
 )
+

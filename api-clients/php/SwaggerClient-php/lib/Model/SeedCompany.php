@@ -56,6 +56,7 @@ class SeedCompany implements ArrayAccess
     protected static $swaggerTypes = [
         'name' => 'string',
         'ocpc' => 'string',
+        'description' => 'string',
         'qr' => 'string',
         'url' => 'string',
         'image' => 'string',
@@ -65,9 +66,31 @@ class SeedCompany implements ArrayAccess
         'updated_at' => '\DateTime'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'name' => null,
+        'ocpc' => null,
+        'description' => null,
+        'qr' => null,
+        'url' => null,
+        'image' => null,
+        'lineage' => null,
+        'strains' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -77,6 +100,7 @@ class SeedCompany implements ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'ocpc' => 'ocpc',
+        'description' => 'description',
         'qr' => 'qr',
         'url' => 'url',
         'image' => 'image',
@@ -94,6 +118,7 @@ class SeedCompany implements ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'ocpc' => 'setOcpc',
+        'description' => 'setDescription',
         'qr' => 'setQr',
         'url' => 'setUrl',
         'image' => 'setImage',
@@ -111,6 +136,7 @@ class SeedCompany implements ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'ocpc' => 'getOcpc',
+        'description' => 'getDescription',
         'qr' => 'getQr',
         'url' => 'getUrl',
         'image' => 'getImage',
@@ -153,6 +179,7 @@ class SeedCompany implements ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ocpc'] = isset($data['ocpc']) ? $data['ocpc'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['qr'] = isset($data['qr']) ? $data['qr'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
@@ -231,6 +258,27 @@ class SeedCompany implements ArrayAccess
     public function setOcpc($ocpc)
     {
         $this->container['ocpc'] = $ocpc;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description Description of the seed company.
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

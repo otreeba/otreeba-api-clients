@@ -20,12 +20,12 @@ public:
   SamiSeedCompaniesApi();
   virtual ~SamiSeedCompaniesApi();
 
-  SamiInline_response_200_1* 
-  getSeedCompaniesWithCompletion(Integer* page, Integer* count, String* sort, void (* handler)(SamiInline_response_200_1*, SamiError*));
+  SamiInline_response_200* 
+  getSeedCompaniesWithCompletion(Integer* page, Integer* count, String* sort, void (* handler)(SamiInline_response_200*, SamiError*));
   SamiSeedCompany* 
   getSeedCompanyByOcpcWithCompletion(String* ocpc, void (* handler)(SamiSeedCompany*, SamiError*));
-  SamiInline_response_200* 
-  getSeedCompanyStrainsByOcpcWithCompletion(String* ocpc, Integer* page, Integer* count, void (* handler)(SamiInline_response_200*, SamiError*));
+  SamiInline_response_200_1* 
+  getSeedCompanyStrainsByOcpcWithCompletion(String* ocpc, Integer* page, Integer* count, void (* handler)(SamiInline_response_200_1*, SamiError*));
   static String getBasePath() {
     return L"https://api.otreeba.com/v1";
   }

@@ -6,7 +6,7 @@
 package io.swagger.client.api
 
 import io.swagger.client.model.Edible
-import io.swagger.client.model.Inline_response_200_2
+import io.swagger.client.model.InlineResponse2002
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
 import io.swagger.client.core.ApiKeyLocations._
@@ -22,10 +22,14 @@ object EdiblesApi {
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Edible not found.)
    * 
+   * Available security schemes:
+   *   api_key (apiKey)
+   * 
    * @param ocpc OCPC of the edible to return.
    */
-  def getEdibleByOcpc(ocpc: String): ApiRequest[Edible] =
+  def getEdibleByOcpc(ocpc: String)(implicit apiKey: ApiKeyValue): ApiRequest[Edible] =
     ApiRequest[Edible](ApiMethods.GET, "https://api.otreeba.com/v1", "/edibles/{ocpc}", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withPathParam("ocpc", ocpc)
       .withSuccessResponse[Edible](200)
       .withErrorResponse[Unit](400)
@@ -35,21 +39,25 @@ object EdiblesApi {
    * Returns a paginated list of edibles.
    * 
    * Expected answers:
-   *   code 200 : Inline_response_200_2 (Successful operation.)
+   *   code 200 : InlineResponse2002 (Successful operation.)
    *   code 400 :  (Invalid OCPC supplied.)
    *   code 401 :  (Unauthorized action.)
    *   code 404 :  (Edible not found.)
+   * 
+   * Available security schemes:
+   *   api_key (apiKey)
    * 
    * @param page Page to be returned.
    * @param count The number of items to return. Default 10. Max 50.
    * @param sort How to sort the items.
    */
-  def getEdibles(page: Option[Int] = None, count: Option[Int], sort: Option[String]): ApiRequest[Inline_response_200_2] =
-    ApiRequest[Inline_response_200_2](ApiMethods.GET, "https://api.otreeba.com/v1", "/edibles", "application/json")
+  def getEdibles(page: Option[Int] = None, count: Option[Int], sort: Option[String])(implicit apiKey: ApiKeyValue): ApiRequest[InlineResponse2002] =
+    ApiRequest[InlineResponse2002](ApiMethods.GET, "https://api.otreeba.com/v1", "/edibles", "application/json")
+      .withApiKey(apiKey, "X-API-Key", HEADER)
       .withQueryParam("page", page)
       .withQueryParam("count", count)
       .withQueryParam("sort", sort)
-      .withSuccessResponse[Inline_response_200_2](200)
+      .withSuccessResponse[InlineResponse2002](200)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](404)

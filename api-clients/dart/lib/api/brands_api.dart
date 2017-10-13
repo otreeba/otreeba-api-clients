@@ -29,7 +29,7 @@ class BrandsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -89,7 +89,7 @@ class BrandsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -149,7 +149,7 @@ class BrandsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -209,7 +209,7 @@ class BrandsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -269,7 +269,7 @@ class BrandsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -326,7 +326,7 @@ class BrandsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["api_key"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;

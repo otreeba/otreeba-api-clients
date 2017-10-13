@@ -3,5 +3,5 @@
   :license {:name "Attribution 4.0 International (CC BY 4.0)"
             :url "https://creativecommons.org/licenses/by/4.0/"}
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [clj-http "2.0.0"]
+                 [clj-http "3.6.0"]
                  [cheshire "5.5.0"]])

@@ -69,7 +69,7 @@ public class StudiesApi {
     Object postBody = null;
 
     // create path and map variables
-    String path = "/studies".replaceAll("\\{format\\}","json");
+    String path = "/studies";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -94,7 +94,7 @@ public class StudiesApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -108,15 +108,15 @@ public class StudiesApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -128,7 +128,6 @@ public class StudiesApi {
   public void getStudies (Integer page, Integer count, String sort, final Response.Listener<InlineResponse20012> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
 
     // create path and map variables
     String path = "/studies".replaceAll("\\{format\\}","json");
@@ -161,7 +160,7 @@ public class StudiesApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -202,7 +201,7 @@ public class StudiesApi {
     }
 
     // create path and map variables
-    String path = "/studies/conditions/{conditionSlug}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "conditionSlug" + "\\}", apiInvoker.escapeString(conditionSlug.toString()));
+    String path = "/studies/conditions/{conditionSlug}".replaceAll("\\{" + "conditionSlug" + "\\}", apiInvoker.escapeString(conditionSlug.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -227,7 +226,7 @@ public class StudiesApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -241,15 +240,15 @@ public class StudiesApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -261,13 +260,11 @@ public class StudiesApi {
   public void getStudiesByCondition (String conditionSlug, Integer page, Integer count, String sort, final Response.Listener<InlineResponse20013> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'conditionSlug' is set
     if (conditionSlug == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'conditionSlug' when calling getStudiesByCondition",
-         new ApiException(400, "Missing the required parameter 'conditionSlug' when calling getStudiesByCondition"));
+      VolleyError error = new VolleyError("Missing the required parameter 'conditionSlug' when calling getStudiesByCondition",
+        new ApiException(400, "Missing the required parameter 'conditionSlug' when calling getStudiesByCondition"));
     }
-    
 
     // create path and map variables
     String path = "/studies/conditions/{conditionSlug}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "conditionSlug" + "\\}", apiInvoker.escapeString(conditionSlug.toString()));
@@ -300,7 +297,7 @@ public class StudiesApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -333,7 +330,7 @@ public class StudiesApi {
     Object postBody = null;
 
     // create path and map variables
-    String path = "/studies/conditions".replaceAll("\\{format\\}","json");
+    String path = "/studies/conditions";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -356,7 +353,7 @@ public class StudiesApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -370,15 +367,15 @@ public class StudiesApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -390,7 +387,6 @@ public class StudiesApi {
   public void getStudiesConditions (String sort, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
 
     // create path and map variables
     String path = "/studies/conditions".replaceAll("\\{format\\}","json");
@@ -421,7 +417,7 @@ public class StudiesApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -465,7 +461,7 @@ public class StudiesApi {
     }
 
     // create path and map variables
-    String path = "/studies/{identifierType}/{identifier}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "identifierType" + "\\}", apiInvoker.escapeString(identifierType.toString())).replaceAll("\\{" + "identifier" + "\\}", apiInvoker.escapeString(identifier.toString()));
+    String path = "/studies/{identifierType}/{identifier}".replaceAll("\\{" + "identifierType" + "\\}", apiInvoker.escapeString(identifierType.toString())).replaceAll("\\{" + "identifier" + "\\}", apiInvoker.escapeString(identifier.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -487,7 +483,7 @@ public class StudiesApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -501,15 +497,15 @@ public class StudiesApi {
     } catch (InterruptedException ex) {
        throw ex;
     } catch (ExecutionException ex) {
-       if (ex.getCause() instanceof VolleyError) {
-         VolleyError volleyError = (VolleyError)ex.getCause();
-         if (volleyError.networkResponse != null) {
-           throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-         }
-       }
-       throw ex;
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
     } catch (TimeoutException ex) {
-       throw ex;
+      throw ex;
     }
   }
 
@@ -521,19 +517,16 @@ public class StudiesApi {
   public void getStudyByIdentifier (String identifierType, String identifier, final Response.Listener<Study> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-  
     // verify the required parameter 'identifierType' is set
     if (identifierType == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'identifierType' when calling getStudyByIdentifier",
-         new ApiException(400, "Missing the required parameter 'identifierType' when calling getStudyByIdentifier"));
+      VolleyError error = new VolleyError("Missing the required parameter 'identifierType' when calling getStudyByIdentifier",
+        new ApiException(400, "Missing the required parameter 'identifierType' when calling getStudyByIdentifier"));
     }
-    
     // verify the required parameter 'identifier' is set
     if (identifier == null) {
-       VolleyError error = new VolleyError("Missing the required parameter 'identifier' when calling getStudyByIdentifier",
-         new ApiException(400, "Missing the required parameter 'identifier' when calling getStudyByIdentifier"));
+      VolleyError error = new VolleyError("Missing the required parameter 'identifier' when calling getStudyByIdentifier",
+        new ApiException(400, "Missing the required parameter 'identifier' when calling getStudyByIdentifier"));
     }
-    
 
     // create path and map variables
     String path = "/studies/{identifierType}/{identifier}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "identifierType" + "\\}", apiInvoker.escapeString(identifierType.toString())).replaceAll("\\{" + "identifier" + "\\}", apiInvoker.escapeString(identifier.toString()));
@@ -563,7 +556,7 @@ public class StudiesApi {
       // normal form params
           }
 
-      String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,

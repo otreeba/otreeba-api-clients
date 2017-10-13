@@ -83,7 +83,6 @@ sub get_strain_by_ocpc {
 
     # parse inputs
     my $_resource_path = '/strains/{ocpc}';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -106,7 +105,7 @@ sub get_strain_by_ocpc {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -158,7 +157,6 @@ sub get_strains {
 
     # parse inputs
     my $_resource_path = '/strains';
-    $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
     my $query_params = {};
@@ -189,7 +187,7 @@ sub get_strains {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(api_key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

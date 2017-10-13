@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_seed_companies**
-> InlineResponse2001 get_seed_companies(page=page, count=count, sort=sort)
+> InlineResponse200 get_seed_companies(page=page, count=count, sort=sort)
 
 Get a list of all current seed companies.
 
@@ -18,11 +18,16 @@ Returns a paginated list of seed companies.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.SeedCompaniesApi()
@@ -48,11 +53,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -70,11 +75,16 @@ Returns a single seed company.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.SeedCompaniesApi()
@@ -100,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -110,7 +120,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_seed_company_strains_by_ocpc**
-> InlineResponse200 get_seed_company_strains_by_ocpc(ocpc, page=page, count=count)
+> InlineResponse2001 get_seed_company_strains_by_ocpc(ocpc, page=page, count=count)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -118,11 +128,16 @@ Returns a paginated list of strains for a single seed company.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['X-API-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-Key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.SeedCompaniesApi()
@@ -148,11 +163,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

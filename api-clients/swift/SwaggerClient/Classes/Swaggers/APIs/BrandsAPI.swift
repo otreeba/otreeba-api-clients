@@ -27,6 +27,9 @@ public class BrandsAPI: APIBase {
      Find brand by Open Cannabis Product Code (OCPC).
      - GET /brands/{ocpc}
      - Returns a single brand.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "qr" : "https://www.cannabisreports.com/producer-reports/kiva/qr-code",
   "image" : "https://www.cannabisreports.com/images/profile/8/full_8b44ce75bfba676790018d8a1d275d4d736883a9.jpg",
@@ -94,6 +97,9 @@ public class BrandsAPI: APIBase {
      Get a list of all current edibles for the given brand.
      - GET /brands/{ocpc}/edibles
      - Returns a paginated list of edibles.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -169,6 +175,9 @@ public class BrandsAPI: APIBase {
      Get a list of all current extracts for the given brand.
      - GET /brands/{ocpc}/extracts
      - Returns a paginated list of extracts.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -244,6 +253,9 @@ public class BrandsAPI: APIBase {
      Get a list of all current flowers for the given brand.
      - GET /brands/{ocpc}/flowers
      - Returns a paginated list of flowers.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -319,6 +331,9 @@ public class BrandsAPI: APIBase {
      Get a list of all current products for the given brand.
      - GET /brands/{ocpc}/products
      - Returns a paginated list of products.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {
@@ -393,6 +408,9 @@ public class BrandsAPI: APIBase {
      Get a list of all current brands.
      - GET /brands
      - Returns a paginated list of brands.
+     - API Key:
+       - type: apiKey X-API-Key 
+       - name: api_key
      - examples: [{contentType=application/json, example={
   "meta" : {
     "pagination" : {

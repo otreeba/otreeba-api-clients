@@ -44,9 +44,9 @@ func NewSeedCompaniesApiWithBasePath(basePath string) *SeedCompaniesApi {
  * @param page Page to be returned.
  * @param count The number of items to return. Default 10. Max 50.
  * @param sort How to sort the items.
- * @return *InlineResponse2001
+ * @return *InlineResponse200
  */
-func (a SeedCompaniesApi) GetSeedCompanies(page int32, count int32, sort string) (*InlineResponse2001, *APIResponse, error) {
+func (a SeedCompaniesApi) GetSeedCompanies(page int32, count int32, sort string) (*InlineResponse200, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -58,6 +58,9 @@ func (a SeedCompaniesApi) GetSeedCompanies(page int32, count int32, sort string)
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -84,7 +87,7 @@ func (a SeedCompaniesApi) GetSeedCompanies(page int32, count int32, sort string)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(InlineResponse2001)
+	var successPayload = new(InlineResponse200)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -122,6 +125,9 @@ func (a SeedCompaniesApi) GetSeedCompanyByOcpc(ocpc string) (*SeedCompany, *APIR
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -170,9 +176,9 @@ func (a SeedCompaniesApi) GetSeedCompanyByOcpc(ocpc string) (*SeedCompany, *APIR
  * @param ocpc OCPC of the seed company to return strains for.
  * @param page Page to be returned.
  * @param count The number of items to return. Default 10. Max 50.
- * @return *InlineResponse200
+ * @return *InlineResponse2001
  */
-func (a SeedCompaniesApi) GetSeedCompanyStrainsByOcpc(ocpc string, page int32, count int32) (*InlineResponse200, *APIResponse, error) {
+func (a SeedCompaniesApi) GetSeedCompanyStrainsByOcpc(ocpc string, page int32, count int32) (*InlineResponse2001, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -185,6 +191,9 @@ func (a SeedCompaniesApi) GetSeedCompanyStrainsByOcpc(ocpc string, page int32, c
 	var localVarPostBody interface{}
 	var localVarFileName string
 	var localVarFileBytes []byte
+	// authentication '(api_key)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -210,7 +219,7 @@ func (a SeedCompaniesApi) GetSeedCompanyStrainsByOcpc(ocpc string, page int32, c
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(InlineResponse200)
+	var successPayload = new(InlineResponse2001)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)

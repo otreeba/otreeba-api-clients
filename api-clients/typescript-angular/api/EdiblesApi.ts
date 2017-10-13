@@ -27,10 +27,10 @@ export class EdiblesApi {
     }
 
     /**
-        * Find edible by Open Cannabis Product Code (OCPC).
-        * Returns a single edible.
-        * @param ocpc OCPC of the edible to return.
-        */
+     * Returns a single edible.
+     * @summary Find edible by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the edible to return.
+     */
     public getEdibleByOcpc (ocpc: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Edible> {
         const localVarPath = this.basePath + '/edibles/{ocpc}'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -55,12 +55,12 @@ export class EdiblesApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current edibles.
-        * Returns a paginated list of edibles.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getEdibles (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2002> {
         const localVarPath = this.basePath + '/edibles';
 

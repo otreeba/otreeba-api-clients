@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 
+/* tslint:disable:no-unused-variable member-ordering */
+
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { Http, Headers, URLSearchParams }                    from '@angular/http';
 import { RequestMethod, RequestOptions, RequestOptionsArgs } from '@angular/http';
@@ -22,11 +24,10 @@ import * as models                                           from '../model/mode
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
-/* tslint:disable:no-unused-variable member-ordering */
-
 
 @Injectable()
 export class FlowersApi {
+
     protected basePath = 'https://api.otreeba.com/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
@@ -41,8 +42,8 @@ export class FlowersApi {
     }
 
     /**
-     * Find flower by Open Cannabis Product Code (OCPC).
      * Returns a single flower.
+     * @summary Find flower by Open Cannabis Product Code (OCPC).
      * @param ocpc OCPC of the flower to return.
      */
     public getFlowerByOcpc(ocpc: string, extraHttpRequestParams?: any): Observable<models.Flower> {
@@ -51,14 +52,14 @@ export class FlowersApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
 
     /**
-     * Get a list of all current flowers.
      * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers.
      * @param page Page to be returned.
      * @param count The number of items to return. Default 10. Max 50.
      * @param sort How to sort the items.
@@ -69,7 +70,7 @@ export class FlowersApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.json() || {};
                 }
             });
     }
@@ -81,7 +82,8 @@ export class FlowersApi {
      * @param ocpc OCPC of the flower to return.
      */
     public getFlowerByOcpcWithHttpInfo(ocpc: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/flowers/${ocpc}`;
+        const path = this.basePath + '/flowers/${ocpc}'
+                    .replace('${' + 'ocpc' + '}', String(ocpc));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -99,12 +101,17 @@ export class FlowersApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -121,32 +128,20 @@ export class FlowersApi {
      * @param sort How to sort the items.
      */
     public getFlowersWithHttpInfo(page?: number, count?: number, sort?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/flowers`;
+        const path = this.basePath + '/flowers';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         if (page !== undefined) {
-            if(page instanceof Date) {
-                queryParameters.set('page', <any>page.d.toISOString());
-            } else {
-                queryParameters.set('page', <any>page);
-            }
+            queryParameters.set('page', <any>page);
         }
 
         if (count !== undefined) {
-            if(count instanceof Date) {
-                queryParameters.set('count', <any>count.d.toISOString());
-            } else {
-                queryParameters.set('count', <any>count);
-            }
+            queryParameters.set('count', <any>count);
         }
 
         if (sort !== undefined) {
-            if(sort instanceof Date) {
-                queryParameters.set('sort', <any>sort.d.toISOString());
-            } else {
-                queryParameters.set('sort', <any>sort);
-            }
+            queryParameters.set('sort', <any>sort);
         }
 
         // to determine the Content-Type header
@@ -159,12 +154,17 @@ export class FlowersApi {
             'application/json'
         ];
 
+        // authentication (api_key) required
+        if (this.configuration.apiKey) {
+            headers.set('X-API-Key', this.configuration.apiKey);
+        }
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);

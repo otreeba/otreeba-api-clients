@@ -7,6 +7,7 @@ import java.util.UUID
 case class SeedCompany (
   name: String,  // Name of the seed company.
 ocpc: Option[String],  // Open Cannabis Product Code for the seed company.
+description: Option[String],  // Description of the seed company.
 qr: Option[String],  // URL for QR that leads to page on Cannabis Reports.
 url: Option[String],  // URL for seed company on Cannabis Reports.
 image: Option[String],  // URL for logo for seed company.

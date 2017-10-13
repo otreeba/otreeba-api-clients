@@ -50,6 +50,6 @@ private:
     SWGPagination* pagination;
 };
 
-} /* namespace Swagger */
+}
 
 #endif /* SWGMeta_H_ */

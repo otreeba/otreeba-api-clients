@@ -9,6 +9,7 @@ import Foundation
 
 
 open class Pagination: JSONEncodable {
+
     /** Total number of results available. */
     public var total: Int32?
     /** Number of results to return. Default 10. Max 50. */
@@ -33,6 +34,7 @@ open class Pagination: JSONEncodable {
         nillableDictionary["current_page"] = self.currentPage?.encodeToJSON()
         nillableDictionary["total_pages"] = self.totalPages?.encodeToJSON()
         nillableDictionary["links"] = self.links
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

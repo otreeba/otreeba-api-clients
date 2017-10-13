@@ -14,14 +14,19 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Pagination
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T20:13:41.059Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-13T20:29:20.683Z")
 public class Pagination {
   @SerializedName("total")
   private Integer total = null;
@@ -140,7 +145,7 @@ public class Pagination {
    * Links to the previous and/or next pages of results.
    * @return links
   **/
-  @ApiModelProperty(example = "{&quot;previous&quot;:&quot;https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page&#x3D;1&quot;,&quot;next&quot;:&quot;https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page&#x3D;3&quot;}", value = "Links to the previous and/or next pages of results.")
+  @ApiModelProperty(example = "{\"previous\":\"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\"next\":\"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"}", value = "Links to the previous and/or next pages of results.")
   public Object getLinks() {
     return links;
   }

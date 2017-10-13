@@ -5,5 +5,5 @@ import java.util.UUID
 
 
 case class Inline_response_200_1 (
-  meta: Option[Meta]  // Gets the current list of Seed Comapnies.
+  meta: Option[Inline_response_200_1_meta]
 )

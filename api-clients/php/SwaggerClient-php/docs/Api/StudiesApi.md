@@ -22,6 +22,11 @@ Returns a paginated list of studies.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 $api_instance = new Swagger\Client\Api\StudiesApi();
 $page = 56; // int | Page to be returned.
 $count = 10; // int | The number of items to return. Default 10. Max 50.
@@ -50,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -70,6 +75,11 @@ Returns a paginated list of studies.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\StudiesApi();
 $condition_slug = "condition_slug_example"; // string | Slug of the condition to return studies for.
@@ -101,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -121,6 +131,11 @@ Returns a list of all current conditions for studies.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\StudiesApi();
 $sort = "name"; // string | How to sort the items.
@@ -146,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 
@@ -166,6 +181,11 @@ Returns a single study.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\StudiesApi();
 $identifier_type = "identifier_type_example"; // string | Type of identifier to for the study to return.
@@ -193,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../../README.md#api_key)
 
 ### HTTP request headers
 

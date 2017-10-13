@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 public class Error  {
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   private Integer code = null;
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   private String message = null;
 
  /**

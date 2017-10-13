@@ -14,6 +14,8 @@ import org.apache.cxf.jaxrs.ext.multipart.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
 import io.swagger.jaxrs.PATCH;
 
 @Path("/")
@@ -25,6 +27,11 @@ public interface ProductsApi  {
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "Find product by Open Cannabis Product Code (OCPC).", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Successful operation.", response = Product.class),
+        @ApiResponse(code = 400, message = "Invalid OCPC supplied.", response = .class),
+        @ApiResponse(code = 401, message = "Unauthorized action.", response = .class),
+        @ApiResponse(code = 404, message = "Product not found.", response = .class) })
     public Product getProductByOcpc(@PathParam("ocpc") String ocpc);
 
     @GET
@@ -32,6 +39,11 @@ public interface ProductsApi  {
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "Get a list of all current products.", tags={  })
-    public InlineResponse20010 getProducts(@QueryParam("page")Integer page, @QueryParam("count")Integer count, @QueryParam("sort")String sort);
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Successful operation.", response = InlineResponse20010.class),
+        @ApiResponse(code = 400, message = "Invalid OCPC supplied.", response = .class),
+        @ApiResponse(code = 401, message = "Unauthorized action.", response = .class),
+        @ApiResponse(code = 404, message = "Product not found.", response = .class) })
+    public InlineResponse20010 getProducts(@QueryParam("page")Integer page, @QueryParam("count")@DefaultValue("10") Integer count, @QueryParam("sort")@DefaultValue("-createdAt") String sort);
 }
 

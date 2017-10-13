@@ -33,6 +33,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getProductByOcpc(QString* ocpc);
     void getProducts(qint32 page, qint32 count, QString* sort);
@@ -45,6 +46,10 @@ signals:
     void getProductByOcpcSignal(SWGProduct* summary);
     void getProductsSignal(SWGInline_response_200_10* summary);
     
+    void getProductByOcpcSignalE(SWGProduct* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getProductsSignalE(SWGInline_response_200_10* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 };
+
 }
 #endif

@@ -35,7 +35,9 @@ class TestInlineResponse2001Meta(unittest.TestCase):
         """
         Test InlineResponse2001Meta
         """
-        model = swagger_client.models.inline_response_200_1_meta.InlineResponse2001Meta()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.inline_response_200_1_meta.InlineResponse2001Meta()
+        pass
 
 
 if __name__ == '__main__':

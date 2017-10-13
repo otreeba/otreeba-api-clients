@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGError::SWGError(QString* json) {
     init();
     this->fromJson(*json);
@@ -106,6 +105,5 @@ SWGError::setMessage(QString* message) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

@@ -19,6 +19,13 @@ Returns a single flower.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['X-API-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-Key'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::FlowersApi.new
 
@@ -46,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -66,6 +73,13 @@ Returns a paginated list of flowers.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['X-API-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-Key'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::FlowersApi.new
 
@@ -98,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

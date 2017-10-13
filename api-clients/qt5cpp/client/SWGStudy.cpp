@@ -22,7 +22,6 @@
 
 namespace Swagger {
 
-
 SWGStudy::SWGStudy(QString* json) {
     init();
     this->fromJson(*json);
@@ -233,6 +232,5 @@ SWGStudy::setUpdatedAt(QDateTime* updated_at) {
 }
 
 
-
-} /* namespace Swagger */
+}
 

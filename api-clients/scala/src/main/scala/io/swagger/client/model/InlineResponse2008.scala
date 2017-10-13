@@ -15,5 +15,6 @@ package io.swagger.client.model
 
 case class InlineResponse2008 (
   /* Gets the current list of Edibles for a Brand. */
-  meta: Meta
+  meta: Option[Meta]
 )
+

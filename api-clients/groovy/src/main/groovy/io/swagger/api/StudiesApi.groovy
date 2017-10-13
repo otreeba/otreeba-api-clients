@@ -17,7 +17,7 @@ class StudiesApi {
     String versionPath = "/api/v1"
 
     def getStudies ( Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/studies"
 
         // query params
@@ -33,13 +33,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     InlineResponse20012.class )
                     
     }
     def getStudiesByCondition ( String conditionSlug, Integer page, Integer count, String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/studies/conditions/{conditionSlug}"
 
         // query params
@@ -59,13 +61,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     InlineResponse20013.class )
                     
     }
     def getStudiesConditions ( String sort, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/studies/conditions"
 
         // query params
@@ -77,13 +81,15 @@ if (!"null".equals(String.valueOf(sort)))
             queryParams.put("sort", String.valueOf(sort))
 
 
+        // Also still TODO: form params, body param
+
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",
                     Object.class )
                     
     }
     def getStudyByIdentifier ( String identifierType, String identifier, Closure onSuccess, Closure onFailure)  {
-        // create path and map variables
+        // create path and map path parameters (TODO)
         String resourcePath = "/studies/{identifierType}/{identifier}"
 
         // query params
@@ -100,6 +106,8 @@ if (!"null".equals(String.valueOf(sort)))
         }
 
         
+
+        // Also still TODO: form params, body param
 
         invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
                     "GET", "",

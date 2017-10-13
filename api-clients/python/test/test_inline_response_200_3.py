@@ -35,7 +35,9 @@ class TestInlineResponse2003(unittest.TestCase):
         """
         Test InlineResponse2003
         """
-        model = swagger_client.models.inline_response_200_3.InlineResponse2003()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.inline_response_200_3.InlineResponse2003()
+        pass
 
 
 if __name__ == '__main__':

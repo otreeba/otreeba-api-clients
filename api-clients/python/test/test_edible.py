@@ -35,7 +35,9 @@ class TestEdible(unittest.TestCase):
         """
         Test Edible
         """
-        model = swagger_client.models.edible.Edible()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.edible.Edible()
+        pass
 
 
 if __name__ == '__main__':

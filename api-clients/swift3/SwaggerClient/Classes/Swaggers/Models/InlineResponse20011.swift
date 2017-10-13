@@ -9,6 +9,7 @@ import Foundation
 
 
 open class InlineResponse20011: JSONEncodable {
+
     /** Gets the current list of Strains. */
     public var meta: Meta?
 
@@ -18,6 +19,7 @@ open class InlineResponse20011: JSONEncodable {
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
         nillableDictionary["meta"] = self.meta?.encodeToJSON()
+
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

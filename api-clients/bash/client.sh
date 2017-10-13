@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-06-02T20:13:28.921Z
+# ! Generated on: 2017-10-13T20:29:08.668Z
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -377,6 +377,7 @@ header_arguments_to_curl() {
     local headers_curl=""
     local api_key_header=""
     local api_key_header_in_cli=""
+    api_key_header="X-API-Key"
 
     for key in "${!header_arguments[@]}"; do
         headers_curl+="-H \"${key}: ${header_arguments[${key}]}\" "
@@ -384,6 +385,13 @@ header_arguments_to_curl() {
             api_key_header_in_cli="YES"
         fi
     done
+    #
+    # If the api_key was not provided in the header, try one from the
+    # environment variable
+    #
+    if [[ -z $api_key_header_in_cli && -n $apikey_auth_credential ]]; then
+        headers_curl+="-H \"${api_key_header}: ${apikey_auth_credential}\""
+    fi
     headers_curl+=" "
 
     echo "${headers_curl}"
@@ -406,7 +414,7 @@ body_parameters_to_json() {
         if [[ $count -lt $body_parameter_count-1 ]]; then
             body_json+=", "
         fi
-        count+=1
+        ((count+=1))
     done
     body_json+="}'"
 
@@ -476,7 +484,7 @@ validate_request_parameters() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     path_template+="&"
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         elif [[ "${operation_parameters_collection_type["${operation}:::${qparam}"]}" == "multi" ]]; then
             local vcount=0
@@ -486,7 +494,7 @@ validate_request_parameters() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     path_template+="&"
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         elif [[ "${operation_parameters_collection_type["${operation}:::${qparam}"]}" == "csv" ]]; then
             path_template+="${qparam}="
@@ -497,7 +505,7 @@ validate_request_parameters() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     path_template+=","
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         elif [[ "${operation_parameters_collection_type["${operation}:::${qparam}"]}" == "ssv" ]]; then
             path_template+="${qparam}="
@@ -507,7 +515,7 @@ validate_request_parameters() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     path_template+=" "
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         elif [[ "${operation_parameters_collection_type["${operation}:::${qparam}"]}" == "tsv" ]]; then
             path_template+="${qparam}="
@@ -517,7 +525,7 @@ validate_request_parameters() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     path_template+="\t"
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         else
             echo -e ""
@@ -530,7 +538,7 @@ validate_request_parameters() {
         if [[ $count -lt $query_parameter_count-1 ]]; then
             path_template+="&"
         fi
-        count+=1
+        ((count+=1))
     done
 
 }
@@ -598,7 +606,7 @@ build_request_path() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     parameter_value+="&"
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         #
         # Append parameters specified as 'mutli' collections i.e. param=value1&param=value2&...
@@ -611,7 +619,7 @@ build_request_path() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     parameter_value+="&"
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         #
         # Append parameters specified as 'csv' collections i.e. param=value1,value2,...
@@ -625,7 +633,7 @@ build_request_path() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     parameter_value+=","
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         #
         # Append parameters specified as 'ssv' collections i.e. param="value1 value2 ..."
@@ -639,7 +647,7 @@ build_request_path() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     parameter_value+=" "
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         #
         # Append parameters specified as 'tsv' collections i.e. param="value1\tvalue2\t..."
@@ -653,7 +661,7 @@ build_request_path() {
                 if [[ $vcount -lt ${#parameter_values[@]}-1 ]]; then
                     parameter_value+="\t"
                 fi
-                vcount+=1
+                ((vcount+=1))
             done
         fi
 
@@ -665,8 +673,7 @@ build_request_path() {
             query_request_part+="&"
         fi
 
-        count+=1
-
+        ((count+=1))
     done
 
 
@@ -715,6 +722,11 @@ $(tput bold)$(tput setaf 7)Usage$(tput sgr0)
                                       JSON as '{ ..., "$(tput setaf 3)KEY$(tput sgr0)": $(tput setaf 4)VALUE$(tput sgr0), ... }'
 
 EOF
+    echo -e "$(tput bold)$(tput setaf 7)Authentication methods$(tput sgr0)"
+    echo -e ""
+    echo -e "  - $(tput setaf 4)Api-key$(tput sgr0) - add '$(tput setaf 1)X-API-Key:<api-key>$(tput sgr0)' after $(tput setaf 3)<operation>$(tput sgr0)"
+    
+    echo ""
     echo -e "$(tput bold)$(tput setaf 7)Operations (grouped by tags)$(tput sgr0)"
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)[brands]$(tput sgr0)"
@@ -3983,6 +3995,13 @@ case $key in
     # only after the operation argument
     if [[ "$operation" ]]; then
         IFS=':' read header_name header_value <<< "$key"
+        #
+        # If the header key is the same as the api_key expected by API in the
+        # header, override the ${apikey_auth_credential} variable
+        #
+        if [[ $header_name == "X-API-Key" ]]; then
+            apikey_auth_credential=$header_value
+        fi
         header_arguments[$header_name]=$header_value
     else
         curl_arguments+=" $key"

@@ -75,7 +75,7 @@ namespace IO.Swagger.Test
             //int? count = null;
             //string sort = null;
             //var response = instance.GetSeedCompanies(page, count, sort);
-            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
         }
         
         /// <summary>
@@ -101,7 +101,7 @@ namespace IO.Swagger.Test
             //int? page = null;
             //int? count = null;
             //var response = instance.GetSeedCompanyStrainsByOcpc(ocpc, page, count);
-            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
         }
         
     }

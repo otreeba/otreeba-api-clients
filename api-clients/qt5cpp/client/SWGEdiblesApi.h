@@ -33,6 +33,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getEdibleByOcpc(QString* ocpc);
     void getEdibles(qint32 page, qint32 count, QString* sort);
@@ -45,6 +46,10 @@ signals:
     void getEdibleByOcpcSignal(SWGEdible* summary);
     void getEdiblesSignal(SWGInline_response_200_2* summary);
     
+    void getEdibleByOcpcSignalE(SWGEdible* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getEdiblesSignalE(SWGInline_response_200_2* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 };
+
 }
 #endif

@@ -33,6 +33,7 @@ public:
 
     QString host;
     QString basePath;
+    QMap<QString, QString> defaultHeaders;
 
     void getFlowerByOcpc(QString* ocpc);
     void getFlowers(qint32 page, qint32 count, QString* sort);
@@ -45,6 +46,10 @@ signals:
     void getFlowerByOcpcSignal(SWGFlower* summary);
     void getFlowersSignal(SWGInline_response_200_4* summary);
     
+    void getFlowerByOcpcSignalE(SWGFlower* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getFlowersSignalE(SWGInline_response_200_4* summary, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 };
+
 }
 #endif

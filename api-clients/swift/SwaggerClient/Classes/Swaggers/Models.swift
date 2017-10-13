@@ -121,6 +121,7 @@ class Decoders {
                 "yyyy-MM-dd'T'HH:mm:ss.SSS"
             ].map { (format: String) -> NSDateFormatter in
                 let formatter = NSDateFormatter()
+                formatter.locale = NSLocale(localeIdentifier:"en_US_POSIX")
                 formatter.dateFormat = format
                 return formatter
             }
@@ -284,7 +285,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse200.self) { (source: AnyObject) -> InlineResponse200 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse200()
-                instance.meta = Decoders.decodeOptional(clazz: InlineResponse200Meta.self, source: sourceDictionary["meta"])
+                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -297,7 +298,7 @@ class Decoders {
             Decoders.addDecoder(clazz: InlineResponse2001.self) { (source: AnyObject) -> InlineResponse2001 in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse2001()
-                instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
+                instance.meta = Decoders.decodeOptional(clazz: InlineResponse2001Meta.self, source: sourceDictionary["meta"])
                 return instance
             }
 
@@ -350,6 +351,19 @@ class Decoders {
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InlineResponse20013()
                 instance.meta = Decoders.decodeOptional(clazz: Meta.self, source: sourceDictionary["meta"])
+                return instance
+            }
+
+
+            // Decoder for [InlineResponse2001Meta]
+            Decoders.addDecoder(clazz: [InlineResponse2001Meta].self) { (source: AnyObject) -> [InlineResponse2001Meta] in
+                return Decoders.decode(clazz: [InlineResponse2001Meta].self, source: source)
+            }
+            // Decoder for InlineResponse2001Meta
+            Decoders.addDecoder(clazz: InlineResponse2001Meta.self) { (source: AnyObject) -> InlineResponse2001Meta in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InlineResponse2001Meta()
+                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
                 return instance
             }
 
@@ -458,19 +472,6 @@ class Decoders {
             }
 
 
-            // Decoder for [InlineResponse200Meta]
-            Decoders.addDecoder(clazz: [InlineResponse200Meta].self) { (source: AnyObject) -> [InlineResponse200Meta] in
-                return Decoders.decode(clazz: [InlineResponse200Meta].self, source: source)
-            }
-            // Decoder for InlineResponse200Meta
-            Decoders.addDecoder(clazz: InlineResponse200Meta.self) { (source: AnyObject) -> InlineResponse200Meta in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = InlineResponse200Meta()
-                instance.pagination = Decoders.decodeOptional(clazz: Pagination.self, source: sourceDictionary["pagination"])
-                return instance
-            }
-
-
             // Decoder for [Meta]
             Decoders.addDecoder(clazz: [Meta].self) { (source: AnyObject) -> [Meta] in
                 return Decoders.decode(clazz: [Meta].self, source: source)
@@ -540,6 +541,7 @@ class Decoders {
                 let instance = SeedCompany()
                 instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
                 instance.ocpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["ocpc"])
+                instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"])
                 instance.qr = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qr"])
                 instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"])
                 instance.image = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["image"])

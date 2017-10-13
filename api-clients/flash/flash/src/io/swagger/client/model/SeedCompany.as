@@ -10,6 +10,9 @@ import io.swagger.client.model.Object;
         /* Open Cannabis Product Code for the seed company. */
         [XmlElement(name="ocpc")]
         public var ocpc: String = null;
+        /* Description of the seed company. */
+        [XmlElement(name="description")]
+        public var description: String = null;
         /* URL for QR that leads to page on Cannabis Reports. */
         [XmlElement(name="qr")]
         public var qr: String = null;
@@ -39,6 +42,7 @@ import io.swagger.client.model.Object;
         var str: String = "SeedCompany: ";
         str += " (name: " + name + ")";
         str += " (ocpc: " + ocpc + ")";
+        str += " (description: " + description + ")";
         str += " (qr: " + qr + ")";
         str += " (url: " + url + ")";
         str += " (image: " + image + ")";

@@ -29,6 +29,14 @@ namespace IO.Swagger.Model {
     public string Ocpc { get; set; }
 
     /// <summary>
+    /// Description of the seed company.
+    /// </summary>
+    /// <value>Description of the seed company.</value>
+    [DataMember(Name="description", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "description")]
+    public string Description { get; set; }
+
+    /// <summary>
     /// URL for QR that leads to page on Cannabis Reports.
     /// </summary>
     /// <value>URL for QR that leads to page on Cannabis Reports.</value>
@@ -94,6 +102,7 @@ namespace IO.Swagger.Model {
       sb.Append("class SeedCompany {\n");
       sb.Append("  Name: ").Append(Name).Append("\n");
       sb.Append("  Ocpc: ").Append(Ocpc).Append("\n");
+      sb.Append("  Description: ").Append(Description).Append("\n");
       sb.Append("  Qr: ").Append(Qr).Append("\n");
       sb.Append("  Url: ").Append(Url).Append("\n");
       sb.Append("  Image: ").Append(Image).Append("\n");

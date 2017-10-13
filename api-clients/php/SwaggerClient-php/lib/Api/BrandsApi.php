@@ -137,15 +137,17 @@ class BrandsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -184,7 +186,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse2008
      */
-    public function getBrandEdibles($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandEdibles($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getBrandEdiblesWithHttpInfo($ocpc, $page, $count, $sort);
         return $response;
@@ -202,7 +204,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrandEdiblesWithHttpInfo($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandEdiblesWithHttpInfo($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         // verify the required parameter 'ocpc' is set
         if ($ocpc === null) {
@@ -240,15 +242,17 @@ class BrandsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -287,7 +291,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse2007
      */
-    public function getBrandExtracts($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandExtracts($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getBrandExtractsWithHttpInfo($ocpc, $page, $count, $sort);
         return $response;
@@ -305,7 +309,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrandExtractsWithHttpInfo($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandExtractsWithHttpInfo($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         // verify the required parameter 'ocpc' is set
         if ($ocpc === null) {
@@ -343,15 +347,17 @@ class BrandsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -390,7 +396,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse2006
      */
-    public function getBrandFlowers($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandFlowers($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getBrandFlowersWithHttpInfo($ocpc, $page, $count, $sort);
         return $response;
@@ -408,7 +414,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrandFlowersWithHttpInfo($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandFlowersWithHttpInfo($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         // verify the required parameter 'ocpc' is set
         if ($ocpc === null) {
@@ -446,15 +452,17 @@ class BrandsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -493,7 +501,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse2009
      */
-    public function getBrandProducts($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandProducts($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getBrandProductsWithHttpInfo($ocpc, $page, $count, $sort);
         return $response;
@@ -511,7 +519,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrandProductsWithHttpInfo($ocpc, $page = null, $count = null, $sort = null)
+    public function getBrandProductsWithHttpInfo($ocpc, $page = null, $count = '10', $sort = '-createdAt')
     {
         // verify the required parameter 'ocpc' is set
         if ($ocpc === null) {
@@ -549,15 +557,17 @@ class BrandsApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {
@@ -595,7 +605,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse2005
      */
-    public function getBrands($page = null, $count = null, $sort = null)
+    public function getBrands($page = null, $count = '10', $sort = '-createdAt')
     {
         list($response) = $this->getBrandsWithHttpInfo($page, $count, $sort);
         return $response;
@@ -612,7 +622,7 @@ class BrandsApi
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrandsWithHttpInfo($page = null, $count = null, $sort = null)
+    public function getBrandsWithHttpInfo($page = null, $count = '10', $sort = '-createdAt')
     {
         // parse inputs
         $resourcePath = "/brands";
@@ -638,15 +648,17 @@ class BrandsApi
         if ($sort !== null) {
             $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-Key'] = $apiKey;
         }
         // make the API Call
         try {

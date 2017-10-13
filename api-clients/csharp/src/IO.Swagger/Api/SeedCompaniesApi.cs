@@ -34,8 +34,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetSeedCompanies (int? page = null, int? count = null, string sort = null);
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 GetSeedCompanies (int? page = null, int? count = null, string sort = null);
 
         /// <summary>
         /// Get a list of all current seed companies.
@@ -47,8 +47,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetSeedCompaniesWithHttpInfo (int? page = null, int? count = null, string sort = null);
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> GetSeedCompaniesWithHttpInfo (int? page = null, int? count = null, string sort = null);
         /// <summary>
         /// Find seed company by Open Cannabis Product Code (OCPC).
         /// </summary>
@@ -80,8 +80,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetSeedCompanyStrainsByOcpc (string ocpc, int? page = null, int? count = null);
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 GetSeedCompanyStrainsByOcpc (string ocpc, int? page = null, int? count = null);
 
         /// <summary>
         /// Find strains for a seed company by Open Cannabis Product Code (OCPC).
@@ -93,8 +93,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetSeedCompanyStrainsByOcpcWithHttpInfo (string ocpc, int? page = null, int? count = null);
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> GetSeedCompanyStrainsByOcpcWithHttpInfo (string ocpc, int? page = null, int? count = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -107,8 +107,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetSeedCompaniesAsync (int? page = null, int? count = null, string sort = null);
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> GetSeedCompaniesAsync (int? page = null, int? count = null, string sort = null);
 
         /// <summary>
         /// Get a list of all current seed companies.
@@ -120,8 +120,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetSeedCompaniesAsyncWithHttpInfo (int? page = null, int? count = null, string sort = null);
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetSeedCompaniesAsyncWithHttpInfo (int? page = null, int? count = null, string sort = null);
         /// <summary>
         /// Find seed company by Open Cannabis Product Code (OCPC).
         /// </summary>
@@ -153,8 +153,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetSeedCompanyStrainsByOcpcAsync (string ocpc, int? page = null, int? count = null);
+        /// <returns>Task of InlineResponse2001</returns>
+        System.Threading.Tasks.Task<InlineResponse2001> GetSeedCompanyStrainsByOcpcAsync (string ocpc, int? page = null, int? count = null);
 
         /// <summary>
         /// Find strains for a seed company by Open Cannabis Product Code (OCPC).
@@ -166,8 +166,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetSeedCompanyStrainsByOcpcAsyncWithHttpInfo (string ocpc, int? page = null, int? count = null);
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetSeedCompanyStrainsByOcpcAsyncWithHttpInfo (string ocpc, int? page = null, int? count = null);
         #endregion Asynchronous Operations
     }
 
@@ -287,10 +287,10 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetSeedCompanies (int? page = null, int? count = null, string sort = null)
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 GetSeedCompanies (int? page = null, int? count = null, string sort = null)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = GetSeedCompaniesWithHttpInfo(page, count, sort);
+             ApiResponse<InlineResponse200> localVarResponse = GetSeedCompaniesWithHttpInfo(page, count, sort);
              return localVarResponse.Data;
         }
 
@@ -301,8 +301,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > GetSeedCompaniesWithHttpInfo (int? page = null, int? count = null, string sort = null)
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse< InlineResponse200 > GetSeedCompaniesWithHttpInfo (int? page = null, int? count = null, string sort = null)
         {
 
             var localVarPath = "/seed-companies";
@@ -327,12 +327,15 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
 
             // make the HTTP request
@@ -348,10 +351,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
-            
+                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
@@ -361,10 +363,10 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetSeedCompaniesAsync (int? page = null, int? count = null, string sort = null)
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> GetSeedCompaniesAsync (int? page = null, int? count = null, string sort = null)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = await GetSeedCompaniesAsyncWithHttpInfo(page, count, sort);
+             ApiResponse<InlineResponse200> localVarResponse = await GetSeedCompaniesAsyncWithHttpInfo(page, count, sort);
              return localVarResponse.Data;
 
         }
@@ -376,8 +378,8 @@ namespace IO.Swagger.Api
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
         /// <param name="sort">How to sort the items. (optional, default to -createdAt)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetSeedCompaniesAsyncWithHttpInfo (int? page = null, int? count = null, string sort = null)
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetSeedCompaniesAsyncWithHttpInfo (int? page = null, int? count = null, string sort = null)
         {
 
             var localVarPath = "/seed-companies";
@@ -402,13 +404,15 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
 
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -423,10 +427,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
-            
+                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
@@ -475,10 +478,13 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (ocpc != null) localVarPathParams.Add("ocpc", Configuration.ApiClient.ParameterToString(ocpc)); // path parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
 
             // make the HTTP request
@@ -497,7 +503,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<SeedCompany>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (SeedCompany) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SeedCompany)));
-            
         }
 
         /// <summary>
@@ -547,11 +552,13 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (ocpc != null) localVarPathParams.Add("ocpc", Configuration.ApiClient.ParameterToString(ocpc)); // path parameter
 
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -569,7 +576,6 @@ namespace IO.Swagger.Api
             return new ApiResponse<SeedCompany>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (SeedCompany) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SeedCompany)));
-            
         }
 
         /// <summary>
@@ -579,10 +585,10 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetSeedCompanyStrainsByOcpc (string ocpc, int? page = null, int? count = null)
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 GetSeedCompanyStrainsByOcpc (string ocpc, int? page = null, int? count = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = GetSeedCompanyStrainsByOcpcWithHttpInfo(ocpc, page, count);
+             ApiResponse<InlineResponse2001> localVarResponse = GetSeedCompanyStrainsByOcpcWithHttpInfo(ocpc, page, count);
              return localVarResponse.Data;
         }
 
@@ -593,8 +599,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GetSeedCompanyStrainsByOcpcWithHttpInfo (string ocpc, int? page = null, int? count = null)
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public ApiResponse< InlineResponse2001 > GetSeedCompanyStrainsByOcpcWithHttpInfo (string ocpc, int? page = null, int? count = null)
         {
             // verify the required parameter 'ocpc' is set
             if (ocpc == null)
@@ -622,12 +628,15 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (ocpc != null) localVarPathParams.Add("ocpc", Configuration.ApiClient.ParameterToString(ocpc)); // path parameter
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
+
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
 
             // make the HTTP request
@@ -643,10 +652,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
-            
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
         }
 
         /// <summary>
@@ -656,10 +664,10 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetSeedCompanyStrainsByOcpcAsync (string ocpc, int? page = null, int? count = null)
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001> GetSeedCompanyStrainsByOcpcAsync (string ocpc, int? page = null, int? count = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = await GetSeedCompanyStrainsByOcpcAsyncWithHttpInfo(ocpc, page, count);
+             ApiResponse<InlineResponse2001> localVarResponse = await GetSeedCompanyStrainsByOcpcAsyncWithHttpInfo(ocpc, page, count);
              return localVarResponse.Data;
 
         }
@@ -671,8 +679,8 @@ namespace IO.Swagger.Api
         /// <param name="ocpc">OCPC of the seed company to return strains for.</param>
         /// <param name="page">Page to be returned. (optional)</param>
         /// <param name="count">The number of items to return. Default 10. Max 50. (optional, default to 10)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetSeedCompanyStrainsByOcpcAsyncWithHttpInfo (string ocpc, int? page = null, int? count = null)
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetSeedCompanyStrainsByOcpcAsyncWithHttpInfo (string ocpc, int? page = null, int? count = null)
         {
             // verify the required parameter 'ocpc' is set
             if (ocpc == null)
@@ -700,13 +708,15 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
             if (ocpc != null) localVarPathParams.Add("ocpc", Configuration.ApiClient.ParameterToString(ocpc)); // path parameter
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
 
+            // authentication (api_key) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarHeaderParams["X-API-Key"] = Configuration.GetApiKeyWithPrefix("X-API-Key");
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -721,10 +731,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
-            
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
         }
 
     }

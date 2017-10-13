@@ -23,6 +23,13 @@ Returns a single brand.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.BrandsApi();
 
@@ -51,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -69,6 +76,13 @@ Returns a paginated list of edibles.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.BrandsApi();
 
@@ -105,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -123,6 +137,13 @@ Returns a paginated list of extracts.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.BrandsApi();
 
@@ -159,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -177,6 +198,13 @@ Returns a paginated list of flowers.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.BrandsApi();
 
@@ -213,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -231,6 +259,13 @@ Returns a paginated list of products.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.BrandsApi();
 
@@ -267,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -285,6 +320,13 @@ Returns a paginated list of brands.
 ### Example
 ```javascript
 var OtreebaOpenCannabisApi = require('otreeba_open_cannabis_api');
+var defaultClient = OtreebaOpenCannabisApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 var apiInstance = new OtreebaOpenCannabisApi.BrandsApi();
 
@@ -318,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

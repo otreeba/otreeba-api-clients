@@ -35,7 +35,9 @@ class TestStudy(unittest.TestCase):
         """
         Test Study
         """
-        model = swagger_client.models.study.Study()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = swagger_client.models.study.Study()
+        pass
 
 
 if __name__ == '__main__':

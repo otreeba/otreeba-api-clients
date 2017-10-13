@@ -51,6 +51,9 @@ public:
     QString* getOcpc();
     void setOcpc(QString* ocpc);
 
+    QString* getDescription();
+    void setDescription(QString* description);
+
     QString* getQr();
     void setQr(QString* qr);
 
@@ -76,6 +79,7 @@ public:
 private:
     QString* name;
     QString* ocpc;
+    QString* description;
     QString* qr;
     QString* url;
     QString* image;
@@ -85,6 +89,6 @@ private:
     QDateTime* updated_at;
 };
 
-} /* namespace Swagger */
+}
 
 #endif /* SWGSeedCompany_H_ */

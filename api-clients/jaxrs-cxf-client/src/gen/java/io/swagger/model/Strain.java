@@ -1,6 +1,7 @@
 package io.swagger.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -18,7 +19,7 @@ public class Strain  {
   private String name = null;
   @ApiModelProperty(example = "VUJCJ4TYMG000000000000000", value = "Open Cannabis Product Code for the strain.")
   private String ocpc = null;
-  @ApiModelProperty(example = "{&quot;name&quot;:&quot;Sensi Seeds&quot;,&quot;ocpc&quot;:&quot;VUJCJ00000000000000000000&quot;}", value = "Name and Open Cannabis Product Code of the seed company that created the strain.")
+  @ApiModelProperty(example = "{\"name\":\"Sensi Seeds\",\"ocpc\":\"VUJCJ00000000000000000000\"}", value = "Name and Open Cannabis Product Code of the seed company that created the strain.")
   private Object seedCompany = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg", value = "URL for QR that leads to page on Cannabis Reports.")
   private String qr = null;
@@ -26,16 +27,16 @@ public class Strain  {
   private String url = null;
   @ApiModelProperty(example = "https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg", value = "URL for the main photo of the strain.")
   private String image = null;
-  @ApiModelProperty(example = "{&quot;Afghanistan&quot;:&quot;AF&quot;,&quot;Colombia&quot;:&quot;CO&quot;,&quot;India&quot;:&quot;IN&quot;,&quot;Mexico&quot;:&quot;MX&quot;,&quot;Thailand&quot;:&quot;TH&quot;}", value = "Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
+  @ApiModelProperty(example = "{\"Afghanistan\":\"AF\",\"Colombia\":\"CO\",\"India\":\"IN\",\"Mexico\":\"MX\",\"Thailand\":\"TH\"}", value = "Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}")
   private Object lineage = null;
-  @ApiModelProperty(example = "{&quot;names&quot;:&quot;(Northern Lights #5 x Skunk #1) x Haze&quot;,&quot;ucpc&quot;:&quot;(VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000&quot;}", value = "Names of the parents of the strains and their associated Open Cannabis Product Codes.")
+  @ApiModelProperty(example = "{\"names\":\"(Northern Lights #5 x Skunk #1) x Haze\",\"ucpc\":\"(VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000\"}", value = "Names of the parents of the strains and their associated Open Cannabis Product Codes.")
   private Object genetics = null;
-  @ApiModelProperty(example = "null", value = "Open Cannabis Product Codes of the children of this strain.")
+  @ApiModelProperty(value = "Open Cannabis Product Codes of the children of this strain.")
   private List<String> children = new ArrayList<String>();
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was created, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar createdAt = null;
+  private Date createdAt = null;
   @ApiModelProperty(example = "2014-04-09 09:29:57", value = "Date and time record was updated, UTC.")
-  private javax.xml.datatype.XMLGregorianCalendar updatedAt = null;
+  private Date updatedAt = null;
 
  /**
    * Name of the strain.
@@ -140,7 +141,7 @@ public class Strain  {
   }
 
  /**
-   * Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+   * Object of countries that this strain has lineages from. {&#39;Country Name&#39; &#x3D;&gt; &#39;ISO 3166-1 Two Letter Country Code&#39;}
    * @return lineage
   **/
   public Object getLineage() {
@@ -199,15 +200,15 @@ public class Strain  {
    * Date and time record was created, UTC.
    * @return createdAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Strain createdAt(javax.xml.datatype.XMLGregorianCalendar createdAt) {
+  public Strain createdAt(Date createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -216,15 +217,15 @@ public class Strain  {
    * Date and time record was updated, UTC.
    * @return updatedAt
   **/
-  public javax.xml.datatype.XMLGregorianCalendar getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Strain updatedAt(javax.xml.datatype.XMLGregorianCalendar updatedAt) {
+  public Strain updatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }

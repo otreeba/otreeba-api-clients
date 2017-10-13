@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_seed_companies**
-> InlineResponse2001 get_seed_companies(opts)
+> InlineResponse200 get_seed_companies(opts)
 
 Get a list of all current seed companies.
 
@@ -20,6 +20,13 @@ Returns a paginated list of seed companies.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['X-API-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-Key'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::SeedCompaniesApi.new
 
@@ -48,11 +55,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -72,6 +79,13 @@ Returns a single seed company.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['X-API-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-Key'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::SeedCompaniesApi.new
 
@@ -99,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -109,7 +123,7 @@ No authorization required
 
 
 # **get_seed_company_strains_by_ocpc**
-> InlineResponse200 get_seed_company_strains_by_ocpc(ocpc, opts)
+> InlineResponse2001 get_seed_company_strains_by_ocpc(ocpc, opts)
 
 Find strains for a seed company by Open Cannabis Product Code (OCPC).
 
@@ -119,6 +133,13 @@ Returns a paginated list of strains for a single seed company.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['X-API-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-Key'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::SeedCompaniesApi.new
 
@@ -148,11 +169,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

@@ -27,10 +27,10 @@ export class BrandsApi {
     }
 
     /**
-        * Find brand by Open Cannabis Product Code (OCPC).
-        * Returns a single brand.
-        * @param ocpc OCPC of the brand to return.
-        */
+     * Returns a single brand.
+     * @summary Find brand by Open Cannabis Product Code (OCPC).
+     * @param ocpc OCPC of the brand to return.
+     */
     public getBrandByOcpc (ocpc: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Brand> {
         const localVarPath = this.basePath + '/brands/{ocpc}'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -55,13 +55,13 @@ export class BrandsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current edibles for the given brand.
-        * Returns a paginated list of edibles.
-        * @param ocpc OCPC of the brand to list edibles for.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of edibles.
+     * @summary Get a list of all current edibles for the given brand.
+     * @param ocpc OCPC of the brand to list edibles for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getBrandEdibles (ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2008> {
         const localVarPath = this.basePath + '/brands/{ocpc}/edibles'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -98,13 +98,13 @@ export class BrandsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current extracts for the given brand.
-        * Returns a paginated list of extracts.
-        * @param ocpc OCPC of the brand to list extracts for.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of extracts.
+     * @summary Get a list of all current extracts for the given brand.
+     * @param ocpc OCPC of the brand to list extracts for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getBrandExtracts (ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2007> {
         const localVarPath = this.basePath + '/brands/{ocpc}/extracts'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -141,13 +141,13 @@ export class BrandsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current flowers for the given brand.
-        * Returns a paginated list of flowers.
-        * @param ocpc OCPC of the brand to list flowers for.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of flowers.
+     * @summary Get a list of all current flowers for the given brand.
+     * @param ocpc OCPC of the brand to list flowers for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getBrandFlowers (ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2006> {
         const localVarPath = this.basePath + '/brands/{ocpc}/flowers'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -184,13 +184,13 @@ export class BrandsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current products for the given brand.
-        * Returns a paginated list of products.
-        * @param ocpc OCPC of the brand to list products for.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of products.
+     * @summary Get a list of all current products for the given brand.
+     * @param ocpc OCPC of the brand to list products for.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getBrandProducts (ocpc: string, page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2009> {
         const localVarPath = this.basePath + '/brands/{ocpc}/products'
             .replace('{' + 'ocpc' + '}', String(ocpc));
@@ -227,12 +227,12 @@ export class BrandsApi {
         return this.$http(httpRequestParams);
     }
     /**
-        * Get a list of all current brands.
-        * Returns a paginated list of brands.
-        * @param page Page to be returned.
-        * @param count The number of items to return. Default 10. Max 50.
-        * @param sort How to sort the items.
-        */
+     * Returns a paginated list of brands.
+     * @summary Get a list of all current brands.
+     * @param page Page to be returned.
+     * @param count The number of items to return. Default 10. Max 50.
+     * @param sort How to sort the items.
+     */
     public getBrands (page?: number, count?: number, sort?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2005> {
         const localVarPath = this.basePath + '/brands';
 
